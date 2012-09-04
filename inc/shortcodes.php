@@ -83,6 +83,7 @@ function buttons( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 			'type' => 'default', /* primary, default, info, success, danger, warning, inverse */
 			'size' => 'medium', /* small, medium, large */
+			'pageid' => '',
 			'url'  => '',
 			'text' => '',
 	), $atts ) );
@@ -100,6 +101,9 @@ function buttons( $atts, $content = null ) {
 	else{
 		$size = "btn-" . $size;
 	}
+	
+	if($pageid != '')
+		$url = get_permalink($pageid);
 
 	$output = '<a href="' . $url . '" class="btn '. $type . ' ' . $size . '">';
 	$output .= $text;
@@ -115,12 +119,12 @@ function buttons( $atts, $content = null ) {
  */
 function alerts( $atts, $content = null ) {
 	extract( shortcode_atts( array(
-			'type' => 'alert-info', /* alert-info, alert-success, alert-error */
+			'type' => 'info', /* alert-info, alert-success, alert-error */
 			'close' => 'false', /* display close link */
 			'text' => '',
 	), $atts ) );
 
-	$output = '<div class="fade in alert '. $type . '">';
+	$output = '<div class="fade in alert alert-'. $type . '">';
 	if($close == 'true') {
 		$output .= '<a class="close" data-dismiss="alert">×</a>';
 	}
