@@ -18,7 +18,7 @@
 				'depth'		 => 2,
 /* 				'container'	 => false, */
 				'menu_class'	 => 'nav',
-				'walker'	 => new Bootstrap_Walker_Nav_Menu()
+				'walker'	 => new Monolith_Nav_Walker()
 			);
 		
 			wp_nav_menu($args);
