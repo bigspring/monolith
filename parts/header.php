@@ -1,7 +1,7 @@
 <header role="banner">
 	<div class="container">
 		<div class="<?= ROW_CLASSES ?>">
-			<div class="span<?= FULL_SIZE ?>">
+			<div class="span<?= FULLWIDTH_SIZE ?>">
 				<h1><a href="/"><?php bloginfo( 'name' ); ?></a></h1>		
 			</div>
 		</div><!-- /row -->
