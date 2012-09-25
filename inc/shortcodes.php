@@ -44,6 +44,9 @@ function bootstrap_gallery_shortcode($atts, $content = null)
 
 	// get all attachments
 	$attachments = get_children($args);
+	
+	// get the ID of the featured image so we can remove it from the gallery
+	$featured_id = get_post_thumbnail_id($post->ID);
 
 	// load fancybox scripts
 	wp_enqueue_script('fancyboxjs', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array('jquery'));
@@ -54,11 +57,15 @@ function bootstrap_gallery_shortcode($atts, $content = null)
 
 	foreach($attachments AS $image)
 	{
-		$html .= '<li class="span2">';
-		$html .= '<a href="' . $image->guid . '" class="thumbnail fancybox" rel="gallery1">';
-		$html .= wp_get_attachment_image($image->ID, 'thumbnail');
-		$html .= '</a>';
-		$html .= '</li>';
+		// exclude the featured image
+		if($featured_id != $image->ID)
+		{
+			$html .= '<li class="span2">';
+			$html .= '<a href="' . $image->guid . '" class="thumbnail fancybox" rel="gallery1">';
+			$html .= wp_get_attachment_image($image->ID, 'thumbnail');
+			$html .= '</a>';
+			$html .= '</li>';
+		}
 	}
 
 	$html .= '</ul>';
