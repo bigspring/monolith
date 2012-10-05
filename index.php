@@ -3,7 +3,6 @@
 
 <div class="<?= CONTAINER_CLASSES; ?>">
 	<?php get_template_part('parts/breadcrumb'); ?>
-
 	<div class="<?= ROW_CLASSES ?>">
 		<? get_template_part('parts/sidebar-left'); // el loado left sidebaro ?>			
 		<div class="span<?= MAIN_SIZE ?>">
@@ -21,7 +20,6 @@
 				<?php endwhile; // End the loop. Whew. ?>
 		</div><!-- /.span -->
 		<? get_template_part('parts/sidebar-right'); // el loado sidebaro ?>
-	</div><!-- /row -->
-</div><!-- /container -->
-
+	</div><!-- /ROW_CLASSES -->
+</div><!-- /CONTAINER_CLASSES -->
 <?php get_template_parts( array( 'parts/footer','parts/html-footer') ); ?>

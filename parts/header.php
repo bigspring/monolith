@@ -10,4 +10,3 @@
 </div>
 	</div><!-- /container -->
 </header>
-<div id="main">

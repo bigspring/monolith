@@ -30,11 +30,10 @@
 							<?php // comments_template( '', true ); ?>
 						</footer>
 					</article>
-				<?php endwhile; ?>
-			</div>						
-			<? get_template_part('parts/sidebar-right'); // el loado sidebaro ?>
-		</div><? //span8 ?>	
+					<?php endwhile; ?>
+				<? get_template_part('parts/sidebar-right'); // el loado sidebaro ?>
+			</div><? //span8 ?>	
 		</div><? //row ?>	
 	</div><? //container ?>
-</div><? //main ?>
+<!-- </div>/main -->	
 <?php get_template_parts( array( 'parts/footer','parts/html-footer' ) ); ?>
