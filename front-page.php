@@ -31,8 +31,8 @@
 						</footer>
 					</article>
 					<?php endwhile; ?>
-				<? get_template_part('parts/sidebar-right'); // el loado sidebaro ?>
 			</div><? //span8 ?>	
+			<? get_template_part('parts/sidebar-right'); // el loado sidebaro ?>
 		</div><? //row ?>	
 	</div><? //container ?>
 <!-- </div>/main -->	
