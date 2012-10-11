@@ -175,4 +175,19 @@ function time_ago( $type = 'post' ) {
 		return human_time_diff($d('U'), current_time('timestamp')) . " " . __('ago');
 	}
 }
-	
+
+/**
+ * Checks the PHP server variable for user agent and looks for iphone and ipod devices
+ */
+function detectiOS() 
+{
+	$container = $_SERVER['HTTP_USER_AGENT'];
+	$useragents = array ('iPhone','iPod', 'iPad');
+	$ios = false;
+	foreach ( $useragents as $useragent ) {
+		if (eregi($useragent,$container)){
+			$ios = true;
+		}
+	}
+	return $ios;
+}
