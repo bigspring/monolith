@@ -1,10 +1,14 @@
 // Custom Monlith overrides to reset Bootstrap
 
 // remove outline from links
-a:focus {outline: none;}
+a:focus {outline: 0!important;}
 
 // remove shitty line from page header
 .page-header {border: none; padding: 0;}
 
 // remove wack padding from navbar
 .navbar-inner {padding: 0;}
+
+// class to display spans
+.show-grid [class*="span"] {background: @red; padding: 10px 0; .border-radius(5px); color: @white; text-align: center;}
+
