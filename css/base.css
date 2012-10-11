@@ -5026,7 +5026,7 @@ a.badge:hover {
   position: fixed;
 }
 a:focus {
-  outline: none;
+  outline: 0!important;
 }
 .page-header {
   border: none;
@@ -5034,4 +5034,13 @@ a:focus {
 }
 .navbar-inner {
   padding: 0;
+}
+.show-grid [class*="span"] {
+  background: #9d261d;
+  padding: 10px 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  text-align: center;
 }
