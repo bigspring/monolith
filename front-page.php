@@ -35,5 +35,5 @@
 			<? get_template_part('parts/sidebar-right'); // el loado sidebaro ?>
 		</div><? //row ?>	
 	</div><? //container ?>
-<!-- </div>/main -->	
+</div><!-- /main -->	
 <?php get_template_parts( array( 'parts/footer','parts/html-footer' ) ); ?>

@@ -5,8 +5,8 @@
 				<h1><a href="/"><?php bloginfo( 'name' ); ?></a></h1>		
 			</div>
 		</div><!-- /row -->
-<div class="navbar">
-	<?php get_template_part('parts/nav'); ?>
-</div>
+		<div class="navbar">
+			<?php get_template_part('parts/nav'); ?>
+		</div>
 	</div><!-- /container -->
 </header>
