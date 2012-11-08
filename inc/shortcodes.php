@@ -32,10 +32,26 @@ function bootstrap_gallery_shortcode($atts, $content = null)
 {
 	global $post;
 
-	if(is_array($atts) && array_key_exists('id', $atts))
-		$id = $atts['id'];
-	else
-		$id = $post->ID;
+	if(is_array($atts))
+	{
+		// see if a id parameter has been passed and set, or use the current post
+		if(array_key_exists('id', $atts))
+			$id = $atts['id'];
+		else
+			$id = $post->ID;
+		
+		// see if a size parameter has been passed and set, or use the default
+		if(array_key_exists('size', $atts))
+			$size = $atts['size'];
+		else
+			$size = GALLERY_SPAN_SIZE;
+		
+		// see if a border parameter has been passed, if not then use the default
+		if(array_key_exists('border', $atts))
+			$image_class = 'thumbnail';
+		else 
+			$image_class = GALLERY_IMAGE_CLASSES;
+	}
 
 	$args = array(
 			'post_parent' => $post->ID,
@@ -60,8 +76,8 @@ function bootstrap_gallery_shortcode($atts, $content = null)
 		// exclude the featured image
 		if($featured_id != $image->ID)
 		{
-			$html .= '<li class="span2">';
-			$html .= '<a href="' . $image->guid . '" class="thumbnail fancybox" rel="gallery1">';
+			$html .= '<li class="span'. $size .'">';
+			$html .= '<a href="' . $image->guid . '" class="fancybox '.$image_class.'" rel="gallery1">';
 			$html .= wp_get_attachment_image($image->ID, 'thumbnail');
 			$html .= '</a>';
 			$html .= '</li>';

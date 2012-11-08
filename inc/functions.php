@@ -191,3 +191,61 @@ function detectiOS()
 	}
 	return $ios;
 }
+
+add_post_type_support( 'page', 'excerpt' );
+
+/**
+ * Returns the next page link for a given page
+ */
+function next_page_link()
+{
+	$links = get_page_links();
+	$html = '';
+
+	if(!empty($links['nextID']))
+		$html = '<a href="' . get_permalink($links['nextID']) . '" title="' . get_the_title($links['nextID']) . '" class="btn btn-primary">' . get_the_title($links['nextID']) .'</a>';
+
+	echo $html;
+}
+
+/**
+ * Returns the previous page link for a given page
+ */
+function previous_page_link()
+{
+	$links = get_page_links();
+	$html = '';
+
+	// if we have a previous page, generate the markup
+	if(!empty($links['prevID']))
+		$html = '<a href="' . get_permalink($links['prevID']) . '" title="' . get_the_title($links['prevID']) . '" class="btn btn-primary">' . get_the_title($links['prevID']) .'</a>';
+
+	echo $html;
+}
+
+/**
+ * Used to calculate the next and previous pages for the current page's parent
+ */
+function get_page_links()
+{
+	global $post;
+
+	$args = array(
+			'sort_column' => 'menu_order',
+			'sort_order' => 'asc',
+			'child_of' => $post->post_parent
+	);
+
+	$pagelist = get_pages($args);
+
+	$pages = array();
+	foreach ($pagelist as $page) {
+		$pages[] += $page->ID;
+	}
+
+	$current = array_search(get_the_ID(), $pages);
+	$links['prevID'] = $pages[$current-1];
+	$links['nextID'] = $pages[$current+1];
+
+	return $links;
+}
