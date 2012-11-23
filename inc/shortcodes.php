@@ -55,8 +55,9 @@ function bootstrap_gallery_shortcode($atts, $content = null)
 
 	$args = array(
 			'post_parent' => $post->ID,
-			'post_type' => 'attachment'
-	);
+			'post_type' => 'attachment',
+			'order' => 'ASC',
+            'orderby' => 'menu_order'	);
 
 	// get all attachments
 	$attachments = get_children($args);

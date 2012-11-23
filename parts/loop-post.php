@@ -13,7 +13,7 @@
 			<?php the_author_meta( 'description' ); ?>
 		</div>
 	<?php endif; ?>
-	<?php // comments_template( '', true ); ?>
+	<?php comments_template( '', true ); ?>
 	</footer>	
 </article>
 <?php endwhile; ?>
