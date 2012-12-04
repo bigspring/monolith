@@ -492,5 +492,4 @@ add_shortcode('childpageslist', 'childpageslist');
 add_shortcode('sub_tabs', 'sub_tabs');
 add_shortcode('sub_tabs_collapse', 'sub_tabs_collapse'); 
 add_shortcode('columns', 'columns_shortcode');
-
 ?>

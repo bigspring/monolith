@@ -6,9 +6,21 @@ a:focus {outline: 0!important;}
 // remove shitty line from page header
 .page-header {border: none; padding: 0;}
 
-// remove wack padding from navbar
-.navbar-inner {padding: 0;}
-
 // class to display spans
 .show-grid [class*="span"] {background: @red; padding: 10px 0; .border-radius(5px); color: @white; text-align: center;}
 
+// contactform7 validation style reset
+.wpcf7 {
+	
+	// format error tooltips
+	.wpcf7-not-valid-tip {color: @red; border: none; position: relative; left: 5px; top: -2px; width: auto; font-size: 1em;}
+	.wpcf7-not-valid {border-color: @red;}	
+	
+	
+	//format validation output base style
+	.wpcf7-response-output {margin: 1em 0; padding: 0.5em 1em;}
+	
+	// format the validation error
+	.wpcf7-mail-sent-ng,
+	.wpcf7-validation-errors {background: @errorBackground; color: @errorText; border-color: @errorBorder; .border-radius(@baseBorderRadius);}
+}
