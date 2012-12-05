@@ -8,7 +8,7 @@ Template Name: Full Width
 	<div class="<?= CONTAINER_CLASSES; ?>">
 	<? get_template_part('parts/breadcrumb'); // el loado breadcrumbo ?>
 		<div class="<?= ROW_CLASSES ?>">
-			<div class="span<?= FULLWIDTH_CLASSES ?>">
+			<div class="span<?= FULLWIDTH_SIZE ?>">
 				<? get_template_part('parts/loop'); // loado el loopo ?>
 			</div><!-- /MAIN_SIZES -->
 		</div><!-- /ROW_CLASSES -->	
