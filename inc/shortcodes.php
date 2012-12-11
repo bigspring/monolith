@@ -208,7 +208,7 @@ function blockquotes( $atts, $content = null ) {
 }
 
 /**
- * childpages shortcode renders a list of childpages =================================
+ * childpages shortcode renders a list of childpages 'list' 'grid' 'tabs' 'tabs-accordion' 'accordion'=================================
  * @param array $atts
  * @param string $content
  */
@@ -228,14 +228,6 @@ function childpages($atts, $content = null)
 			$layout = $atts['layout'];
 
 	}
-
-	/*
-	'list'
-	'grid'
-	'tabs'
-	'tabs-accordion'
-	'accordion'
-	*/
 
 	$args = array(
 			'post_parent' => $post->ID,
