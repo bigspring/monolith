@@ -68,10 +68,18 @@ function monolith_comment( $comment, $args, $depth ) {
 		<?php if ( $comment->comment_approved == '1' ): ?>	
 		<li>
 			<article id="comment-<?php comment_ID() ?>">
-				<?php echo get_avatar( $comment ); ?>
-				<h4><?php comment_author_link() ?></h4>
-				<time><a href="#comment-<?php comment_ID() ?>" pubdate><?php comment_date() ?> at <?php comment_time() ?></a></time>
-				<?php comment_text() ?>
+				<div class="well">
+					<div class="row">
+						<div class="span1">
+							<?php echo get_avatar( $comment ); ?>
+						</div>
+						<div class="span7">
+							<h4><?php comment_author_link() ?></h4>
+							<p class="muted"><time><?php comment_date('jS F o') ?></time></p>
+							<?php comment_text() ?>
+						</div>
+					</div>
+				</div>
 			</article>
 		<?php endif; ?>
 		</li>
@@ -248,4 +256,35 @@ function get_page_links()
 	$links['nextID'] = $pages[$current+1];
 
 	return $links;
+}
+
+
+/**
+ * Used to add a drop down for all shortcodes, will need updating when a new shortcode is created.
+ */
+add_action('media_buttons','add_sc_select',11);
+function add_sc_select(){
+    echo '&nbsp;<select id="sc_select">
+                        <option disabled="disabled">Shortcodes</option>
+                        <option value="[gallery id=&#34;&#34; size=&#34;&#34; border=&#34;&#34;]">[gallery]</option>
+                        <option value="[intro][/intro]">[intro]</option>
+                        <option value="[button text=&#34;&#34; url=&#34;&#34; type=&#34;&#34; size=&#34;&#34;]">[button]</option>
+                        <option value="[alert text=&#34;&#34; type=&#34;&#34; close=&#34;&#34;]">[alert]</option>
+                        <option value="[block-message text=&#34;&#34; type=&#34;&#34; close=&#34;&#34;]">[block-message]</option>
+                        <option value="[blockquote cite=&#34;&#34; float=&#34;&#34;][/blockquote]">[blockquote]</option>
+                        <option value="[colummns][/columns]">[columns]</option>
+                        <option value="[childpages layout=&#34;&#34;]">[childpages]</option>
+                        
+        </select>';
+}
+add_action('admin_head', 'button_js');
+function button_js() {
+        echo '<script type="text/javascript">
+        jQuery(document).ready(function(){
+           jQuery("#sc_select").change(function() {
+                          send_to_editor(jQuery("#sc_select :selected").val());
+                          return false;
+                });
+        });
+        </script>';
 }
