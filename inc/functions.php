@@ -259,9 +259,6 @@ function get_page_links()
 }
 
 
-/**
- * Used to add a drop down for all shortcodes, will need updating when a new shortcode is created.
- */
 add_action('media_buttons','add_sc_select',11);
 function add_sc_select(){
     echo '&nbsp;<select id="sc_select">
