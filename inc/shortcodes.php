@@ -54,7 +54,7 @@ function bootstrap_gallery_shortcode($atts, $content = null)
 	}
 
 	$args = array(
-			'post_parent' => $post->ID,
+			'post_parent' => $id,
 			'post_type' => 'attachment',
 			'order' => 'ASC',
             'orderby' => 'menu_order'	);
