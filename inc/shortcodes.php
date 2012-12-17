@@ -395,6 +395,28 @@ function childpages($atts, $content = null)
 			$html .= '</div>';
 		}//end accordion
 		
+		elseif($layout == 'media')
+		{
+			foreach($childpages AS $childpage)
+			{
+				$html .= '<div class="media">';
+				$html .= '<div class="row">';
+				$html .= '<div class="span3">';
+				$html .= '<a href="' . get_permalink($childpage->ID) . '">' . get_the_post_thumbnail($childpage->ID) . '</a>';
+				$html .= '</div>';
+				$html .= '<div class="span5">';
+				$html .= '<div class="media-body">';
+				$html .= '<h3 class="media-heading">' . $childpage->post_title . '</h3>';
+				$html .= $childpage->post_excerpt;
+				$html .= '<a class="btn media-btn" href="' . get_permalink($childpage->ID) . '">Read more about ' . $childpage->post_title . '</a>';
+				$html .= '</div>';
+				$html .= '</div>';
+				$html .= '</div>';
+				$html .= '</div>';//end media div
+
+			}
+		}//end media
+		
 		else 
 		{
 			$html = '<ul class="unstyled childpages">';
