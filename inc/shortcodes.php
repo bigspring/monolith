@@ -208,7 +208,7 @@ function blockquotes( $atts, $content = null ) {
 }
 
 /**
- * childpages shortcode renders a list of childpages 'list' 'grid' 'tabs' 'tabs-accordion' 'accordion'=================================
+ * childpages shortcode renders a list of childpages 'list' 'grid' 'tabs' 'tabs-accordion' 'accordion' 'heading-accordion'=================================
  * @param array $atts
  * @param string $content
  */
@@ -247,11 +247,13 @@ function childpages($atts, $content = null)
 	
 		foreach ($childpages AS $childpage)
 		{
+				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
 				$html .= '<li class="span2">';
 				$html .= get_the_post_thumbnail($childpage->ID);
 				$html .= '<h3>' . $childpage->post_title . '</h3>';
 				$html .= '<a href="'. get_permalink($childpage->ID) .' " class="btn">More</a>';
 				$html .= '</li>';
+				$html .= '</div>';
 		}
 	
 		$html .= '</ul>';
@@ -308,10 +310,11 @@ function childpages($atts, $content = null)
 	
 		foreach ($childpages AS $childpage)
 		{
+				
 				$active = '';
 				if ($count == 0) $active = 'class="active"';
 				
-				$html .= '<li '. $active . '>';
+				$html .= '<li '. $active . ' id="childpage-item-' . $childpage->ID .'">';
 				$html .= '<a href="#' . $childpage->ID . '" data-toggle="tab">' . $childpage->post_title . '</a>';
 				$html .= '</li>';
 				
@@ -329,7 +332,7 @@ function childpages($atts, $content = null)
 				$active = '';
 				if ($count == 0) $active = 'active';
 	
-				$html .= '<div class="tab-pane ' . $active . '" id="' . $childpage->ID .'">';
+				$html .= '<div class="tab-pane ' . $active . '" id="childpage-item-' . $childpage->ID .'">';
 				
 				$args = array(
 					'post_parent' => $childpage->ID,
@@ -345,7 +348,6 @@ function childpages($atts, $content = null)
 				
 				foreach($grandchildpages AS $grandchildpage)
 				{
-	
 					$html .= '<div class="accordion-group">';
 					$html .= '<div class="accordion-heading">';
 					$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$grandchildpage->ID.'">';
@@ -376,7 +378,7 @@ function childpages($atts, $content = null)
 			$html .= '<div class="accordion" id="accordion">';
 			foreach($childpages AS $childpage)
 			{
-
+				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
 				$html .= '<div class="accordion-group">';
 				$html .= '<div class="accordion-heading">';
 				$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$childpage->ID.'">';
@@ -386,6 +388,7 @@ function childpages($atts, $content = null)
 				$html .= '<div id="collapse'.$childpage->ID.'" class="accordion-body collapse">';
 				$html .= '<div class="accordion-inner">';
 				$html .= apply_filters('the_content', $childpage->post_content);
+				$html .= '</div>';
 				$html .= '</div>';
 				$html .= '</div>';
 				$html .= '</div>';
@@ -400,6 +403,7 @@ function childpages($atts, $content = null)
 			foreach($childpages AS $childpage)
 			{
 				$html .= '<div class="media">';
+				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
 				$html .= '<div class="row">';
 				$html .= '<div class="span3">';
 				$html .= '<a href="' . get_permalink($childpage->ID) . '">' . get_the_post_thumbnail($childpage->ID) . '</a>';
@@ -412,10 +416,52 @@ function childpages($atts, $content = null)
 				$html .= '</div>';
 				$html .= '</div>';
 				$html .= '</div>';
+				$html .= '</div>';
 				$html .= '</div>';//end media div
 
 			}
 		}//end media
+		
+		elseif($layout == 'heading-accordion')	
+		{
+			foreach ($childpages AS $childpage)
+			{
+		
+					$html .= '<h3>' . $childpage->post_title . '</h3>';
+					
+					$args = array(
+						'post_parent' => $childpage->ID,
+						'post_type' => 'page',
+						'order' => 'ASC',
+						'orderby' => 'menu_order'
+					);
+		
+					// get all attachments
+					$grandchildpages = get_children($args);
+					
+					$html .= '<div class="accordion" id="accordion">';
+					
+					foreach($grandchildpages AS $grandchildpage)
+					{
+						$html .= '<div class="accordion-group">';
+						$html .= '<div class="accordion-heading">';
+						$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$grandchildpage->ID.'">';
+						$html .= $grandchildpage->post_title;
+						$html .= '</a>';
+						$html .= '</div>';
+						$html .= '<div id="collapse'.$grandchildpage->ID.'" class="accordion-body collapse">';
+						$html .= '<div class="accordion-inner">';
+						$html .= apply_filters('the_content', $grandchildpage->post_content);
+						$html .= '</div>';
+						$html .= '</div>';
+						$html .= '</div>';
+		
+					}
+					
+					$html .= '</div>';
+					
+			}
+		}
 		
 		else 
 		{
