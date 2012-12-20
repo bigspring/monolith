@@ -1,5 +1,5 @@
 /*!
- * Monolith compiler, based on Bootstrap v2.1.0
+ * Monlith Custom compiler, built with Bootstrap v2.2.2
  *
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -12,7 +12,7 @@
 @import "bootstrap/reset.less";
 
 // Core variables and mixins
-@import "bootstrap/variables.less"; // Custom Monlith variables file
+@import "bootstrap/variables.less"; // Modify this for custom colors, font-sizes, etc
 @import "bootstrap/mixins.less";
 
 // Grid system and page structure
@@ -52,6 +52,7 @@
 
 // Components: Misc
 @import "bootstrap/thumbnails.less";
+@import "bootstrap/media.less";
 @import "bootstrap/labels-badges.less";
 @import "bootstrap/progress-bars.less";
 @import "bootstrap/accordion.less";
@@ -60,5 +61,7 @@
 
 // Utility classes
 @import "bootstrap/utilities.less"; // Has to be last to override when necessary
+
+// Monolith stuff
 @import "reset.less"; // A few custom resets that we like and that
-@import "custom.less"; // custom styles
+@import "custom.less"; // custom styles - load this at the end
