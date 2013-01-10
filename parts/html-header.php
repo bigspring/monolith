@@ -19,5 +19,6 @@
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon.ico"/>
 		<?php wp_head(); ?>
 		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/modernizr.js"></script>
+		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/css_browser_selector.js"></script>
 	</head>
 	<body <?php body_class(); ?>>
