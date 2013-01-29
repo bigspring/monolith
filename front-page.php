@@ -26,15 +26,6 @@
 							</div>
 						</header>
 						<?php the_content(); ?>	
-						
-						<select data-placeholder="Choose a car..." class="chzn-select">
-						  <option value="volvo">Volvo</option>
-						  <option value="saab">Saab</option>
-						  <option value="mercedes">Mercedes</option>
-						  <option value="audi">Audi</option>
-						</select>
-						
-										
 						<footer>
 							<?php // comments_template( '', true ); ?>
 						</footer>
