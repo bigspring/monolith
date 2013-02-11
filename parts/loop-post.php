@@ -2,7 +2,7 @@
 <article <?php post_class(); ?>>	
 	<header>
 		<h2><?php the_title(); ?></h2>
-		<?php get_template_part('parts/postmeta'); ?>
+		<?php get_template_part('parts/meta/date'); ?>
 	</header>
 		<?php the_content(); ?>			
 	<footer>
