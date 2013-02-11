@@ -24,3 +24,14 @@ a:focus {outline: 0!important;}
 	.wpcf7-mail-sent-ng,
 	.wpcf7-validation-errors {background: @errorBackground; color: @errorText; border-color: @errorBorder; .border-radius(@baseBorderRadius);}
 }
+
+// COLUMNS SHORTCODE CSS RULE (we need this in order to render the [columns] shortcode we made)
+@columnMargin:		@gridColumnWidth;
+.columns {
+	-moz-column-count: 2;
+	-moz-column-gap: @columnMargin;
+	-webkit-column-count: 2;
+	-webkit-column-gap: @columnMargin;
+	column-count: 2;
+	column-gap: @columnMargin;
+}

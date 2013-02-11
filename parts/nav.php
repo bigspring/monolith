@@ -1,5 +1,5 @@
 <? // navbar part ?>
-<div class="navbar-inner">	
+<div class="navbar-inner">
 	  <? if(BOOTSTRAP_RESPONSIVE) { ?>
 	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 	    <span class="icon-bar"></span>

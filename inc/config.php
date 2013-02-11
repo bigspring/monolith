@@ -15,7 +15,7 @@ define('GALLERY_SPAN_SIZE',			'4'); // this is the size of the span in the galle
 define('GALLERY_IMAGE_CLASSES',		''); // these classes are added to the image tag in the gallery
 
 // set this to true to enable responsive
-define('BOOTSTRAP_RESPONSIVE', 		false);
+define('BOOTSTRAP_RESPONSIVE', 		true);
 
 // set this to true to enable the Opengraph header
 define('OPENGRAPH_HEAD',			false);

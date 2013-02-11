@@ -1,9 +1,5 @@
-<?php
-/**
- * Template Name: Front-page
- */
-?> 
 <?php get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
+
 <div id="hero">
 	<div class="<?= CONTAINER_CLASSES; ?>">
 		<header class="hero-unit">
@@ -13,6 +9,7 @@
 		</header>
 	</div><? //container ?>
 </div><? //hero ?>
+
 <div id="main">
 	<div class="<?= CONTAINER_CLASSES; ?>">
 		<div class="<?= ROW_CLASSES ?>">
@@ -24,4 +21,5 @@
 		</div><? //row ?>	
 	</div><? //container ?>
 </div><!-- /main -->	
+
 <?php get_template_parts( array( 'parts/footer','parts/html-footer' ) ); ?>

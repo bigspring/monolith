@@ -8,5 +8,6 @@
 		<div class="navbar">
 			<?php get_template_part('parts/nav'); ?>
 		</div>
+		
 	</div><!-- /container -->
 </header>
