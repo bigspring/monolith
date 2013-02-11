@@ -1,26 +1,29 @@
 <?php // WordPress index ?>
-<?php get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
+
+<?php get_template_parts( array( 'parts/html-header', 'parts/header' ) ); // load the header part ?>
+
 <div id="main">
+
 	<div class="<?= CONTAINER_CLASSES; ?>">
-		<?php get_template_part('parts/breadcrumb'); ?>
+
+		<?php get_template_part('parts/breadcrumb'); // load the breadcrumb part ?>
+
 		<div class="<?= ROW_CLASSES ?>">
-			<? get_template_part('parts/sidebar-left'); // el loado left sidebaro ?>			
+			
+			<? get_template_part('parts/sidebar-left'); // load the left sidebar ?>			
+			
+			
 			<div class="span<?= MAIN_SIZE ?>">
-				<div class="page-header">
-					<h1>Latest Posts</h1>	
-				</div>
-					<?php while ( have_posts() ) : the_post(); ?>
-					<article id="post-<?= the_id() ?>" <?php post_class(); ?>>
-						<header>
-							<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-							<?php get_template_part('parts/postmeta'); ?>
-						</header>
-						<?php the_excerpt(); ?>
-					</article>
-					<?php endwhile; // End the loop. Whew. ?>
-			</div><!-- /.span -->
-			<? get_template_part('parts/sidebar-right'); // el loado sidebaro ?>
-		</div><!-- /ROW_CLASSES -->
-	</div><!-- /CONTAINER_CLASSES -->
-</div><!-- /main -->
-<?php get_template_parts( array( 'parts/footer','parts/html-footer') ); ?>
+				<? get_template_part('parts/loop-post'); // load the posts loop ?>
+			</div>
+			
+			
+			<? get_template_part('parts/sidebar-right'); // load the right sidebar ?>
+
+		</div> <? // end row ?>
+
+	</div> <? // end conteiner ?>
+
+</div> <? // end #main ?>
+
+<?php get_template_parts( array( 'parts/footer','parts/html-footer') ); // load the footer part ?>
