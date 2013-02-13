@@ -20,6 +20,8 @@ function monolith_setup() {
 	 */
 	function script_enqueuer() {
 
+        wp_enqueue_script('jquery');
+
 		//if we enabled custom js, load the file
 		if(CUSTOM_JS)
 		{
