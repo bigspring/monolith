@@ -27,8 +27,5 @@
 		<link href="<?php echo get_stylesheet_directory_uri(); ?>/js/chosen/chosen.css" rel="stylesheet" type="text/css">
 		<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/monolith.css" rel="stylesheet" type="text/css">
 		<?php wp_head(); ?>
-		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/modernizr.js"></script>
-		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/css_browser_selector.js"></script>
-		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/chosen/chosen.jquery.min.js"></script>
 	</head>
 	<body <?php body_class(); ?>>

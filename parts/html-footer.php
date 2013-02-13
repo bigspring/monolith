@@ -1,7 +1,12 @@
 
 	<?php wp_footer(); ?>
 
-    <!-- Load Bootstrap jd scripts, only the ones we need -->
+	<!-- load los javascript files -->
+	<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/modernizr.js"></script>
+	<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/css_browser_selector.js"></script>
+	<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/chosen/chosen.jquery.min.js"></script>
+
+    <!-- bootstrap js -->
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/bootstrap-transition.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/bootstrap-alert.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/bootstrap-modal.js"></script>
