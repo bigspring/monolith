@@ -1,6 +1,7 @@
 
 	<?php wp_footer(); ?>
 
+    <!-- Load Bootstrap jd scripts, only the ones we need -->
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/bootstrap-transition.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/bootstrap-alert.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/bootstrap-modal.js"></script>
