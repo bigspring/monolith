@@ -1,7 +1,6 @@
 
 	<?php wp_footer(); ?>
 
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/jquery.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/bootstrap-transition.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/bootstrap-alert.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap/bootstrap-modal.js"></script>
