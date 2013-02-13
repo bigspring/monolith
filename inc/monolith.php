@@ -19,19 +19,7 @@ function monolith_setup() {
 	 * Adds required scripts to the header
 	 */
 	function script_enqueuer() {
-		wp_register_script( 'bootstrap-js', get_template_directory_uri().'/js/bootstrap.min.js', array( 'jquery' ) );
-		wp_enqueue_script( 'bootstrap-js' );
-	
-		wp_register_style( 'bootstrap', get_template_directory_uri().'/css/monolith.css', '', '', 'screen' );
-		wp_enqueue_style( 'bootstrap' );
-	
-		// if we enabled respsonsive, load the CSS
-		if(BOOTSTRAP_RESPONSIVE)
-		{
-			wp_register_style( 'bootstrap-responsive', get_template_directory_uri().'/css/responsive.css', '', '', 'screen' );
-			wp_enqueue_style( 'bootstrap-responsive' );
-		}
-		
+
 		//if we enabled custom js, load the file
 		if(CUSTOM_JS)
 		{
