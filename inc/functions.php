@@ -116,6 +116,36 @@ function get_excerpt($length = 240)
 }
 
 /**
+ * Returns a custom excerpt length
+ * @param int $length defaults to 240 chars
+ */
+function get_content($length = 240)
+{
+	global $post;
+
+	$content = get_the_content();
+
+	// get the natural length
+	$start_length = strlen($excerpt);
+
+	$content = preg_replace(" (\[.*?\])",'',$content);
+	$content = strip_shortcodes($content);
+	$content = strip_tags($content);
+	$content = substr($content, 0, $content);
+
+	// if the excerpt is longer than the required length, truncate to the last word and add three dots
+	if($start_length > $length)
+	{
+		$content = substr($excerpt, 0, strrpos($content, " "));
+		$content = trim(preg_replace( '/\s+/', ' ', $content));
+		$content .= '...';
+	}
+
+	return $content;
+}
+
+
+/**
  * Returns a custom post title length
  * @param int $length defaults to 45 chars
  */

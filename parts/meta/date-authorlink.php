@@ -1,0 +1,1 @@
+<p class="muted"><?php the_time('jS M Y'); ?>&nbsp;/&nbsp;Posted by <?php the_author_posts_link(); ?></p>
