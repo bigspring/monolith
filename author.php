@@ -15,17 +15,19 @@
 				<?php the_author_meta( 'description' ); ?>
 				<?php endif; ?>
 				
+			<ul class="unstyled">
 				<?php rewind_posts(); while ( have_posts() ) : the_post(); ?>
-					<article <?php post_class(); ?>>	
+					<li <?php post_class(); ?>>	
 						<header>
-							<h2><a href="<?= get_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-							<?php get_template_part('parts/meta/date-authorlink'); ?>
+							<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+							<?php get_template_part('parts/meta/date'); ?>
 						</header>
 							<?php the_excerpt(); ?>
-							<?php get_template_part('parts/meta/readmore'); ?>&nbsp;<?php get_template_part('parts/meta/comments'); ?>		
-					</article>
+							<?php get_template_part('parts/meta/readmore'); ?>		
+					</li>
 					<hr/>
 				<?php endwhile; ?>
+			</ul>
 				
 				<?php else: ?>
 				<h2>No posts to display for <?php echo get_the_author() ; ?></h2>	
