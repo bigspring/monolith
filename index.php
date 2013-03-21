@@ -14,7 +14,7 @@
 			
 			
 			<div class="span<?= MAIN_SIZE ?>">
-				<? get_template_part('parts/loop-post'); // load the posts loop ?>
+				<? get_template_part('parts/loop-posts'); // load the posts loop ?>
 			</div>
 			
 			

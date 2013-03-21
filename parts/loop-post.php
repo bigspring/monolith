@@ -22,6 +22,7 @@
 		</div>
 	<?php endif; ?>
 	<?php comments_template( '', true ); ?>
+
 	</footer>	
 </article>
 <?php endwhile; ?>
