@@ -288,7 +288,7 @@ function get_page_links()
 	return $links;
 }
 
-
+//code to render the dropdown list of shortcodes
 add_action('media_buttons','add_sc_select',11);
 function add_sc_select(){
     echo '&nbsp;<select id="sc_select">
@@ -315,3 +315,10 @@ function button_js() {
         });
         </script>';
 }
+
+// Custom WordPress Login styling, use the login.css to style the WP login page with site logo etc...
+function login_css() {
+	wp_enqueue_style( 'login_css', get_template_directory_uri() . '/css/login.css' );
+}
+add_action('login_head', 'login_css');
+
