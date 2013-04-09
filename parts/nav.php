@@ -1,10 +1,7 @@
 <? // navbar part ?>
-<div class="navbar-inner">
 	  <? if(BOOTSTRAP_RESPONSIVE) { ?>
 	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
+	  	Menu
 	  </a>
 	
 	 <div class="nav-collapse collapse">
@@ -15,7 +12,7 @@
 			'theme_location' => 'top-bar',
 			'depth'		 => 2,
 			/*'container'	 => false, */
-			'menu_class'	 => 'nav',
+			'menu_class'	 => 'nav nav-pills',
 			'walker'	 => new Monolith_Nav_Walker()
 		);
 	
@@ -24,4 +21,3 @@
 <? if(BOOTSTRAP_RESPONSIVE) { ?>
 	</div> <!-- /navbar-collape -->
  <? } // endo el responsivo check - close the collapse wrapper ?>
-</div><!-- /navbar-inner -->
