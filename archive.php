@@ -6,7 +6,7 @@
 			<? get_template_part('parts/sidebar-left'); // el loado left sidebaro ?>			
 			<div class="span<?= MAIN_SIZE ?>">
 				<? get_template_part('parts/loop-archive'); // el loado loopo archiveo ?>
-			</div>/<!-- MAIN_SIZE -->
+			</div><!-- MAIN_SIZE -->
 			<? get_template_part('parts/sidebar-right'); // el loado right sidebaro ?>
 		</div><!-- /ROW_CLASSES -->	
 	</div><!-- /CONTAINER_CLASSES -->
