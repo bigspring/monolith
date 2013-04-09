@@ -7,7 +7,9 @@
 			<div class="span<?= MAIN_SIZE ?>">
 				<?php if ( have_posts() ): the_post(); ?>
 				
-				<h1>Author Archives: <?php echo get_the_author() ; ?></h1>
+				<div class="page-header">
+					<h1>Author Archives: <?php echo get_the_author() ; ?></h1>
+				</div>
 				
 				<?php if ( get_the_author_meta( 'description' ) ) : ?>
 				<?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
@@ -15,19 +17,9 @@
 				<?php the_author_meta( 'description' ); ?>
 				<?php endif; ?>
 				
-			<ul class="unstyled">
 				<?php rewind_posts(); while ( have_posts() ) : the_post(); ?>
-					<li <?php post_class(); ?>>	
-						<header>
-							<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-							<?php get_template_part('parts/meta/date'); ?>
-						</header>
-							<?php the_excerpt(); ?>
-							<?php get_template_part('parts/meta/readmore'); ?>		
-					</li>
-					<hr/>
+					<? get_template_part('parts/post/post-snippet') ?>
 				<?php endwhile; ?>
-			</ul>
 				
 				<?php else: ?>
 				<h2>No posts to display for <?php echo get_the_author() ; ?></h2>	
