@@ -8164,6 +8164,25 @@ a:focus {
   color: #ffffff;
   text-align: center;
 }
+.columns {
+  -moz-column-count: 2;
+  -moz-column-gap: 60px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 60px;
+  column-count: 2;
+  column-gap: 60px;
+}
+.alignright {
+  float: right;
+  margin-left: 1em;
+}
+.alignleft {
+  float: left;
+  margin-right: 1em;
+}
+.form-allowed-tags {
+  display: none;
+}
 .wpcf7 .wpcf7-not-valid-tip {
   color: #9d261d;
   border: none;
@@ -8188,25 +8207,6 @@ a:focus {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-}
-.columns {
-  -moz-column-count: 2;
-  -moz-column-gap: 60px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 60px;
-  column-count: 2;
-  column-gap: 60px;
-}
-.alignright {
-  float: right;
-  margin-left: 1em;
-}
-.alignleft {
-  float: left;
-  margin-right: 1em;
-}
-.form-allowed-tags {
-  display: none;
 }
 /* Large desktop */
 @media (min-width: 1200px) {

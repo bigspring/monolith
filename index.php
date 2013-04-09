@@ -11,11 +11,17 @@
 				<header class="page-header">
 					<h1>The Blog</h1>
 				</header>
-				<? get_template_part('parts/loop-posts'); // load the posts loop ?>
+
+				<?php get_template_part('parts/loop-posts') // load the posts loop ?>				
+
 			</div>
+
 			<? get_template_part('parts/sidebar-right'); // load the right sidebar ?>
+
 		</div> <? // end row ?>
+
 	</div> <? // end conteiner ?>
+
 </div> <? // end #main ?>
 
 <?php get_template_parts( array( 'parts/footer','parts/html-footer') ); // load the footer part ?>
