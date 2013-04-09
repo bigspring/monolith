@@ -15,7 +15,7 @@
 		<div class="<?= ROW_CLASSES ?>">
 			<? get_template_part('parts/sidebar-left'); // el loado sidebaro ?>
 			<div class="span<?= MAIN_SIZE ?>">
-				<? get_template_part('parts/loop-posts'); // load the posts loop ?>
+				<? get_template_part('parts/loop-page'); // load the posts loop ?>
 			</div><? //span8 ?>	
 			<? get_template_part('parts/sidebar-right'); // el loado sidebaro ?>
 		</div><? //row ?>	
