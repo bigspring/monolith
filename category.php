@@ -6,7 +6,6 @@
 			<? get_template_part('parts/sidebar-left'); // el loado left sidebaro ?>			
 			<div class="span<?= MAIN_SIZE ?>">
 
-				<?php if ( have_posts() ): ?>
 				<div class="page-header">
 					<h1>Category Archive: <?php echo single_cat_title( '', false ); ?></h1>
 				</div>
