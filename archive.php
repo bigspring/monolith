@@ -8,9 +8,9 @@
 
 				<div class="page-header"><h1>
 				<?php if ( is_day() ) : ?>
-						Archive: <?php echo  get_the_date( 'D M Y' ); ?>					
+						Archive: <?php echo  get_the_date( 'D F Y' ); ?>					
 						<?php elseif ( is_month() ) : ?>
-						Archive: <?php echo  get_the_date( 'M Y' ); ?>
+						Archive: <?php echo  get_the_date( 'F Y' ); ?>
 						<?php elseif ( is_year() ) : ?>
 						Archive: <?php echo  get_the_date( 'Y' ); ?>								
 						<?php else : ?>
