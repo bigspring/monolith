@@ -26,5 +26,3 @@
 	<?php else: ?>
 	<h1>No posts to display</h1>	
 <?php endif; ?>
-
-
