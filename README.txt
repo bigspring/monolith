@@ -17,7 +17,7 @@
 	
 	* DANGER *
 	
-	It's very much still uner development, so we wouldn't
+	It's very much still under development, so we wouldn't
 	recommend you use this on any production site yet. We're
 	serious.  Don't use this yet.  But feel free to contribute!
 	
