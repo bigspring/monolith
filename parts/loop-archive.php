@@ -1,12 +1,12 @@
 <?php if ( have_posts() ): ?>
 <?php if ( is_day() ) : ?>
-	<h1>Archive: <?php echo  get_the_date( 'D M Y' ); ?></h1>							
-	<?php elseif ( is_month() ) : ?>
-	<h1>Archive: <?php echo  get_the_date( 'M Y' ); ?></h1>	
-	<?php elseif ( is_year() ) : ?>
-	<h1>Archive: <?php echo  get_the_date( 'Y' ); ?></h1>								
-	<?php else : ?>
-	<h1>Archive</h1>	
+		<div class="page-header"><h1>Archive: <?php echo  get_the_date( 'D M Y' ); ?></h1></div>							
+		<?php elseif ( is_month() ) : ?>
+		<div class="page-header"><h1>Archive: <?php echo  get_the_date( 'M Y' ); ?></h1></div>	
+		<?php elseif ( is_year() ) : ?>
+		<div class="page-header"><h1>Archive: <?php echo  get_the_date( 'Y' ); ?></h1></div>								
+		<?php else : ?>
+		<div class="page-header"><h1>Archive</h1></div>	
 	<?php endif; ?>
 
 	<ul class="unstyled">
@@ -16,10 +16,10 @@
 				<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 				<?php get_template_part('parts/meta/date'); ?>
 			</header>
-				<?php the_excerpt(); ?>
-				<?php get_template_part('parts/meta/readmore'); ?>		
-		</li>
+			<?php the_excerpt(); ?>
+			<?php get_template_part('parts/meta/readmore'); ?>
 		<hr/>
+		</li>
 	<?php endwhile; ?>
 	</ul>
 
