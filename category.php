@@ -7,7 +7,9 @@
 			<div class="span<?= MAIN_SIZE ?>">
 
 				<?php if ( have_posts() ): ?>
-				<h2>Category Archive: <?php echo single_cat_title( '', false ); ?></h2>
+				<div class="page-header">
+					<h1>Category Archive: <?php echo single_cat_title( '', false ); ?></h1>
+				</div>
 				<ul class="unstyled">
 					<?php while ( have_posts() ) : the_post(); ?>
 						<li <?php post_class(); ?>>	
