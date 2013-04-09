@@ -1,8 +1,7 @@
-<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 <article <?php post_class(); ?>>	
 	<header class="page-header">
 		<h1><?php the_title(); ?></h1>
-		<?php get_template_part('parts/meta/date'); ?>
+		<?php get_template_part('parts/meta/date-authorlink'); ?>
 	</header>
 
 		<?php if ($post->post_excerpt != '') { // show the excerpt if it exists ?>
@@ -25,4 +24,3 @@
 
 	</footer>	
 </article>
-<?php endwhile; ?>

@@ -4,7 +4,11 @@
 	<div class="<?= CONTAINER_CLASSES; ?>">	
 		<div class="<?= ROW_CLASSES ?>">
 			<div class="span<?= MAIN_SIZE ?>">
-				<? get_template_part('parts/loop-post'); // el loado loopo posto ?>
+
+				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+				<? get_template_part('parts/post/post-single') // load single post ?>
+				<?php endwhile; ?>
+
 			</div><? //span8 ?>
 			<? get_template_part('parts/sidebar-right'); // el loado sidebaro ?>
 		</div><? //row ?>
