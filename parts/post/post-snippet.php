@@ -4,7 +4,11 @@
 		<h2><a href="<?= get_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 		<?php get_template_part('parts/meta/date-authorlink'); ?>
 	</header>
-		<?php the_excerpt(); ?>		
+	<section class="entry-content">
+		<?php the_excerpt(); ?>				
+	</section>	
+	<footer class="article-footer">
 		<?php get_template_part('parts/meta/readmore'); ?>
+	</footer> <!-- end article footer -->
 </article>
 <hr/>
