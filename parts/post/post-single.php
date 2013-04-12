@@ -1,6 +1,6 @@
 <article <?php post_class(); ?>>	
 	<header class="page-header">
-		<h1 class="post-title" itemprop="name"><?php the_title(); ?></h1>
+		<h1 class="post-title" itemprop="headline"><?php the_title(); ?></h1>
 		<?php get_template_part('parts/meta/date-authorlink'); ?>
 	</header>
 	
@@ -10,7 +10,7 @@
 		</section>
 	<? } ?>
 	
-	<section class="post-content" itemprop="description">
+	<section class="post-content" itemprop="articleBody">
 		<?php the_content(); ?>
 	</section>
 		
