@@ -12,16 +12,18 @@
 			<? get_template_part('parts/sidebar-left'); // load the left sidebar ?>			
 
 			<div class="span<?= MAIN_SIZE ?>">
-
-				<h2 class="entry-title">404 - Page not found</h2>
-				<p class="entry-content">The page you're looking wasn't found. Try searching for the page you're looking for:</p>
-
-				<form id="searchform-404" class="blog-search" method="get" action="<?php bloginfo('home') ?>">
-					<div>
-						<input id="s-404" name="s" class="text" type="text" value="<?php the_search_query() ?>" size="40" />
-						<input class="button" type="submit" value="" />
-					</div>
-				</form>
+				<header class="page-header 404-header">
+					<h1 class="page-title h1">404 error - page not found</h1>
+				</header>
+				
+				<section class="entry-content">
+					<p class="entry-content">The page you're looking wasn't found. Try searching for the page you're looking for:</p>
+				</section>
+				<!-- search form -->				
+					<form id="searchform-404" class="blog-search form-search" method="get" action="<?php bloginfo('home') ?>">	
+							<input id="s-404" name="s" class="text" type="text" value="<?php the_search_query() ?>" size="40" />
+							<button class="btn" type="submit">Search <? bloginfo('name') ?></button>					
+					</form>				
 
 			</div><!-- /MAIN_SIZES -->
 
