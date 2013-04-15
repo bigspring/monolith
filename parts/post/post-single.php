@@ -1,4 +1,4 @@
-<article <?php post_class(); ?>>	
+<article itemscope itemtype="http://schema.org/Article" <?php post_class(); ?>>	
 	<header class="page-header">
 		<h1 class="post-title" itemprop="headline"><?php the_title(); ?></h1>
 		<?php get_template_part('parts/meta/date-authorlink'); ?>
@@ -19,11 +19,14 @@
 		<?php if ( get_the_author_meta( 'description' ) ) : ?>
 			<hr/>
 			<div class="media">								
+				
 				<div class="author-image pull-left" itemprop="image"><?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?></div>
+				
 				<div class="media-body">
 					<h3 class="author-name" itemprop="name">About <?php echo get_the_author() ; ?></h3>
 					<div class="author-description" itemprop="description"><?php the_author_meta( 'description' ); ?></div>
 				</div>
+			
 			</div>
 		<?php endif; ?>
 		
