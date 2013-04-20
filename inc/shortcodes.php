@@ -28,6 +28,7 @@ function contact_us_shortcode($atts, $content = null)
  * @param array $atts
  * @param string $content
  */
+/*
 function bootstrap_gallery_shortcode($atts, $content = null)
 {
 	global $post;
@@ -88,6 +89,116 @@ function bootstrap_gallery_shortcode($atts, $content = null)
 	$html .= '</ul>';
 
 	return $html;
+}*/
+
+/**
+ * Clean up gallery_shortcode()
+ *
+ * Re-create the [gallery] shortcode and use thumbnails styling from Bootstrap
+ * Taken from rootstheme.com with a custom integration by bigspring.co.uk for loading thumbnails via fancybox
+ *
+ * @link http://twitter.github.com/bootstrap/components.html#thumbnails
+ */
+function monolith_gallery($attr) {
+  $post = get_post();
+
+  static $instance = 0;
+  $instance++;
+  
+  if (!empty($attr['ids'])) {
+    if (empty($attr['orderby'])) {
+      $attr['orderby'] = 'post__in';
+    }
+    $attr['include'] = $attr['ids'];
+  }
+
+  $output = apply_filters('post_gallery', '', $attr);
+
+  if ($output != '') {
+    return $output;
+  }
+
+  if (isset($attr['orderby'])) {
+    $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
+    if (!$attr['orderby']) {
+      unset($attr['orderby']);
+    }
+  }
+
+  extract(shortcode_atts(array(
+    'order'      => 'ASC',
+    'orderby'    => 'menu_order ID',
+    'id'         => $post->ID,
+    'itemtag'    => '',
+    'icontag'    => '',
+    'captiontag' => '',
+    'columns'    => 3,
+    'size'       => 'thumbnail',
+    'include'    => '',
+    'exclude'    => ''
+  ), $attr));
+
+  $id = intval($id);
+
+  if ($order === 'RAND') {
+    $orderby = 'none';
+  }
+
+  if (!empty($include)) {
+    $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+
+    $attachments = array();
+    foreach ($_attachments as $key => $val) {
+      $attachments[$val->ID] = $_attachments[$key];
+    }
+  } elseif (!empty($exclude)) {
+    $attachments = get_children(array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+  } else {
+    $attachments = get_children(array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+  }
+
+  if (empty($attachments)) {
+    return '';
+  }
+
+  if (is_feed()) {
+    $output = "\n";
+    foreach ($attachments as $att_id => $attachment) {
+      $output .= wp_get_attachment_link($att_id, $size, true) . "\n";
+    }
+    return $output;
+  }
+
+  $output = '<ul class="thumbnails gallery">';
+
+  $i = 0;
+  foreach ($attachments as $id => $attachment) {
+    $link = isset($attr['link']) && 'file' == $attr['link'] ? wp_get_attachment_link($id, $size, false, false) : wp_get_attachment_link($id, $size, true, false);
+
+    $output .= '<li>' . $link;
+    if (trim($attachment->post_excerpt)) {
+      $output .= '<div class="caption hidden">' . wptexturize($attachment->post_excerpt) . '</div>';
+    }
+    $output .= '</li>';
+    
+    /* fancybox breaks with Bootstrap 2.3
+    //$link = isset($attr['link']) && 'file' == $attr['link'] ? wp_get_attachment_link($id, $size, false, false) : wp_get_attachment_link($id, $size, true, false);
+    $link = '<a href="' . $attachment->guid . '" class="fancybox" rel="gallery1">';
+
+    $output .= '<li>' . $link;
+    $output .= wp_get_attachment_image($attachment->ID, 'thumbnail');
+    if (trim($attachment->post_excerpt)) {
+      $output .= '<div class="caption hidden">' . wptexturize($attachment->post_excerpt) . '</div>';
+    }
+    $output .= '</a>';
+    $output .= '</li>';
+    */
+    
+  }
+
+  $output .= '</ul>';
+
+  return $output;
 }
 
 /**
@@ -495,8 +606,9 @@ function columns_shortcode($atts, $content = null) {
 // load shortcodes
 add_shortcode('icon', 'bootstrap_glyph_icons');
 add_shortcode('contact', 'contact_us_shortcode');
-remove_shortcode('gallery', 'gallery_shortcode');
-add_shortcode('gallery', 'bootstrap_gallery_shortcode');
+//remove_shortcode('gallery', 'gallery_shortcode');
+//add_shortcode('gallery', 'bootstrap_gallery_shortcode');
+add_shortcode('gallery', 'monolith_gallery');
 add_shortcode('intro', 'intro_text_shortcode');
 add_shortcode('button', 'buttons');
 add_shortcode('alert', 'alerts');
