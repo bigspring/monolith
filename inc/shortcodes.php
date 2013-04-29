@@ -24,74 +24,6 @@ function contact_us_shortcode($atts, $content = null)
 }
 
 /**
- * Renders a Bootstrap Gallery with Fancybox using the shortcode [bsgallery]
- * @param array $atts
- * @param string $content
- */
-/*
-function bootstrap_gallery_shortcode($atts, $content = null)
-{
-	global $post;
-
-	if(is_array($atts))
-	{
-		// see if a id parameter has been passed and set, or use the current post
-		if(array_key_exists('id', $atts))
-			$id = $atts['id'];
-		else
-			$id = $post->ID;
-		
-		// see if a size parameter has been passed and set, or use the default
-		if(array_key_exists('size', $atts))
-			$size = $atts['size'];
-		else
-			$size = GALLERY_SPAN_SIZE;
-		
-		// see if a border parameter has been passed, if not then use the default
-		if(array_key_exists('border', $atts))
-			$image_class = 'thumbnail';
-		else 
-			$image_class = GALLERY_IMAGE_CLASSES;
-	}
-
-	$args = array(
-			'post_parent' => $id,
-			'post_type' => 'attachment',
-			'order' => 'ASC',
-            'orderby' => 'menu_order'	);
-
-	// get all attachments
-	$attachments = get_children($args);
-	
-	// get the ID of the featured image so we can remove it from the gallery
-	$featured_id = get_post_thumbnail_id($post->ID);
-
-	// load fancybox scripts
-	wp_enqueue_script('fancyboxjs', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array('jquery'));
-	wp_enqueue_script('fancyboxloader', get_template_directory_uri() . '/js/fancybox/loader.js', array('jquery'));
-	wp_enqueue_style('fancyboxcss', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.css');
-
-	$html = '<ul class="thumbnails">';
-
-	foreach($attachments AS $image)
-	{
-		// exclude the featured image
-		if($featured_id != $image->ID)
-		{
-			$html .= '<li class="span'. $size .'">';
-			$html .= '<a href="' . $image->guid . '" class="fancybox '.$image_class.'" rel="gallery1">';
-			$html .= wp_get_attachment_image($image->ID, 'thumbnail');
-			$html .= '</a>';
-			$html .= '</li>';
-		}
-	}
-
-	$html .= '</ul>';
-
-	return $html;
-}*/
-
-/**
  * Clean up gallery_shortcode()
  *
  * Re-create the [gallery] shortcode and use thumbnails styling from Bootstrap
@@ -168,32 +100,26 @@ function monolith_gallery($attr) {
     }
     return $output;
   }
+  
+    // load fancybox scripts
+    wp_enqueue_script('prettyphotojs', get_template_directory_uri() . '/js/prettyphoto/jquery.prettyPhoto.js', array('jquery'));
+    wp_enqueue_script('prettyphotoloader', get_template_directory_uri() . '/js/prettyphoto/loader.js', array('jquery'));
+    wp_enqueue_style('prettyphotocss', get_template_directory_uri() . '/js/prettyphoto/css/prettyPhoto.css');
 
   $output = '<ul class="thumbnails gallery">';
 
   $i = 0;
   foreach ($attachments as $id => $attachment) {
-    $link = isset($attr['link']) && 'file' == $attr['link'] ? wp_get_attachment_link($id, $size, false, false) : wp_get_attachment_link($id, $size, true, false);
 
-    $output .= '<li>' . $link;
-    if (trim($attachment->post_excerpt)) {
-      $output .= '<div class="caption hidden">' . wptexturize($attachment->post_excerpt) . '</div>';
-    }
-    $output .= '</li>';
+    $link = '<a href="' . $attachment->guid . '" rel="gallery[image_gallery1]">';
     
-    /* fancybox breaks with Bootstrap 2.3
-    //$link = isset($attr['link']) && 'file' == $attr['link'] ? wp_get_attachment_link($id, $size, false, false) : wp_get_attachment_link($id, $size, true, false);
-    $link = '<a href="' . $attachment->guid . '" class="fancybox" rel="gallery1">';
-
     $output .= '<li>' . $link;
-    $output .= wp_get_attachment_image($attachment->ID, 'thumbnail');
+    $output .= wp_get_attachment_image($attachment->ID, $size);
     if (trim($attachment->post_excerpt)) {
       $output .= '<div class="caption hidden">' . wptexturize($attachment->post_excerpt) . '</div>';
     }
     $output .= '</a>';
-    $output .= '</li>';
-    */
-    
+    $output .= '</li>';    
   }
 
   $output .= '</ul>';
