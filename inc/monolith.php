@@ -1,6 +1,7 @@
 <?php
 add_action( 'after_setup_theme', 'monolith_setup' );
 add_filter('wp_nav_menu', 'roots_wp_nav_menu');
+remove_action('wp_head', 'wp_generator');
 
 function monolith_setup() {
 
