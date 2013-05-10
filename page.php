@@ -1,16 +1,20 @@
-
-<?php // Default Page Template ?>
 <? get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
-<div id="main">
-	<div class="<?= CONTAINER_CLASSES; ?>">
-	<? get_template_part('parts/breadcrumb'); // el loado sidebaro ?>
-		<div class="<?= ROW_CLASSES ?>">
-			<? get_template_part('parts/sidebar-left'); // el loado left sidebaro ?>			
-			<div class="span<?= MAIN_SIZE ?>">
-				<? get_template_part('parts/loop-page'); // loado el loopo ?>
-			</div><!-- /MAIN_SIZES -->
-			<? get_template_part('parts/sidebar-right'); // el loado right sidebaro ?>
-		</div><!-- /ROW_CLASSES -->	
-	</div><!-- /CONTAINER_CLASSES -->
-</div><!-- /main -->
+<? get_template_part('parts/breadcrumb'); ?>
+
+<div class="wrapper" role="document">
+	<div class="container">
+		<div class="row">
+		
+			<div class="main content span<?= MAIN_SIZE ?>" role="main">
+				<? get_template_part('parts/page/content');?>
+			</div><!-- /.main -->
+			
+			<aside class="sidebar sidebar-right span<?= SIDEBAR_RIGHT_SIZE ?>" role="complementary">
+				<? get_template_part('parts/sidebar/sidebar');?>
+			</aside><!-- /.sidebar -->
+	
+		</div><!-- /.row -->	
+	</div><!-- /.container -->
+</div><!-- /.wrapper -->
+
 <?php get_template_parts( array( 'parts/footer','parts/html-footer' ) ); ?>

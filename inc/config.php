@@ -4,8 +4,9 @@ define('ENABLE_LEFT_SIDEBAR',		false);
 define('ENABLE_RIGHT_SIDEBAR',		true);
 
 // define the size of the left, right and full span sizes
-define('SIDEBAR_LEFT_SIZE', 		'3');
-define('SIDEBAR_RIGHT_SIZE', 		'3');
+define('SIDEBAR_LEFT_SIZE', 		'4');
+define('SIDEBAR_RIGHT_SIZE', 		'4');
+define('MAIN_SIZE',		        	'8');
 define('FULLWIDTH_SIZE',        	'12');
 define('CONTAINER_CLASSES',         'container');
 define('ROW_CLASSES',         		'row');
