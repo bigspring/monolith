@@ -1,1 +1,3 @@
-<p class="muted"><?php the_time('jS M Y'); ?>&nbsp;/&nbsp;Posted by <?php the_author_posts_link(); ?></p>
+<section class="muted">
+	<span class="post-author" itemprop="author">Posted by <?php the_author_posts_link(); ?></span> on <time class="post-date" itemprop="datePublished"><?php the_time('l jS F Y'); ?></time>	
+</section>
