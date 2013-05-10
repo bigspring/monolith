@@ -6,14 +6,14 @@
 		<div class="row">
 		
 			<div class="main content span<?= MAIN_SIZE ?>" role="main">
-				<? get_template_part('parts/page/content');?>
+				<? get_template_part('parts/loops/page');?>
 			</div><!-- /.main -->
 			
 			<aside class="sidebar sidebar-right span<?= SIDEBAR_RIGHT_SIZE ?>" role="complementary">
 				<? get_template_part('parts/sidebar/sidebar');?>
 			</aside><!-- /.sidebar -->
 	
-		</div><!-- /.row -->	
+		</div><!-- /.row -->
 	</div><!-- /.container -->
 </div><!-- /.wrapper -->
 
