@@ -11,8 +11,6 @@
 		
 		<div class="<?= ROW_CLASSES ?>">
 			
-			<? get_template_part('parts/sidebar-left'); // load the left sidebar ?>		
-			
 			<div class="span<?= MAIN_SIZE ?>" role="main">			
 							
 				<? get_template_part('parts/page-header'); // load the page header ?>
@@ -20,7 +18,7 @@
 			
 			</div><!-- /MAIN_SIZES -->
 			
-			<? get_template_part('parts/sidebar-right'); // load the right sidebar ?>
+			<? get_template_part('parts/sidebar'); // load the right sidebar ?>
 		
 		</div><!-- /ROW_CLASSES -->	
 

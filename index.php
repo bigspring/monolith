@@ -44,7 +44,7 @@
 
 			</div><!-- MAIN_SIZE -->
 
-			<? get_template_part('parts/sidebar-right'); // right sidebar ?>
+			<? get_template_part('parts/sidebar'); // right sidebar ?>
 
 		</div><!-- /ROW_CLASSES -->	
 

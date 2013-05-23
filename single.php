@@ -9,9 +9,7 @@
 		<? get_template_part('parts/breadcrumb'); // load the breadcrumbs ?>
 
 		<div class="<?= ROW_CLASSES ?>">
-			
-			<? get_template_part('parts/sidebar-left'); // load the left sidebar ?>		
-			
+
 			<div class="span<?= MAIN_SIZE ?>" role="main">			
 			
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -20,7 +18,7 @@
 			
 			</div><!-- /MAIN_SIZES -->
 			
-			<? get_template_part('parts/sidebar-right'); // load the right sidebar ?>
+			<? get_template_part('parts/sidebar'); // load the right sidebar ?>
 		
 		</div><!-- /ROW_CLASSES -->	
 
