@@ -8,13 +8,15 @@
 
 		<? get_template_part('parts/breadcrumb'); // load the breadcrumbs ?>
 
+		
 		<div class="<?= ROW_CLASSES ?>">
 			
 			<? get_template_part('parts/sidebar-left'); // load the left sidebar ?>		
 			
 			<div class="span<?= MAIN_SIZE ?>" role="main">			
-			
-				<? get_template_part('parts/loop-page'); // load the page loop ?>
+							
+				<? get_template_part('parts/page-header'); // load the page header ?>
+				<? get_template_part('parts/page-content'); // load the page content ?>
 			
 			</div><!-- /MAIN_SIZES -->
 			

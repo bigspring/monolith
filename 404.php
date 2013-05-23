@@ -12,8 +12,6 @@
 
 		<div class="<?= ROW_CLASSES ?>">
 			
-			<? get_template_part('parts/sidebar-left'); // load the left sidebar ?>		
-			
 			<div class="span<?= FULLWIDTH_SIZE ?> content" role="main">			
 			
 				<header class="page-header 404-header">
