@@ -1,9 +1,9 @@
 <?php
 
 // define the size of the left, right and full span sizes
-define('SIDEBAR_SIZE', 				'col col-12 col-lg-4');
-define('MAIN_SIZE',        			'col col-12 col-lg-8');
-define('FULLWIDTH_SIZE',        	'col col-12');
+define('SIDEBAR_SIZE', 				'col-12 col-lg-4');
+define('MAIN_SIZE',        			'col-12 col-lg-8');
+define('FULLWIDTH_SIZE',        	'col-12');
 define('CONTAINER_CLASSES',         'container');
 define('ROW_CLASSES',         		'row');
 

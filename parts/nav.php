@@ -9,7 +9,7 @@
     </button>
 
     <? // the brand ?>
-    <a class="navbar-brand" href="#">Title</a>
+    <a class="navbar-brand" href="#"><?= bloginfo('title') ?> </a>
 
     <? // Place everything within .navbar-collapse to hide it until above 768px ?>
     <div class="nav-collapse collapse navbar-responsive-collapse">
