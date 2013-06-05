@@ -1,15 +1,11 @@
 <?php
-// enable the sidebars by setting to true or false
-define('ENABLE_LEFT_SIDEBAR',		false);
-define('ENABLE_RIGHT_SIDEBAR',		true);
 
 // define the size of the left, right and full span sizes
-define('SIDEBAR_LEFT_SIZE', 		'4');
-define('SIDEBAR_RIGHT_SIZE', 		'4');
-define('MAIN_SIZE',		        	'8');
+define('SIDEBAR_SIZE', 				'4');
+define('MAIN_SIZE',        			'8');
 define('FULLWIDTH_SIZE',        	'12');
-define('CONTAINER_CLASSES',         'container');
-define('ROW_CLASSES',         		'row');
+define('CONTAINER_CLASSES',         'container-fluid');
+define('ROW_CLASSES',         		'row-fluid');
 
 // gallery shortcode options
 define('GALLERY_SPAN_SIZE',			'4'); // this is the size of the span in the gallery shortcode
