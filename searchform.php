@@ -2,7 +2,7 @@
 	<div class="input-group">
 	  <input class="search-query" type="search" value="" placeholder="Search..." name="s" id="s" />
 	  <span class="input-group-btn">   
-	    <button class="btn btn-default" type="submit" id="searchsubmit" value="Search">Search</button>
+	    <button class="btn btn-default" type="submit" id="searchsubmit" value="Search"><span class="glyphicon glyphicon-search"></span></button>
 	  </span>
 	</div>
 </form>
