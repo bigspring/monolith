@@ -18,7 +18,7 @@
 			$args = array(
 				'theme_location' => 'top-bar',
 				'depth'		 => 2,
-				'menu_class'	 => 'nav navbar-nav',
+				'menu_class'	 => 'nav navbar-nav pull-right',
 				'walker'	 => new Monolith_Nav_Walker()
 			);
 		
