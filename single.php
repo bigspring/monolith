@@ -10,7 +10,7 @@
 
 		<div class="<?= ROW_CLASSES ?>">
 
-			<div class="span<?= MAIN_SIZE ?>" role="main">			
+			<div class="<?= MAIN_SIZE ?>" role="main">			
 			
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 				<? get_template_part('parts/post/post-single') // load single post ?>

@@ -1,11 +1,11 @@
 <?php
 
 // define the size of the left, right and full span sizes
-define('SIDEBAR_SIZE', 				'4');
-define('MAIN_SIZE',        			'8');
-define('FULLWIDTH_SIZE',        	'12');
-define('CONTAINER_CLASSES',         'container-fluid');
-define('ROW_CLASSES',         		'row-fluid');
+define('SIDEBAR_SIZE', 				'col col-12 col-lg-4');
+define('MAIN_SIZE',        			'col col-12 col-lg-8');
+define('FULLWIDTH_SIZE',        	'col col-12');
+define('CONTAINER_CLASSES',         'container');
+define('ROW_CLASSES',         		'row');
 
 // gallery shortcode options
 define('GALLERY_SPAN_SIZE',			'4'); // this is the size of the span in the gallery shortcode

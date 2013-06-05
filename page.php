@@ -11,7 +11,7 @@
 		
 		<div class="<?= ROW_CLASSES ?>">
 			
-			<div class="span<?= MAIN_SIZE ?>" role="main">			
+			<div class="<?= MAIN_SIZE ?>" role="main">			
 							
 				<? get_template_part('parts/page-header'); // load the page header ?>
 				<? get_template_part('parts/page-content'); // load the page content ?>

@@ -10,7 +10,7 @@
 	
 		<div class="<?= ROW_CLASSES ?>">
 
-			<div class="span<?= MAIN_SIZE ?>">
+			<div class="<?= MAIN_SIZE ?>">
 
 				<header class="page-header archive-header">								
 					

@@ -3,7 +3,7 @@
 <!-- hero unit -->
 <div class="hero">
 	<div class="<?= CONTAINER_CLASSES; ?>">
-		<header class="hero-unit">
+		<header class="jumbotron">
 			<h1>Heading</h1>
 			<p>Tagline</p>
 			<p><a class="btn btn-primary btn-large">Learn more</a></p>
@@ -18,7 +18,7 @@
 
 		<div class="<?= ROW_CLASSES ?>">
 			
-			<div class="span<?= MAIN_SIZE ?>" role="main">			
+			<div class="<?= MAIN_SIZE ?>" role="main">			
 							
 				<? get_template_part('parts/page-header'); // load the page header ?>
 				<? get_template_part('parts/page-content'); // load the page content ?>
