@@ -25,8 +25,7 @@
 		<link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri(); ?>/ico/apple-touch-icon-57-precomposed.png">
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/ico/favicon.png">
 		
-		<link href="<?php echo get_stylesheet_directory_uri(); ?>/js/chosen/chosen.css" rel="stylesheet" type="text/css">
-		<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/monolith.css" rel="stylesheet" type="text/css">
+		<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/base.css" rel="stylesheet" type="text/css">
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
