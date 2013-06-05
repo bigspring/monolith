@@ -5,9 +5,6 @@ remove_action('wp_head', 'wp_generator');
 
 function monolith_setup() {
 
-	define('MAIN_SIZE', 				get_main_size());
-	// now that we have the required functions / constants, calculate the main span size
-	
 	add_action( 'init', 'register_menu' );
 	add_action( 'wp_enqueue_scripts', 'script_enqueuer' );
 	add_theme_support('post-thumbnails');
@@ -271,22 +268,6 @@ function monolith_setup() {
     }
 }
 
-/**
- * Dynamically calculates the required span size for the main container based on the right and left sidebars
- */
-function get_main_size() {
-	$left = 0;
-	$right = 0;
-	$full = FULLWIDTH_SIZE;
-
-	if(ENABLE_LEFT_SIDEBAR)
-		$left = SIDEBAR_LEFT_SIZE;
-
-	if(ENABLE_RIGHT_SIDEBAR)
-		$right = SIDEBAR_RIGHT_SIZE;
-
-	return $full - $left - $right;
-}
 
 /**
  * Replace various active menu class names with "active"
