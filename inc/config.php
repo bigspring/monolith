@@ -27,6 +27,7 @@ define('CUSTOM_JS',					true);
 
 /**
  * Don't touch anything below, or thingds will break and then I will break your fingers
+ * Don't touch anything below, or things will break and then I will break your fingers
  */
 require_once('monolith.php');
 require_once('hooks.php');
