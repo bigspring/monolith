@@ -1,13 +1,3 @@
 <header id="header" role="banner">
-	<div class="<?= CONTAINER_CLASSES; ?>">
-		<div class="<?= ROW_CLASSES ?>">
-			<div class="span<?= FULLWIDTH_SIZE ?>">
-				<h1><a class="brand" href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>		
-			</div>
-		</div><!-- /row -->
-		<div class="navbar">
-			<?php get_template_part('parts/nav'); ?>
-		</div>
-		
-	</div><!-- /container -->
+	<?php get_template_part('parts/nav'); ?>
 </header>
