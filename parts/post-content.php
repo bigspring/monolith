@@ -16,8 +16,9 @@
 	</section>
 		
 	<footer class="post-footer">	
-		<? get_template_part('parts/author-snippet') // load the author snippet part ?>		
-		<?php comments_template( '', true ); ?>
+		
+		<? get_template_part('parts/author-snippet') // load the author snippet part ?>
+				
 	</footer>	
 
 </article>

@@ -28,4 +28,4 @@
 		<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/base.css" rel="stylesheet" type="text/css">
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class(); ?>>
+	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">

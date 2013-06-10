@@ -1,4 +1,10 @@
-<? // author part ?>
+<?php 
+/*
+ * Monolith
+ * Author snippet
+ *
+ */
+?>
 
 <?php if ( get_the_author_meta( 'description' ) ) : ?>
 	<hr/>
@@ -7,7 +13,7 @@
 		<div class="author-image pull-left" itemprop="image"><?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?></div>
 		
 		<div class="media-body">
-			<h3 class="author-name" itemprop="author">About <?php echo get_the_author() ; ?></h3>
+			<h3 class="author-name" itemprop="author">About <?php the_author() ?></h3>
 			<div class="author-description" itemprop="description"><?php the_author_meta( 'description' ); ?></div>
 		</div>
 	

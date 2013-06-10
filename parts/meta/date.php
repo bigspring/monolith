@@ -1,1 +1,1 @@
-<p class="muted"><?php the_time('l jS F Y'); ?></p>
+<p class="post-date text-muted" itemprop="datePublished"><?php the_time('l jS F Y'); ?></p>
