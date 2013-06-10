@@ -1,4 +1,11 @@
-<?php // WordPress index ?>
+<?php 
+/*
+ * Monolith
+ * WordPress Index
+ * The WordPress index does most of the heavy lifting for loops – categories, archives, tags etc.
+*/
+?>
+
 
 <?php get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
 

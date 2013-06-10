@@ -1,7 +1,15 @@
+<?php 
+/*
+ * Monolith
+ * Frontpage template
+ *
+ */
+?>
+
 <?php get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
 
 <!-- hero unit -->
-<div class="hero">
+<div class="wrapper-hero">
 	<div class="<?= CONTAINER_CLASSES; ?>">
 		<header class="jumbotron">
 			<h1>Heading</h1>
@@ -12,7 +20,7 @@
 </div>
 
 <!-- main content -->
-<div class="main" role="document">
+<div class="wrapper-main" role="document">
 	
 	<div class="<?= CONTAINER_CLASSES; ?>">
 

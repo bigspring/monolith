@@ -1,8 +1,14 @@
-<?php // Single Post ?>
+<?php 
+/*
+ * Monolith
+ * Single post template
+ *
+ */
+?>
 
 <? get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
 
-<div class="main" role="document">
+<div class="wrapper-main" role="document">
 	
 	<div class="<?= CONTAINER_CLASSES; ?>">
 
@@ -13,7 +19,7 @@
 			<div class="<?= MAIN_SIZE ?>" role="main">			
 			
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-				<? get_template_part('parts/post/post-single') // load single post ?>
+				<? get_template_part('parts/post-content') // load single post ?>
 				<?php endwhile; ?>
 			
 			</div><!-- /MAIN_SIZES -->

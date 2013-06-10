@@ -1,10 +1,16 @@
-<?php // 404 page ?>
+<?php 
+/*
+ * Monolith
+ * 404 template
+ *
+ */
+?>
 
 <?php // Default Page Template ?>
 
 <? get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
 
-<div class="main" role="document">
+<div class="wrapper-main" role="document">
 	
 	<div class="<?= CONTAINER_CLASSES; ?>">
 
