@@ -32,6 +32,8 @@
 					<?php elseif ( is_category() ) : ?>
 					<h1 class="category-title h1"><?php single_cat_title() ?></h1>
 					
+					<?php elseif ( is_author() ) : get_template_part('parts/author-header') ?>
+					
 					<?php elseif ( is_home() ) : ?>
 					<h1>The Blog</h1>
 					

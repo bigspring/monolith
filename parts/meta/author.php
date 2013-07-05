@@ -1,0 +1,1 @@
+<span class="post-author" itemprop="author"><?= the_author_posts_link(); ?></span>

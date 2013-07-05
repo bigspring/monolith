@@ -2,7 +2,7 @@
 	
 	<header class="page-header">		
 		<h1 class="post-title" itemprop="headline"><?php the_title(); ?></h1>		
-		<?php get_template_part('parts/meta/date-authorlink'); ?>	
+		<div class="post-meta text-muted"><?php get_template_part('parts/meta/date'); ?> by <?php get_template_part('parts/meta/author'); ?></div>
 	</header>
 	
 	<?php if ($post->post_excerpt != '') { // show the excerpt if it exists ?>
