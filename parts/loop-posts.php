@@ -1,4 +1,4 @@
-<? // multiple posts loop ?>
+<?php // multiple posts loop ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<? get_template_part('parts/post-snippet') // load the post snippet markup ?>
@@ -9,3 +9,5 @@
 <? else : ?>
 	<div class="alert">No articles found.</div>
 <?php endif; ?>
+
+<?php get_template_part('parts/pagination') // load the pagination part ?>
