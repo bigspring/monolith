@@ -17,7 +17,7 @@ $pagination_links = paginate_links( array(
 
 <ul class="pagination">
 	
-	<?php foreach ($pagination_links AS $link) { ?>
+	<?php if($pagination_links) foreach ($pagination_links AS $link) { ?>
 	<li><?= $link ?></li>
 	<?php } ?>
 
