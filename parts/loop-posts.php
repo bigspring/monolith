@@ -7,7 +7,7 @@
 <? elseif ( is_search() ) : // display an error if no search results are found ?>
 	<div class="alert">No results found for '<?php echo get_search_query(); ?>'</div>
 <? else : ?>
-	<div class="alert">No articles found.</div>
+	<div class="alert">There are no posts to display.</div>
 <?php endif; ?>
 
 <?php get_template_part('parts/pagination') // load the pagination part ?>
