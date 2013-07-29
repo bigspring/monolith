@@ -285,7 +285,7 @@ function childpages($atts, $content = null)
 		foreach ($childpages AS $childpage)
 		{
 				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
-				$html .= '<li class="span2">';
+				$html .= '<li class="col-2">';
 				$html .= get_the_post_thumbnail($childpage->ID);
 				$html .= '<h3>' . $childpage->post_title . '</h3>';
 				$html .= '<a href="'. get_permalink($childpage->ID) .' " class="btn">More</a>';
@@ -442,10 +442,10 @@ function childpages($atts, $content = null)
 				$html .= '<div class="media">';
 				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
 				$html .= '<div class="row">';
-				$html .= '<div class="span3">';
+				$html .= '<div class="col-3">';
 				$html .= '<a href="' . get_permalink($childpage->ID) . '">' . get_the_post_thumbnail($childpage->ID) . '</a>';
 				$html .= '</div>';
-				$html .= '<div class="span5">';
+				$html .= '<div class="col-5">';
 				$html .= '<div class="media-body">';
 				$html .= '<h3 class="media-heading">' . $childpage->post_title . '</h3>';
 				$html .= $childpage->post_excerpt;
@@ -519,6 +519,54 @@ function childpages($atts, $content = null)
 
 //================================ end childpages shortcode stuff ====================================
 
+function pages_shortcode($atts, $content = null) {
+
+	if(is_array($atts))
+	{
+		if(array_key_exists('ids', $atts))
+		{
+			$page_ids = array();
+			$page_ids = explode(',', $atts['ids']);
+			
+			$args = array(
+				'post__in' => $page_ids,
+				'post_type' => 'page',
+				'order' => 'ASC',
+				'orderby' => 'menu_order'
+	
+			);
+			
+			$pages = new wp_query($args);
+			$html = '';
+	
+			while ( $pages->have_posts() ) : $pages->the_post();
+						
+				
+		
+				$html .= '<div class="media">';
+				$html .= '<div id="childpage-item-' . get_the_id() . '">';
+				$html .= '<div class="row">';
+				$html .= '<div class="col-2">';
+				$html .= '<a href="' . get_permalink() . '">' . get_the_post_thumbnail($post->ID, 'page-thumb') . '</a>';
+				$html .= '</div>';
+				$html .= '<div class="col-10">';
+				$html .= '<div class="media-body">';
+				$html .= '<a href="' . get_permalink() . '"><h3 class="media-heading">' . get_the_title() . '</h3></a>';
+				$html .= get_the_excerpt();
+				$html .= '</div>';
+				$html .= '</div>';
+				$html .= '</div>';
+				$html .= '</div>';
+				$html .= '</div>';//end media div*/
+			
+			endwhile;
+			wp_reset_query();
+			
+			return $html;
+		}
+	}			
+}//end function
+
 //shortcode for bio column structures
 function columns_shortcode($atts, $content = null) {
 		global $post;
@@ -541,5 +589,6 @@ add_shortcode('alert', 'alerts');
 add_shortcode('block-message', 'block_messages');
 add_shortcode('blockquote', 'blockquotes');
 add_shortcode('childpages', 'childpages');
+add_shortcode('pages', 'pages_shortcode');
 add_shortcode('columns', 'columns_shortcode');
 ?>
