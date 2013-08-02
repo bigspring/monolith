@@ -293,7 +293,6 @@ add_action('media_buttons','add_sc_select',11);
 function add_sc_select(){
     echo '&nbsp;<select id="sc_select">
                         <option disabled="disabled">Shortcodes</option>
-                        <option value="[gallery id=&#34;&#34; size=&#34;&#34; border=&#34;&#34;]">[gallery]</option>
                         <option value="[intro][/intro]">[intro]</option>
                         <option value="[button text=&#34;&#34; url=&#34;&#34; type=&#34;&#34; size=&#34;&#34;]">[button]</option>
                         <option value="[alert text=&#34;&#34; type=&#34;&#34; close=&#34;&#34;]">[alert]</option>
