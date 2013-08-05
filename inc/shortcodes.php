@@ -293,155 +293,25 @@ function childpages($atts, $content = null)
 	
 	}
 
-	elseif($layout == 'tabs-accordion')//tabs accordion shortcode	
+	elseif($layout == 'accordion') //tabs accordion shortcode	
 	{
-		$count = 0;
 	
-		$html = '<div class="child-tabs">';
-		$html .= '<ul class="nav nav-tabs">';
-	
-		foreach ($childpages AS $childpage)
-		{
-				
-				$active = '';
-				if ($count == 0) $active = 'class="active"';
-				
-				$html .= '<li '. $active . ' id="childpage-item-' . $childpage->ID .'">';
-				$html .= '<a href="#' . $childpage->ID . '" data-toggle="tab">' . $childpage->post_title . '</a>';
-				$html .= '</li>';
-				
-				$count++;
-		}
-	
-		$html .= '</ul>';
-		
-		$count = 0;
-	
-		$html .= '<div class="tab-content">';
-		
-		foreach ($childpages AS $childpage)
-		{
-				$active = '';
-				if ($count == 0) $active = 'active';
-	
-				$html .= '<div class="tab-pane ' . $active . '" id="childpage-item-' . $childpage->ID .'">';
-				
-				$args = array(
-					'post_parent' => $childpage->ID,
-					'post_type' => 'page',
-					'order' => 'ASC',
-					'orderby' => 'menu_order'
-				);
-	
-				// get all attachments
-				$grandchildpages = get_children($args);
-				
-				$html .= '<div class="accordion" id="accordion">';
-				
-				foreach($grandchildpages AS $grandchildpage)
-				{
-					$html .= '<div class="accordion-group">';
-					$html .= '<div class="accordion-heading">';
-					$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$grandchildpage->ID.'">';
-					$html .= $grandchildpage->post_title;
-					$html .= '</a>';
-					$html .= '</div>';
-					$html .= '<div id="collapse'.$grandchildpage->ID.'" class="accordion-body collapse">';
-					$html .= '<div class="accordion-inner">';
-					$html .= apply_filters('the_content', $grandchildpage->post_content);
-					$html .= '</div>';
-					$html .= '</div>';
-					$html .= '</div>';
-	
-				}
-				
-				$html .= '</div>';
-				$html .= '</div>';
-				
-				$count++;
-		}
-	
-		$html .= '</div>';
-		$html .= '</div>';
-		}
+		require( get_template_directory() . '/parts/shortcodes/childpages-accordion.php' );
 
-		elseif($layout == 'accordion')//accordion shortcode
-		{
-			$html .= '<div class="accordion" id="accordion">';
-			foreach($childpages AS $childpage)
-			{
-				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
-				$html .= '<div class="accordion-group">';
-				$html .= '<div class="accordion-heading">';
-				$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$childpage->ID.'">';
-				$html .= $childpage->post_title;
-				$html .= '</a>';
-				$html .= '</div>';
-				$html .= '<div id="collapse'.$childpage->ID.'" class="accordion-body collapse">';
-				$html .= '<div class="accordion-inner">';
-				$html .= apply_filters('the_content', $childpage->post_content);
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-
-			}
-			
-			$html .= '</div>';
-		}//end accordion
+	}//end accordion
 		
-		elseif($layout == 'snippet')
-		{
-		
-			require( get_template_directory() . '/parts/shortcodes/childpages-snippet.php');
-                
-		}//end snippet
-		
-		elseif($layout == 'heading-accordion')	
-		{
-			foreach ($childpages AS $childpage)
-			{
-		
-					$html .= '<h3>' . $childpage->post_title . '</h3>';
-					
-					$args = array(
-						'post_parent' => $childpage->ID,
-						'post_type' => 'page',
-						'order' => 'ASC',
-						'orderby' => 'menu_order'
-					);
-		
-					// get all attachments
-					$grandchildpages = get_children($args);
-					
-					$html .= '<div class="accordion" id="accordion">';
-					
-					foreach($grandchildpages AS $grandchildpage)
-					{
-						$html .= '<div class="accordion-group">';
-						$html .= '<div class="accordion-heading">';
-						$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$grandchildpage->ID.'">';
-						$html .= $grandchildpage->post_title;
-						$html .= '</a>';
-						$html .= '</div>';
-						$html .= '<div id="collapse'.$grandchildpage->ID.'" class="accordion-body collapse">';
-						$html .= '<div class="accordion-inner">';
-						$html .= apply_filters('the_content', $grandchildpage->post_content);
-						$html .= '</div>';
-						$html .= '</div>';
-						$html .= '</div>';
-		
-					}
-					
-					$html .= '</div>';
-					
-			}
-		}
-		
-		else 
-		{
-            require( get_template_directory() . '/parts/shortcodes/childpages-list.php' );
-		}
+	elseif($layout == 'snippet')
+	{
+	
+		require( get_template_directory() . '/parts/shortcodes/childpages-snippet.php');
+            
+	}//end snippet
+	
+	
+	else 
+	{
+        require( get_template_directory() . '/parts/shortcodes/childpages-list.php' );
+	}
         
     wp_reset_query();
 	return ob_get_clean();
