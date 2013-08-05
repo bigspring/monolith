@@ -7,9 +7,11 @@ define('FULLWIDTH_SIZE',        	'col-12');
 define('CONTAINER_CLASSES',         'container');
 define('ROW_CLASSES',         		'row');
 
-// gallery shortcode options
-define('GALLERY_SPAN_SIZE',			'4'); // this is the size of the span in the gallery shortcode
-define('GALLERY_IMAGE_CLASSES',		''); // these classes are added to the image tag in the gallery
+// GALLERIES
+// ------------------------------------------------------------------------------------------
+
+	define('GALLERY_SIZE',			'col-4'); // the grid size used in the gallery shortcode
+
 
 // set this to true to enable responsive
 define('BOOTSTRAP_RESPONSIVE', 		true);

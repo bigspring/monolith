@@ -106,23 +106,25 @@ function monolith_gallery($attr) {
     wp_enqueue_script('prettyphotoloader', get_template_directory_uri() . '/js/prettyphoto/loader.js', array('jquery'));
     wp_enqueue_style('prettyphotocss', get_template_directory_uri() . '/js/prettyphoto/css/prettyPhoto.css');
 
-  $output = '<ul class="thumbnails gallery">';
+  $output = '<div class="thumbnails-gallery">';
+  $output .= '<div class="row">';
 
   $i = 0;
   foreach ($attachments as $id => $attachment) {
 
-    $link = '<a href="' . $attachment->guid . '" rel="gallery[image_gallery1]">';
+    $link = '<a class="thumbnail" href="' . $attachment->guid . '" rel="gallery[image_gallery1]">';
     
-    $output .= '<li>' . $link;
+    $output .= '<div class="' . GALLERY_SIZE .' ">' . $link;
     $output .= wp_get_attachment_image($attachment->ID, $size);
     if (trim($attachment->post_excerpt)) {
       $output .= '<div class="caption hidden">' . wptexturize($attachment->post_excerpt) . '</div>';
     }
     $output .= '</a>';
-    $output .= '</li>';    
+    $output .= '</div>';    
   }
 
-  $output .= '</ul>';
+  $output .= '</div>';
+  $output .= '</div>';
 
   return $output;
 }
