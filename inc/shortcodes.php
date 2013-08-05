@@ -278,51 +278,17 @@ function childpages($atts, $content = null)
 	$childpages = new wp_query($args);
 	
 	ob_start();
-	if($layout == 'grid')//grid shortcode
+	if($layout == 'grid') //grid shortcode
 	{
 		require( get_template_directory() . '/parts/shortcodes/childpages-grid.php' );
 	}
 	
-	elseif($layout == 'tabs')//tabs shortcode
+	elseif($layout == 'tabs') //tabs shortcode
 
 	{
-		$count = 0;
 	
-		$html = '<div class="child-tabs">';
-		$html .= '<ul class="nav nav-tabs">';
+		require( get_template_directory() . '/parts/shortcodes/childpages-tabs.php' );
 	
-		foreach ($childpages AS $childpage)
-		{
-				$active = '';
-				if ($count == 0) $active = 'class="active"';
-				
-				$html .= '<li '. $active . '>';
-				$html .= '<a href="#' . $childpage->ID . '" data-toggle="tab">' . $childpage->post_title . '</a>';
-				$html .= '</li>';
-				
-				$count++;
-		}
-	
-		$html .= '</ul>';
-		
-		$count = 0;
-	
-		$html .= '<div class="tab-content">';
-		
-		foreach ($childpages AS $childpage)
-		{
-				$active = '';
-				if ($count == 0) $active = 'active';
-	
-				$html .= '<div class="tab-pane ' . $active . '" id="' . $childpage->ID .'">';
-				$html .= apply_filters('the_content', $childpage->post_content);
-				$html .= '</div>';
-				
-				$count++;
-		}
-	
-		$html .= '</div>';
-		$html .= '</div>';
 	}
 
 	elseif($layout == 'tabs-accordion')//tabs accordion shortcode	
@@ -422,30 +388,12 @@ function childpages($atts, $content = null)
 			$html .= '</div>';
 		}//end accordion
 		
-		elseif($layout == 'media')
+		elseif($layout == 'snippet')
 		{
+		
+			require( get_template_directory() . '/parts/shortcodes/childpages-snippet.php');
                 
-			foreach($childpages AS $childpage)
-			{
-				$html .= '<div class="media">';
-				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
-				$html .= '<div class="row">';
-				$html .= '<div class="col-3">';
-				$html .= '<a href="' . get_permalink($childpage->ID) . '">' . get_the_post_thumbnail($childpage->ID) . '</a>';
-				$html .= '</div>';
-				$html .= '<div class="col-5">';
-				$html .= '<div class="media-body">';
-				$html .= '<h3 class="media-heading">' . $childpage->post_title . '</h3>';
-				$html .= $childpage->post_excerpt;
-				$html .= '<a class="btn media-btn" href="' . get_permalink($childpage->ID) . '">Read more about ' . $childpage->post_title . '</a>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';//end media div
-
-			}
-		}//end media
+		}//end snippet
 		
 		elseif($layout == 'heading-accordion')	
 		{
