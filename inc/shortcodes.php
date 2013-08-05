@@ -275,25 +275,12 @@ function childpages($atts, $content = null)
 	);
 
 	// get all attachments
-	$childpages = get_children($args);
-
+	$childpages = new wp_query($args);
 	
+	ob_start();
 	if($layout == 'grid')//grid shortcode
 	{
-		$html = '<ul class="thumbnails">';
-	
-		foreach ($childpages AS $childpage)
-		{
-				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
-				$html .= '<li class="col-2">';
-				$html .= get_the_post_thumbnail($childpage->ID);
-				$html .= '<h3>' . $childpage->post_title . '</h3>';
-				$html .= '<a href="'. get_permalink($childpage->ID) .' " class="btn">More</a>';
-				$html .= '</li>';
-				$html .= '</div>';
-		}
-	
-		$html .= '</ul>';
+		require( get_template_directory() . '/parts/shortcodes/childpages-grid.php' );
 	}
 	
 	elseif($layout == 'tabs')//tabs shortcode
@@ -437,6 +424,7 @@ function childpages($atts, $content = null)
 		
 		elseif($layout == 'media')
 		{
+                
 			foreach($childpages AS $childpage)
 			{
 				$html .= '<div class="media">';
@@ -502,19 +490,11 @@ function childpages($atts, $content = null)
 		
 		else 
 		{
-			$html = '<ul class="unstyled childpages">';
-	
-			foreach ($childpages AS $childpage)
-			{
-					$html .= '<li>';
-					$html .= '<a href="'. get_permalink($childpage->ID) . '">' . $childpage->post_title . '</a>';
-					$html .= '</li>';
-			}
-		
-			$html .= '</ul>';
+            require( get_template_directory() . '/parts/shortcodes/childpages-list.php' );
 		}
-		
-	return $html;
+        
+    wp_reset_query();
+	return ob_get_clean();
 }
 
 //================================ end childpages shortcode stuff ====================================
@@ -525,63 +505,41 @@ function pages_shortcode($atts, $content = null) {
 	{
 		if(array_key_exists('ids', $atts))
 		{
+			//global $page_ids; 
 			$page_ids = array();
 			$page_ids = explode(',', $atts['ids']);
-			
-			$args = array(
-				'post__in' => $page_ids,
-				'post_type' => 'page',
-				'order' => 'ASC',
-				'orderby' => 'menu_order'
-	
-			);
-			
-			$pages = new wp_query($args);
-			$html = '';
-	
-			while ( $pages->have_posts() ) : $pages->the_post();
-						
-				
-		
-				$html .= '<div class="media">';
-				$html .= '<div id="childpage-item-' . get_the_id() . '">';
-				$html .= '<div class="row">';
-				$html .= '<div class="col-2">';
-				$html .= '<a href="' . get_permalink() . '">' . get_the_post_thumbnail($post->ID, 'page-thumb') . '</a>';
-				$html .= '</div>';
-				$html .= '<div class="col-10">';
-				$html .= '<div class="media-body">';
-				$html .= '<a href="' . get_permalink() . '"><h3 class="media-heading">' . get_the_title() . '</h3></a>';
-				$html .= get_the_excerpt();
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';//end media div*/
-			
-			endwhile;
-			wp_reset_query();
-			
-			return $html;
+            
+            // get the posts
+            $args = array(
+                'post__in' => $page_ids,
+                'post_type' => 'page',
+                'order' => 'ASC',
+                'orderby' => 'menu_order'
+            
+            );
+            $pages = new wp_query($args);
+
+            ob_start();
+            require( get_template_directory() . '/parts/shortcodes/pages.php' );
+            wp_reset_query();
+            return ob_get_clean();
 		}
 	}			
 }//end function
 
 //shortcode for bio column structures
 function columns_shortcode($atts, $content = null) {
-		global $post;
-		
-		$excerpt = $post->post_excerpt;
-		
-		return '<div class="columns">' . do_shortcode($content) . '</div>';
+	global $post;
+	
+	$excerpt = $post->post_excerpt;
+	
+	return '<div class="columns">' . do_shortcode($content) . '</div>';
 }
 
 
 // load shortcodes
 add_shortcode('icon', 'bootstrap_glyph_icons');
 add_shortcode('contact', 'contact_us_shortcode');
-//remove_shortcode('gallery', 'gallery_shortcode');
-//add_shortcode('gallery', 'bootstrap_gallery_shortcode');
 add_shortcode('gallery', 'monolith_gallery');
 add_shortcode('intro', 'intro_text_shortcode');
 add_shortcode('button', 'buttons');
