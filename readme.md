@@ -1,4 +1,4 @@
-monolith
+monolith v1.0.0
 ========
 
 a lightweight WordPress theme powered by Twitter Bootstrap, built for developers. Created by [BigSpring](http://www.bigspring.co.uk).
@@ -25,3 +25,9 @@ Follow us on Twitter:
 @bigspringweb, @juliotaylor, @simonBigSpring, @tulipdom
 
 p.s. monolith is also available as part of [lunchbox](https://github.com/bigspring/lunchbox), a quickstart bash script that installs WordPress, monolith and an arsenal of handy plugins in a few seconds.
+
+
+changelog
+-----
+
+1.0.0 – hellow wembley stadium!
