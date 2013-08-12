@@ -938,7 +938,7 @@ a .icon-rotate-90:before,a .icon-rotate-180:before,a .icon-rotate-270:before,a .
 .icon-vk:before{content:"\f189"}
 .icon-weibo:before{content:"\f18a"}
 .icon-renren:before{content:"\f18b"}
-.row img{max-width:100%}
+.row img{max-width:100%;height:auto}
 .alignright{float:right;margin-left:1em}
 .alignleft{float:left;margin-right:1em}
 .form-allowed-tags{display:none}
