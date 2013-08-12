@@ -1,18 +1,25 @@
-<?php // WordPress index ?>
+<?php 
+/*
+ * Monolith
+ * WordPress Index
+ * The WordPress index does most of the heavy lifting for loops – categories, archives, tags etc.
+*/
+?>
+
 
 <?php get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
 
-<div id="main" role="main">
+<div class="wrapper-main" role="main">
 
 	<div class="<?= CONTAINER_CLASSES; ?>">
 	
-	<? get_template_part('parts/breadcrumb'); // load breadcrumb ?>
+		<? get_template_part('parts/breadcrumb'); // load breadcrumb ?>
 	
 		<div class="<?= ROW_CLASSES ?>">
 
-			<div class="span<?= MAIN_SIZE ?>">
+			<div class="<?= MAIN_SIZE ?>">
 
-				<header class="page-header archive-header">								
+				<header class="page-header archive-header" itemprop="name">
 					
 					<?php if ( is_day() ) : ?>
 					<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'D F Y' ); ?></h1>
@@ -26,6 +33,8 @@
 					<?php elseif ( is_category() ) : ?>
 					<h1 class="category-title h1"><?php single_cat_title() ?></h1>
 					
+					<?php elseif ( is_author() ) : get_template_part('parts/author-header') ?>
+					
 					<?php elseif ( is_home() ) : ?>
 					<h1>The Blog</h1>
 					
@@ -38,7 +47,6 @@
 					<?php endif; ?>
 				
 				</header>
-		
 				
 				<?php get_template_part('parts/loop-posts') // load the posts loop ?>
 

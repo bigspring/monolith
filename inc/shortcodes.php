@@ -106,23 +106,25 @@ function monolith_gallery($attr) {
     wp_enqueue_script('prettyphotoloader', get_template_directory_uri() . '/js/prettyphoto/loader.js', array('jquery'));
     wp_enqueue_style('prettyphotocss', get_template_directory_uri() . '/js/prettyphoto/css/prettyPhoto.css');
 
-  $output = '<ul class="thumbnails gallery">';
+  $output = '<div class="thumbnails-gallery">';
+  $output .= '<div class="row">';
 
   $i = 0;
   foreach ($attachments as $id => $attachment) {
 
-    $link = '<a href="' . $attachment->guid . '" rel="gallery[image_gallery1]">';
+    $link = '<a class="thumbnail" href="' . $attachment->guid . '" rel="gallery[image_gallery1]">';
     
-    $output .= '<li>' . $link;
+    $output .= '<div class="' . GALLERY_SIZE .' ">' . $link;
     $output .= wp_get_attachment_image($attachment->ID, $size);
     if (trim($attachment->post_excerpt)) {
       $output .= '<div class="caption hidden">' . wptexturize($attachment->post_excerpt) . '</div>';
     }
     $output .= '</a>';
-    $output .= '</li>';    
+    $output .= '</div>';    
   }
 
-  $output .= '</ul>';
+  $output .= '</div>';
+  $output .= '</div>';
 
   return $output;
 }
@@ -208,7 +210,7 @@ function block_messages( $atts, $content = null ) {
 
 	$output = '<div class="fade in alert alert-block '. $type . '">';
 	if($close == 'true') {
-		$output .= '<a class="close" data-dismiss="alert">×</a>';
+		$output .= '<button class="close" data-dismiss="alert">&times;</a>';
 	}
 	$output .= '<p>' . $text . '</p></div>';
 
@@ -275,265 +277,89 @@ function childpages($atts, $content = null)
 	);
 
 	// get all attachments
-	$childpages = get_children($args);
-
+	$childpages = new wp_query($args);
 	
-	if($layout == 'grid')//grid shortcode
+	ob_start();
+	if($layout == 'grid') //grid shortcode
 	{
-		$html = '<ul class="thumbnails">';
-	
-		foreach ($childpages AS $childpage)
-		{
-				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
-				$html .= '<li class="span2">';
-				$html .= get_the_post_thumbnail($childpage->ID);
-				$html .= '<h3>' . $childpage->post_title . '</h3>';
-				$html .= '<a href="'. get_permalink($childpage->ID) .' " class="btn">More</a>';
-				$html .= '</li>';
-				$html .= '</div>';
-		}
-	
-		$html .= '</ul>';
+		require( get_template_directory() . '/parts/shortcodes/childpages-grid.php' );
 	}
 	
-	elseif($layout == 'tabs')//tabs shortcode
+	elseif($layout == 'tabs') //tabs shortcode
 
 	{
-		$count = 0;
 	
-		$html = '<div class="child-tabs">';
-		$html .= '<ul class="nav nav-tabs">';
+		require( get_template_directory() . '/parts/shortcodes/childpages-tabs.php' );
 	
-		foreach ($childpages AS $childpage)
-		{
-				$active = '';
-				if ($count == 0) $active = 'class="active"';
-				
-				$html .= '<li '. $active . '>';
-				$html .= '<a href="#' . $childpage->ID . '" data-toggle="tab">' . $childpage->post_title . '</a>';
-				$html .= '</li>';
-				
-				$count++;
-		}
-	
-		$html .= '</ul>';
-		
-		$count = 0;
-	
-		$html .= '<div class="tab-content">';
-		
-		foreach ($childpages AS $childpage)
-		{
-				$active = '';
-				if ($count == 0) $active = 'active';
-	
-				$html .= '<div class="tab-pane ' . $active . '" id="' . $childpage->ID .'">';
-				$html .= apply_filters('the_content', $childpage->post_content);
-				$html .= '</div>';
-				
-				$count++;
-		}
-	
-		$html .= '</div>';
-		$html .= '</div>';
 	}
 
-	elseif($layout == 'tabs-accordion')//tabs accordion shortcode	
+	elseif($layout == 'accordion') //tabs accordion shortcode	
 	{
-		$count = 0;
 	
-		$html = '<div class="child-tabs">';
-		$html .= '<ul class="nav nav-tabs">';
-	
-		foreach ($childpages AS $childpage)
-		{
-				
-				$active = '';
-				if ($count == 0) $active = 'class="active"';
-				
-				$html .= '<li '. $active . ' id="childpage-item-' . $childpage->ID .'">';
-				$html .= '<a href="#' . $childpage->ID . '" data-toggle="tab">' . $childpage->post_title . '</a>';
-				$html .= '</li>';
-				
-				$count++;
-		}
-	
-		$html .= '</ul>';
-		
-		$count = 0;
-	
-		$html .= '<div class="tab-content">';
-		
-		foreach ($childpages AS $childpage)
-		{
-				$active = '';
-				if ($count == 0) $active = 'active';
-	
-				$html .= '<div class="tab-pane ' . $active . '" id="childpage-item-' . $childpage->ID .'">';
-				
-				$args = array(
-					'post_parent' => $childpage->ID,
-					'post_type' => 'page',
-					'order' => 'ASC',
-					'orderby' => 'menu_order'
-				);
-	
-				// get all attachments
-				$grandchildpages = get_children($args);
-				
-				$html .= '<div class="accordion" id="accordion">';
-				
-				foreach($grandchildpages AS $grandchildpage)
-				{
-					$html .= '<div class="accordion-group">';
-					$html .= '<div class="accordion-heading">';
-					$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$grandchildpage->ID.'">';
-					$html .= $grandchildpage->post_title;
-					$html .= '</a>';
-					$html .= '</div>';
-					$html .= '<div id="collapse'.$grandchildpage->ID.'" class="accordion-body collapse">';
-					$html .= '<div class="accordion-inner">';
-					$html .= apply_filters('the_content', $grandchildpage->post_content);
-					$html .= '</div>';
-					$html .= '</div>';
-					$html .= '</div>';
-	
-				}
-				
-				$html .= '</div>';
-				$html .= '</div>';
-				
-				$count++;
-		}
-	
-		$html .= '</div>';
-		$html .= '</div>';
-		}
+		require( get_template_directory() . '/parts/shortcodes/childpages-accordion.php' );
 
-		elseif($layout == 'accordion')//accordion shortcode
-		{
-			$html .= '<div class="accordion" id="accordion">';
-			foreach($childpages AS $childpage)
-			{
-				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
-				$html .= '<div class="accordion-group">';
-				$html .= '<div class="accordion-heading">';
-				$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$childpage->ID.'">';
-				$html .= $childpage->post_title;
-				$html .= '</a>';
-				$html .= '</div>';
-				$html .= '<div id="collapse'.$childpage->ID.'" class="accordion-body collapse">';
-				$html .= '<div class="accordion-inner">';
-				$html .= apply_filters('the_content', $childpage->post_content);
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-
-			}
-			
-			$html .= '</div>';
-		}//end accordion
+	}//end accordion
 		
-		elseif($layout == 'media')
-		{
-			foreach($childpages AS $childpage)
-			{
-				$html .= '<div class="media">';
-				$html .= '<div id="childpage-item-' . $childpage->ID . '">';
-				$html .= '<div class="row">';
-				$html .= '<div class="span3">';
-				$html .= '<a href="' . get_permalink($childpage->ID) . '">' . get_the_post_thumbnail($childpage->ID) . '</a>';
-				$html .= '</div>';
-				$html .= '<div class="span5">';
-				$html .= '<div class="media-body">';
-				$html .= '<h3 class="media-heading">' . $childpage->post_title . '</h3>';
-				$html .= $childpage->post_excerpt;
-				$html .= '<a class="btn media-btn" href="' . get_permalink($childpage->ID) . '">Read more about ' . $childpage->post_title . '</a>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';
-				$html .= '</div>';//end media div
-
-			}
-		}//end media
-		
-		elseif($layout == 'heading-accordion')	
-		{
-			foreach ($childpages AS $childpage)
-			{
-		
-					$html .= '<h3>' . $childpage->post_title . '</h3>';
-					
-					$args = array(
-						'post_parent' => $childpage->ID,
-						'post_type' => 'page',
-						'order' => 'ASC',
-						'orderby' => 'menu_order'
-					);
-		
-					// get all attachments
-					$grandchildpages = get_children($args);
-					
-					$html .= '<div class="accordion" id="accordion">';
-					
-					foreach($grandchildpages AS $grandchildpage)
-					{
-						$html .= '<div class="accordion-group">';
-						$html .= '<div class="accordion-heading">';
-						$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$grandchildpage->ID.'">';
-						$html .= $grandchildpage->post_title;
-						$html .= '</a>';
-						$html .= '</div>';
-						$html .= '<div id="collapse'.$grandchildpage->ID.'" class="accordion-body collapse">';
-						$html .= '<div class="accordion-inner">';
-						$html .= apply_filters('the_content', $grandchildpage->post_content);
-						$html .= '</div>';
-						$html .= '</div>';
-						$html .= '</div>';
-		
-					}
-					
-					$html .= '</div>';
-					
-			}
-		}
-		
-		else 
-		{
-			$html = '<ul class="unstyled childpages">';
+	elseif($layout == 'snippet')
+	{
 	
-			foreach ($childpages AS $childpage)
-			{
-					$html .= '<li>';
-					$html .= '<a href="'. get_permalink($childpage->ID) . '">' . $childpage->post_title . '</a>';
-					$html .= '</li>';
-			}
-		
-			$html .= '</ul>';
-		}
-		
-	return $html;
+		require( get_template_directory() . '/parts/shortcodes/childpages-snippet.php');
+            
+	}//end snippet
+	
+	
+	else 
+	{
+        require( get_template_directory() . '/parts/shortcodes/childpages-list.php' );
+	}
+        
+    wp_reset_query();
+	return ob_get_clean();
 }
 
 //================================ end childpages shortcode stuff ====================================
 
+function pages_shortcode($atts, $content = null) {
+
+	if(is_array($atts))
+	{
+		if(array_key_exists('ids', $atts))
+		{
+			//global $page_ids; 
+			$page_ids = array();
+			$page_ids = explode(',', $atts['ids']);
+            
+            // get the posts
+            $args = array(
+                'post__in' => $page_ids,
+                'post_type' => 'page',
+                'order' => 'ASC',
+                'orderby' => 'menu_order'
+            
+            );
+            $pages = new wp_query($args);
+
+            ob_start();
+            require( get_template_directory() . '/parts/shortcodes/pages.php' );
+            wp_reset_query();
+            return ob_get_clean();
+		}
+	}			
+}//end function
+
 //shortcode for bio column structures
 function columns_shortcode($atts, $content = null) {
-		global $post;
-		
-		$excerpt = $post->post_excerpt;
-		
-		return '<div class="columns">' . do_shortcode($content) . '</div>';
+	global $post;
+	
+	$excerpt = $post->post_excerpt;
+	
+	return '<div class="columns">' . do_shortcode($content) . '</div>';
 }
 
 
 // load shortcodes
 add_shortcode('icon', 'bootstrap_glyph_icons');
 add_shortcode('contact', 'contact_us_shortcode');
-//remove_shortcode('gallery', 'gallery_shortcode');
-//add_shortcode('gallery', 'bootstrap_gallery_shortcode');
 add_shortcode('gallery', 'monolith_gallery');
 add_shortcode('intro', 'intro_text_shortcode');
 add_shortcode('button', 'buttons');
@@ -541,5 +367,6 @@ add_shortcode('alert', 'alerts');
 add_shortcode('block-message', 'block_messages');
 add_shortcode('blockquote', 'blockquotes');
 add_shortcode('childpages', 'childpages');
+add_shortcode('pages', 'pages_shortcode');
 add_shortcode('columns', 'columns_shortcode');
 ?>

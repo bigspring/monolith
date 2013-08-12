@@ -1,36 +1,33 @@
 <?php
 
-// define the size of the left, right and full span sizes
-define('SIDEBAR_SIZE', 				'4');
-define('MAIN_SIZE',        			'8');
-define('FULLWIDTH_SIZE',        	'12');
-define('CONTAINER_CLASSES',         'container-fluid');
-define('ROW_CLASSES',         		'row-fluid');
+// Scaffolding
+// --------------------------------------------
 
-// gallery shortcode options
-define('GALLERY_SPAN_SIZE',			'4'); // this is the size of the span in the gallery shortcode
-define('GALLERY_IMAGE_CLASSES',		''); // these classes are added to the image tag in the gallery
+	define('SIDEBAR_SIZE', 				'col-12 col-lg-4'); // sidebar sizes
+	define('MAIN_SIZE',        			'col-12 col-lg-8'); // main content area sizes
+	define('FULLWIDTH_SIZE',        	'col-12'); // full width page sizes
+	define('CONTAINER_CLASSES',         'container'); // classes used in containers
+	define('ROW_CLASSES',         		'row'); // the classes used in rows
 
-// set this to true to enable responsive
-define('BOOTSTRAP_RESPONSIVE', 		true);
+// Galleries
+// --------------------------------------------
 
-// set this to true to enable the Opengraph header
-define('OPENGRAPH_HEAD',			false);
-define('FACEBOOOK_ADMIN_ID',		'');
-// the URI to the main logo for the site with a prevailing slash (eg. /wp-content/themes/img/logo.png) 
-define('SITE_LOGO', '/');
+	define('GALLERY_SIZE',			'col-4'); // the grid size used in the gallery shortcode
 
-define('GOOGLE_ANALYTICS_ID',       false);
 
-// whether to load the site.js file
-define('CUSTOM_JS',					true);
+// Analytics
+// --------------------------------------------
 
-/**
- * Don't touch anything below, or thingds will break and then I will break your fingers
- */
-require_once('monolith.php');
-require_once('hooks.php');
-require_once('filters.php');
-require_once('functions.php');
-require_once('shortcodes.php');
-require_once('monolith_widgets.php');
+	define('GOOGLE_ANALYTICS_ID',       false);
+
+
+// ** ACHTUNG! **
+// Don't touch anything below, or things will break and then I will break your fingers!!
+// -------------------------------------------------------------------------------------
+
+	require_once('monolith.php');
+	require_once('hooks.php');
+	require_once('filters.php');
+	require_once('functions.php');
+	require_once('shortcodes.php');
+	require_once('monolith_widgets.php');
