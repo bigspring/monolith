@@ -1,10 +1,10 @@
 <?php $count = 0; // reset the count ?>
 
-<div class="accordion childpages" id="childpages-accordion">
+<div class="accordion childpages childpages-accordion" id="childpages-collpase">
   <?php while ( $childpages->have_posts() ) : $childpages->the_post(); ?>
   <div class="accordion-group">
     <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#childpages-accordion" href="#collapse-<?= get_the_id() ?>">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#childpages-collapse" href="#collapse-<?= get_the_id() ?>">
         <? the_title() ?>
       </a>
     </div>

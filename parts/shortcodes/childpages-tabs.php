@@ -1,4 +1,4 @@
-<div class="childpages">
+<div class="childpages childpages-tabs">
 
 	<?php $count = 0; // reset the count ?>
 	
