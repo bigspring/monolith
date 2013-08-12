@@ -938,13 +938,14 @@ a .icon-rotate-90:before,a .icon-rotate-180:before,a .icon-rotate-270:before,a .
 .icon-vk:before{content:"\f189"}
 .icon-weibo:before{content:"\f18a"}
 .icon-renren:before{content:"\f18b"}
-.row img{max-width:100%;height:auto}
 .alignright{float:right;margin-left:1em}
 .alignleft{float:left;margin-right:1em}
-.form-allowed-tags{display:none}
-a:focus{outline:none}
 .wpcf7 .wpcf7-not-valid-tip{color:#d9534f;border:none;position:relative;left:5px;top:-2px;width:auto;font-size:1em}
 .wpcf7 .wpcf7-not-valid{border-color:#d9534f}
 .wpcf7 .wpcf7-response-output{margin:1em 0;padding:.5em 1em}
 .wpcf7 .wpcf7-mail-sent-ng,.wpcf7 .wpcf7-validation-errors{background:#f2dede;color:#b94a48;border-color:#eed3d7}
 .childpages{margin:2em 0}
+a:focus{outline:none}
+.row img{max-width:100%;height:auto}
+.nav-tabs{margin-bottom:1em}
+.thumbnail{margin-bottom:30px}

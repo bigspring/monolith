@@ -1,33 +1,12 @@
-// images
+// WordPress alignment
+// -----------------------
 
-	.row img {max-width: 100%; height: auto;} // add max-width support for grid images
-
-// Alignment
-
-	.alignright {
-		float: right;
-		margin-left: 1em;
-	}
-	
-	.alignleft {
-		float: left;
-		margin-right: 1em;
-	}
-
-// Remove lame 'allowed comment' shite from the standard comment form
+	.alignright {float: right;margin-left: 1em;}
+	.alignleft {float: left;margin-right: 1em;}
 
 	
-	.form-allowed-tags {display: none;}
-
-
-// Remove epically weak focus outline from a links
-
-	a:focus {
-		outline: none;
-	}
-	
-// Contactform7
-
+// contact form 7 hacks
+// -----------------------
 	
 	// contactform7 validation style reset
 	.wpcf7 {
@@ -35,17 +14,25 @@
 		// format error tooltips
 		.wpcf7-not-valid-tip {color: @brand-danger; border: none; position: relative; left: 5px; top: -2px; width: auto; font-size: 1em;}
 		.wpcf7-not-valid {border-color: @brand-danger;}	
-		
-		
+			
+			
 		//format validation output base style
 		.wpcf7-response-output {margin: 1em 0; padding: 0.5em 1em;}
 		
 		// format the validation error
-		.wpcf7-mail-sent-ng,
-		.wpcf7-validation-errors {
-			background: @state-danger-bg; color: @state-danger-text; border-color: @state-danger-border;}
-		}
+		.wpcf7-mail-sent-ng, .wpcf7-validation-errors {background: @state-danger-bg; color: @state-danger-text; border-color: @state-danger-border;}
+	
+	}
 
 // shortcodes
+// -----------------------
 
 	.childpages {margin: 2em 0;} // add a margin to the childpages container div
+	
+// bootstrap hacks
+// -----------------------
+
+	a:focus {outline: none;} // remove focus outline from a links
+	.row img {max-width: 100%; height: auto;} // add max-width support for grid images
+	.nav-tabs {margin-bottom: 1em;} // add a bottom margin to tab nav block	
+	.thumbnail {margin-bottom: @grid-gutter-width;} // add a margin to the bottom of thumbnails
