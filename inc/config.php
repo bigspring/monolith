@@ -12,8 +12,12 @@
 // Galleries
 // --------------------------------------------
 
-	define('GALLERY_SIZE',			'col-4'); // the grid size used in the gallery shortcode
+	define('GALLERY_SIZE',			'col-3'); // the col size used in the gallery shortcode
 
+// Shortcodes
+// --------------------------------------------
+
+	define('CHILD_GRID_SIZE',		'col-2'); // the col size used in the child pages grid shortcode
 
 // Analytics
 // --------------------------------------------
