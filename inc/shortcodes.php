@@ -280,9 +280,9 @@ function childpages($atts, $content = null)
 	$childpages = new wp_query($args);
 	
 	ob_start();
-	if($layout == 'grid') //grid shortcode
+	if($layout == 'thumbnails') //grid shortcode
 	{
-		require( get_template_directory() . '/parts/shortcodes/childpages-grid.php' );
+		require( get_template_directory() . '/parts/shortcodes/childpages-thumbnails.php' );
 	}
 	
 	elseif($layout == 'tabs') //tabs shortcode
@@ -293,20 +293,27 @@ function childpages($atts, $content = null)
 	
 	}
 
-	elseif($layout == 'accordion') //tabs accordion shortcode	
+	elseif($layout == 'accordions') //tabs accordion shortcode	
 	{
 	
-		require( get_template_directory() . '/parts/shortcodes/childpages-accordion.php' );
+		require( get_template_directory() . '/parts/shortcodes/childpages-accordions.php' );
 
 	}//end accordion
 		
-	elseif($layout == 'snippet')
+	elseif($layout == 'snippets')
 	{
 	
-		require( get_template_directory() . '/parts/shortcodes/childpages-snippet.php');
+		require( get_template_directory() . '/parts/shortcodes/childpages-snippets.php');
             
 	}//end snippet
 	
+	elseif($layout == 'panels')
+	{
+	
+		require( get_template_directory() . '/parts/shortcodes/childpages-panels.php');
+            
+	}//end panel
+
 	
 	else 
 	{
