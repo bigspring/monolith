@@ -30,4 +30,5 @@ p.s. monolith is also available as part of [lunchbox](https://github.com/bigspri
 changelog
 -----
 
+1.0.1 – minor amend to sidebar semantic classes
 1.0.0 – hellow wembley stadium!
