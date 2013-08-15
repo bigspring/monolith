@@ -1,4 +1,4 @@
-monolith v1.0.0
+monolith
 ========
 
 a lightweight WordPress theme powered by Twitter Bootstrap, built for developers. Created by [BigSpring](http://www.bigspring.co.uk).
