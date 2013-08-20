@@ -17,7 +17,7 @@
 // Shortcodes
 // --------------------------------------------
 
-	define('CHILD_GRID_SIZE',		'col-md-3'); // the col size used in the child pages grid shortcode
+	define('CHILD_GRID_SIZE',		'col-md-4'); // the col size used in the child pages grid shortcode
 
 // Analytics
 // --------------------------------------------
