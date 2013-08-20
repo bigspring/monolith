@@ -350,7 +350,6 @@ add_shortcode('gallery', 'monolith_gallery');
 add_shortcode('intro', 'intro_text_shortcode');
 add_shortcode('button', 'buttons');
 add_shortcode('alert', 'alerts');
-add_shortcode('block-message', 'block_messages');
 add_shortcode('blockquote', 'blockquotes');
 add_shortcode('childpages', 'childpages');
 add_shortcode('pages', 'pages_shortcode');
