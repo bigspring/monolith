@@ -296,7 +296,6 @@ function add_sc_select(){
                         <option value="[intro][/intro]">[intro]</option>
                         <option value="[button text=&#34;&#34; url=&#34;&#34; type=&#34;&#34; size=&#34;&#34;]">[button]</option>
                         <option value="[alert text=&#34;&#34; type=&#34;&#34; close=&#34;&#34;]">[alert]</option>
-                        <option value="[block-message text=&#34;&#34; type=&#34;&#34; close=&#34;&#34;]">[block-message]</option>
                         <option value="[blockquote cite=&#34;&#34; float=&#34;&#34;][/blockquote]">[blockquote]</option>
                         <option value="[columns][/columns]">[columns]</option>
                         <option value="[childpages layout=&#34;&#34;]">[childpages]</option>

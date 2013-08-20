@@ -3,21 +3,21 @@
 // Scaffolding
 // --------------------------------------------
 
-	define('SIDEBAR_SIZE', 				'col-12 col-lg-4'); // sidebar sizes
-	define('MAIN_SIZE',        			'col-12 col-lg-8'); // main content area sizes
-	define('FULLWIDTH_SIZE',        	'col-12'); // full width page sizes
+	define('SIDEBAR_SIZE', 				'col-md-4'); // sidebar sizes
+	define('MAIN_SIZE',        			'col-md-8'); // main content area sizes
+	define('FULLWIDTH_SIZE',        	'col-md-12'); // full width page sizes
 	define('CONTAINER_CLASSES',         'container'); // classes used in containers
 	define('ROW_CLASSES',         		'row'); // the classes used in rows
 
 // Galleries
 // --------------------------------------------
 
-	define('GALLERY_SIZE',			'col-3'); // the col size used in the gallery shortcode
+	define('GALLERY_SIZE',			'col-md-3'); // the col size used in the gallery shortcode
 
 // Shortcodes
 // --------------------------------------------
 
-	define('CHILD_GRID_SIZE',		'col-2'); // the col size used in the child pages grid shortcode
+	define('CHILD_GRID_SIZE',		'col-md-4'); // the col size used in the child pages grid shortcode
 
 // Analytics
 // --------------------------------------------
