@@ -14,7 +14,7 @@
 		<header class="jumbotron">
 			<h1>Heading</h1>
 			<p>Tagline</p>
-			<p><a class="btn btn-primary btn-large">Learn more</a></p>
+			<p><a class="btn btn-primary btn-lg">Learn more</a></p>
 		</header>
 	</div>
 </div>

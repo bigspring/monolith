@@ -197,27 +197,6 @@ function alerts( $atts, $content = null ) {
 }
 
 /**
- * Renders bootstrap block messages
- * @param array $atts
- * @param string $content
- */
-function block_messages( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-			'type' => 'alert-info', /* alert-info, alert-success, alert-error */
-			'close' => 'false', /* display close link */
-			'text' => '',
-	), $atts ) );
-
-	$output = '<div class="fade in alert alert-block '. $type . '">';
-	if($close == 'true') {
-		$output .= '<button class="close" data-dismiss="alert">&times;</a>';
-	}
-	$output .= '<p>' . $text . '</p></div>';
-
-	return $output;
-}
-
-/**
  * Renders bootstrap blockquotes
  * @param array $atts
  * @param string $content
@@ -371,7 +350,6 @@ add_shortcode('gallery', 'monolith_gallery');
 add_shortcode('intro', 'intro_text_shortcode');
 add_shortcode('button', 'buttons');
 add_shortcode('alert', 'alerts');
-add_shortcode('block-message', 'block_messages');
 add_shortcode('blockquote', 'blockquotes');
 add_shortcode('childpages', 'childpages');
 add_shortcode('pages', 'pages_shortcode');

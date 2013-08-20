@@ -1,8 +1,8 @@
-<div class="navbar">
+<nav class="navbar navbar-default" role="nagivation">
   <div class="container">
 
     <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-navigation">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -12,7 +12,7 @@
     <a class="navbar-brand" href="<?= home_url(); ?>"><?= bloginfo('title') ?> </a>
 
     <? // Place everything within .navbar-collapse to hide it until above 768px ?>
-    <div class="nav-collapse collapse navbar-responsive-collapse">
+    <div class="collapse navbar-collapse main-navigation">
 
 		<?php
 			$args = array(
@@ -27,4 +27,4 @@
 
     </div><!-- /.nav-collapse -->
   </div><!-- /.container -->
-</div><!-- /.navbar -->
+</nav><!-- /.navbar -->
