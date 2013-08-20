@@ -1,15 +1,16 @@
 <?php $count = 0; // reset the count ?>
-
-<div class="accordion childpages childpages-accordion" id="childpages-collpase">
+<div class="panel-group childpages childpages-collapse" id="accordion">
   <?php while ( $childpages->have_posts() ) : $childpages->the_post(); ?>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#childpages-collapse" href="#collapse-<?= get_the_id() ?>">
-        <? the_title() ?>
-      </a>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-<?= get_the_id() ?>">
+          <? the_title() ?>
+        </a>
+      </h4>
     </div>
-    <div id="collapse-<?= get_the_id() ?>" class="accordion-body collapse <?= $count == 0 ? 'in' : '' ?>">
-      <div class="accordion-inner">
+    <div id="collapse-<?= get_the_id() ?>" class="panel-collapse collapse <?= $count == 0 ? 'in' : '' ?>">
+      <div class="panel-body">
         <? the_content() ?>
       </div>
     </div>
