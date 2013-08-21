@@ -28,7 +28,10 @@
 					<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'F Y' ); ?></h1>
 					
 					<?php elseif ( is_year() ) : ?>
-					<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'Y' ); ?></h1>						
+					<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'Y' ); ?></h1>	
+					
+					<?php elseif ( is_tag() ) : ?>
+					<h1 class="archive-title h1">Tag Archive: <?php single_tag_title(); ?></h1>						
 					
 					<?php elseif ( is_category() ) : ?>
 					<h1 class="category-title h1"><?php single_cat_title() ?></h1>
