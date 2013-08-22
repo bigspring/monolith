@@ -22,7 +22,7 @@ Much love,
 Team BigSpring
 
 Follow us on Twitter:
-@bigspringweb, @juliotaylor, @simonBigSpring, @tulipdom
+[@bigspringweb[(http://twitter.com/bigspringweb), [@juliotaylor[(http://twitter.com/juliotaylor), [@simonBigSpring](http://twitter.com/simonbigspring), [@tulipdom](http://twitter.com/tulipdom)
 
 p.s. monolith is also available as part of [lunchbox](https://github.com/bigspring/lunchbox), a quickstart bash script that installs WordPress, monolith and an arsenal of handy plugins in a few seconds.
 
@@ -30,10 +30,6 @@ p.s. monolith is also available as part of [lunchbox](https://github.com/bigspri
 changelog
 -----
 
-<<<<<<< HEAD
-* 1.1.0 – 
-=======
 * 1.0.2 – updated Bootstrap to 3.0 stable, addressed some minor markup bugs
->>>>>>> 1.0.2
 * 1.0.1 – minor amend to sidebar semantic classes
 * 1.0.0 – hellow wembley stadium!
