@@ -6,10 +6,11 @@ a lightweight WordPress theme powered by Twitter Bootstrap, built for developers
 about
 -----
 
-Monolith is a starter WordPress theme built with Twitter Bootstrap. We started this project as our own internal starter
-theme, because most of the other theme frameworks out there either did too much or not enough for our needs. So we built our own.
+Monolith is a starter theme for WordPress. It's specifically designed to be a lightweight and lean as possible, to allow developers to create their own specialised themes with as little overhead as possible, using the power of Twitter Bootstrap and a few custom shortcodes and functions to help you along the way.
 
-Alongside the Bootstrap grid magic, monolith comes bundled with a few useful functions and shortcodes that we've found useful enough to use on most projects. Anything that is too project-specific or heavy has been stripped out, and can be easily implemented on a case by case basis.
+Anything that is too project-specific or heavy has been stripped out, and can be easily implemented on a case by case basis as needed.
+
+We started this project as our own internal starter theme at BigSpring, because most of the other theme frameworks out there either did too much or not enough for our needs. So we built our own.
 
 The aim is for Monolith to be constantly growing – changing and developing as trends and web frameworks change, always giving us a good solid starting point from which to create our web projects.
 
