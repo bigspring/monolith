@@ -23,7 +23,7 @@ Much love,
 Team BigSpring
 
 Follow us on Twitter:
-[@bigspringweb[(http://twitter.com/bigspringweb), [@juliotaylor[(http://twitter.com/juliotaylor), [@simonBigSpring](http://twitter.com/simonbigspring), [@tulipdom](http://twitter.com/tulipdom)
+[@bigspringweb](http://twitter.com/bigspringweb), [@juliotaylor](http://twitter.com/juliotaylor), [@simonBigSpring](http://twitter.com/simonbigspring), [@tulipdom](http://twitter.com/tulipdom)
 
 p.s. monolith is also available as part of [lunchbox](https://github.com/bigspring/lunchbox), a quickstart bash script that installs WordPress, monolith and an arsenal of handy plugins in a few seconds.
 
