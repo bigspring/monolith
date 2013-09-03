@@ -1247,3 +1247,4 @@ a:focus{outline:none}
 .row img{max-width:100%;height:auto}
 .nav-tabs{margin-bottom:1em}
 .thumbnail{margin-bottom:30px}
+@media (min-width:768px){}@media (min-width:992px){}@media (min-width:1200px){}
