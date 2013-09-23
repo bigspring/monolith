@@ -536,6 +536,24 @@ function columns_shortcode($atts, $content = null) {
 	return '<div class="columns">' . do_shortcode($content) . '</div>';
 }
 
+/**
+ * Renders a bootstrap panel.  Option to provide a type (to affect the panel's class), header content or footer content
+ */
+function panels_shortcode($atts, $content = null) {
+    if(!$content)
+        return false;
+    
+    $type = (array_key_exists('type', $atts) ? 'panel-' . $atts['type'] : 'panel-default');
+    // get the markup
+    $html = '<div class="panel '.$type.'">';
+    $html .= (array_key_exists('header', $atts) ? '<div class="panel-heading">'.$atts['header'].'</div>' : ''); // render a header if we need one   
+    $html .= '<div class="panel-body">' . $content .'</div>'; // render the main body content
+    $html .= (array_key_exists('footer', $atts) ? '<div class="panel-footer">'.$atts['footer'].'</div>' : ''); // render a footer if we need one
+    $html .= '</div>'; 
+    
+    return $html;
+}
+
 
 // load shortcodes
 add_shortcode('icon', 'bootstrap_glyph_icons');
@@ -549,4 +567,5 @@ add_shortcode('blockquote', 'blockquotes');
 add_shortcode('childpages', 'childpages');
 add_shortcode('pages', 'pages_shortcode');
 add_shortcode('columns', 'columns_shortcode');
+add_shortcode('panel', 'panels_shortcode');
 ?>
