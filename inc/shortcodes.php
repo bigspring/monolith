@@ -543,10 +543,10 @@ function panels_shortcode($atts, $content = null) {
     if(!$content)
         return false;
     
-    $type = (array_key_exists('type', $atts) ? 'panel-' . $atts['type'] : 'panel-default');
+    $type = (array_key_exists('style', $atts) ? 'panel-' . $atts['style'] : 'panel-default');
     // get the markup
     $html = '<div class="panel '.$type.'">';
-    $html .= (array_key_exists('header', $atts) ? '<div class="panel-heading">'.$atts['header'].'</div>' : ''); // render a header if we need one   
+    $html .= (array_key_exists('header', $atts) ? '<div class="panel-heading"><h3 class="panel-title>"'.$atts['header'].'</h3></div>' : ''); // render a header if we need one   
     $html .= '<div class="panel-body">' . $content .'</div>'; // render the main body content
     $html .= (array_key_exists('footer', $atts) ? '<div class="panel-footer">'.$atts['footer'].'</div>' : ''); // render a footer if we need one
     $html .= '</div>'; 
