@@ -57,6 +57,18 @@ function dump( $a ) {
 }
 
 /**
+ * Returns the topmost parent post ID for the current post.  Designed For use with the pages.
+ * @return int
+ * @author Jon Martin
+ */
+function get_topmost_parent_id() {
+    global $post;
+    $ancestors=get_post_ancestors($post->ID);    
+    $root=count($ancestors)-1;
+    return $ancestors[$root];
+}
+
+/**
  * Markup for the comments
  * @param unknown_type $comment
  * @param array $args
