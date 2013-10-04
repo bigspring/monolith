@@ -6,7 +6,7 @@
  */
 ?>
 
-<?php get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
+<?php get_header() ?>
 
 <!-- hero unit -->
 <div class="wrapper-hero">
@@ -41,4 +41,4 @@
 
 </div><!-- /main -->
 
-<?php get_template_parts( array( 'parts/footer','parts/html-footer' ) ); ?>
+<?php get_footer(); ?>

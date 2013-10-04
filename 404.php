@@ -8,7 +8,7 @@
 
 <?php // Default Page Template ?>
 
-<? get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
+<?php get_header(); ?>
 
 <div class="wrapper-main" role="document">
 	
@@ -44,4 +44,4 @@
 
 </div><!-- /main -->
 
-<?php get_template_parts( array( 'parts/footer','parts/html-footer' ) ); ?>
+<?php get_footer(); ?>
