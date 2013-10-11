@@ -2,7 +2,7 @@
 	<div class="row">
 	  <div class="col-lg-12">
 	    <div class="input-group">
-			<input class="form-control" type="search" value="" placeholder="Search..." name="s" id="s" />
+			<input class="form-control" type="search" value="<?php the_search_query(); ?>" placeholder="Search..." name="s" id="s" />
 			<span class="input-group-btn">
 				<button class="btn btn-default" type="submit" id="searchsubmit" value="Search"><i class="icon icon-search"></i></button>	     
 			</span>
