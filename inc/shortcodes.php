@@ -156,20 +156,15 @@ function hr_shortcode($atts, $content = null)
 function buttons( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 			'type' => 'default', /* primary, default, info, success, danger, warning, inverse */
-			'size' => 'medium', /* small, medium, large */
+			'size' => '', /* small, medium, large */
 			'pageid' => '',
 			'url'  => '',
 			'text' => '',
 	), $atts ) );
 
-	if($type == "default"){
-		$type = "";
-	}
-	else{
-		$type = "btn-" . $type;
-	}
+	$type = "btn-" . $type;
 
-	if($size == "medium"){
+	if($size == ""){
 		$size = "";
 	}
 	else{

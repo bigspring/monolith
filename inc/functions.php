@@ -306,11 +306,11 @@ function add_sc_select(){
     echo '&nbsp;<select id="sc_select">
                         <option disabled="disabled">Shortcodes</option>
                         <option value="[intro][/intro]">[intro]</option>
-                        <option value="[button text=&#34;&#34; url=&#34;&#34; type=&#34;&#34; size=&#34;&#34;]">[button]</option>
+                        <option value="[button text=&#34;Button Text&#34; url=&#34;http://&#34; type=&#34;default&#34; size=&#34;&#34;]">[button]</option>
                         <option value="[alert text=&#34;&#34; type=&#34;&#34; close=&#34;&#34;]">[alert]</option>
                         <option value="[blockquote cite=&#34;&#34; float=&#34;&#34;][/blockquote]">[blockquote]</option>
                         <option value="[columns][/columns]">[columns]</option>
-                        <option value="[childpages layout=&#34;&#34;]">[childpages]</option>
+                        <option value="[childpages layout=&#34;list&#34;]">[childpages]</option>
                         
         </select>';
 }
