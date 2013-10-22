@@ -137,6 +137,17 @@ function intro_text_shortcode($atts, $content = null)
 	return '<p class="lead">'.$content.'</p>';
 }
 
+
+/**
+ * HR shortcode [hr]
+ */
+function hr_shortcode($atts, $content = null)
+{
+	return '<hr class="divider-line" />';
+}
+
+
+
 /**
  * Renders bootstrap buttons
  * @param array $atts
@@ -373,4 +384,5 @@ add_shortcode('childpages', 'childpages');
 add_shortcode('pages', 'pages_shortcode');
 add_shortcode('columns', 'columns_shortcode');
 add_shortcode('panel', 'panels_shortcode');
+add_shortcode('divider', 'hr_shortcode'); // hr divider shortcode
 ?>
