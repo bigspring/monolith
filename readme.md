@@ -16,14 +16,14 @@ The aim is for Monolith to be constantly growing – changing and developing as 
 
 Monolith is released under the MIT Open Source license, so you're welcome to use it on any free or commercial projects of your own.
 
-Be sure to read [the documentation](https://github.com/bigspring/monolith/wiki).
+Be sure to read [the documentation](https://github.com/bigspring/monolith/wiki). Disclaimer: docs are a bit out of date but we're working on that!
 		
 Much love,
 
 Team BigSpring
 
 Follow us on Twitter:
-[@bigspringweb[(http://twitter.com/bigspringweb), [@juliotaylor[(http://twitter.com/juliotaylor), [@simonBigSpring](http://twitter.com/simonbigspring), [@tulipdom](http://twitter.com/tulipdom)
+[@bigspringweb](http://twitter.com/bigspringweb), [@juliotaylor](http://twitter.com/juliotaylor), [@simonBigSpring](http://twitter.com/simonbigspring), [@tulipdom](http://twitter.com/tulipdom)
 
 p.s. monolith is also available as part of [lunchbox](https://github.com/bigspring/lunchbox), a quickstart bash script that installs WordPress, monolith and an arsenal of handy plugins in a few seconds.
 
@@ -31,6 +31,7 @@ p.s. monolith is also available as part of [lunchbox](https://github.com/bigspri
 changelog
 -----
 
+* 1.1.0 – implement new shortcodes (panel, divider), restructured header, improved search support, 
 * 1.0.3 – added media queries, improved comments in custom.less
 * 1.0.2 – updated Bootstrap to 3.0 stable, addressed some minor markup bugs
 * 1.0.1 – minor amend to sidebar semantic classes

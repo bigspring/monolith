@@ -57,6 +57,18 @@ function dump( $a ) {
 }
 
 /**
+ * Returns the topmost parent post ID for the current post.  Designed For use with the pages.
+ * @return int
+ * @author Jon Martin
+ */
+function get_topmost_parent_id() {
+    global $post;
+    $ancestors=get_post_ancestors($post->ID);    
+    $root=count($ancestors)-1;
+    return $ancestors[$root];
+}
+
+/**
  * Markup for the comments
  * @param unknown_type $comment
  * @param array $args
@@ -332,3 +344,15 @@ function the_post_thumbnail_caption() {
     echo '<span>'.$thumbnail_image[0]->post_excerpt.'</span>';
   }
 }
+
+
+// Stop WP from automatically linking images to themselves 
+function wpb_imagelink_setup() {
+	$image_set = get_option( 'image_default_link_type' );
+	
+	if ($image_set !== 'none') {
+		update_option('image_default_link_type', 'none');
+	}
+}
+add_action('admin_init', 'wpb_imagelink_setup', 10);
+
