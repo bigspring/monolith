@@ -257,7 +257,8 @@ function childpages($atts, $content = null)
 			'post_parent' => $post->ID,
 			'post_type' => 'page',
 			'order' => 'ASC',
-			'orderby' => 'menu_order'
+			'orderby' => 'menu_order',
+			'posts_per_page' => -1
 
 	);
 
