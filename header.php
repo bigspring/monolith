@@ -10,12 +10,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- HTML5 & responsive support for IE browsers... -->
-        <!--[if lt IE 9]>
-          <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/html5shiv.js"></script>
-          <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/respond.min.js"></script>
-        <![endif]-->
-
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
         
         <!-- Fav and touch icons -->
@@ -28,6 +22,13 @@
         <!-- Load main CSS -->
         <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/base.css" rel="stylesheet" type="text/css">   
         <?php wp_head(); ?>
+
+        <!-- HTML5 & responsive support for IE browsers... -->
+        <!--[if lt IE 9]>
+          <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/html5shiv.js"></script>
+          <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/respond.min.js"></script>
+        <![endif]-->
+
     </head>
     <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
         <? get_template_part('parts/nav') ?>
