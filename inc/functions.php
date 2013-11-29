@@ -356,3 +356,25 @@ function wpb_imagelink_setup() {
 }
 add_action('admin_init', 'wpb_imagelink_setup', 10);
 
+
+// Topmost parent & descendant content functions
+
+function is_related($page_id) { 
+    global $post; 
+    
+    if(is_page() && ($post->ID == $page_id || $post->post_parent==$page_id || get_topmost_parent_id() == $page_id)) {
+        return true;
+    } else { 
+        return false; 
+    }
+}
+
+function is_descendant($page_id) { 
+    global $post; 
+    
+    if(is_page() && ($post->post_parent==$page_id || get_topmost_parent_id() == $page_id)) {
+        return true;
+    } else { 
+        return false; 
+    }
+}
