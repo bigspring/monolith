@@ -1,0 +1,15 @@
+{
+  "name": "html5shiv-dist",
+  "homepage": "https://github.com/spekkionu/html5shiv-dist",
+  "version": "3.6.2",
+  "_release": "3.6.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.6.2",
+    "commit": "a98cd878f00c5c556247c70fde201392d9a64132"
+  },
+  "_source": "git://github.com/spekkionu/html5shiv-dist.git",
+  "_target": "~3.6.2",
+  "_originalSource": "html5shiv-dist",
+  "_direct": true
+}
