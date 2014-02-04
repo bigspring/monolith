@@ -1,14 +1,11 @@
-/*!
- * Monolith v1.0.0
- *
- * Copyright 2013 BigSpring UK Ltd
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Built by the @bigspringweb team – @juliotaylor, @simonBigSpring & @tulipdom
- */
+// Copyright 2013 BigSpring UK Ltd
+// Licensed under the Apache License v2.0
+// Built by the @bigspringweb team – @juliotaylor, @simonBigSpring & @tulipdom
 
-@import "bootstrap/bootstrap.less"; // import Bootstrap core
-@import "fontawesome/font-awesome.less"; // import WordPress overrides
-@import "monolith/reset.less"; // some monolith resets and extra WP classes
+// Load dependencies (bootstrap, font-awesome, etc)
+@import "../library/bower_components/bootstrap/less/bootstrap.less"; // import Bootstrap core
+@import "../library/bower_components/font-awesome/less/font-awesome.less"; // import FontAwesome
+
+// load Monolith core files
+@import "reset.less"; // some monolith resets and extra WP classes
 @import "custom.less"; // import custom styles, make sure this is at the end
