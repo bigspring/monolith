@@ -31,7 +31,7 @@ p.s. monolith is also available as part of [lunchbox](https://github.com/bigspri
 changelog
 -----
 
-* 1.3.0 – added bower dependencies for Bootstrap & Font Awesome via base.less
+* 1.3.0 – updated to Bootstrap 3.1; added bower dependencies for Bootstrap & Font Awesome via base.less
 * 1.2.0 – updated fontawesome to 4.0.3, removed front-page template, added new kitchen sink shortcode 
 * 1.1.0 – implement new shortcodes (panel, divider), restructured header, improved search support, 
 * 1.0.3 – added media queries, improved comments in custom.less
