@@ -8,6 +8,7 @@
 	    <?php wp_footer(); ?>
 	
 	    <!-- load los javascript files -->
+	    <script src="<?php echo get_stylesheet_directory_uri(); ?>/library/bower_components/css_browser_selector/css_browser_selector.js"></script>
 	    <script src="<?php echo get_stylesheet_directory_uri(); ?>/library/bower_components/modernizr/modernizr.js"></script>
 	    <script src="<?php echo get_stylesheet_directory_uri(); ?>/library/bower_components/holderjs/holder.js"></script>
 	    <script src="<?php echo get_stylesheet_directory_uri(); ?>/library/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
