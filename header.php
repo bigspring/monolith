@@ -31,4 +31,4 @@
 </head>
 
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
-	<? get_template_part('parts/nav') ?>
+<? get_template_part('parts/nav') ?>
