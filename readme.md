@@ -33,16 +33,15 @@ dependency management
 
 Monolith utilises Bower and Grunt.
 
-1. Ensure that the following npm packages are installed:
+1. Ensure that the following npm packages are installed globally:
 
-	bower
-	grunt-cli
+	bower, grunt-cli
 
-2. Run this command from the project root to fetch and install dependencies as defined in package.json:
+2. Run this command from the project root to fetch and install local dependencies as defined in package.json:
 
 	$ npm install
 
-3. Run grunt with no args from the root:
+3. Finally, run grunt with no args from the project root:
 
 	$ grunt
 
@@ -51,6 +50,7 @@ The current configuration will concat and uglify the ouput .js files for each bo
 changelog
 -----
 
+* 1.3.1 - implemented basic grunt dependency management
 * 1.3.1 – refactored posts, index and page templates to include full width headers
 * 1.3.0 – upated to Bootstrap 3.1; added bower dependencies for Bootstrap & Font Awesome via base.less
 * 1.2.0 – updated fontawesome to 4.0.3, removed front-page template, added new kitchen sink shortcode 
