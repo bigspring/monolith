@@ -35,8 +35,8 @@ Monolith utilises Bower and Grunt.
 
 1. Ensure that the following npm packages are installed:
 
-* bower
-* grunt-cli
+	bower
+	grunt-cli
 
 2. Run this command from the project root to fetch and install dependencies as defined in package.json:
 
