@@ -28,6 +28,26 @@ Follow us on Twitter:
 p.s. monolith is also available as part of [lunchbox](https://github.com/bigspring/lunchbox), a quickstart bash script that installs WordPress, monolith and an arsenal of handy plugins in a few seconds.
 
 
+dependency management
+------------------
+
+Monolith utilises Bower and Grunt.
+
+1. Ensure that the following npm packages are installed:
+
+* bower
+* grunt-cli
+
+2. Run this command from the project root to fetch and install dependencies as defined in package.json:
+
+	$ npm install
+
+3. Run grunt with no args from the root:
+
+	$ grunt
+
+The current configuration will concat and uglify the ouput .js files for each bower component as well as js/site.js, resulting in dest/Monolith.min.js (which is included in header.php and in/monolith.php).
+
 changelog
 -----
 

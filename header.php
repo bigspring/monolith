@@ -24,8 +24,7 @@
 
     <!-- HTML5 & responsive support for IE browsers... -->
     <!--[if lt IE 9]>
-      <script src="<?php echo get_stylesheet_directory_uri(); ?>/library/bower_components/html5shiv-dist/html5shiv.js"></script>
-      <script src="<?php echo get_stylesheet_directory_uri(); ?>/library/bower_components/respond/dest/respond.min.js"></script>
+      <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/Monolith.min.js"></script>
     <![endif]-->
 
 </head>
