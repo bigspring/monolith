@@ -15,45 +15,46 @@
 	
 		<? get_template_part('parts/breadcrumb'); // load breadcrumb ?>
 	
+		<header class="page-header archive-header" itemprop="name">
+			
+			<?php if ( is_day() ) : ?>
+			<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'D F Y' ); ?></h1>
+			
+			<?php elseif ( is_month() ) : ?>
+			<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'F Y' ); ?></h1>
+			
+			<?php elseif ( is_year() ) : ?>
+			<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'Y' ); ?></h1>	
+			
+			<?php elseif ( is_tag() ) : ?>
+			<h1 class="archive-title h1">Tag Archive: <?php single_tag_title(); ?></h1>						
+			
+			<?php elseif ( is_category() ) : ?>
+			<h1 class="category-title h1"><?php single_cat_title() ?></h1>
+			
+			<?php elseif ( is_author() ) : get_template_part('parts/author-header') ?>
+			
+			<?php elseif ( is_home() ) : ?>
+			<h1>The Blog</h1>
+			
+			<?php elseif ( is_search() ) : ?>
+			<h1>Search results for '<?php echo get_search_query(); ?>'</h1>
+			
+			<?php else : ?>
+			<h1 class="archive-title h1">Archive</h1>
+			
+			<?php endif; ?>
+		
+		</header>
+
+
 		<div class="<?= ROW_CLASSES ?>">
 
-			<div class="<?= MAIN_SIZE ?>">
-
-				<header class="page-header archive-header" itemprop="name">
-					
-					<?php if ( is_day() ) : ?>
-					<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'D F Y' ); ?></h1>
-					
-					<?php elseif ( is_month() ) : ?>
-					<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'F Y' ); ?></h1>
-					
-					<?php elseif ( is_year() ) : ?>
-					<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'Y' ); ?></h1>	
-					
-					<?php elseif ( is_tag() ) : ?>
-					<h1 class="archive-title h1">Tag Archive: <?php single_tag_title(); ?></h1>						
-					
-					<?php elseif ( is_category() ) : ?>
-					<h1 class="category-title h1"><?php single_cat_title() ?></h1>
-					
-					<?php elseif ( is_author() ) : get_template_part('parts/author-header') ?>
-					
-					<?php elseif ( is_home() ) : ?>
-					<h1>The Blog</h1>
-					
-					<?php elseif ( is_search() ) : ?>
-					<h1>Search results for '<?php echo get_search_query(); ?>'</h1>
-					
-					<?php else : ?>
-					<h1 class="archive-title h1">Archive</h1>
-					
-					<?php endif; ?>
-				
-				</header>
+			<main class="<?= MAIN_SIZE ?>" role="main">
 				
 				<?php get_template_part('parts/loop-posts') // load the posts loop ?>
 
-			</div><!-- MAIN_SIZE -->
+			</main><!-- MAIN_SIZE -->
 
 			<? get_template_part('parts/sidebar'); // right sidebar ?>
 

@@ -25,7 +25,7 @@
 				</header>
 
 				<section class="entry-content">
-					<p class="lead text-muted">The page you're looking wasn't found. Click on one of the following links, or try searching instead:</p>
+					<p class="lead">The page you're looking for wasn't found. Try one of the following links to find your way:</p>
 					<ul>
 						<li><a href="<?= home_url() ?>" title="<?= bloginfo('name')?>">Home</a></li>
 					</ul>
@@ -33,6 +33,7 @@
 				
 				<hr/>
 				<footer class="404-search-form">
+					<p class="lead">Or try searching the site instead:</p>
 					<? get_template_part('searchform') ?>
 				</footer>
 

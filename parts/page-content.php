@@ -1,11 +1,6 @@
-<?php
-/*
- *	Monolith
- *	Single page content template
- */
-?>
-
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>	
+
+<article itemscope itemtype="http://schema.org/Article" <?php post_class(); ?>>		
 	
 	<?php if ($post->post_excerpt != '') { // show the excerpt if it exists ?>
 	<section class="page-excerpt lead" itemprop="description">
@@ -13,8 +8,9 @@
 	</section>
 	<? } ?>
 	
-	<section class="page-content" itemprop="text">
+	<main class="page-content" itemprop="text" role="main">
 	<?php the_content(); ?>					
-	</section>
+	</main>
+</article>
 
 <?php endwhile; ?>

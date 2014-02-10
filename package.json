@@ -1,0 +1,24 @@
+{
+	"name": "monolith",
+	"version": "1.4.0",
+	"author": {
+		"name": "BigSpring",
+		"email": "hello@bigspring.co.uk",
+		"url": "http://www.bigspring.co.uk"
+	},
+	"homepage": "https://github.com/bigspring/monolith",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bigspring/monolith.git"
+	},
+	"engines": {
+		"node": ">= 0.10.0"
+	},
+	"devDependencies": {
+		"grunt": "~0.4.2",
+		"grunt-contrib-concat": "~0.3.0",
+		"grunt-contrib-uglify": "~0.2.7",
+		"load-grunt-tasks": "~0.3.0"
+	}
+}
