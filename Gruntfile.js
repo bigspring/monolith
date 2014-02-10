@@ -8,8 +8,9 @@ var required_packages = [
 	bower_path + 'css_browser_selector/css_browser_selector.js',
 	bower_path + 'modernizr/modernizr.js',
 	bower_path + 'holderjs/holder.js',
-	bower_path + 'bootstrap/dist/js/bootstrap.min.js',
-	bower_path + 'js/site.js'
+	bower_path + 'bootstrap/dist/js/bootstrap.js',	
+	bower_path + 'jquery-placeholder/jquery.placeholder.js',
+	'js/site.js'
 ];
 
   // Project configuration.
