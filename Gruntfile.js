@@ -3,8 +3,6 @@ module.exports = function(grunt) {
 
 var bower_path = 'library/bower_components/';
 var required_packages = [
-	bower_path + 'html5shiv-dist/html5shiv.js',
-	bower_path + 'respond/dest/respond.min.js',
 	bower_path + 'css_browser_selector/css_browser_selector.js',
 	bower_path + 'modernizr/modernizr.js',
 	bower_path + 'holderjs/holder.js',

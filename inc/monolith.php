@@ -23,7 +23,7 @@ function monolith_setup() {
 		//if we enabled custom js, load the file
 		if(CUSTOM_JS)
 		{
-			wp_register_script( 'site-js', get_template_directory_uri().'/dist/Monolith.min.js');
+			wp_register_script( 'site-js', get_template_directory_uri().'/dist/monolith.min.js');
 			wp_enqueue_script( 'site-js' );
 		}
 	}
