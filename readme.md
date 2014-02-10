@@ -50,7 +50,7 @@ The current configuration will concat and uglify the ouput .js files for each bo
 changelog
 -----
 
-* 1.3.1 – refactored posts, index and page templates to include full width headers, implemented basic grunt dependency management
+* 1.4.0 – GRUNTIFY ALL THE TINGS! (almost) – refactored posts, index and page templates to include full width headers, implemented basic grunt dependency management mostly for js (more to follow)
 * 1.3.0 – upated to Bootstrap 3.1; added bower dependencies for Bootstrap & Font Awesome via base.less
 * 1.2.0 – updated fontawesome to 4.0.3, removed front-page template, added new kitchen sink shortcode 
 * 1.1.0 – implement new shortcodes (panel, divider), restructured header, improved search support, 
