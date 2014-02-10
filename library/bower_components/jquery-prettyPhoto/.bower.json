@@ -1,0 +1,14 @@
+{
+  "name": "jquery-prettyPhoto",
+  "homepage": "https://github.com/scaron/prettyphoto",
+  "_release": "d0a7a04850",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d0a7a048508f0c4e045a85a5964d45678e196f21"
+  },
+  "_source": "git://github.com/scaron/prettyphoto.git",
+  "_target": "*",
+  "_originalSource": "jquery-prettyPhoto",
+  "_direct": true
+}
