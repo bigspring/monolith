@@ -28,7 +28,8 @@ var less_files = [
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
     dirs: {
-	  dest: 'dist/'
+	  jsdest: 'js/',
+	  cssdest: 'css/'
     },
     banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' + // name/version
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' + // current year
@@ -50,11 +51,11 @@ var less_files = [
       },
 	  main: { // main js files
         src: dependencies_main,
-	    dest: '<%= dirs.dest %>/<%= pkg.name %>.js'
+	    dest: '<%= dirs.jsdest %>/<%= pkg.name %>.js'
       },
-	  ie: { // ie support
+	  ie: { // ie support js files
 	    src: dependencies_ie,
-		dest: '<%= dirs.dest %>/<%= pkg.name %>-ie.js'
+		dest: '<%= dirs.jsdest %>/<%= pkg.name %>-ie.js'
 	  }
     },
     uglify: {
@@ -63,8 +64,8 @@ var less_files = [
       },
       dist: {
         files: {
-	      '<%= dirs.dest %>/<%= pkg.name %>.min.js': '<%= concat.main.dest %>',
-	      '<%= dirs.dest %>/<%= pkg.name %>-ie.min.js': '<%= concat.ie.dest %>'
+	      '<%= dirs.jsdest %>/<%= pkg.name %>.min.js': '<%= concat.main.dest %>',
+	      '<%= dirs.jsdest %>/<%= pkg.name %>-ie.min.js': '<%= concat.ie.dest %>'
         }
       }
     },
@@ -88,7 +89,7 @@ var less_files = [
 		  expand: true,
 		  cwd: 'css/',
 		  src: ['*.css', '!*.min.css'], // currently not minimising all files in css/
-		  dest: 'css/',
+		  dest: '<%= dirs.cssdest %>/',
 		  ext: '.min.css'
 	  }
 	},
@@ -100,8 +101,8 @@ var less_files = [
 		tasks: ['concat', 'uglify']
 	  },
 	  css: {
-		files: [bower_path + '**.less'],
-		tasks: ['less', 'cssmin']
+		files: ['less/*.less'], // sets the folders to watch
+		tasks: ['less', 'cssmin'] // runs the tasks
 	  }
 	}
   });
