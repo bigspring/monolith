@@ -37,11 +37,13 @@ Monolith utilises Bower and Grunt.
 
 	bower, grunt-cli
 
-2. Run this command from the project root to fetch and install local dependencies as defined in package.json:
+2. Update bower-fetched dependencies
+
+3. Run this command from the project root to fetch and install local node packages as defined in package.json:
 
 	$ npm install
 
-3. Finally, run grunt with no args from the project root:
+4. Finally, run grunt with no args from the project root:
 
 	$ grunt
 

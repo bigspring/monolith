@@ -1,8 +1,11 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+/**
+ * Define paths/names
+ */
 var bower_path = 'library/bower_components/';
-var required_packages_main = [
+var dependencies_main = [
 	bower_path + 'css_browser_selector/css_browser_selector.js',
 	bower_path + 'modernizr/modernizr.js',
 	bower_path + 'holderjs/holder.js',
@@ -10,12 +13,17 @@ var required_packages_main = [
 	bower_path + 'jquery-placeholder/jquery.placeholder.js',
 	'js/site.js'
 ];
-var required_packages_ie = [
+var dependencies_ie = [
 	bower_path + 'html5shiv-dist/html5shiv.js',
 	bower_path + 'respond/dest/respond.src.js'
 ];
+var less_files = [
+	'less/base.less'
+];
 
-  // Project configuration.
+  /**
+  * Project configuration
+  */
   grunt.initConfig({
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
@@ -29,20 +37,23 @@ var required_packages_ie = [
       '* License: <%= pkg.license %>\n\n' +
 	  '* Packages: <%= _.map(pkg.devDependencies, function(package, key) {return key}).join(", ") %>\n' +
 	  '* WARNING: THIS FILE IS GENERATED DYNAMICALLY - any changes will be overwritten! */\n\n',
-    // Task configuration
 
-	// JS
+    /**
+     * Task configuration
+     */
+
+    // JS tasks
     concat: {
       options: {
         banner: '<%= banner %>',
         stripBanners: true
       },
 	  main: { // main js files
-        src: required_packages_main,
+        src: dependencies_main,
 	    dest: '<%= dirs.dest %>/<%= pkg.name %>.js'
       },
 	  ie: { // ie support
-	    src: required_packages_ie,
+	    src: dependencies_ie,
 		dest: '<%= dirs.dest %>/<%= pkg.name %>-ie.js'
 	  }
     },
@@ -52,17 +63,35 @@ var required_packages_ie = [
       },
       dist: {
         files: {
-	      'dist/<%= pkg.name %>.min.js': '<%= concat.main.dest %>',
-	      'dist/<%= pkg.name %>-ie.min.js': '<%= concat.ie.dest %>'
+	      '<%= dirs.dest %>/<%= pkg.name %>.min.js': '<%= concat.main.dest %>',
+	      '<%= dirs.dest %>/<%= pkg.name %>-ie.min.js': '<%= concat.ie.dest %>'
         }
       }
-    }
+    },
+
+	// CSS tasks
+	less: {
+	  main: {
+	    files: {
+	      'css/base.css': less_files
+	    }
+	  }
+	},
+	cssmin: {
+	  minify: {
+		  expand: true,
+		  cwd: 'css/',
+		  src: ['*.css', '!*.min.css'], // currently not minimising all files in css/
+		  dest: 'css/',
+		  ext: '.min.css'
+	  }
+	}
   });
 
   // Load all grunt packages from package.json dependencies.
   require('load-grunt-tasks')(grunt);
 
   // Default task.
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin']);
 
 };
