@@ -71,6 +71,9 @@ var less_files = [
 
 	// CSS tasks
 	less: {
+	  options: {
+		banner: '<%= banner %>'
+	  },
 	  main: {
 	    files: {
 	      'css/base.css': less_files
@@ -78,12 +81,27 @@ var less_files = [
 	  }
 	},
 	cssmin: {
+	  options: {
+		banner: '<%= banner %>'
+	  },
 	  minify: {
 		  expand: true,
 		  cwd: 'css/',
 		  src: ['*.css', '!*.min.css'], // currently not minimising all files in css/
 		  dest: 'css/',
 		  ext: '.min.css'
+	  }
+	},
+
+	// WATCH ALL THE THINGS
+	watch: {
+	  js: {
+		files: dependencies_main.concat(dependencies_ie),
+		tasks: ['concat', 'uglify']
+	  },
+	  css: {
+		files: [bower_path + '**.less'],
+		tasks: ['less', 'cssmin']
 	  }
 	}
   });
@@ -92,6 +110,6 @@ var less_files = [
   require('load-grunt-tasks')(grunt);
 
   // Default task.
-  grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'watch']);
 
 };
