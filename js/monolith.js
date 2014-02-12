@@ -1,8 +1,8 @@
-/*! monolith - v1.3.1 - 2014-02-10
+/*! monolith - v1.4.0 - 2014-02-12
 * https://github.com/bigspring/monolith
 * Copyright (c) 2014 BigSpring;* License: MIT
 
-* Packages: grunt, grunt-contrib-concat, grunt-contrib-uglify, load-grunt-tasks
+* Packages: grunt, grunt-contrib-concat, grunt-contrib-cssmin, grunt-contrib-less, grunt-contrib-uglify, grunt-contrib-watch, load-grunt-tasks
 * WARNING: THIS FILE IS GENERATED DYNAMICALLY - any changes will be overwritten! */
 
 function css_browser_selector(u)

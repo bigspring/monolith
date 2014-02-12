@@ -17,16 +17,15 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_stylesheet_directory_uri(); ?>/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_stylesheet_directory_uri(); ?>/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri(); ?>/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/ico/favicon.png">     
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/ico/favicon.png">
     
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/base.css" rel="stylesheet" type="text/css">        
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/base.min.css" rel="stylesheet" type="text/css">
     <?php wp_head(); ?>
 
     <!-- HTML5 & responsive support for IE browsers... -->
     <!--[if lt IE 9]>
    	  <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/ie.css" rel="stylesheet" type="text/css">        
-      <script src="<?php echo get_stylesheet_directory_uri(); ?>/library/bower_components/html5shiv-dist/html5shiv.js"></script>
-      <script src="<?php echo get_stylesheet_directory_uri(); ?>/library/bower_components/respond/dest/respond.min.js"></script>
+      <script src="<?php echo get_stylesheet_directory_uri(); ?>/css/monolith-ie.min.js"></script>
     <![endif]-->
 
 </head>
