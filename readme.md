@@ -45,7 +45,6 @@ Monolith utilises Bower and Grunt.
 
 	$ grunt
 
-The current configuration will concat and uglify the ouput .js files for each bower component as well as js/site.js, resulting in dest/Monolith.min.js (which is included in header.php and inc/monolith.php).
 
 changelog
 -----
