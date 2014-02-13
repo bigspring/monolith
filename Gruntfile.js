@@ -11,14 +11,14 @@ var dependencies_main = [
 	bower_path + 'holderjs/holder.js',
 	bower_path + 'bootstrap/dist/js/bootstrap.js',	
 	bower_path + 'jquery-placeholder/jquery.placeholder.js',
-	'js/site.js'
+	'_src/js/site.js'
 ];
 var dependencies_ie = [
 	bower_path + 'html5shiv-dist/html5shiv.js',
 	bower_path + 'respond/dest/respond.src.js'
 ];
 var less_files = [
-	'less/base.less'
+	'_src/less/base.less'
 ];
 
   /**
@@ -51,11 +51,11 @@ var less_files = [
       },
 	  main: { // main js files
         src: dependencies_main,
-	    dest: '<%= dirs.jsdest %>/<%= pkg.name %>.js'
+	    dest: '<%= dirs.jsdest %>/base.js'
       },
 	  ie: { // ie support js files
 	    src: dependencies_ie,
-		dest: '<%= dirs.jsdest %>/<%= pkg.name %>-ie.js'
+		dest: '<%= dirs.jsdest %>/ie.js'
 	  }
     },
     uglify: {
@@ -64,8 +64,8 @@ var less_files = [
       },
       dist: {
         files: {
-	      '<%= dirs.jsdest %>/<%= pkg.name %>.min.js': '<%= concat.main.dest %>',
-	      '<%= dirs.jsdest %>/<%= pkg.name %>-ie.min.js': '<%= concat.ie.dest %>'
+	      '<%= dirs.jsdest %>/base.min.js': '<%= concat.main.dest %>',
+	      '<%= dirs.jsdest %>/ie.min.js': '<%= concat.ie.dest %>'
         }
       }
     },
@@ -101,7 +101,7 @@ var less_files = [
 		tasks: ['concat', 'uglify']
 	  },
 	  css: {
-		files: ['less/*.less'], // sets the folders to watch
+		files: ['_src/less/*.less'], // sets the folders to watch
 		tasks: ['less', 'cssmin'] // runs the tasks
 	  }
 	}
