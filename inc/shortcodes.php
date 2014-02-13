@@ -104,7 +104,7 @@ function monolith_gallery($attr) {
     // load fancybox scripts
     wp_enqueue_script('prettyphotojs', get_template_directory_uri() . '/library/bower_components/jquery-prettyphoto/js/jquery.prettyPhoto.js', array('jquery'));
     wp_enqueue_script('prettyphotoloader', get_template_directory_uri() . '/js/prettyphoto-loader.js', array('jquery'));
-    wp_enqueue_style('prettyphotocss', get_template_directory_uri() . '//library/bower_components/jquery-prettyphoto/css/prettyPhoto.css');
+    wp_enqueue_style('prettyphotocss', get_template_directory_uri() . '/library/bower_components/jquery-prettyphoto/css/prettyPhoto.css');
 
   $output = '<div class="thumbnails-gallery">';
   $output .= '<div class="row">';
