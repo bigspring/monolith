@@ -51,6 +51,7 @@ Monolith utilises Bower and Grunt.
 changelog
 -----
 
+* 1.4.3 – updated bower components, fixed an issue with the font-awesome path in base.less compiler
 * 1.4.2 – some bug fixes, restructured source LESS and JS files to new /_src/ folder in theme root
 * 1.4.1 – added grunt compiler for less files
 * 1.4.0 – GRUNTIFY ALL THE TINGS! (almost) – refactored posts, index and page templates to include full width headers, implemented basic grunt dependency management mostly for js (more to follow)
