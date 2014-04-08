@@ -1,14 +1,13 @@
 {
   "name": "holderjs",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "main": "holder.js",
-  "dependencies": {},
   "homepage": "https://github.com/imsky/holder",
-  "_release": "2.3.1",
+  "_release": "2.3.2",
   "_resolution": {
     "type": "version",
-    "tag": "v2.3.1",
-    "commit": "55a53b737e5ad80bb2d068ee8fe84180072c79a5"
+    "tag": "v2.3.2",
+    "commit": "f4fc0b4ac80f3bbb7502474ec1ea3f837b8b922d"
   },
   "_source": "git://github.com/imsky/holder.git",
   "_target": "~2.3.0",

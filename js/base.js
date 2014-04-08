@@ -1,63 +1,167 @@
-/*! monolith - v1.4.2 - 2014-02-13
+/*! monolith - v1.4.2 - 2014-04-08
 * https://github.com/bigspring/monolith
 * Copyright (c) 2014 BigSpring;* License: MIT
 
 * Packages: grunt, grunt-contrib-concat, grunt-contrib-cssmin, grunt-contrib-less, grunt-contrib-uglify, grunt-contrib-watch, load-grunt-tasks
 * WARNING: THIS FILE IS GENERATED DYNAMICALLY - any changes will be overwritten! */
 
-function css_browser_selector(u)
-	{
-	var ua=u.toLowerCase(),
-	is=function(t) { return ua.indexOf(t)>-1},
-	g='gecko',
-	w='webkit',
-	s='safari',
-	o='opera',
-	m='mobile',
-	f='firefox',
-	h=document.documentElement,
-	b=	[
-		/* hat tip: https://github.com/kevingessner/css_browser_selector/ */
-		(!(/opera|webtv/i.test(ua))&&/msie\s(\d)/.test(ua))?('ie ie'+(/trident\/4\.0/.test(ua) ? '8' : RegExp.$1))
-		:is('firefox/')?g+" "+f+(/firefox\/(\d+(\.?\d+)*)/.test(ua)?' '+f+RegExp.$1.replace(/\./g,"").substr(0,2):'')	
-		:is('gecko/')?g
-		:is('opera')?o+(/version\/((\d+)(\.\d+)*)/.test(ua)?' '+o+RegExp.$2 + ' '+o+RegExp.$2+(RegExp.$3).replace(".","_").substr(0,2):(/opera(\s|\/)(\d+)/.test(ua)?' '+o+RegExp.$2:''))
-		:is('konqueror')?'konqueror'
-		:is('blackberry')?m+' blackberry'
-		:is('android')?m+' android'
-		:is('chrome')?w+' chrome'
-		:is('iron')?w+' iron'
-		:is('applewebkit/')?w+' '+s+(/version\/(\d+)/.test(ua)?' '+s+RegExp.$1:'')
-		:is('mozilla/')?g:''
-		,is('j2me')?m+' j2me'
-		:is('iphone')?m+' iphone'
-		:is('ipod')?m+' ipod'
-		:is('ipad')?m+' ipad'
-		:is('mac')?'mac'
-		:is('darwin')?'mac'
-		:is('webtv')?'webtv'
-		/* hat tip: https://github.com/saar/css_browser_selector */
-		:is('win')?'win'+
-				(is('windows nt 6.2')?' win8'
-				:is('windows nt 6.1')?' win7'
-				:is('windows nt 6.0')?' vista'
-				:is('windows nt 5.2') || is('windows nt 5.1') ? ' xp' 
-				:is('windows nt 5.0')?' win2k': ''
-				) 
-		:is('freebsd')?'freebsd'
-		:(is('x11')||is('linux'))?'linux':''
-		,'js'
-		];
-	var c = b.join(' ');
-	/* hat tip, paul irish: http://paulirish.com/2009/avoiding-the-fouc-v3/ */
-	h.className =  ( h.className.replace(/no-?js/g,"") + " " + c ).replace(/^ /, "");
-	return c;
-	}
+showLog=true;
+function log(m) {if ( window.console && showLog ) {console.log(m); }  }
+
+function css_browser_selector(u) {
+	var	uaInfo = {},
+		screens = [320, 480, 640, 768, 1024, 1152, 1280, 1440, 1680, 1920, 2560],
+		allScreens = screens.length,
+		ua=u.toLowerCase(),
+		is=function(t) { return RegExp(t,"i").test(ua);  },
+		version = function(p,n) 
+			{ 
+			n=n.replace(".","_"); var i = n.indexOf('_'),  ver=""; 
+			while (i>0) {ver += " "+ p+n.substring(0,i);i = n.indexOf('_', i+1);} 
+			ver += " "+p+n; return ver; 
+			},
+		g='gecko',
+		w='webkit',
+		c='chrome',
+		f='firefox',
+		s='safari',
+		o='opera',
+		m='mobile',
+		a='android',
+		bb='blackberry',
+		lang='lang_',
+		dv='device_',
+		html=document.documentElement,
+		b=	[
+		
+			// browser
+			((!(/opera|webtv/i.test(ua))&&/msie\s(\d+)/.test(ua)||(/trident\/.*rv:([0-9]{1,}[\.0-9]{0,})/.test(ua))))?('ie ie'+(/trident\/4\.0/.test(ua) ? '8' : RegExp.$1 == '11.0'?'11':RegExp.$1))
+			:is('firefox/')?g+ " " + f+(/firefox\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)?' '+f+RegExp.$2 + ' '+f+RegExp.$2+"_"+RegExp.$4:'')	
+			:is('gecko/')?g
+			:is('opera')?o+(/version\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)?' '+o+RegExp.$2 + ' '+o+RegExp.$2+"_"+RegExp.$4 : (/opera(\s|\/)(\d+)\.(\d+)/.test(ua)?' '+o+RegExp.$2+" "+o+RegExp.$2+"_"+RegExp.$3:''))
+			:is('konqueror')?'konqueror'
+	
+			:is('blackberry') ? 
+				( bb + 
+					( /Version\/(\d+)(\.(\d+)+)/i.test(ua)
+						? " " + bb+ RegExp.$1 + " "+bb+ RegExp.$1+RegExp.$2.replace('.','_')
+						: (/Blackberry ?(([0-9]+)([a-z]?))[\/|;]/gi.test(ua) 
+							? ' ' +bb+RegExp.$2 + (RegExp.$3?' ' +bb+RegExp.$2+RegExp.$3:'')
+							: '')
+					)
+				) // blackberry
+	
+			:is('android') ? 
+				(  a +
+					( /Version\/(\d+)(\.(\d+))+/i.test(ua)
+						? " " + a+ RegExp.$1 + " "+a+ RegExp.$1+RegExp.$2.replace('.','_')
+						: '')
+					+ (/Android (.+); (.+) Build/i.test(ua)
+						? ' '+dv+( (RegExp.$2).replace(/ /g,"_") ).replace(/-/g,"_")
+						:''	)
+				) //android
+	
+			:is('chrome')?w+   ' '+c+(/chrome\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)?' '+c+RegExp.$2 +((RegExp.$4>0) ? ' '+c+RegExp.$2+"_"+RegExp.$4:''):'')	
+			
+			:is('iron')?w+' iron'
+			
+			:is('applewebkit/') ? 
+				( w+ ' '+ s + 
+					( /version\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)
+						?  ' '+ s +RegExp.$2 + " "+s+ RegExp.$2+RegExp.$3.replace('.','_')
+						:  ( / Safari\/(\d+)/i.test(ua) 
+							? 
+							( (RegExp.$1=="419" || RegExp.$1=="417" || RegExp.$1=="416" || RegExp.$1=="412" ) ? ' '+ s + '2_0' 
+								: RegExp.$1=="312" ? ' '+ s + '1_3'
+								: RegExp.$1=="125" ? ' '+ s + '1_2'
+								: RegExp.$1=="85" ? ' '+ s + '1_0'
+								: '' )
+							:'')
+						)
+				) //applewebkit	
+		
+			:is('mozilla/')?g
+			:''
+			
+			// mobile
+			,is("android|mobi|mobile|j2me|iphone|ipod|ipad|blackberry|playbook|kindle|silk")?m:''
+			
+			// os/platform
+			,is('j2me')?'j2me'
+			:is('ipad|ipod|iphone')?  
+				( 
+					(
+						/CPU( iPhone)? OS (\d+[_|\.]\d+([_|\.]\d+)*)/i.test(ua)  ?
+						'ios' + version('ios',RegExp.$2) : ''
+					) + ' ' + ( /(ip(ad|od|hone))/gi.test(ua) ?	RegExp.$1 : "" )
+				) //'iphone'
+			//:is('ipod')?'ipod'
+			//:is('ipad')?'ipad'
+			:is('playbook')?'playbook'
+			:is('kindle|silk')?'kindle'
+			:is('playbook')?'playbook'
+			:is('mac')?'mac'+ (/mac os x ((\d+)[.|_](\d+))/.test(ua) ?    ( ' mac' + (RegExp.$2)  +  ' mac' + (RegExp.$1).replace('.',"_")  )     : '' )
+			:is('win')?'win'+
+					(is('windows nt 6.2')?' win8'
+					:is('windows nt 6.1')?' win7'
+					:is('windows nt 6.0')?' vista'
+					:is('windows nt 5.2') || is('windows nt 5.1') ? ' win_xp' 
+					:is('windows nt 5.0')?' win_2k'
+					:is('windows nt 4.0') || is('WinNT4.0') ?' win_nt'
+					: ''
+					) 
+			:is('freebsd')?'freebsd'
+			:(is('x11|linux'))?'linux'
+			:''
+			
+			// user agent language
+			,(/[; |\[](([a-z]{2})(\-[a-z]{2})?)[)|;|\]]/i.test(ua))?(lang+RegExp.$2).replace("-","_")+(RegExp.$3!=''?(' '+lang+RegExp.$1).replace("-","_"):''):''
+		
+			// beta: test if running iPad app
+			,( is('ipad|iphone|ipod') && !is('safari') )  ?  'ipad_app'  : ''
+		
+		
+		]; // b
+		
+	console.debug(ua);
+
+    function screenSize() {
+		var w = window.outerWidth || html.clientWidth;
+		var h = window.outerHeight || html.clientHeight;
+		uaInfo.orientation = ((w<h) ? "portrait" : "landscape");
+        // remove previous min-width, max-width, client-width, client-height, and orientation
+        html.className = html.className.replace(/ ?orientation_\w+/g, "").replace(/ [min|max|cl]+[w|h]_\d+/g, "")
+        for (var i=(allScreens-1);i>=0;i--) { if (w >= screens[i] ) { uaInfo.maxw = screens[i]; break; }}
+		widthClasses="";
+        for (var info in uaInfo) { widthClasses+=" "+info+"_"+ uaInfo[info]  };
+		html.className =  ( html.className +widthClasses  );
+		return widthClasses;
+	} // screenSize
+	
+    window.onresize = screenSize;
+	screenSize();	
+
+    function retina(){
+      var r = window.devicePixelRatio > 1;
+      if (r) {      	
+        html.className+=' retina';
+      }
+      else {
+        html.className+=' non-retina';
+      }
+    }
+    retina();
+
+	var cssbs = (b.join(' ')) + " js ";
+	html.className =   ( cssbs + html.className.replace(/\b(no[-|_]?)?js\b/g,"")  ).replace(/^ /, "").replace(/ +/g," ");
+
+	return cssbs;
+}
 	
 css_browser_selector(navigator.userAgent);
 
 /*!
- * Modernizr v2.7.1
+ * Modernizr v2.7.2
  * www.modernizr.com
  *
  * Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
@@ -82,7 +186,7 @@ css_browser_selector(navigator.userAgent);
 
 window.Modernizr = (function( window, document, undefined ) {
 
-    var version = '2.7.1',
+    var version = '2.7.2',
 
     Modernizr = {},
 
@@ -663,7 +767,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     // Note, Android < 4 will pass this test, but can only animate
     //   a single property at a time
-    //   daneden.me/2011/12/putting-up-with-androids-bullshit/
+    //   goo.gl/v3V4Gp
     tests['cssanimations'] = function() {
         return testPropsAll('animationName');
     };
@@ -1465,7 +1569,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
 /*!
 
-Holder - 2.3.1 - client side image placeholders
+Holder - 2.3.2 - client side image placeholders
 (c) 2012-2014 Ivan Malopinsky / http://imsky.co
 
 Provided under the MIT License.
@@ -1734,7 +1838,7 @@ function draw_svg(args){
 		font:font, 
 		template:template
 	})
-	return "data:image/svg+xml;base64,"+btoa(string);
+	return "data:image/svg+xml;base64,"+btoa(unescape(encodeURIComponent(string)));
 }
 
 function draw(args) {
@@ -1965,6 +2069,7 @@ app.add_image = function (src, el) {
 };
 
 app.run = function (o) {
+
 	instance_config = extend({}, system_config)
 	preempted = true;
 
@@ -1972,12 +2077,12 @@ app.run = function (o) {
 		images = [],
 		imageNodes = [],
 		bgnodes = [];
-		
+
 	if(options.use_canvas != null && options.use_canvas){
 		instance_config.use_canvas = true;
 		instance_config.use_svg = false;
 	}
-		
+			
 	if (typeof (options.images) == "string") {
 		imageNodes = selector(options.images);
 	} else if (window.NodeList && options.images instanceof window.NodeList) {
@@ -1996,6 +2101,7 @@ app.run = function (o) {
 		bgnodes = [options.bgnodes];
 	}
 	for (i = 0, l = imageNodes.length; i < l; i++) images.push(imageNodes[i]);
+	
 	var holdercss = document.getElementById("holderjs-style");
 	if (!holdercss) {
 		holdercss = document.createElement("style");
@@ -2003,13 +2109,17 @@ app.run = function (o) {
 		holdercss.type = "text/css";
 		document.getElementsByTagName("head")[0].appendChild(holdercss);
 	}
+	
 	if (!options.nocss) {
 		if (holdercss.styleSheet) {
 			holdercss.styleSheet.cssText += options.stylesheet;
 		} else {
-			holdercss.appendChild(document.createTextNode(options.stylesheet));
+			if(options.stylesheet.length){
+				holdercss.appendChild(document.createTextNode(options.stylesheet));
+			}
 		}
 	}
+	
 	var cssregex = new RegExp(options.domain + "\/(.*?)\"?\\)");
 	for (var l = bgnodes.length, i = 0; i < l; i++) {
 		var src = window.getComputedStyle(bgnodes[i], null)
@@ -2063,6 +2173,10 @@ contentLoaded(win, function () {
 		window.attachEvent("onresize", resizable_update)
 	}
 	preempted || app.run({});
+
+	if (typeof window.Turbolinks === "object") {
+		document.addEventListener("page:change", function() { app.run({}) })
+	}
 });
 if (typeof define === "function" && define.amd) {
 	define([], function () {
@@ -2113,15 +2227,15 @@ if (!Object.prototype.hasOwnProperty)
 })(Holder, window);
 
 /*!
- * Bootstrap v3.1.0 (http://getbootstrap.com)
+ * Bootstrap v3.1.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery') }
+if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript requires jQuery') }
 
 /* ========================================================================
- * Bootstrap: transition.js v3.1.0
+ * Bootstrap: transition.js v3.1.1
  * http://getbootstrap.com/javascript/#transitions
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -2170,7 +2284,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: alert.js v3.1.0
+ * Bootstrap: alert.js v3.1.1
  * http://getbootstrap.com/javascript/#alerts
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -2259,7 +2373,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: button.js v3.1.0
+ * Bootstrap: button.js v3.1.1
  * http://getbootstrap.com/javascript/#buttons
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -2367,7 +2481,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: carousel.js v3.1.0
+ * Bootstrap: carousel.js v3.1.1
  * http://getbootstrap.com/javascript/#carousel
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -2573,7 +2687,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: collapse.js v3.1.0
+ * Bootstrap: collapse.js v3.1.1
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -2744,7 +2858,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: dropdown.js v3.1.0
+ * Bootstrap: dropdown.js v3.1.1
  * http://getbootstrap.com/javascript/#dropdowns
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -2892,7 +3006,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: modal.js v3.1.0
+ * Bootstrap: modal.js v3.1.1
  * http://getbootstrap.com/javascript/#modals
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -3136,7 +3250,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tooltip.js v3.1.0
+ * Bootstrap: tooltip.js v3.1.1
  * http://getbootstrap.com/javascript/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
@@ -3536,7 +3650,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: popover.js v3.1.0
+ * Bootstrap: popover.js v3.1.1
  * http://getbootstrap.com/javascript/#popovers
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -3647,7 +3761,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: scrollspy.js v3.1.0
+ * Bootstrap: scrollspy.js v3.1.1
  * http://getbootstrap.com/javascript/#scrollspy
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -3801,7 +3915,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tab.js v3.1.0
+ * Bootstrap: tab.js v3.1.1
  * http://getbootstrap.com/javascript/#tabs
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -3927,7 +4041,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: affix.js v3.1.0
+ * Bootstrap: affix.js v3.1.1
  * http://getbootstrap.com/javascript/#affix
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -4064,15 +4178,18 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
 }(jQuery);
 
-/*! http://mths.be/placeholder v2.0.7 by @mathias */
+/*! http://mths.be/placeholder v2.0.8 by @mathias */
 ;(function(window, document, $) {
 
-	var isInputSupported = 'placeholder' in document.createElement('input'),
-	    isTextareaSupported = 'placeholder' in document.createElement('textarea'),
-	    prototype = $.fn,
-	    valHooks = $.valHooks,
-	    hooks,
-	    placeholder;
+	// Opera Mini v7 doesn’t support placeholder although its DOM seems to indicate so
+	var isOperaMini = Object.prototype.toString.call(window.operamini) == '[object OperaMini]';
+	var isInputSupported = 'placeholder' in document.createElement('input') && !isOperaMini;
+	var isTextareaSupported = 'placeholder' in document.createElement('textarea') && !isOperaMini;
+	var prototype = $.fn;
+	var valHooks = $.valHooks;
+	var propHooks = $.propHooks;
+	var hooks;
+	var placeholder;
 
 	if (isInputSupported && isTextareaSupported) {
 
@@ -4104,18 +4221,30 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 		hooks = {
 			'get': function(element) {
 				var $element = $(element);
+
+				var $passwordInput = $element.data('placeholder-password');
+				if ($passwordInput) {
+					return $passwordInput[0].value;
+				}
+
 				return $element.data('placeholder-enabled') && $element.hasClass('placeholder') ? '' : element.value;
 			},
 			'set': function(element, value) {
 				var $element = $(element);
+
+				var $passwordInput = $element.data('placeholder-password');
+				if ($passwordInput) {
+					return $passwordInput[0].value = value;
+				}
+
 				if (!$element.data('placeholder-enabled')) {
 					return element.value = value;
 				}
 				if (value == '') {
 					element.value = value;
 					// Issue #56: Setting the placeholder causes problems if the element continues to have focus.
-					if (element != document.activeElement) {
-						// We can’t use `triggerHandler` here because of dummy text/password inputs :(
+					if (element != safeActiveElement()) {
+						// We can't use `triggerHandler` here because of dummy text/password inputs :(
 						setPlaceholder.call(element);
 					}
 				} else if ($element.hasClass('placeholder')) {
@@ -4128,13 +4257,19 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 			}
 		};
 
-		isInputSupported || (valHooks.input = hooks);
-		isTextareaSupported || (valHooks.textarea = hooks);
+		if (!isInputSupported) {
+			valHooks.input = hooks;
+			propHooks.value = hooks;
+		}
+		if (!isTextareaSupported) {
+			valHooks.textarea = hooks;
+			propHooks.value = hooks;
+		}
 
 		$(function() {
 			// Look for forms
 			$(document).delegate('form', 'submit.placeholder', function() {
-				// Clear the placeholder values so they don’t get submitted
+				// Clear the placeholder values so they don't get submitted
 				var $inputs = $('.placeholder', this).each(clearPlaceholder);
 				setTimeout(function() {
 					$inputs.each(setPlaceholder);
@@ -4153,8 +4288,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
 	function args(elem) {
 		// Return an object of element attributes
-		var newAttrs = {},
-		    rinlinejQuery = /^jQuery\d+$/;
+		var newAttrs = {};
+		var rinlinejQuery = /^jQuery\d+$/;
 		$.each(elem.attributes, function(i, attr) {
 			if (attr.specified && !rinlinejQuery.test(attr.name)) {
 				newAttrs[attr.name] = attr.value;
@@ -4164,8 +4299,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 	}
 
 	function clearPlaceholder(event, value) {
-		var input = this,
-		    $input = $(input);
+		var input = this;
+		var $input = $(input);
 		if (input.value == $input.attr('placeholder') && $input.hasClass('placeholder')) {
 			if ($input.data('placeholder-password')) {
 				$input = $input.hide().next().show().attr('id', $input.removeAttr('id').data('placeholder-id'));
@@ -4177,17 +4312,16 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 			} else {
 				input.value = '';
 				$input.removeClass('placeholder');
-				input == document.activeElement && input.select();
+				input == safeActiveElement() && input.select();
 			}
 		}
 	}
 
 	function setPlaceholder() {
-		var $replacement,
-		    input = this,
-		    $input = $(input),
-		    $origInput = $input,
-		    id = this.id;
+		var $replacement;
+		var input = this;
+		var $input = $(input);
+		var id = this.id;
 		if (input.value == '') {
 			if (input.type == 'password') {
 				if (!$input.data('placeholder-textinput')) {
@@ -4199,7 +4333,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 					$replacement
 						.removeAttr('name')
 						.data({
-							'placeholder-password': true,
+							'placeholder-password': $input,
 							'placeholder-id': id
 						})
 						.bind('focus.placeholder', clearPlaceholder);
@@ -4220,4 +4354,13 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 		}
 	}
 
+	function safeActiveElement() {
+		// Avoid IE9 `document.activeElement` of death
+		// https://github.com/mathiasbynens/jquery-placeholder/pull/99
+		try {
+			return document.activeElement;
+		} catch (exception) {}
+	}
+
 }(this, document, jQuery));
+

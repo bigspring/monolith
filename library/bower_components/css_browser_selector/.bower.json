@@ -1,14 +1,13 @@
 {
   "name": "css_browser_selector",
   "homepage": "https://github.com/verbatim/css_browser_selector",
-  "_release": "b1904ef370",
+  "_release": "fe91e9058f",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "b1904ef3705364f530b5a618ecc101f4764a81ca"
+    "commit": "fe91e9058f0eb1e4b159f8d1d10be2d9ff4efc99"
   },
   "_source": "git://github.com/verbatim/css_browser_selector.git",
   "_target": "*",
-  "_originalSource": "css_browser_selector",
-  "_direct": true
+  "_originalSource": "css_browser_selector"
 }

@@ -7,12 +7,18 @@
 
 @component-path: "../../library/bower_components";
 
-// MAIN DEPENDENCIES
+// 1. MAIN DEPENDENCIES
 // ------------------------------------------------------------------------------
 @import "@{component-path}/font-awesome/less/font-awesome.less"; // import FontAwesome
+@fa-font-path: "../library/bower_components/font-awesome/fonts"; // reset the font path
+
+
+// 2. IMPORT BOOTSTRAP – use this to load the whole Bootstrap library. Use instead of section 3
+// ---------------------------------------------------------------------------------------------
 // @import "@{component-path}/bootstrap/less/bootstrap.less"; // import  full Bootstrap core
 
-// SPECIFIC BOOTSTRAP COMPONENTS (comment out whatever is not needed)
+
+// 3. IMPORT SPECIFIC BOOTSTRAP COMPONENTS (comment out whatever is not needed)
 // ------------------------------------------------------------------------------
 
 // Core variables and mixins
@@ -66,8 +72,7 @@
 @import "@{component-path}/bootstrap/less/responsive-utilities.less";
 
 
-// MONOLITH CORE FILES (LOAD THIS AT THE END)
+// 4. MONOLITH CORE FILES (LOAD THIS AT THE END)
 // ------------------------------------------------------------------------------
-
 @import "reset.less"; // some monolith resets and extra WP classes
 @import "custom.less"; // import custom styles, make sure this is at the end
