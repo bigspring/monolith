@@ -25,7 +25,7 @@
     <!-- HTML5 & responsive support for IE browsers... -->
     <!--[if lt IE 9]>
    	  <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/ie.css" rel="stylesheet" type="text/css">        
-      <script src="<?php echo get_stylesheet_directory_uri(); ?>/css/monolith-ie.min.js"></script>
+      <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/ie.min.js"></script>
     <![endif]-->
 
 </head>
