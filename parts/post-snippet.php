@@ -1,8 +1,8 @@
 <? // markup for post snippet, used in loops and queries ?>
-<article itemscope itemtype="http://schema.org/Article" <?php post_class(); ?>>
+<article <?php post_class(); ?>>
 
 	<header class="snippet-title">
-		<h2 class="snippet-headline" itemprop="name"><a href="<?= get_permalink() ?>" title="<?php the_title(); ?>" class="post-permalink" itemprop="url"><?php the_title(); ?></a></h2>
+		<h2 class="snippet-headline"><a href="<?= get_permalink() ?>" title="<?php the_title(); ?>" class="post-permalink"><?php the_title(); ?></a></h2>
 		<p class="text-muted"><?php get_template_part('parts/meta/date'); ?></p>
 	</header>
 	

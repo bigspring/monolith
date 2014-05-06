@@ -1,4 +1,4 @@
-<header class="wrapper-header" role="banner">
+<header class="wrap-nav" role="banner">
     <nav class="navbar navbar-default" role="navigation">
       <div class="container">
       

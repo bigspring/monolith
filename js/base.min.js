@@ -1,4 +1,4 @@
-/*! monolith - v1.4.3 - 2014-05-06
+/*! monolith - v1.4.4 - 2014-05-06
 * https://github.com/bigspring/monolith
 * Copyright (c) 2014 BigSpring;* License: MIT
 

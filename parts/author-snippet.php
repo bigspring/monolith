@@ -7,7 +7,7 @@
 
 <?php if ( get_the_author_meta( 'description' ) ) : ?>
 
-	<div itemscope itemtype="http://www.schema.org/Person" class="article-author panel panel-default">
+	<div class="article-author panel panel-default">
 				
 		<div class="panel-heading">
 			<h3 class="author-snippet-name panel-title" itemprop="author">About the author</h3>
