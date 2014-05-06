@@ -1,9 +1,9 @@
 {
   "name": "bootstrap",
-  "version": "3.1.1",
+  "version": "3.0.3",
   "main": [
-    "./dist/css/bootstrap.css",
-    "./dist/js/bootstrap.js",
+    "./dist/js/bootstrap.js", 
+    "./dist/css/bootstrap.css", 
     "./dist/fonts/glyphicons-halflings-regular.eot",
     "./dist/fonts/glyphicons-halflings-regular.svg",
     "./dist/fonts/glyphicons-halflings-regular.ttf",
@@ -11,12 +11,18 @@
   ],
   "ignore": [
     "**/.*",
-    "_config.yml",
+    "_*",
+    "docs-assets",
+    "examples",
+    "/fonts",
+    "js/tests",
     "CNAME",
-    "composer.json",
     "CONTRIBUTING.md",
-    "docs",
-    "js/tests"
+    "Gruntfile.js",
+    "browserstack.json",
+    "composer.json",
+    "package.json",
+    "*.html"
   ],
   "dependencies": {
     "jquery": ">= 1.9.0"
