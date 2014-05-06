@@ -8,9 +8,15 @@ var bower_path = 'bower_components/';
 var dependencies_main = [
 	bower_path + 'css_browser_selector/css_browser_selector.js',
 	bower_path + 'modernizr/modernizr.js',
-	bower_path + 'holderjs/holder.js',
-	bower_path + 'bootstrap/dist/js/bootstrap.js',	
+	bower_path + 'holderjs/holder.js',	
 	bower_path + 'jquery-placeholder/jquery.placeholder.js',
+	// load some bootstrap components
+	bower_path + 'bootstrap/js/dropdown.js',	
+	bower_path + 'bootstrap/js/transition.js',	
+	bower_path + 'bootstrap/js/collapse.js',	
+	bower_path + 'bootstrap/js/modal.js',	
+	bower_path + 'bootstrap/js/tab.js',	
+	// load main site.js
 	'_src/js/site.js'
 ];
 var dependencies_ie = [
