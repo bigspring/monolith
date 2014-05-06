@@ -1,9 +1,9 @@
 	    <hr/>
-	    <div class="wrapper-footer">
+	    <footer class="site-footer" role="contentinfo">
 	        <div class="<?= CONTAINER_CLASSES; ?>">
-	            <p>&copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.</p>
+	            <span>&copy; <time datetime="<?php echo date("Y"); ?>"><?php echo date("Y"); ?></time> <? bloginfo('title')?></span>	  
 	        </div><!-- /. container -->
-	    </div>
+	    </footer>
 	    
 	    <?php wp_footer(); ?>
 
