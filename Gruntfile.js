@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 /**
  * Define paths/names
  */
-var bower_path = 'library/bower_components/';
+var bower_path = 'bower_components/';
 var dependencies_main = [
 	bower_path + 'css_browser_selector/css_browser_selector.js',
 	bower_path + 'modernizr/modernizr.js',
