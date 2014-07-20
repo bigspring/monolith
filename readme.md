@@ -17,7 +17,7 @@ The aim is for Monolith to be constantly growing – changing and developing as 
 Monolith is released under the MIT Open Source license, so you're welcome to use it on any free or commercial projects of your own.
 
 Be sure to read [the documentation](https://github.com/bigspring/monolith/wiki). Disclaimer: docs are a bit out of date but we're working on that!
-		
+
 Much love,
 
 Team BigSpring
@@ -51,6 +51,7 @@ Monolith utilises Bower and Grunt.
 changelog
 -----
 
+* 1.5.0 – 
 * 1.4.5 – improved HTML5 markup, removed some parts, added title and content parts
 * 1.4.4 – update bower things, bug fixes, streamlined bootstrap js, moved bower_components to theme root
 * 1.4.3 – updated bower components, fixed an issue with the font-awesome path in base.less compiler
@@ -58,8 +59,8 @@ changelog
 * 1.4.1 – added grunt compiler for less files
 * 1.4.0 – GRUNTIFY ALL THE TINGS! (almost) – refactored posts, index and page templates to include full width headers, implemented basic grunt dependency management mostly for js (more to follow)
 * 1.3.0 – upated to Bootstrap 3.1; added bower dependencies for Bootstrap & Font Awesome via base.less
-* 1.2.0 – updated fontawesome to 4.0.3, removed front-page template, added new kitchen sink shortcode 
-* 1.1.0 – implement new shortcodes (panel, divider), restructured header, improved search support, 
+* 1.2.0 – updated fontawesome to 4.0.3, removed front-page template, added new kitchen sink shortcode
+* 1.1.0 – implement new shortcodes (panel, divider), restructured header, improved search support,
 * 1.0.3 – added media queries, improved comments in custom.less
 * 1.0.2 – updated Bootstrap to 3.0 stable, addressed some minor markup bugs
 * 1.0.1 – minor amend to sidebar semantic classes
