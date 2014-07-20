@@ -6,9 +6,7 @@
 	define('SIDEBAR_SIZE', 				'col-md-4'); // sidebar sizes
 	define('MAIN_SIZE',        			'col-md-8'); // main content area sizes
 	define('FULLWIDTH_SIZE',        	'col-md-12'); // full width page sizes
-	define('CONTAINER_CLASSES',         'container'); // classes used in containers
-	define('ROW_CLASSES',         		'row'); // the classes used in rows
-
+	
 // Galleries
 // --------------------------------------------
 
