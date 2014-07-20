@@ -63,7 +63,7 @@ function dump( $a ) {
  */
 function get_topmost_parent_id() {
     global $post;
-    $ancestors=get_post_ancestors($post->ID);    
+    $ancestors=get_post_ancestors($post->ID);
     $root=count($ancestors)-1;
     return $ancestors[$root];
 }
@@ -77,7 +77,7 @@ function get_topmost_parent_id() {
 function monolith_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	?>
-		<?php if ( $comment->comment_approved == '1' ): ?>	
+		<?php if ( $comment->comment_approved == '1' ): ?>
 		<li>
 			<article id="comment-<?php comment_ID() ?>">
 				<div class="well">
@@ -95,7 +95,7 @@ function monolith_comment( $comment, $args, $depth ) {
 			</article>
 		<?php endif; ?>
 		</li>
-		<?php 
+		<?php
 }
 
 /**
@@ -229,7 +229,7 @@ function time_ago( $type = 'post' ) {
 /**
  * Checks the PHP server variable for user agent and looks for iphone and ipod devices
  */
-function detectiOS() 
+function detectiOS()
 {
 	$container = $_SERVER['HTTP_USER_AGENT'];
 	$useragents = array ('iPhone','iPod', 'iPad');
@@ -311,7 +311,7 @@ function add_sc_select(){
                         <option value="[blockquote cite=&#34;&#34; float=&#34;&#34;][/blockquote]">[blockquote]</option>
                         <option value="[columns][/columns]">[columns]</option>
                         <option value="[childpages layout=&#34;list&#34;]">[childpages]</option>
-                        
+
         </select>';
 }
 add_action('admin_head', 'button_js');
@@ -346,10 +346,10 @@ function the_post_thumbnail_caption() {
 }
 
 
-// Stop WP from automatically linking images to themselves 
+// Stop WP from automatically linking images to themselves
 function wpb_imagelink_setup() {
 	$image_set = get_option( 'image_default_link_type' );
-	
+
 	if ($image_set !== 'none') {
 		update_option('image_default_link_type', 'none');
 	}
@@ -359,22 +359,22 @@ add_action('admin_init', 'wpb_imagelink_setup', 10);
 
 // Topmost parent & descendant content functions
 
-function is_related($page_id) { 
-    global $post; 
-    
+function is_related($page_id) {
+    global $post;
+
     if(is_page() && ($post->ID == $page_id || $post->post_parent==$page_id || get_topmost_parent_id() == $page_id)) {
         return true;
-    } else { 
-        return false; 
+    } else {
+        return false;
     }
 }
 
-function is_descendant($page_id) { 
-    global $post; 
-    
+function is_descendant($page_id) {
+    global $post;
+
     if(is_page() && ($post->post_parent==$page_id || get_topmost_parent_id() == $page_id)) {
         return true;
-    } else { 
-        return false; 
+    } else {
+        return false;
     }
 }
