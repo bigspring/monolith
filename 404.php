@@ -12,11 +12,11 @@
 
 <div class="wrapper-main" role="document">
 	
-	<div class="<?= CONTAINER_CLASSES; ?>">
+	<div class="container">
 
 		<? // get_template_part('parts/breadcrumb'); // load the breadcrumbs ?>
 
-		<div class="<?= ROW_CLASSES ?>">
+		<div class="row">
 			
 			<div class="span<?= FULLWIDTH_SIZE ?> content" role="main">			
 			

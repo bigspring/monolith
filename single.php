@@ -2,10 +2,10 @@
 
 <?php get_header() ?>
 <div class="wrap-main">		
-		<div class="<?= CONTAINER_CLASSES; ?>">
+		<div class="container">
 			<? get_template_part('parts/breadcrumb'); // load the breadcrumbs ?>					
 			
-			<div class="<?= ROW_CLASSES ?>">			
+			<div class="row">			
 				<main class="<?= MAIN_SIZE ?>" role="main">
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>	
 
