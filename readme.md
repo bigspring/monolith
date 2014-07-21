@@ -51,7 +51,7 @@ Monolith utilises Bower and Grunt.
 changelog
 -----
 
-* 1.5.0 – 
+* 1.5.0 – added kitchen sink LESS file to handle common vars, removed some redundant config vars, fixed a bug with panel shortcode. bumpbed to 1.5 because reasons mostly.
 * 1.4.5 – improved HTML5 markup, removed some parts, added title and content parts
 * 1.4.4 – update bower things, bug fixes, streamlined bootstrap js, moved bower_components to theme root
 * 1.4.3 – updated bower components, fixed an issue with the font-awesome path in base.less compiler
