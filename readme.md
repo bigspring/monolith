@@ -1,5 +1,5 @@
-monolith
-========
+monolith v2.0
+=============
 
 a lightweight WordPress theme powered by Twitter Bootstrap, built for developers. Created by [BigSpring](http://www.bigspring.co.uk).
 
@@ -51,18 +51,4 @@ Monolith utilises Bower and Grunt.
 changelog
 -----
 
-* 1.5.1 – fixed a typo in custom.less that was causing compile fails. doh!
-* 1.5.0 – added kitchen sink LESS file to handle common vars, removed some redundant config vars, fixed a bug with panel shortcode. bumpbed to 1.5 because reasons mostly.
-* 1.4.5 – improved HTML5 markup, removed some parts, added title and content parts
-* 1.4.4 – update bower things, bug fixes, streamlined bootstrap js, moved bower_components to theme root
-* 1.4.3 – updated bower components, fixed an issue with the font-awesome path in base.less compiler
-* 1.4.2 – some bug fixes, restructured source LESS and JS files to new /_src/ folder in theme root
-* 1.4.1 – added grunt compiler for less files
-* 1.4.0 – GRUNTIFY ALL THE TINGS! (almost) – refactored posts, index and page templates to include full width headers, implemented basic grunt dependency management mostly for js (more to follow)
-* 1.3.0 – upated to Bootstrap 3.1; added bower dependencies for Bootstrap & Font Awesome via base.less
-* 1.2.0 – updated fontawesome to 4.0.3, removed front-page template, added new kitchen sink shortcode
-* 1.1.0 – implement new shortcodes (panel, divider), restructured header, improved search support,
-* 1.0.3 – added media queries, improved comments in custom.less
-* 1.0.2 – updated Bootstrap to 3.0 stable, addressed some minor markup bugs
-* 1.0.1 – minor amend to sidebar semantic classes
-* 1.0.0 – hellow wembley stadium!
+* 2.0.0 – hello cleveland!
