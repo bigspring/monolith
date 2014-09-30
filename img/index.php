@@ -1,1 +1,0 @@
-remember when you were young, you shone like the sun
