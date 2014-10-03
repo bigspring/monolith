@@ -1,17 +1,5 @@
 {
-  "name": "bigspring/monolith",
-  "type": "wordpress-theme",
-  "description": "Wordpress starter theme",
-  "homepage": "http://bigspring.co.uk",
-  "authors": [
-    {
-      "name": "BigSpring"
-    }
-  ],
   "require" : {
     "composer/installers" : "~1.0.0",
-  },
-  "extra" : {
-    "installer-name" : "bigspring/monolith"
   }
 }
