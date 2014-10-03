@@ -10,9 +10,8 @@
   ],
   "require" : {
     "composer/installers" : "~1.0.0",
-    "php" : ">=5.3.2"
   },
   "extra" : {
-    "installer-name" : "bigspring-monolith"
+    "installer-name" : "bigspring/monolith"
   }
 }
