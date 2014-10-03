@@ -1,0 +1,10 @@
+{
+  "name": "bigspring/monolith",
+  "description": "Wordpress starter theme",
+  "homepage": "http://bigspring.co.uk",
+  "authors": [
+    {
+      "name": "BigSpring"
+    }
+  ]
+}
