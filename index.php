@@ -48,6 +48,21 @@
 		</header>
 
 
+        <?php $args = array(
+            'posts_per_page' => 3,
+            'post_type' => 'post'
+        );
+
+        $some_posts = new WP_Query($args);
+
+        $builder_args = array(
+            //'classes' => 'list-unstyled'
+        );
+        ?>
+
+        <?php get_builder_part('snippets', $some_posts, $builder_args); ?>
+        <?php get_builder_part(); ?>
+
 		<div class="row">
 
 			<main class="<?= MAIN_SIZE ?>" role="main">

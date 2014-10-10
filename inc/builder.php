@@ -5,7 +5,7 @@ class Builder
     public $query = null;
     public $args = array();
     public $default_args = array(
-        'columns' => 1,
+        'columns' => 3,
         'classes' => ''
     );
 
@@ -56,6 +56,7 @@ class Builder
     {
         $loop = &$this->query;
         $args = &$this->args;
+        $snippet_size = GRID_SIZE / $args['columns']; // work out span based on columns
 
         $template_path = dirname(__FILE__) . '/../';
         $layout_file = $template_path . 'parts/builder/organisms/' . $this->layout . '.php';

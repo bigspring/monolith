@@ -3,7 +3,8 @@
 // Scaffolding
 // --------------------------------------------
 
-	define('SIDEBAR_SIZE', 				'col-md-4'); // sidebar sizes
+	define('GRID_SIZE',                 '12'); // overall grid size
+    define('SIDEBAR_SIZE', 				'col-md-4'); // sidebar sizes
 	define('MAIN_SIZE',        			'col-md-8'); // main content area sizes
 	define('FULLWIDTH_SIZE',        	'col-md-12'); // full width page sizes
 	
