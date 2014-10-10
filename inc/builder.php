@@ -4,12 +4,13 @@ class Builder
     public $layout = 'list';
     public $query = null;
     public $args = array();
+    public $loop = null;
     public $default_args = array(
         'columns' => 3,
         'classes' => ''
     );
 
-    public function __construct($layout = null, &$query = null, $args = null)
+    public function __construct($layout = null, $query = null, $args = null)
     {
         $this->layout = $layout ? $layout : 'list'; // get the layout or default to list
         $this->query = $query ? $query : null; // set the query object if we have one
@@ -28,7 +29,9 @@ class Builder
     {
         if(!$this->query) {
             global $wp_query;
-            $this->query = $wp_query;
+            $this->loop = $wp_query;
+        } else {
+            $this->loop = new WP_Query($this->query);
         }
 
         return true;
@@ -54,7 +57,7 @@ class Builder
      */
     public function _render()
     {
-        $loop = &$this->query;
+        $loop = &$this->loop;
         $args = &$this->args;
         $snippet_size = GRID_SIZE / $args['columns']; // work out span based on columns
 
