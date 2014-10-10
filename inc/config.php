@@ -33,3 +33,4 @@
 	require_once('functions.php');
 	require_once('shortcodes.php');
 	require_once('monolith_widgets.php');
+    require_once('builder.php');
