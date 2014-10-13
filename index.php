@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-  <!-- start the temp content -->
+  <!-- start the temp content – please kille me, I am wrong -->
   <section class="row temp-content">    
     <div class="small-12 columns">
     
