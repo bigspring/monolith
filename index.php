@@ -7,11 +7,15 @@
 
 get_header(); ?>
 
-	<main role="main">
-		
-		<h1>Monolith 2.0</h1>
-		<p>Remember when you were young, and you shone like the sun.</p>	
-		
-	</main>
-  
+  <!-- start the temp content -->
+  <section class="row temp-content">    
+    <div class="small-12 columns">
+    
+      <h1>Monolith 2.0</h1>
+      <p>Remember when you were young, and you shone like the sun.</p>	
+      
+    </div>  
+  </section>
+  <!-- end the temp content section -->
+
 <?php get_footer(); ?>

@@ -15,7 +15,12 @@
 </head>
 <body>
 
-	<header role="banner">
-		[header goes here]
-		<hr />
-	</header>
+  <!-- start the site header -->
+  <header class="block-header" role="banner">
+  	[header goes here]
+  	<hr />
+  </header>
+  <!-- end the header -->
+
+	<!-- start main -->
+	<main class="block-main" role="main">
