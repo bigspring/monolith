@@ -1,11 +1,17 @@
 // Monolith by BigSpring
 // Licensed under MIT Open Source
 
-// Description: This is the main compiler SCSS file. It creates a single base.css file in the /assets/css folder, which is loaded into the WordPress header. Use this file to call in SCSS scripts as needed.
+/*
 
-@import "settings"; 	// load custom project settings
+Description: This is the main compiler SCSS file. It creates a single base.css file in the /assets/css folder, which is loaded into the WordPress header. Use this file to call in SCSS scripts as needed.
 
-// Or selectively include components
+for more information on Foundation components, visit http://foundation.zurb.com/docs/
+*/
+
+// load the main settings file
+@import "settings"; 	
+
+// load Foundation components
 @import
 "foundation/components/accordion",
 "foundation/components/alert-boxes",
@@ -13,7 +19,7 @@
 "foundation/components/breadcrumbs",
 "foundation/components/button-groups",
 "foundation/components/buttons",
-//   "foundation/components/clearing",
+"foundation/components/clearing",
 "foundation/components/dropdown",
 "foundation/components/dropdown-buttons",
 "foundation/components/flex-video",
@@ -36,13 +42,16 @@
 //   "foundation/components/switch",
 "foundation/components/tables",
 "foundation/components/tabs",
-//   "foundation/components/thumbs",
+"foundation/components/thumbs",
 //   "foundation/components/tooltips",
 "foundation/components/top-bar",
 "foundation/components/type",
 //   "foundation/components/offcanvas",
 "foundation/components/visibility";
 
-@import "reset"; 		// load the monolith reset file
-@import "utilities"; 	// load the Monolith utilities
-@import "custom"; 		// load the custom styles
+// load the monolith reset file & utilities
+@import "reset"; 		
+@import "utilities";
+
+// load the custom styles (do this at the end to avoid pain)
+@import "custom";
