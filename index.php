@@ -6,20 +6,40 @@
 
 get_header(); ?>
 
-  <!-- start the temp content – please kille me, I am wrong -->
-  <section class="row temp-content">    
+  <!-- start the title row -->
+  <div class="row">
+    <div class="small-12 columns">
+      <?php get_template_part('layouts/organisms/title'); ?>
+    </div>
+  </div>
+  <!-- end the title row -->
 
-    <!-- start the temporary hax0r content; please kill me -->
-    <div class="large-8 columns">    
-      <h1>Monolith 2.0</h1>
-      <p>Remember when you were young, and you shone like the sun.</p>	      
-    </div>  
-    <!-- end the temp fax0r content -->
+  <!-- start the main content row -->
+  <div class="row">    
+
+    <div class="large-8 columns" role="main">
+      
+      <!-- start the main content loops -->
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>      
+      
+        <?php get_template_part('layouts/molecules/snippet'); // load the snippet part ?>
+        
+      <?php endwhile; ?>
+      
+      <?php else : ?>
+        <?php get_template_part('layouts/organisms/content-none') // load the content-none part ?>    
+      <?php endif; ?>
+      <!-- end the main content loops -->
+      
+    </div>
     
-    <!-- include the sidebar – DON'T KILL ME -->
-    <?php get_template_part('layouts/organisms/sidebar'); ?>
+    <!-- start the sidebar -->
+    <div id="sidebar" class="sidebar large-4 columns" role="complementary">
+      <?php get_template_part('layouts/organisms/sidebar'); ?>
+    </div>
+    <!-- end the sidebar -->
     
-  </section>
-  <!-- end the temp content section -->
+  </div><!-- /.row -->
+  <!-- end the main content row -->
 
 <?php get_footer(); ?>
