@@ -87,7 +87,7 @@ class Builder
  * @param array|null $args The arguments to be passed to the function
  * @param object|null $query The Wordpress WP_Query object to be used
  */
-function get_builder_part($layout = null, $args = null, $query = null)
+function build($layout = null, $args = null, $query = null)
 {
     new Builder($layout, $args, $query);
 }
