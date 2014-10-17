@@ -1,16 +1,8 @@
 <?php 
-
-/** 
- * Monolith by BigSpring
- * Licensed under MIT Open Source
- * Sidebar molecule
- */
+ // Monolith by BigSpring
+ // Licensed under MIT Open Source
 ?>
 
 <!-- start the sidebar -->
-<aside id="sidebar" class="sidebar large-4 columns" role="complementary">
-
-  <?php dynamic_sidebar('sidebar'); ?>
-  
-</aside>
+<?php dynamic_sidebar('sidebar'); ?>
 <!-- end the sidebar -->
