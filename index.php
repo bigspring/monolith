@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 /** 
  * Monolith by BigSpring
  * Licensed under MIT Open Source
