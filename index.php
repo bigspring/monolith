@@ -1,8 +1,8 @@
 <?php
-/** 
- * Monolith by BigSpring
- * Licensed under MIT Open Source
- */
+
+ // Monolith by BigSpring
+ // Licensed under MIT Open Source
+ // Description: Main index file, which does all the heavy lifting.
 
 get_header(); ?>
 
@@ -18,18 +18,20 @@ get_header(); ?>
   <div class="row">    
 
     <div class="large-8 columns" role="main">
+    
+      <?php 
       
-      <!-- start the main content loops -->
-      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>      
-      
-        <?php get_template_part('layouts/molecules/snippet'); // load the snippet part ?>
+        if( is_single() || is_page() ) :        
         
-      <?php endwhile; ?>
-      
-      <?php else : ?>
-        <?php get_template_part('layouts/organisms/content-none') // load the content-none part ?>    
-      <?php endif; ?>
-      <!-- end the main content loops -->
+          build('content'); // load the content part on posts & pages
+        
+        else :        
+        
+          build('snippets'); // otherwise, load the snippets builder          
+        
+        endif;
+          
+      ?>
       
     </div>
     
