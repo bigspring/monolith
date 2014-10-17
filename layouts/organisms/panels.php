@@ -3,7 +3,7 @@
 <div class="snippet">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-        <?php include($layouts_path . 'organisms/snippet.php'); ?>
+        <?php include($layouts_path . 'molecules/panel.php'); ?>
         <?php $count++ ; ?>
     <?php endwhile; ?>
 </div>
