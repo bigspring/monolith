@@ -1,0 +1,27 @@
+// Monolith by BigSpring
+// Licensed under MIT Open Source
+
+// This file includes some basic hacks and fixes, such as spacing etc.
+
+// CONTENTS
+// =========================
+
+// 01 – Sidebars
+
+
+// 01 – SIDEBARS
+// =========================
+
+  // Sidebar Widgets
+  // -------------------------
+  
+  .widget {
+    margin-bottom: 1rem; // add some margin to the widget    
+    
+    // style the lists in widgets – remove margins
+    ul {
+      margin: 0;
+      list-style: none;
+    }//.ul
+    
+  }//.widget
