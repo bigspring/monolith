@@ -7,11 +7,7 @@
 get_header(); ?>
 
   <!-- start the title row -->
-  <div class="row">
-    <div class="small-12 columns">
-      <?php get_template_part('layouts/organisms/title'); ?>
-    </div>
-  </div>
+  <?php get_template_part('layouts/molecules/title'); ?>
   <!-- end the title row -->
 
   <!-- start the main content row -->
@@ -21,7 +17,7 @@ get_header(); ?>
     
       <?php 
       
-        if( is_single() || is_page() ) :        
+        if( is_single() || is_page() ) :       
         
           build('content'); // load the content part on posts & pages
         
