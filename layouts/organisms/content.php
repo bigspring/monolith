@@ -4,14 +4,22 @@
  // Content loop
 ?>
 
-<article id="post-<?= $post->ID; ?>" <?php post_class(); ?>>
+<?php if($loop->have_posts()) : ?>
 
-  <section class="entry-content">
-    <?php the_content() ?>
-  </section>
-  
-  <footer class="entry-footer">
-    [content footer]
-  </footer>
-
-</article>
+  <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+    <article id="post-<?= $post->ID; ?>" <?php post_class(); ?>>
+    
+      <section class="entry-content">
+        <?php the_content() ?>
+      </section>
+      
+      <footer class="entry-footer">
+        [content footer]
+      </footer>
+    
+    </article>
+  <?php endwhile; ?>
+ 
+<?php else : // otherwise, load the no-content layout ?>
+  <?php include($layouts_path . 'organisms/content-none.php'); ?>
+<?php endif; ?>
