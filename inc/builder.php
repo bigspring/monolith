@@ -1,17 +1,26 @@
 <?php
 class Builder
 {
-    public $layout = 'list';
-    public $query = null;
-    public $args = array();
-    public $loop = null;
-    public $default_args = array(
+    //private $template_path; // removed this while we see if the template_path var is useful.  will we ever re-use it?
+    private $layouts_path;
+    private $layout = 'list';
+    private $query = null;
+    private $args = array();
+    private $loop = null;
+    private $default_args = array(
         'columns' => 3,
         'classes' => ''
     );
 
     public function __construct($layout = null, $query = null, $args = null)
     {
+
+        // removed this while we see if the template_path var is useful.  will we ever re-use it?
+/*        $this->template_path = dirname(__FILE__) . '/../';
+        $this->layouts_path = $this->template_path . 'layouts/';*/
+
+        $this->layouts_path = dirname(__FILE__) . '/../' . 'layouts/';
+
         $this->layout = $layout ? $layout : 'list'; // get the layout or default to list
         $this->query = $query ? $query : null; // set the query object if we have one
         $this->args = $args ? $args : array(); // set our args if we have any
@@ -59,10 +68,10 @@ class Builder
     {
         $loop = &$this->loop;
         $args = &$this->args;
+        $layouts_path = $this->layouts_path;
         $snippet_size = GRID_SIZE / $args['columns']; // work out span based on columns
 
-        $template_path = dirname(__FILE__) . '/../';
-        $layout_file = $template_path . 'parts/builder/organisms/' . $this->layout . '.php';
+        $layout_file = $this->layouts_path . '/organisms/' . $this->layout . '.php';
 
         ob_start();
         include($layout_file);
