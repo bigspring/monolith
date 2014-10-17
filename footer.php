@@ -1,5 +1,5 @@
 	</main>
-	<!-- end main -->
+	<!-- end block-main -->
 
 	<!-- start the footer -->
 	<footer class="row block-footer" role="contentinfo">
