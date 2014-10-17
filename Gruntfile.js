@@ -15,6 +15,7 @@ module.exports = function(grunt) {
                 bower: 'assets/bower_components'
             },
             src: {
+                all: '_src',
                 scss: '_src/scss'
             },
             dependencies: {
@@ -106,7 +107,7 @@ module.exports = function(grunt) {
          */
         watch: {
             js: {
-                files: '<%= project.dependencies.default.concat(project.dependencies.ie) %>',
+                files: ['<%= project.src.all %>/**/*.js'],
                 tasks: ['concat', 'uglify']
             },
             css: {
