@@ -32,8 +32,10 @@ get_header(); ?>
     </div>
     
     <!-- start the sidebar -->
-    <div id="sidebar" class="sidebar large-4 columns" role="complementary">
+    <div id="sidebar" class="large-4 columns sidebar" role="complementary">
+      
       <?php get_template_part('layouts/organisms/sidebar'); ?>
+    
     </div>
     <!-- end the sidebar -->
     
