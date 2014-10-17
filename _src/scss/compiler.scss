@@ -1,0 +1,57 @@
+// Monolith by BigSpring
+// Licensed under MIT Open Source
+
+/*
+
+Description: This is the main compiler SCSS file. It creates a single base.css file in the /assets/css folder, which is loaded into the WordPress header. Use this file to call in SCSS scripts as needed.
+
+for more information on Foundation components, visit http://foundation.zurb.com/docs/
+*/
+
+// load the main settings file
+@import "settings"; 	
+
+// load Foundation components
+@import
+"foundation/components/accordion",
+"foundation/components/alert-boxes",
+"foundation/components/block-grid",
+"foundation/components/breadcrumbs",
+"foundation/components/button-groups",
+"foundation/components/buttons",
+"foundation/components/clearing",
+"foundation/components/dropdown",
+"foundation/components/dropdown-buttons",
+"foundation/components/flex-video",
+"foundation/components/forms",
+"foundation/components/grid",
+"foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+"foundation/components/labels",
+//   "foundation/components/magellan",
+"foundation/components/orbit",
+"foundation/components/pagination",
+"foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+"foundation/components/side-nav",
+"foundation/components/split-buttons",
+"foundation/components/sub-nav",
+//   "foundation/components/switch",
+"foundation/components/tables",
+"foundation/components/tabs",
+"foundation/components/thumbs",
+//   "foundation/components/tooltips",
+"foundation/components/top-bar",
+"foundation/components/type",
+//   "foundation/components/offcanvas",
+"foundation/components/visibility";
+
+// load the monolith reset file & utilities
+@import "reset"; 		
+@import "utilities";
+
+// load the custom styles (do this at the end to avoid pain)
+@import "custom";

@@ -1,80 +1,20 @@
-<?php 
-/*
- * Monolith
- * WordPress Index
- * The WordPress index does most of the heavy lifting for loops – categories, archives, tags etc.
-*/
-?>
+<?php
+/** 
+ * Monolith by BigSpring
+ * Licensed under MIT Open Source
+ */
 
+get_header(); ?>
 
-<?php get_header() ?>
-
-<div class="wrapper-main" role="main">
-
-	<div class="container">
-	
-		<? get_template_part('parts/breadcrumb'); // load breadcrumb ?>
-	
-		<header class="page-header archive-header" itemprop="name">
-			
-			<?php if ( is_day() ) : ?>
-			<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'D F Y' ); ?></h1>
-			
-			<?php elseif ( is_month() ) : ?>
-			<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'F Y' ); ?></h1>
-			
-			<?php elseif ( is_year() ) : ?>
-			<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'Y' ); ?></h1>	
-			
-			<?php elseif ( is_tag() ) : ?>
-			<h1 class="archive-title h1">Tag Archive: <?php single_tag_title(); ?></h1>						
-			
-			<?php elseif ( is_category() ) : ?>
-			<h1 class="category-title h1"><?php single_cat_title() ?></h1>
-			
-			<?php elseif ( is_author() ) : get_template_part('parts/author-header') ?>
-			
-			<?php elseif ( is_home() ) : ?>
-			<h1>The Blog</h1>
-			
-			<?php elseif ( is_search() ) : ?>
-			<h1>Search results for '<?php echo get_search_query(); ?>'</h1>
-			
-			<?php else : ?>
-			<h1 class="archive-title h1">Archive</h1>
-			
-			<?php endif; ?>
-		
-		</header>
-
-
-        <?php $query_args = array(
-            'posts_per_page' => 2,
-            'post_type' => 'post'
-        );
-
-        $builder_args = array(
-            //'classes' => 'list-unstyled'
-        );
-        ?>
-
-        <?php get_builder_part('snippets', $query_args, $builder_args); ?>
-        <?php get_builder_part(); ?>
-
-		<div class="row">
-
-			<main class="<?= MAIN_SIZE ?>" role="main">
-				
-				<?php get_template_part('parts/loop-posts') // load the posts loop ?>
-
-			</main><!-- MAIN_SIZE -->
-
-			<? get_template_part('parts/sidebar'); // right sidebar ?>
-
-		</div><!-- /ROW_CLASSES -->	
-
-	</div><!-- /CONTAINER_CLASSES -->
-
-</div><!-- /main -->	
+  <!-- start the temp content – please kille me, I am wrong -->
+  <section class="row temp-content">    
+    <div class="small-12 columns">
+    
+      <h1>Monolith 2.0</h1>
+      <p>Remember when you were young, and you shone like the sun.</p>	
+      
+    </div>  
+  </section>
+  <!-- end the temp content section -->
 
 <?php get_footer(); ?>

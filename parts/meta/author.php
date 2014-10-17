@@ -1,1 +1,0 @@
-<span class="post-author"><?= the_author_posts_link(); ?></span>
