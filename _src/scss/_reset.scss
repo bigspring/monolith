@@ -25,3 +25,41 @@
     }//.ul
     
   }//.widget
+  
+
+// 02 – SINGLE POST
+// =========================
+
+  // add a default margin to a post's featured image
+  .post-featured-image {
+    margin-bottom: 1rem;
+  }
+
+
+  // alignment classes
+  .alignleft {
+    float: left;
+    margin-right: 1rem;
+  }
+  
+  .alignright {
+    float: right;
+    margin-left: 1rem;
+  }
+
+ // captions
+  .wp-caption {  
+    
+    text-align: center;
+    padding: 5px;
+    background: $smoke;
+    margin-bottom: 1rem;
+    
+    .wp-caption-text {
+      margin: 0;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      color: $steel;
+    }
+    
+  }
