@@ -1,4 +1,8 @@
 <?php
+/**
+ * Monolith by BigSpring
+ * Licensed under MIT Open Source
+ */
 
 // Scaffolding
 // --------------------------------------------
@@ -28,10 +32,10 @@
 // Don't touch anything below, or things will break and then I will break your fingers!!
 // -------------------------------------------------------------------------------------
 
-	//require_once('monolith.php');
-	//require_once('hooks.php');
-	//require_once('filters.php');
-	//require_once('functions.php');
-	//require_once('shortcodes.php');
-	//require_once('monolith_widgets.php');
+	require_once('monolith.php');
+    require_once('hooks.php');
+	require_once('filters.php');
+    require_once('template_tags.php');
+	require_once('shortcodes.php');
     require_once('builder.php');
+    //require_once('functions.php');
