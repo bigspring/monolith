@@ -85,7 +85,7 @@ module.exports = function(grunt) {
                     outputStyle: 'nested'
                 },
                 files: {
-                    'assets/css/base.css': '<%= project.src.scss %>/compiler.scss'
+                    '<%= project.assets.css %>/base.css': '<%= project.src.scss %>/compiler.scss'
                 }
             }
         },
@@ -95,9 +95,9 @@ module.exports = function(grunt) {
             },
             minify: {
                 expand: true,
-                cwd: 'assets/css/',
+                cwd: '<%= project.assets.css %>',
                 src: ['*.css', '!*.min.css'],
-                dest: '<%= project.assets.css %>/',
+                dest: '<%= project.assets.css %>',
                 ext: '.min.css'
             }
         },
