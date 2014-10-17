@@ -16,7 +16,7 @@ get_header(); ?>
     </div>  
     <!-- end the temp fax0r content -->
     
-    <!-- include the sidebar -->
+    <!-- include the sidebar – DON'T KILL ME -->
     <?php get_template_part('layouts/organisms/sidebar'); ?>
     
   </section>
