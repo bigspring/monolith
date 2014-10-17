@@ -8,9 +8,9 @@
 ?>
 
 <!-- start the sidebar -->
-<aside class="sidebar" role="complementary">
+<aside id="sidebar" class="sidebar large-4 columns" role="complementary">
 
-  <p>Hello, I am a sidebar. Please change me.</p>
+  <?php dynamic_sidebar('sidebar'); ?>
   
 </aside>
 <!-- end the sidebar -->
