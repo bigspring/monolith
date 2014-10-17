@@ -27,7 +27,7 @@ class Builder
 
         $this->_set_loop(); // set the loop object
         $this->_set_args(); // set any custom arguments we have
-        $this->_render(); // render the view
+        return $this->_render(); // render the view
     }
 
     /**
@@ -75,9 +75,9 @@ class Builder
 
         ob_start();
         include($layout_file);
-        echo ob_get_clean();
+        return ob_get_clean();
 
-        return true;
+        //return true;
     }
 }
 
