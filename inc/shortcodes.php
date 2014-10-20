@@ -1,11 +1,26 @@
 <?php
 /**
- * FontAwesome icon [icon class=""]
+ * Custom shortcode to render Bootstrap glyphicons [icon class=""]
  * @param array $atts
  */
-function fontawesome_icons($atts, $content = null)
+function bootstrap_glyph_icons_shortcode($atts, $content = null)
 {
-	return '<i class="fa fa-'.$atts['class'].'"></i>';
+	return '<i class="'.$atts['class'].'"></i>';
+}
+
+/**
+ * Custom shortcode to produce the contact us button in content [contact text="" pageid=""]
+ * @param array $atts
+ */
+function contact_us_shortcode($atts, $content = null)
+{
+	if(empty($atts['text']))
+		$atts['text'] = 'Please enter some text via text=""';
+	
+	if($empty($atts['pageid']))
+		$atts['text'] .= '.  Please enter the Page ID for the contact page [contact text="" pageid=""]';
+
+	return '<div class="inline-button-block"><a href="'.get_permalink($atts['pageid']).'" class="btn btn-primary">'. $atts['text'].'</a></div>';
 }
 
 /**
@@ -590,7 +605,8 @@ function kitchensink_shortcode($atts, $content = null) {
 
 // load shortcodes
 add_shortcode('kitchensink', 'kitchensink_shortcode');
-add_shortcode('icon', 'fontawesome_icons');
+add_shortcode('icon', 'bootstrap_glyph_icons');
+add_shortcode('contact', 'contact_us_shortcode');
 add_shortcode('gallery', 'monolith_gallery');
 add_shortcode('intro', 'intro_text_shortcode');
 add_shortcode('button', 'buttons');
