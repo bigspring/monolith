@@ -13,7 +13,7 @@ function monolith_setup() {
      * Registers the default menu
      */
     function register_menu(){
-        register_nav_menu( 'top-bar', 'Primary Navigation' );
+        register_nav_menu( 'primary-navigation', 'Primary Navigation' );
     }
 
     /**

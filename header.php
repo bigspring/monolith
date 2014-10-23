@@ -15,12 +15,7 @@
 </head>
 <body>
 
-  <!-- start the site header -->
-  <header class="block-header" role="banner">
-  	[header goes here]
-  	<hr />
-  </header>
-  <!-- end the header -->
+  <?php get_template_part('layouts/organisms/nav-topbar'); // load the navigation ?>
 
 	<!-- start main -->
 	<main class="block-main" role="main">
