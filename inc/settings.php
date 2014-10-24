@@ -39,217 +39,164 @@ add_action('admin_menu', function() {
         if (!current_user_can('manage_options')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
-        wp_enqueue_style('foundation-css', get_template_directory_uri().'/assets/bower_components/foundation/css/foundation.css');
-        wp_enqueue_script('foundation-js', get_template_directory_uri().'/assets/bower_components/foundation/js/foundation.min.js', 'jquery');
         ?>
 
         <div class="wrap">
 
-        <div class="row">
-            <div class="medium-6 columns">
-                <h1>Monolith Settings</h1>
-            </div>
-        </div>
+            <h1>Monolith Settings</h1>
 
-        <form method="post" action="options.php">
+            <form method="post" action="options.php">
 
-            <?php @settings_fields('monolith-group'); ?>
-            <?php @do_settings_sections('monolith-group'); ?>
+                <?php @settings_fields('monolith-group'); ?>
+                <?php @do_settings_sections('monolith-group'); ?>
 
-            <div class="row">
-                <div class="medium-6 columns">
-                    <h3>Monolith</h3>
-                </div>
-            </div>
+                <h3>Monolith</h3>
 
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Switch Mode
-                        <select name="monolith_mode_switch" id="monolith_mode_switch">
-                            <option <?=  ?>>Development</option>
-                            <option value="production">Production</option>
-                        </select>
-                    </label>
-                </div>
-            </div>
+                <table class="form-table">
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_environment">Switch Environment</th>
+                        <td>
+                            <select name="monolith_environment" id="monolith_environment">
+                                <option<?= 'Development' === get_option('monolith_environment') ? ' selected' : '' ?>>Development</option>
+                                <option<?= 'Production' === get_option('monolith_environment') ? ' selected' : '' ?>>Production</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_default_image">Default Image</th>
+                        <td>
+                            <input type="text" name="monolith_default_image" value="<?= get_option('monolith_default_image') ? get_option('monolith_default_image') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_default_column">Default Columns</th>
+                        <td>
+                            <input type="text" name="monolith_default_column" value="<?= get_option('monolith_default_column') ? get_option('monolith_default_column') : '' ?>" size="10">
+                        </td>
+                    </tr>
+                </table>
 
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Default Image
-                        <input type="file" name="monolith_default_image" id="monolith_default_image" />
-                    </label>
-                </div>
-            </div>
+                <h3>Content</h3>
 
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Default Columns
-                        <input type="text" name="monolith_default_column" id="monolith_default_column" />
-                    </label>
-                </div>
-            </div>
+                <table class="form-table">
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_blog_page_title">Blog Page Title</th>
+                        <td>
+                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_blog_page_introtext">Blog Page Infotext</th>
+                        <td>
+                            <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3"><?= get_option('monolith_blog_page_introtext') ? get_option('monolith_blog_page_introtext') : '' ?></textarea>
+                        </td>
+                    </tr>
+                </table>
 
-            <hr>
 
-            <div class="row">
-                <div class="medium-6 columns">
-                    <h3>Content</h3>
-                </div>
-            </div>
+                <h3>Contact</h3>
 
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Blog Page Title
-                        <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" />
-                    </label>
-                </div>
-            </div>
+                <table class="form-table">
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_address_1">Address 1</th>
+                        <td>
+                            <input type="text" name="monolith_address_1" id="monolith_address_1" value="<?= get_option('monolith_address_1') ? get_option('monolith_address_1') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_address_2">Address 2</th>
+                        <td>
+                            <input type="text" name="monolith_address_2" id="monolith_address_2" value="<?= get_option('monolith_address_2') ? get_option('monolith_address_2') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_address_3">Address 3</th>
+                        <td>
+                            <input type="text" name="monolith_address_3" id="monolith_address_3" value="<?= get_option('monolith_address_3') ? get_option('monolith_address_3') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_city">City</th>
+                        <td>
+                            <input type="text" name="monolith_city" id="monolith_city" value="<?= get_option('monolith_city') ? get_option('monolith_city') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_county">County</th>
+                        <td>
+                            <input type="text" name="monolith_county" id="monolith_county" value="<?= get_option('monolith_county') ? get_option('monolith_county') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_postcode">Postcode</th>
+                        <td>
+                            <input type="text" name="monolith_postcode" id="monolith_postcode" value="<?= get_option('monolith_postcode') ? get_option('monolith_postcode') : '' ?>" size="15">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_country">Country</th>
+                        <td>
+                            <input type="text" name="monolith_country" id="monolith_country" value="<?= get_option('monolith_country') ? get_option('monolith_country') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_phone">Phone</th>
+                        <td>
+                            <input type="text" name="monolith_phone" id="monolith_phone" value="<?= get_option('monolith_phone') ? get_option('monolith_phone') : '' ?>" size="15">
+                        </td>
+                    </tr>
+                </table>
 
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Blog Page Intro Text
-                        <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" rows="3"></textarea>
-                    </label>
-                </div>
-            </div>
+                <h3>Social Media</h3>
 
-            <hr>
+                <table class="form-table">
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_facebook">Facebook</th>
+                        <td>
+                            <input type="text" name="monolith_facebook" id="monolith_facebook" value="<?= get_option('monolith_facebook') ? get_option('monolith_facebook') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_twitter">Twitter</th>
+                        <td>
+                            <input type="text" name="monolith_twitter" id="monolith_twitter" value="<?= get_option('monolith_twitter') ? get_option('monolith_twitter') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_googleplus">Google+</th>
+                        <td>
+                            <input type="text" name="monolith_googleplus" id="monolith_googleplus" value="<?= get_option('monolith_googleplus') ? get_option('monolith_googleplus') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_youtube">Youtube</th>
+                        <td>
+                            <input type="text" name="monolith_youtube" id="monolith_youtube" value="<?= get_option('monolith_youtube') ? get_option('monolith_youtube') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_linkedin">LinkedIn</th>
+                        <td>
+                            <input type="text" name="monolith_linkedin" id="monolith_linkedin" value="<?= get_option('monolith_linkedin') ? get_option('monolith_linkedin') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_pinterest">Pinterest</th>
+                        <td>
+                            <input type="text" name="monolith_pinterest" id="monolith_pinterest" value="<?= get_option('monolith_pinterest') ? get_option('monolith_pinterest') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_instagram">Instagram</th>
+                        <td>
+                            <input type="text" name="monolith_instagram" id="monolith_instagram" value="<?= get_option('monolith_instagram') ? get_option('monolith_instagram') : '' ?>" size="50">
+                        </td>
+                    </tr>
+                </table>
 
-            <div class="row">
-                <div class="small-12 columns">
-                    <h3>Contact</h3>
-                </div>
-            </div>
+                <?php @submit_button(); ?>
 
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Address 1
-                        <input type="text" name="monolith_address_1" id="monolith_address_1" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Address 2
-                        <input type="text" name="monolith_address_2" id="monolith_address_2" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Address 3
-                        <input type="text" name="monolith_address_3" id="monolith_address_3" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>City
-                        <input type="text" name="monolith_city" id="monolith_city" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>County
-                        <input type="text" name="monolith_county" id="monolith_county" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Postcode
-                        <input type="text" name="monolith_postcode" id="monolith_postcode" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Country
-                        <input type="text" name="monolith_country" id="monolith_country" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Phone
-                        <input type="text" name="monolith_phone" id="monolith_phone" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="small-12 columns">
-                    <h3>Social Media</h3>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Facebook
-                        <input type="text" name="monolith_facebook" id="monolith_facebook" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Twitter
-                        <input type="text" name="monolith_twitter" id="monolith_twitter" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Google+
-                        <input type="text" name="monolith_googleplus" id="monolith_googleplus" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Youtube
-                        <input type="text" name="monolith_youtube" id="monolith_youtube" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>LinkedIn
-                        <input type="text" name="monolith_linkedin" id="monolith_linkedin" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Pinterest
-                        <input type="text" name="monolith_pinterest" id="monolith_pinterest" />
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="medium-6 columns">
-                    <label>Instagram
-                        <input type="text" name="monolith_instagram" id="monolith_instagram" />
-                    </label>
-                </div>
-            </div>
-
-            <?php @submit_button(); ?>
-
-        </form>
+            </form>
 
         </div>
 
