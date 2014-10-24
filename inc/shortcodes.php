@@ -116,7 +116,7 @@ function intro_text_shortcode($atts, $content = null)
 add_shortcode('intro', 'intro_text_shortcode');
 
 /**
- * HR shortcode [hr]
+ * HR shortcode [divider]
  */
 function hr_shortcode($atts, $content = null)
 {
@@ -125,33 +125,33 @@ function hr_shortcode($atts, $content = null)
 add_shortcode('divider', 'hr_shortcode'); // hr divider shortcode
 
 /**
- * Renders bootstrap buttons
+ * Renders Foundation buttons
  * @param array $atts
  * @param string $content
  * @return string
  */
 function buttons( $atts, $content = null ) {
 	extract( shortcode_atts( array(
-			'type' => 'default', /* primary, default, info, success, danger, warning, inverse */
-			'size' => '', /* small, medium, large */
+			'type' => '', /* primary, default, info, success, danger, warning, inverse */
+			'size' => '', /* tiny, small, large */
 			'pageid' => '',
 			'url'  => '',
 			'text' => '',
 	), $atts ) );
 
-	$type = "btn-" . $type;
+	$type = $type;
 
 	if($size == ""){
 		$size = "";
 	}
 	else{
-		$size = "btn-" . $size;
+		$size = $size;
 	}
 	
 	if($pageid != '')
 		$url = get_permalink($pageid);
 
-	$output = '<a href="' . $url . '" class="btn '. $type . ' ' . $size . '">';
+	$output = '<a href="' . $url . '" class="button '. $type . ' ' . $size . '">';
 	$output .= $text;
 	$output .= '</a>';
 
@@ -160,7 +160,7 @@ function buttons( $atts, $content = null ) {
 add_shortcode('button', 'buttons');
 
 /**
- * Renders bootstrap blockquotes
+ * Renders Foundation blockquotes
  * @param array $atts
  * @param string $content
  * @return string
@@ -175,7 +175,7 @@ function blockquotes( $atts, $content = null )
 	$output .= '<p>' . $content . '</p>';
 
 	if($cite){
-		$output .= '<small>' . $cite . '</small>';
+		$output .= '<cite>' . $cite . '</cite>';
 	}
 
 	$output .= '</blockquote>';
