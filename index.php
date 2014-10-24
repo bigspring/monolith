@@ -1,41 +1,41 @@
 <?php
-/** 
- * Monolith by BigSpring
- * Licensed under MIT Open Source
- */
+
+ // Monolith by BigSpring
+ // Licensed under MIT Open Source
+ // Description: Main index file, which does all the heavy lifting.
 
 get_header(); ?>
 
   <!-- start the title row -->
-  <div class="row">
-    <div class="small-12 columns">
-      <?php get_template_part('layouts/organisms/title'); ?>
-    </div>
-  </div>
+  <?php get_template_part('layouts/molecules/title'); ?>
   <!-- end the title row -->
 
   <!-- start the main content row -->
   <div class="row">    
 
     <div class="large-8 columns" role="main">
+    
+      <?php 
       
-      <!-- start the main content loops -->
-      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>      
-      
-        <?php get_template_part('layouts/molecules/snippet'); // load the snippet part ?>
+        if( is_single() || is_page() ) :       
         
-      <?php endwhile; ?>
-      
-      <?php else : ?>
-        <?php get_template_part('layouts/organisms/content-none') // load the content-none part ?>    
-      <?php endif; ?>
-      <!-- end the main content loops -->
+          build('content'); // load the content part on posts & pages
+        
+        else :        
+        
+          build('snippets'); // otherwise, load the snippets builder          
+        
+        endif;
+          
+      ?>
       
     </div>
     
     <!-- start the sidebar -->
-    <div id="sidebar" class="sidebar large-4 columns" role="complementary">
+    <div id="sidebar" class="large-4 columns sidebar" role="complementary">
+      
       <?php get_template_part('layouts/organisms/sidebar'); ?>
+    
     </div>
     <!-- end the sidebar -->
     

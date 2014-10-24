@@ -14,10 +14,11 @@
   
   <!-- entry summary -->
   <section class="entry-summary">
-    
-    <?php if('post' == $post->post_type) { // only show the date if it's a post
-      get_template_part('layouts/molecules/date');
-    } ?>    
+     
+    <?php global $post;
+      if('post' == $post->post_type) { // only show the date if it's a post
+        get_template_part('layouts/molecules/date');
+      } ?>    
 
     <?php the_excerpt(); ?>
     <?php the_content(); ?>
