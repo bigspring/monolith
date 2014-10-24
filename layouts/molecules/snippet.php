@@ -5,7 +5,7 @@
 ?>
 
 <!-- start single snippet -->
-<article id="post-<?= $post->ID; ?>" <?php post_class(); ?>>
+<article <?php post_class(); ?>>
 
   <!-- entry title -->
   <header>
