@@ -14,8 +14,7 @@ get_header(); ?>
   <div class="row">    
 
     <div class="large-8 columns" role="main">
-      <?php while ( have_posts() ) : the_post(); ?><?php the_content(); ?><?php endwhile; ?>
-      <?php 
+      <?php
       
         if( is_single() || is_page() ) :       
             build('content'); // load the content part on posts & pages
