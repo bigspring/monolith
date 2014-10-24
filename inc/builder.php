@@ -1,7 +1,6 @@
 <?php
 class Builder
 {
-    //private $template_path; // removed this while we see if the template_path var is useful.  will we ever re-use it?
     private $layouts_path;
     private $layout = 'list';
     private $query = null;
@@ -70,8 +69,15 @@ class Builder
         $layout_file = $this->layouts_path . 'organisms/' . $this->layout . '.php';
 
         ob_start();
-        include($layout_file);
-        return ob_get_clean();
+        if(!@include($layout_file)) // if the file doesn't exist, display an alert on the front end
+            return $this->_raise_alert('The layout file "'.$this->layout.'"could not be found');
+        else // otherwise return the content
+            return ob_get_clean();
+    }
+
+    public function _raise_alert($message)
+    {
+        return '<p class="alert-box alert">'.$message.'</p>';
     }
 }
 

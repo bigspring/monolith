@@ -194,73 +194,22 @@ function childpages($atts, $content = null)
 {
 	// set defaults
 	global $post;
-	$id = $post->ID;
-	$layout = 'list';
-				
-	if(is_array($atts)) // see if we have been provided with paramaters
-	{
-		if(array_key_exists('id', $atts)) // if we have a post ID, use it
-			$id = $atts['id'];
-		
-		if(array_key_exists('layout', $atts)) // if we have a layout, use it
-			$layout = $atts['layout'];
-
-	}
+    extract( shortcode_atts( array( // set our defaults for the shortcode
+        'layout' => 'list', // default layout
+        'id' => $post->ID,
+        'classes' => ''
+    ), $atts ) ); // @TODO can we handle these defaults through the builder class instead?
 
 	$args = array(
-			'post_parent' => $post->ID,
+			'post_parent' => $id,
 			'post_type' => 'page',
 			'order' => 'ASC',
 			'orderby' => 'menu_order',
 			'posts_per_page' => -1
-
 	);
 
-	// get all attachments
-	$childpages = new wp_query($args);
-	
 	ob_start();
-	if($layout == 'thumbnails') //grid shortcode
-	{
-		require( get_template_directory() . '/parts/shortcodes/childpages-thumbnails.php' );
-	}
-	
-	elseif($layout == 'tabs') //tabs shortcode
-
-	{
-	
-		require( get_template_directory() . '/parts/shortcodes/childpages-tabs.php' );
-	
-	}
-
-	elseif($layout == 'accordions') //tabs accordion shortcode	
-	{
-	
-		require( get_template_directory() . '/parts/shortcodes/childpages-accordions.php' );
-
-	}//end accordion
-		
-	elseif($layout == 'snippets')
-	{
-	
-		require( get_template_directory() . '/parts/shortcodes/childpages-snippets.php');
-            
-	}//end snippet
-	
-	elseif($layout == 'panels')
-	{
-	
-		require( get_template_directory() . '/parts/shortcodes/childpages-panels.php');
-            
-	}//end panel
-	else 
-	{
-
-        echo get_builder_part('list', null, $args);
-        //require( get_template_directory() . '/layouts/organisms/list.php' );
-	}
-        
-    wp_reset_query();
+    build($layout, $args);
 	return ob_get_clean();
 }
 add_shortcode('childpages', 'childpages');
@@ -269,30 +218,27 @@ add_shortcode('childpages', 'childpages');
 
 function pages_shortcode($atts, $content = null) {
 
-	if(is_array($atts))
-	{
-		if(array_key_exists('ids', $atts))
-		{
-			//global $page_ids; 
-			$page_ids = array();
-			$page_ids = explode(',', $atts['ids']);
-            
-            // get the posts
-            $args = array(
-                'post__in' => $page_ids,
-                'post_type' => 'page',
-                'order' => 'ASC',
-                'orderby' => 'menu_order'
-            
-            );
-            $pages = new wp_query($args);
+    extract( shortcode_atts( array( // set our defaults for the shortcode
+        'ids' => '', // default layout
+        'layout' => 'list'
+    ), $atts ) ); // @TODO can we handle these defaults through the builder class instead?
 
-            ob_start();
-            require( get_template_directory() . '/parts/shortcodes/pages.php' );
-            wp_reset_query();
-            return ob_get_clean();
-		}
-	}			
+    $page_ids = array();
+    $page_ids = explode(',', $atts['ids']);
+
+    // get the posts
+    $args = array(
+        'post__in' => $page_ids,
+        'post_type' => 'page',
+        'order' => 'ASC',
+        'orderby' => 'menu_order'
+
+    );
+
+    ob_start();
+    build($layout, $args);
+    return ob_get_clean();
+
 }//end function
 add_shortcode('pages', 'pages_shortcode');
 
