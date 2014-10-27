@@ -1,7 +1,6 @@
 <?php
 class Builder
 {
-    //private $template_path; // removed this while we see if the template_path var is useful.  will we ever re-use it?
     private $layouts_path;
     private $layout = 'list';
     private $query = null;
@@ -14,11 +13,6 @@ class Builder
 
     public function __construct($layout = null, $query = null, $args = null)
     {
-
-        // removed this while we see if the template_path var is useful.  will we ever re-use it?
-/*        $this->template_path = dirname(__FILE__) . '/../';
-        $this->layouts_path = $this->template_path . 'layouts/';*/
-
         $this->layouts_path = dirname(__FILE__) . '/../' . 'layouts/';
 
         $this->layout = $layout ? $layout : 'list'; // get the layout or default to list
@@ -27,7 +21,8 @@ class Builder
 
         $this->_set_loop(); // set the loop object
         $this->_set_args(); // set any custom arguments we have
-        $this->_render(); // render the view
+
+        echo $this->_render(); // render the view
     }
 
     /**
@@ -71,13 +66,18 @@ class Builder
         $layouts_path = $this->layouts_path;
         $snippet_size = GRID_SIZE / $args['columns']; // work out span based on columns
 
-        $layout_file = $this->layouts_path . '/organisms/' . $this->layout . '.php';
+        $layout_file = $this->layouts_path . 'organisms/' . $this->layout . '.php';
 
         ob_start();
-        include($layout_file);
-        echo ob_get_clean();
+        if(!@include($layout_file)) // if the file doesn't exist, display an alert on the front end
+            return $this->_raise_alert('The layout file "'.$this->layout.'"could not be found');
+        else // otherwise return the content
+            return ob_get_clean();
+    }
 
-        return true;
+    public function _raise_alert($message)
+    {
+        return '<p class="alert-box alert">'.$message.'</p>';
     }
 }
 

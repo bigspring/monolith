@@ -1,4 +1,4 @@
-<?php 
+<?php
  // Monolith by BigSpring
  // Licensed under MIT Open Source
 ?>
@@ -11,24 +11,27 @@
       </li>
     </ul>
     <section class="top-bar-section">
-    <?php
-    	$args = array(
-        'container' => false, // remove nav container
-        'container_class' => '', // class of container
-        'menu' => '', // menu name
-        'menu_class' => 'top-bar-menu right', // adding custom nav class
-        'theme_location' => 'top-bar', // where it's located in the theme
-        'before' => '', // before each link <a>
-        'after' => '', // after each link </a>
-        'link_before' => '', // before each link text
-        'link_after' => '', // after each link text
-        'depth' => 5, // limit the depth of the nav
-        'fallback_cb' => false, 
-    		'walker'	 => new Monolith_Nav_Walker()
-    	);
-    
-    	wp_nav_menu($args);
-    ?>
+      <?php
+      	$args = array(
+          'container' => false, // remove nav container
+          'container_class' => '', // class of container
+          'menu' => '', // menu name
+          'menu_class' => 'top-bar-menu left', // adding custom nav class
+          'theme_location' => 'top-bar', // where it's located in the theme
+          'before' => '', // before each link <a>
+          'after' => '', // after each link </a>
+          'link_before' => '', // before each link text
+          'link_after' => '', // after each link text
+          'depth' => 5, // limit the depth of the nav
+          'fallback_cb' => false,
+      		'walker'	 => new Monolith_Nav_Walker()
+      	);
+
+      	wp_nav_menu($args);
+      ?>
+
+      <?php get_template_part('layouts/molecules/top-bar-search-form'); ?>
+
     </section>
   </nav>
 </div>
