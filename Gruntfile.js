@@ -18,6 +18,7 @@ module.exports = function(grunt) {
                 all: '_src',
                 scss: '_src/scss'
             },
+            dist: 'assets/dist',
             dependencies: {
                 default: [
                     '<%= project.assets.bower %>/css_browser_selector/css_browser_selector.js',
@@ -65,8 +66,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    '<%= project.assets.js %>/base.min.js': '<%= concat.main.dest %>',
-                    '<%= project.assets.js %>/ie.min.js': '<%= concat.ie.dest %>'
+                    '<%= project.dist %>/base.min.js': '<%= concat.main.dest %>',
+                    '<%= project.dist %>/ie.min.js': '<%= concat.ie.dest %>'
                 }
             }
         },
@@ -98,7 +99,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: '<%= project.assets.css %>',
                 src: ['*.css', '!*.min.css'],
-                dest: '<%= project.assets.css %>',
+                dest: '<%= project.dist %>',
                 ext: '.min.css'
             }
         },
