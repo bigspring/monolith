@@ -30,6 +30,11 @@
 		</div><!-- /.row -->
 	</footer>
 	<!-- end the footer -->
+	
+	<?php // if( ENVIRONMENT === 'development' ) : // use this section to test out features in development mode ?>
+	<div class="debug">  	
+	</div>
+	<?php // endif; ?>
 
 </body>
 </html>
