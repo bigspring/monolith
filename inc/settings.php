@@ -59,15 +59,17 @@ add_action('admin_menu', function() {
 
                 <table class="form-table">
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_blog_page_title">Title</th>
+                        <th scope="row"><label for="monolith_blog_page_title">Title</label></th>
                         <td>
-                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50">
+                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50" placeholder="Blog title">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_blog_page_introtext">Introductory Text</th>
+                        <th scope="row"><label for="monolith_blog_page_introtext"></label></th>
                         <td>
-                            <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3"><?= get_option('monolith_blog_page_introtext') ? get_option('monolith_blog_page_introtext') : '' ?></textarea>
+                            <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3" placeholder="This is some introductory blog text.">
+                                <?= get_option('monolith_blog_page_introtext') ? get_option('monolith_blog_page_introtext') : '' ?>
+                            </textarea>
                         </td>
                     </tr>
                 </table>
@@ -77,19 +79,19 @@ add_action('admin_menu', function() {
 
                 <table class="form-table">
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_address_1">Address 1</th>
+                        <th scope="row"><label for="monolith_address_1">Address 1</label></th>
                         <td>
-                            <input type="text" name="monolith_address_1" id="monolith_address_1" value="<?= get_option('monolith_address_1') ? get_option('monolith_address_1') : '' ?>" size="50">
+                            <input type="text" name="monolith_address_1" id="monolith_address_1" value="<?= get_option('monolith_address_1') ? get_option('monolith_address_1') : '' ?>" size="50" placeholder="house name or number/street">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_address_2">Address 2</th>
+                        <th scope="row"><label for="monolith_address_2">Address 2</label></th>
                         <td>
                             <input type="text" name="monolith_address_2" id="monolith_address_2" value="<?= get_option('monolith_address_2') ? get_option('monolith_address_2') : '' ?>" size="50">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_address_3">Address 3</th>
+                        <th scope="row"><label for="monolith_address_3">Address 3</label></th>
                         <td>
                             <input type="text" name="monolith_address_3" id="monolith_address_3" value="<?= get_option('monolith_address_3') ? get_option('monolith_address_3') : '' ?>" size="50">
                         </td>
@@ -101,19 +103,19 @@ add_action('admin_menu', function() {
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_county">County</th>
+                        <th scope="row"><label for="monolith_county">County</label></th>
                         <td>
                             <input type="text" name="monolith_county" id="monolith_county" value="<?= get_option('monolith_county') ? get_option('monolith_county') : '' ?>" size="50">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_postcode">Postcode</th>
+                        <th scope="row"><label for="monolith_postcode">Postcode</label></th>
                         <td>
                             <input type="text" name="monolith_postcode" id="monolith_postcode" value="<?= get_option('monolith_postcode') ? get_option('monolith_postcode') : '' ?>" size="15">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_country">Country</th>
+                        <th scope="row"><label for="monolith_country">Country</label></th>
                         <td>
                             <select name="monolith_country" id="monolith_country">
                                 <?php foreach ($countries as $country) : ?>
@@ -123,7 +125,7 @@ add_action('admin_menu', function() {
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_phone">Phone</th>
+                        <th scope="row"><label for="monolith_phone">Phone</label></th>
                         <td>
                             <input type="text" name="monolith_phone" id="monolith_phone" value="<?= get_option('monolith_phone') ? get_option('monolith_phone') : '' ?>" size="15">
                         </td>
@@ -134,45 +136,45 @@ add_action('admin_menu', function() {
 
                 <table class="form-table">
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_facebook">Facebook</th>
+                        <th scope="row"><label for="monolith_facebook">Facebook</label></th>
                         <td>
-                            <input type="text" name="monolith_facebook" id="monolith_facebook" value="<?= get_option('monolith_facebook') ? get_option('monolith_facebook') : '' ?>" size="50">
+                            <input type="text" name="monolith_facebook" id="monolith_facebook" value="<?= get_option('monolith_facebook') ? get_option('monolith_facebook') : '' ?>" size="50" placeholder="https://facebook.com/youraccountnamehere">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_twitter">Twitter</th>
+                        <th scope="row"><label for="monolith_twitter">Twitter</label></th>
                         <td>
-                            <input type="text" name="monolith_twitter" id="monolith_twitter" value="<?= get_option('monolith_twitter') ? get_option('monolith_twitter') : '' ?>" size="50">
+                            <input type="text" name="monolith_twitter" id="monolith_twitter" value="<?= get_option('monolith_twitter') ? get_option('monolith_twitter') : '' ?>" size="50" placeholder="https://www.twitter.com/youraccountnamehere">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_googleplus">Google+</th>
+                        <th scope="row"><label for="monolith_googleplus">Google+</label></th>
                         <td>
-                            <input type="text" name="monolith_googleplus" id="monolith_googleplus" value="<?= get_option('monolith_googleplus') ? get_option('monolith_googleplus') : '' ?>" size="50">
+                            <input type="text" name="monolith_googleplus" id="monolith_googleplus" value="<?= get_option('monolith_googleplus') ? get_option('monolith_googleplus') : '' ?>" size="50" placeholder="https://plus.google.com/+youraccountnamehere">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_youtube">Youtube</th>
+                        <th scope="row"><label for="monolith_youtube">Youtube</label></th>
                         <td>
-                            <input type="text" name="monolith_youtube" id="monolith_youtube" value="<?= get_option('monolith_youtube') ? get_option('monolith_youtube') : '' ?>" size="50">
+                            <input type="text" name="monolith_youtube" id="monolith_youtube" value="<?= get_option('monolith_youtube') ? get_option('monolith_youtube') : '' ?>" size="50" placeholder="http://www.youtube.com/user/youraccountnamehere">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_linkedin">LinkedIn</th>
+                        <th scope="row"><label for="monolith_linkedin">LinkedIn</label></th>
                         <td>
-                            <input type="text" name="monolith_linkedin" id="monolith_linkedin" value="<?= get_option('monolith_linkedin') ? get_option('monolith_linkedin') : '' ?>" size="50">
+                            <input type="text" name="monolith_linkedin" id="monolith_linkedin" value="<?= get_option('monolith_linkedin') ? get_option('monolith_linkedin') : '' ?>" size="50" placeholder="http://www.linkedin.com/company/youraccountnamehere">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_pinterest">Pinterest</th>
+                        <th scope="row"><label for="monolith_pinterest">Pinterest</label></th>
                         <td>
-                            <input type="text" name="monolith_pinterest" id="monolith_pinterest" value="<?= get_option('monolith_pinterest') ? get_option('monolith_pinterest') : '' ?>" size="50">
+                            <input type="text" name="monolith_pinterest" id="monolith_pinterest" value="<?= get_option('monolith_pinterest') ? get_option('monolith_pinterest') : '' ?>" size="50" placeholder="http://www.pinterest.com/youraccountnamehere/">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_instagram">Instagram</th>
+                        <th scope="row"><label for="monolith_instagram">Instagram</label></th>
                         <td>
-                            <input type="text" name="monolith_instagram" id="monolith_instagram" value="<?= get_option('monolith_instagram') ? get_option('monolith_instagram') : '' ?>" size="50">
+                            <input type="text" name="monolith_instagram" id="monolith_instagram" value="<?= get_option('monolith_instagram') ? get_option('monolith_instagram') : '' ?>" size="50" placeholder="http://instagram.com/youraccountnamehere">
                         </td>
                     </tr>
                 </table>
