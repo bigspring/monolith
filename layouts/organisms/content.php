@@ -1,9 +1,12 @@
-<?php 
- // Monolith by BigSpring
- // Licensed under MIT Open Source
- // Content loop
+<?php
+/**
+ * The content organism used in pages and singles
+ *
+ * @package monolith
+ */
 ?>
 
+<!-- start content organism -->
 <?php if($loop->have_posts()) : ?>
 
   <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
@@ -45,3 +48,4 @@
 <?php else : // otherwise, load the no-content layout ?>
   <?php include($layouts_path . 'organisms/content-none.php'); ?>
 <?php endif; ?>
+<!-- end content organism -->

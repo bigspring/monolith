@@ -1,4 +1,12 @@
+<?php
+/**
+ * The kitchen sink organism for testing all foundation elements
+ *
+ * @package monolith
+ */
+?>
 
+<!-- start kitchen sink -->
 <h1 id="kitchen-sink">Kitchen sink</h1>
 <h3 class="subheader">This page includes every single Foundation element so that we can make sure things work together smoothly.</h3>
 
@@ -782,6 +790,4 @@
   <strong class="show-for-touch">You are on a touch-enabled device.</strong>
   <strong class="hide-for-touch">You are not on a touch-enabled device.</strong>
 </p>
-
-
-            
+<!-- end kitchen sink -->           
