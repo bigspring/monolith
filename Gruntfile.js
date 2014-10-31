@@ -78,7 +78,7 @@ module.exports = function(grunt) {
          */
         sass: {
             options: {
-                includePaths: ['<%= project.assets.bower %>/foundation/scss']
+                includePaths: ['<%= project.assets.bower %>/foundation/scss', '<%= project.assets.bower %>']
             },
             dist: {
                 options: {
