@@ -12,6 +12,7 @@
   
   <!-- temporaily load modernizr directly -->
   <script src="<?= get_template_directory_uri(); ?>/assets/bower_components/modernizr/modernizr.js"></script>
+  <?php wp_head(); ?>
 
 </head>
 <body>

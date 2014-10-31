@@ -16,7 +16,7 @@ function monolith_setup() {
         register_nav_menu( 'primary-navigation', 'Primary Navigation' );
         
         // create a custom footer menu
-		register_nav_menu( 'footer', 'Footer Menu' ); 
+				register_nav_menu( 'footer', 'Footer Menu' ); 
 
     }
 
