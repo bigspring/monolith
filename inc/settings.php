@@ -3,6 +3,10 @@
  * Monolith by BigSpring
  * Licensed under MIT Open Source
  */
+
+/**
+ * Init settings
+ */
 add_action('admin_init', function() {
 
     // blog
@@ -29,6 +33,9 @@ add_action('admin_init', function() {
     register_setting('monolith-group', 'monolith_instagram');
 });
 
+/**
+ * Produce admin menu markup for options
+ */
 add_action('admin_menu', function() {
     add_options_page('Site Options', 'Site Options', 'manage_options', 'monolith_settings', function() {
         if (!current_user_can('manage_options')) {
