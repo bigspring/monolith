@@ -61,15 +61,13 @@ add_action('admin_menu', function() {
                     <tr valign="top">
                         <th scope="row"><label for="monolith_blog_page_title">Title</label></th>
                         <td>
-                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50" placeholder="Blog title">
+                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50" placeholder="News">
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_blog_page_introtext"></label></th>
+                        <th scope="row"><label for="monolith_blog_page_introtext">Introductory Text</label></th>
                         <td>
-                            <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3" placeholder="This is some introductory blog text.">
-                                <?= get_option('monolith_blog_page_introtext') ? get_option('monolith_blog_page_introtext') : '' ?>
-                            </textarea>
+                            <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3" placeholder="This is my news blog."><?= get_option('monolith_blog_page_introtext') ? get_option('monolith_blog_page_introtext') : '' ?></textarea>
                         </td>
                     </tr>
                 </table>
@@ -81,37 +79,37 @@ add_action('admin_menu', function() {
                     <tr valign="top">
                         <th scope="row"><label for="monolith_address_1">Address 1</label></th>
                         <td>
-                            <input type="text" name="monolith_address_1" id="monolith_address_1" value="<?= get_option('monolith_address_1') ? get_option('monolith_address_1') : '' ?>" size="50" placeholder="house name or number/street">
+                            <input type="text" name="monolith_address_1" id="monolith_address_1" value="<?= get_option('monolith_address_1') ? get_option('monolith_address_1') : '' ?>" size="50" placeholder="Strelley Hall" required>
                         </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row"><label for="monolith_address_2">Address 2</label></th>
                         <td>
-                            <input type="text" name="monolith_address_2" id="monolith_address_2" value="<?= get_option('monolith_address_2') ? get_option('monolith_address_2') : '' ?>" size="50">
+                            <input type="text" name="monolith_address_2" id="monolith_address_2" value="<?= get_option('monolith_address_2') ? get_option('monolith_address_2') : '' ?>" size="50" placeholder="Main Street">
                         </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row"><label for="monolith_address_3">Address 3</label></th>
                         <td>
-                            <input type="text" name="monolith_address_3" id="monolith_address_3" value="<?= get_option('monolith_address_3') ? get_option('monolith_address_3') : '' ?>" size="50">
+                            <input type="text" name="monolith_address_3" id="monolith_address_3" value="<?= get_option('monolith_address_3') ? get_option('monolith_address_3') : '' ?>" size="50" placeholder="Strelley">
                         </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row"><label for="monolith_city">City</th>
                         <td>
-                            <input type="text" name="monolith_city" id="monolith_city" value="<?= get_option('monolith_city') ? get_option('monolith_city') : '' ?>" size="50">
+                            <input type="text" name="monolith_city" id="monolith_city" value="<?= get_option('monolith_city') ? get_option('monolith_city') : '' ?>" size="50" placeholder="Nottingham" required>
                         </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row"><label for="monolith_county">County</label></th>
                         <td>
-                            <input type="text" name="monolith_county" id="monolith_county" value="<?= get_option('monolith_county') ? get_option('monolith_county') : '' ?>" size="50">
+                            <input type="text" name="monolith_county" id="monolith_county" value="<?= get_option('monolith_county') ? get_option('monolith_county') : '' ?>" size="50" placeholder="Nottinghamshire">
                         </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row"><label for="monolith_postcode">Postcode</label></th>
                         <td>
-                            <input type="text" name="monolith_postcode" id="monolith_postcode" value="<?= get_option('monolith_postcode') ? get_option('monolith_postcode') : '' ?>" size="15">
+                            <input type="text" name="monolith_postcode" id="monolith_postcode" value="<?= get_option('monolith_postcode') ? get_option('monolith_postcode') : '' ?>" size="15" placeholder="NG8 6PE" required>
                         </td>
                     </tr>
                     <tr valign="top">
@@ -127,7 +125,7 @@ add_action('admin_menu', function() {
                     <tr valign="top">
                         <th scope="row"><label for="monolith_phone">Phone</label></th>
                         <td>
-                            <input type="text" name="monolith_phone" id="monolith_phone" value="<?= get_option('monolith_phone') ? get_option('monolith_phone') : '' ?>" size="15">
+                            <input type="text" name="monolith_phone" id="monolith_phone" value="<?= get_option('monolith_phone') ? get_option('monolith_phone') : '' ?>" size="15" placeholder="(0115) 906 1321" required>
                         </td>
                     </tr>
                 </table>
@@ -168,7 +166,7 @@ add_action('admin_menu', function() {
                     <tr valign="top">
                         <th scope="row"><label for="monolith_pinterest">Pinterest</label></th>
                         <td>
-                            <input type="text" name="monolith_pinterest" id="monolith_pinterest" value="<?= get_option('monolith_pinterest') ? get_option('monolith_pinterest') : '' ?>" size="50" placeholder="http://www.pinterest.com/youraccountnamehere/">
+                            <input type="text" name="monolith_pinterest" id="monolith_pinterest" value="<?= get_option('monolith_pinterest') ? get_option('monolith_pinterest') : '' ?>" size="50" placeholder="http://www.pinterest.com/youraccountnamehere">
                         </td>
                     </tr>
                     <tr valign="top">
