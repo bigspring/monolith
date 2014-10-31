@@ -6,7 +6,7 @@
  */
 ?>
 
-<?php if($loop->have_posts()) : // if we have a loop load the accordion molecule ?>
+<?php if($loop->have_posts()) : // if we have a loop load the accordion organism ?>
 <?php $count = 0; // reset the count that we use for the number of items in the grid ?>
 
 <!-- start accordion layout wrapper -->

@@ -2,14 +2,13 @@
 // Licensed under MIT Open Source
 
 /*
-
 Description: This is the main compiler SCSS file. It creates a single base.css file in the /assets/css folder, which is loaded into the WordPress header. Use this file to call in SCSS scripts as needed.
 
 for more information on Foundation components, visit http://foundation.zurb.com/docs/
 */
 
 // load the main settings file
-@import "settings"; 	
+@import "settings";
 
 // load Foundation components
 @import
