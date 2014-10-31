@@ -29,7 +29,7 @@ class Builder
      * Sets the loop object to be the supplied one, or the global wp_query object if not
      * @return bool
      */
-    public function _set_loop()
+    private function _set_loop()
     {
         if(!$this->query) {
             global $wp_query;
@@ -45,16 +45,11 @@ class Builder
      * Sets up the arguments by merging in supplied args with default args, then applies any custom rules required
      * @return bool
      */
-    public function _set_args()
+    private function _set_args()
     {
 
         $this->args = array_merge($this->default_args, $this->args); // merge in any custom arguments we have
-        $this->args['classes'] = 'builder builder-'.$this->layout.' '. $this->args['classes']; // we do this to make it easier to echo in a view
-
-        dump($this->args);
-
-        //$this->args['size'] = (isset($this->args['size'])) ? $this->args['size'] : BLOCK_GRID_SIZE;
-        dump($this->args);
+        $this->args['classes'] = 'builder builder-'.$this->layout.' '. $this->args['classes']; // we do this to add all dynamically generated classes
 
         return true;
     }
@@ -63,7 +58,7 @@ class Builder
      * Echos the full layout
      * @return bool
      */
-    public function _render()
+    private function _render()
     {
         $loop = &$this->loop;
         $args = &$this->args;
@@ -82,7 +77,7 @@ class Builder
      * @param $message
      * @return string
      */
-    public function _raise_alert($message)
+    private function _raise_alert($message)
     {
         // @TODO conditionally do this based on teh development / production mode
         return '<p class="alert-box alert">'.$message.'</p>';
