@@ -1,3 +1,12 @@
+<?php
+/**
+ * The block grid molecule that gets called in by the builder and shortcodes 
+ *
+ * @package monolith
+ */
+?>
+
+<!-- start block grid li --> 
 <li>
   <a href="<?php the_permalink(); ?>">
     <?php if(has_post_thumbnail()) : ?>
@@ -12,3 +21,4 @@
     <a class="button small" href="<?php the_permalink(); ?>">Read more</a>
   </div>
 </li>
+<!-- end block grid li -->

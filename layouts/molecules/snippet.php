@@ -1,7 +1,9 @@
 <?php
- // Monolith by BigSpring
- // Licensed under MIT Open Source
- // Descriptiin: Snippet molecule, used in builder and loops to display post snippets. Extend / edit to suit.
+/**
+ * Snippet molecule, used in builder and loops to display post snippets. Extend / edit to suit.
+ *
+ * @package monolith
+ */
 ?>
 
 <!-- start single snippet -->

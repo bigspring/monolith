@@ -1,9 +1,12 @@
 <?php
-  /**
-  * A search form for inclusion in the top bar, based on http://foundation.zurb.com/docs/components/topbar.html#
-  **/
+/**
+ * A search form for inclusion in the top bar, based on http://foundation.zurb.com/docs/components/topbar.html#
+ *
+ * @package monolith
+ */
 ?>
 
+<!-- start the searchbar molecule -->
 <ul class="right">
 <li class="has-form">
   <div class="row collapse">
@@ -16,3 +19,4 @@
   </div>
 </li>
 </ul>
+<!-- end the searchbar molecule -->

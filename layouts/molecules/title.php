@@ -1,7 +1,9 @@
-<?php 
- // Monolith by BigSpring
- // Licensed under MIT Open Source
- // Title loop
+<?php
+/**
+ * The title part that handles all titles for all views
+ *
+ * @package monolith
+ */
 ?>
 
 <!-- start the page header -->
