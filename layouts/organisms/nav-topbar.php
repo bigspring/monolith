@@ -1,8 +1,12 @@
 <?php
- // Monolith by BigSpring
- // Licensed under MIT Open Source
+/**
+ * The navbar organism that includes the search form molecule
+ *
+ * @package monolith
+ */
 ?>
 
+<!-- start the navbar -->
 <div class="top-bar-container contain-to-grid show-for-medium-up" role="navigation">
   <nav class="top-bar" data-topbar="">
     <ul class="title-area">
@@ -36,3 +40,4 @@
     </section>
   </nav>
 </div>
+<!-- end the navbar -->
