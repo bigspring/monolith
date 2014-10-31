@@ -2,6 +2,8 @@
 /**
  * Monolith by BigSpring
  * Licensed under MIT Open Source
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
  */
 
 /**
@@ -14,9 +16,10 @@ define('ENVIRONMENT', 'development'); // development/production
  * Scaffolding
  */
 
-define('GRID_SIZE', '12'); // overall grid size
-define('SIDEBAR_SIZE', 'col-md-4'); // sidebar sizes
-define('MAIN_SIZE', 'col-md-8'); // main content area sizes
+define('FULLWIDTH_SIZE', 'small-12 medium-12 large-12'); // the size of a full width area
+define('MAIN_SIZE', 'small-12 medium-8'); // main content area sizes
+define('SIDEBAR_SIZE', 'small-12 medium-4'); // sidebar sizes
+define('BLOCK_GRID_SIZE', 'small-block-grid-2 medium-block-grid-3 large-block-grid-4');
 
 /**
  * Images

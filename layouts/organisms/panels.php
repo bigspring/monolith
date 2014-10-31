@@ -1,6 +1,6 @@
 <?php $count = 1; ?>
 <?php if($loop->have_posts()) : ?>
-<div class="snippet">
+<div class="monolith-panels <?= $args['classes'] ?>">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
         <?php include($layouts_path . 'molecules/panel.php'); ?>

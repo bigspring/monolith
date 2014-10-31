@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php wp_title(); ?></title>
 
+        <?php wp_head(); ?>
+
         <link rel="stylesheet" href="<?= get_assets_dir('css', 'base') ?>">
         <!-- HTML5 & responsive support for IE browsers... -->
         <!--[if lt IE 9]>

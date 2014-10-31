@@ -1,5 +1,12 @@
 <?php
 /**
+ * Collection of shortcodes bundled with Monolith
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+
+
+/**
  * Clean up gallery_shortcode()
  *
  * Re-create the [gallery] shortcode and use thumbnails styling from Bootstrap

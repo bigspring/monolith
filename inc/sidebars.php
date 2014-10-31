@@ -1,7 +1,9 @@
 <?php
-
-// Monolith by BigSpring
-// Licensed under MIT Open Source
+/**
+ * Defines all core sidebars in the theme
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
 
 // Right Sidebar
 if(ENABLE_RIGHT_SIDEBAR) {

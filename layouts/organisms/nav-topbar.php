@@ -20,8 +20,8 @@
           'container' => false, // remove nav container
           'container_class' => '', // class of container
           'menu' => '', // menu name
-          'menu_class' => 'top-bar-menu left', // adding custom nav class
-          'theme_location' => 'top-bar', // where it's located in the theme
+          'menu_class' => 'top-bar-menu right', // adding custom nav class
+          'theme_location' => 'primary-navigation', // where it's located in the theme
           'before' => '', // before each link <a>
           'after' => '', // after each link </a>
           'link_before' => '', // before each link text

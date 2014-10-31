@@ -1,4 +1,11 @@
 <?php
+/**
+ * Collection of functions intended for use within the theme
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+
+
 if ( ! function_exists( 'dump' ) ) {
     /**
      * Print a pre formatted array to the browser - very useful for debugging

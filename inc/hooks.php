@@ -1,4 +1,10 @@
 <?php
+/**
+ * Collection of functions to handle all hooks required for Monolith
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+
 //code to render the dropdown list of shortcodes
 if ( ! function_exists( 'add_shortcode_select_to_editor' ) ) {
     /**
@@ -61,4 +67,4 @@ if ( ! function_exists( 'wpb_imagelink_setup' ) ) {
         }
     }
     add_action('admin_init', 'wpb_imagelink_setup', 10);
-}
+}	

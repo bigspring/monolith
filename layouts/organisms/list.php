@@ -5,15 +5,15 @@
  * @package monolith
  */
 ?>
-
 <?php if($loop->have_posts()) : // if we have results run the loop  ?>
-
+<div class="<?= $args['classes'] ?>">
 <!-- start ul wrapper -->
-<ul<?= $args['classes'] ?>>
-<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-    <?php include($layouts_path . 'molecules/list-item.php'); ?>
-<?php endwhile; ?>
-</ul>
+    <ul class="<?= $args['size'] ?>">
+    <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+        <?php include($layouts_path . 'molecules/list-item.php'); ?>
+    <?php endwhile; ?>
+    </ul>
+</div>
 <!-- end ul wrapper -->
 
 <?php else : // otherwise show the content none organism ?>

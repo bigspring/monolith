@@ -1,9 +1,9 @@
 <?php
-
- // Monolith by BigSpring
- // Licensed under MIT Open Source
- // Description: Main index file, which does all the heavy lifting.
-
+/**
+ * Main index file, which does all the heavy lifting.
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
 get_header(); ?>
 
   <!-- start the title row -->
@@ -12,31 +12,27 @@ get_header(); ?>
 
   <!-- start the main content row -->
   <div class="row">    
-
-    <div class="large-8 columns" role="main">
-      <?php
-      
+    
+    <?php // if we're using the fullwdith template, apply the relevant class ?>
+    <div class="columns <?= is_page_template('page-fullwidth.php') ? FULLWIDTH_SIZE : MAIN_SIZE; ?>" role="main">
+      <?php      
         if( is_single() || is_page() ) :       
             build('content'); // load the content part on posts & pages
-        else :
-        
-          build('snippets'); // otherwise, load the snippets builder          
-        
+        else :        
+          build('snippets'); // otherwise, load the snippets builder                  
         endif;
-          
-      ?>
-      
+      ?>      
     </div>
     
     <!-- start the sidebar -->
-    <div id="sidebar" class="large-4 columns sidebar" role="complementary">
-      
-      <?php get_template_part('layouts/organisms/sidebar'); ?>
-    
+    <?php if( !is_page_template('page-fullwidth.php') ) : // do not load sidebar if using fullwidth template ?>
+    <div id="sidebar" class="columns <?= SIDEBAR_SIZE; ?> sidebar" role="complementary">      
+      <?php get_template_part('layouts/organisms/sidebar'); ?> 
     </div>
+    <?php endif; ?>
     <!-- end the sidebar -->
     
   </div><!-- /.row -->
   <!-- end the main content row -->
 
-<?php get_footer(); ?>
+<?php get_footer();
