@@ -30,6 +30,7 @@
       	wp_nav_menu($args);
       ?>
 
+      <!-- navbar search form -->
       <?php get_template_part('layouts/molecules/top-bar-search-form'); ?>
 
     </section>
