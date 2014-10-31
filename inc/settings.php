@@ -79,7 +79,7 @@ add_action('admin_menu', function() {
                     <tr valign="top">
                         <th scope="row"><label for="monolith_address_1">Address 1</label></th>
                         <td>
-                            <input type="text" name="monolith_address_1" id="monolith_address_1" value="<?= get_option('monolith_address_1') ? get_option('monolith_address_1') : '' ?>" size="50" placeholder="Strelley Hall" required>
+                            <input type="text" name="monolith_address_1" id="monolith_address_1" value="<?= get_option('monolith_address_1') ? get_option('monolith_address_1') : '' ?>" size="50" placeholder="Strelley Hall">
                         </td>
                     </tr>
                     <tr valign="top">
@@ -97,7 +97,7 @@ add_action('admin_menu', function() {
                     <tr valign="top">
                         <th scope="row"><label for="monolith_city">City</th>
                         <td>
-                            <input type="text" name="monolith_city" id="monolith_city" value="<?= get_option('monolith_city') ? get_option('monolith_city') : '' ?>" size="50" placeholder="Nottingham" required>
+                            <input type="text" name="monolith_city" id="monolith_city" value="<?= get_option('monolith_city') ? get_option('monolith_city') : '' ?>" size="50" placeholder="Nottingham">
                         </td>
                     </tr>
                     <tr valign="top">
@@ -109,7 +109,7 @@ add_action('admin_menu', function() {
                     <tr valign="top">
                         <th scope="row"><label for="monolith_postcode">Postcode</label></th>
                         <td>
-                            <input type="text" name="monolith_postcode" id="monolith_postcode" value="<?= get_option('monolith_postcode') ? get_option('monolith_postcode') : '' ?>" size="15" placeholder="NG8 6PE" required>
+                            <input type="text" name="monolith_postcode" id="monolith_postcode" value="<?= get_option('monolith_postcode') ? get_option('monolith_postcode') : '' ?>" size="15" placeholder="NG8 6PE">
                         </td>
                     </tr>
                     <tr valign="top">
@@ -125,7 +125,7 @@ add_action('admin_menu', function() {
                     <tr valign="top">
                         <th scope="row"><label for="monolith_phone">Phone</label></th>
                         <td>
-                            <input type="text" name="monolith_phone" id="monolith_phone" value="<?= get_option('monolith_phone') ? get_option('monolith_phone') : '' ?>" size="15" placeholder="(0115) 906 1321" required>
+                            <input type="text" name="monolith_phone" id="monolith_phone" value="<?= get_option('monolith_phone') ? get_option('monolith_phone') : '' ?>" size="15" placeholder="(0115) 906 1321">
                         </td>
                     </tr>
                 </table>
