@@ -10,7 +10,6 @@ add_action( 'after_setup_theme', 'monolith_setup' ); // sets up all standard
 function monolith_setup() {
 
     add_action( 'init', 'register_menu' ); // registers the default menu
-    add_action( 'wp_enqueue_scripts', 'monolith_script_enqueuer' ); // loads all required scripts
     add_theme_support('post-thumbnails'); // adds post thumbnail support
     add_post_type_support( 'page', 'excerpt' ); // add support for excerpts to pages
     remove_action('wp_head', 'wp_generator'); // remove the generator from the head
@@ -65,20 +64,5 @@ function monolith_setup() {
             $output .= "\n<ul class=\"sub-menu dropdown\">\n";
         }
 
-    }
-
-    /**
-     * Adds required scripts to the page
-     */
-    function monolith_script_enqueuer() {
-
-        wp_enqueue_script('jquery'); // load jquery
-
-        //if we enabled custom js, load the file
-        if(CUSTOM_JS)
-        {
-            wp_register_script( 'site-js', get_template_directory_uri().'/js/base.min.js');
-            wp_enqueue_script( 'site-js' );
-        }
     }
 }
