@@ -23,8 +23,6 @@ get_header(); ?>
           build('snippets'); // otherwise, load the snippets builder          
         
         endif;
-
-      build('list');
           
       ?>
       
