@@ -19,7 +19,7 @@ define('ENVIRONMENT', 'development'); // development/production
 define('FULLWIDTH_SIZE', 'small-12 medium-12 large-12'); // the size of a full width area
 define('MAIN_SIZE', 'small-12 medium-8'); // main content area sizes
 define('SIDEBAR_SIZE', 'small-12 medium-4'); // sidebar sizes
-
+define('BLOCK_GRID_SIZE', 'small-block-grid-2 medium-block-grid-3 large-block-grid-4');
 
 /**
  * Images

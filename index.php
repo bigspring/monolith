@@ -20,7 +20,7 @@ get_header(); ?>
             build('content'); // load the content part on posts & pages
         else :        
           build('snippets'); // otherwise, load the snippets builder                  
-        endif;          
+        endif;
       ?>      
     </div>
     

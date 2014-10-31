@@ -8,10 +8,11 @@ class Builder
     private $loop = null;
     private $default_args = array(
         'columns' => 3,
-        'classes' => ''
+        'classes' => '',
+        'size' => BLOCK_GRID_SIZE
     );
 
-    public function __construct($layout = null, $query = null, $args = null)
+    public function __construct($layout = null, $args = null, $query = null)
     {
         $this->layouts_path = dirname(__FILE__) . '/../' . 'layouts/';
 
@@ -47,8 +48,14 @@ class Builder
      */
     public function _set_args()
     {
+
         $this->args = array_merge($this->default_args, $this->args); // merge in any custom arguments we have
         $this->args['classes'] = 'builder builder-'.$this->layout.' '. $this->args['classes']; // we do this to make it easier to echo in a view
+
+        dump($this->args);
+
+        //$this->args['size'] = (isset($this->args['size'])) ? $this->args['size'] : BLOCK_GRID_SIZE;
+        dump($this->args);
 
         return true;
     }
@@ -62,8 +69,6 @@ class Builder
         $loop = &$this->loop;
         $args = &$this->args;
         $layouts_path = $this->layouts_path;
-        $snippet_size = GRID_SIZE / $args['columns']; // work out span based on columns
-
         $layout_file = $this->layouts_path . 'organisms/' . $this->layout . '.php';
 
         ob_start();
