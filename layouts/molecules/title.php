@@ -60,8 +60,6 @@
 			  <h1 class="entry-title"><?php the_title(); ?></h1>
 			
 			<?php endif; ?>
-      
-      <hr />
 
     </div><!-- /.small-12.columns -->
   </div><!-- /.row -->
