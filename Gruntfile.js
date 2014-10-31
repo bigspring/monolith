@@ -34,7 +34,7 @@ module.exports = function(grunt) {
         },
 
         banner: '/*! <%= pkg.name %> <%= pkg.version %> - ' + // name/version
-            '<%= grunt.template.today("yyyy-mm-dd") %>\n' + // current year
+            '<%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %>\n' + // current year
             '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + // homepage (not currently set in package.json)
             '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
             '* License: <%= pkg.license %>\n\n' +
@@ -91,7 +91,8 @@ module.exports = function(grunt) {
         },
         cssmin: {
             options: {
-                banner: '<%= banner %>'
+                banner: '<%= banner %>',
+                keepSpecialComments: 0
             },
             minify: {
                 expand: true,
@@ -108,11 +109,11 @@ module.exports = function(grunt) {
         watch: {
             js: {
                 files: ['<%= project.src.all %>/**/*.js'],
-                tasks: ['concat', 'uglify']
+                tasks: ['concat']
             },
             css: {
                 files: ['<%= project.src.scss %>/**/*.scss'],
-                tasks: ['sass', 'cssmin']
+                tasks: ['sass']
             }
         }
     });
