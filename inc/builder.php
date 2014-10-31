@@ -7,11 +7,11 @@ class Builder
     private $args = array();
     private $loop = null;
     private $default_args = array(
-        'columns' => 3,
-        'classes' => ''
+        'classes' => '',
+        'size' => BLOCK_GRID_SIZE
     );
 
-    public function __construct($layout = null, $query = null, $args = null)
+    public function __construct($layout = null, $args = null, $query = null)
     {
         $this->layouts_path = dirname(__FILE__) . '/../' . 'layouts/';
 
@@ -29,7 +29,7 @@ class Builder
      * Sets the loop object to be the supplied one, or the global wp_query object if not
      * @return bool
      */
-    public function _set_loop()
+    private function _set_loop()
     {
         if(!$this->query) {
             global $wp_query;
@@ -45,10 +45,11 @@ class Builder
      * Sets up the arguments by merging in supplied args with default args, then applies any custom rules required
      * @return bool
      */
-    public function _set_args()
+    private function _set_args()
     {
+
         $this->args = array_merge($this->default_args, $this->args); // merge in any custom arguments we have
-        $this->args['classes'] = 'builder builder-'.$this->layout.' '. $this->args['classes']; // we do this to make it easier to echo in a view
+        $this->args['classes'] = 'builder builder-'.$this->layout.' '. $this->args['classes']; // we do this to add all dynamically generated classes
 
         return true;
     }
@@ -57,13 +58,11 @@ class Builder
      * Echos the full layout
      * @return bool
      */
-    public function _render()
+    private function _render()
     {
         $loop = &$this->loop;
         $args = &$this->args;
         $layouts_path = $this->layouts_path;
-        $snippet_size = GRID_SIZE / $args['columns']; // work out span based on columns
-
         $layout_file = $this->layouts_path . 'organisms/' . $this->layout . '.php';
 
         ob_start();
@@ -78,7 +77,7 @@ class Builder
      * @param $message
      * @return string
      */
-    public function _raise_alert($message)
+    private function _raise_alert($message)
     {
         // @TODO conditionally do this based on teh development / production mode
         return '<p class="alert-box alert">'.$message.'</p>';

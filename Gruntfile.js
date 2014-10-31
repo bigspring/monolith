@@ -18,6 +18,7 @@ module.exports = function(grunt) {
                 all: '_src',
                 scss: '_src/scss'
             },
+            dist: 'assets/dist',
             dependencies: {
                 default: [
                     '<%= project.assets.bower %>/css_browser_selector/css_browser_selector.js',
@@ -34,7 +35,7 @@ module.exports = function(grunt) {
         },
 
         banner: '/*! <%= pkg.name %> <%= pkg.version %> - ' + // name/version
-            '<%= grunt.template.today("yyyy-mm-dd") %>\n' + // current year
+            '<%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %>\n' + // current year
             '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + // homepage (not currently set in package.json)
             '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
             '* License: <%= pkg.license %>\n\n' +
@@ -65,8 +66,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    '<%= project.assets.js %>/base.min.js': '<%= concat.main.dest %>',
-                    '<%= project.assets.js %>/ie.min.js': '<%= concat.ie.dest %>'
+                    '<%= project.dist %>/base.min.js': '<%= concat.main.dest %>',
+                    '<%= project.dist %>/ie.min.js': '<%= concat.ie.dest %>'
                 }
             }
         },
@@ -91,13 +92,14 @@ module.exports = function(grunt) {
         },
         cssmin: {
             options: {
-                banner: '<%= banner %>'
+                banner: '<%= banner %>',
+                keepSpecialComments: 0
             },
             minify: {
                 expand: true,
                 cwd: '<%= project.assets.css %>',
                 src: ['*.css', '!*.min.css'],
-                dest: '<%= project.assets.css %>',
+                dest: '<%= project.dist %>',
                 ext: '.min.css'
             }
         },
@@ -108,11 +110,11 @@ module.exports = function(grunt) {
         watch: {
             js: {
                 files: ['<%= project.src.all %>/**/*.js'],
-                tasks: ['concat', 'uglify']
+                tasks: ['concat']
             },
             css: {
                 files: ['<%= project.src.scss %>/**/*.scss'],
-                tasks: ['sass', 'cssmin']
+                tasks: ['sass']
             }
         }
     });
@@ -121,5 +123,6 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Default task
-    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'cssmin', 'watch']);
+    grunt.registerTask('default', ['concat', 'sass', 'watch']); // dev mode
+    grunt.registerTask('prod', ['concat', 'uglify', 'sass', 'cssmin']); // prod mode
 };
