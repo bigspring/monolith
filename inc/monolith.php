@@ -14,6 +14,10 @@ function monolith_setup() {
      */
     function register_menu(){
         register_nav_menu( 'primary-navigation', 'Primary Navigation' );
+        
+        // create a custom footer menu
+				register_nav_menu( 'footer', 'Footer Menu' ); 
+
     }
 
     /**
