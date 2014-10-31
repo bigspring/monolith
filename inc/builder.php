@@ -48,9 +48,7 @@ class Builder
     public function _set_args()
     {
         $this->args = array_merge($this->default_args, $this->args); // merge in any custom arguments we have
-
-        // custom rules for special cases
-        $this->args['classes'] = ' class="'. $this->args['classes'] . '"'; // we do this to make it easier to echo in a view
+        $this->args['classes'] = 'builder builder-'.$this->layout.' '. $this->args['classes']; // we do this to make it easier to echo in a view
 
         return true;
     }
@@ -75,8 +73,14 @@ class Builder
             return ob_get_clean();
     }
 
+    /**
+     * Function for returning an alert on failure
+     * @param $message
+     * @return string
+     */
     public function _raise_alert($message)
     {
+        // @TODO conditionally do this based on teh development / production mode
         return '<p class="alert-box alert">'.$message.'</p>';
     }
 }

@@ -9,7 +9,7 @@
 <?php if($loop->have_posts()) :  // if we have results run the loop ?>
 
 <!-- start snippets loop -->
-<div class="snippets">
+<div class="<?= $args['classes'] ?>">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
         <?php include($layouts_path . 'molecules/snippet.php'); ?>
     <?php endwhile; ?>
