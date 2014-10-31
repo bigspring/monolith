@@ -1,4 +1,10 @@
 <?php
+/**
+ * The builder class used for building layouts based on a set of arguments and a custom loop if required
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+
 class Builder
 {
     private $layouts_path;

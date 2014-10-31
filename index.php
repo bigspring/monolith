@@ -1,9 +1,9 @@
 <?php
-
- // Monolith by BigSpring
- // Licensed under MIT Open Source
- // Description: Main index file, which does all the heavy lifting.
-
+/**
+ * Main index file, which does all the heavy lifting.
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
 get_header(); ?>
 
   <!-- start the title row -->

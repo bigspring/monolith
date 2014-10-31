@@ -1,4 +1,10 @@
 <?php
+/**
+ * Collection of functions and classes for all core Monolith functionality such as menus, the walker and basic theme setup actions
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+
 add_action( 'after_setup_theme', 'monolith_setup' ); // sets up all standard
 
 function monolith_setup() {
