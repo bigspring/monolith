@@ -14,9 +14,9 @@ define('ENVIRONMENT', 'development'); // development/production
  * Scaffolding
  */
 
-define('GRID_SIZE', '12'); // overall grid size
-define('SIDEBAR_SIZE', 'col-md-4'); // sidebar sizes
-define('MAIN_SIZE', 'col-md-8'); // main content area sizes
+define('GRID_SIZE', 'small-4'); // default size used for block-grid elements
+define('SIDEBAR_SIZE', 'medium-4'); // sidebar sizes
+define('MAIN_SIZE', 'medium-8'); // main content area sizes
 
 /**
  * Images
