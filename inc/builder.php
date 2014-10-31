@@ -7,7 +7,6 @@ class Builder
     private $args = array();
     private $loop = null;
     private $default_args = array(
-        'columns' => 3,
         'classes' => '',
         'size' => BLOCK_GRID_SIZE
     );
