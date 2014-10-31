@@ -255,7 +255,7 @@ if ( ! function_exists( 'time_ago' ) ) {
 if ( ! function_exists( 'get_assets_folder' ) ) {
 
     /**
-     * Return the URI for the required asset files
+     * Return the URI for the required asset files based on whether we're in production or development environment
      * @param string $type The type of file (must be CSS or JS)
      * @param string $file The name of the required file (without extension)
      * @return bool|string
@@ -265,10 +265,12 @@ if ( ! function_exists( 'get_assets_folder' ) ) {
         $base_path = get_stylesheet_directory_uri() . '/assets';
         $final_path = '';
 
+        // escape if the type of file is invalid
         if (!in_array($type, array('css', 'js'))) {
             return false;
         }
 
+        // check environment and build final path
         switch (ENVIRONMENT) {
             case 'development':
                 $final_path = $base_path . "/$type/$file.$type";

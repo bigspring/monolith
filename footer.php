@@ -37,7 +37,7 @@
             </div>
         <?php endif; ?>
 
-        <script language="JavaScript" src="<?= get_assets_dir('js', 'base') ?>"></script>
+        <script src="<?= get_assets_dir('js', 'base') ?>"></script>
 
     </body>
 
