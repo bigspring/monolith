@@ -121,5 +121,6 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Default task
-    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'cssmin', 'watch']);
+    grunt.registerTask('default', ['concat', 'sass', 'watch']); // dev mode
+    grunt.registerTask('prod', ['concat', 'uglify', 'sass', 'cssmin']); // prod mode
 };
