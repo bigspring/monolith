@@ -7,10 +7,14 @@ Description: This is the main compiler SCSS file. It creates a single base.css f
 for more information on Foundation components, visit http://foundation.zurb.com/docs/
 */
 
-// load the main settings file
+
+// 01 – SETTINGS
+// =========================
 @import "settings";
 
-// load Foundation components
+
+// 02 – FOUNDATION COMPONENTS
+// =========================
 @import
 "foundation/components/accordion",
 "foundation/components/alert-boxes",
@@ -48,11 +52,17 @@ for more information on Foundation components, visit http://foundation.zurb.com/
 //   "foundation/components/offcanvas",
 "foundation/components/visibility";
 
-// load the monolith reset file & utilities
+// 03 – Custom Fonts by http://fairheadcreative.com/
+// =========================
+$webicons-url: "../bower_components/fairheadwebicons/webicons/" !default; // set the path of the web icons folder
+@import "fairheadwebicons/webicons"; // load the social icons
+
+
+// 04 – SETTINGS & UTILITIES
+// =========================
 @import "reset"; 		
 @import "utilities";
 
-// @import "fairheadwebicons/webicons";
-
-// load the custom styles (do this at the end to avoid pain)
+// 05 – CUSTOM STYLES (load this at the end to avoid pain)
+// =========================
 @import "custom";

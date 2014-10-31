@@ -9,8 +9,9 @@
   <title><?php wp_title(); ?></title>
 
   <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/css/base.css">
-
-  <script src="js/vendor/modernizr.js"></script>
+  
+  <!-- temporaily load modernizr directly -->
+  <script src="<?= get_template_directory_uri(); ?>/assets/bower_components/modernizr/modernizr.js"></script>
 
 </head>
 <body>

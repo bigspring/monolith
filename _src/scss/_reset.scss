@@ -7,6 +7,8 @@
 // =========================
 
 // 01 – Sidebars
+// 02 – Single Post
+// 03 – Social Icons
 
 
 // 01 – SIDEBARS
@@ -63,3 +65,28 @@
     }
     
   }
+  
+
+// 03 – SOCIAL ICONS
+// =========================
+
+  .social-icons {
+    
+    // reduce the default inline-list margin 
+    li {
+      margin-left: 0.5rem;
+    }
+  
+    // remove the box shadown from web icons
+    .webicon {
+      box-shadow: none; // kill the box shadows
+      
+      // remove wack effects on hover
+      &:hover {
+        box-shadow: none;
+        margin: 0;
+      }
+      
+    }
+  
+  } // .social-icons

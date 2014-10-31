@@ -9,13 +9,15 @@
 
 				<!-- start the footer menu -->
 				<ul class="inline-list footer-list">
+				  <!-- static list item for copyright / date -->
 				  <li>&copy; <?= date('Y'); ?> <?php bloginfo('name'); ?></li>
-
-					<?php // @TODO footer nav goes here ?>
+					
+					<!-- start menu items -->
 					<li><a href="#">Link 2</a></li>
 				  <li><a href="#">Link 3</a></li>
 				  <li><a href="#">Link 4</a></li>
 				  <li><a href="#">Link 5</a></li>
+				  <!-- end menu items -->
 
 				</ul>
 				<!-- end the footer menu -->
