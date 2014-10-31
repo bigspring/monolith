@@ -20,6 +20,8 @@
 				</ul>
 				<!-- end the footer menu -->
 
+<a class="webicon facebook small" href="#">Facebook</a>
+
 			</div><!-- /.columns -->
 
 			<div class="medium-4 columns">
