@@ -53,7 +53,7 @@
 
         <?php wp_footer(); ?>
 
-        <script src="<?= get_assets_dir('js', 'base') ?>"></script>
+        <script src="<?= get_asset_uri('js', 'base') ?>"></script>
 
     </body>
 

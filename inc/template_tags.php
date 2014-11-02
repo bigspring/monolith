@@ -259,36 +259,37 @@ if ( ! function_exists( 'time_ago' ) ) {
     }
 }
 
-if ( ! function_exists( 'get_assets_folder' ) ) {
+if ( ! function_exists( 'get_asset_uri' ) ) {
 
     /**
      * Return the URI for the required asset files based on whether we're in production or development environment
-     * @param string $type The type of file (must be CSS or JS)
+     * @param string $type The type of file (must be 'css' or 'js')
      * @param string $file The name of the required file (without extension)
      * @return bool|string
      */
-    function get_assets_dir($type, $file) {
+    function get_asset_uri($type, $file) {
 
-        $base_path = get_stylesheet_directory_uri() . '/assets';
-        $final_path = '';
+        $base_uri = get_stylesheet_directory_uri() . '/assets';
+        $final_uri = '';
+        $allowed_types = array('css', 'js');
 
         // escape if the type of file is invalid
-        if (!in_array($type, array('css', 'js'))) {
+        if (!in_array($type, $allowed_types)) {
             return false;
         }
 
         // check environment and build final path
         switch (ENVIRONMENT) {
             case 'development':
-                $final_path = $base_path . "/$type/$file.$type";
+                $final_uri = $base_uri . "/$type/$file.$type";
                 break;
             case 'production':
-                $final_path = $base_path . "/dist/$file.min.$type";
+                $final_uri = $base_uri . "/dist/$file.min.$type";
                 break;
             default:
                 return false;
         }
 
-        return $final_path;
+        return $final_uri;
     }
 }

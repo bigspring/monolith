@@ -10,11 +10,11 @@
 
         <?php wp_head(); ?>
 
-        <link rel="stylesheet" href="<?= get_assets_dir('css', 'base') ?>">
+        <link rel="stylesheet" href="<?= get_asset_uri('css', 'base') ?>">
         <!-- HTML5 & responsive support for IE browsers... -->
         <!--[if lt IE 9]>
-        <link href="<?= get_assets_dir('css', 'ie') ?>" rel="stylesheet" type="text/css">
-        <script src="<?= get_assets_dir('js', 'ie') ?>"></script>
+        <link href="<?= get_asset_uri('css', 'ie') ?>" rel="stylesheet" type="text/css">
+        <script src="<?= get_asset_uri('js', 'ie') ?>"></script>
         <![endif]-->
 
     </head>
