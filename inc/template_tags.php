@@ -278,7 +278,7 @@ if ( ! function_exists( 'get_asset_uri' ) ) {
             return false;
         }
 
-        // check environment and build final path
+        // check environment and build final URI
         switch (ENVIRONMENT) {
             case 'development':
                 $final_uri = $base_uri . "/$type/$file.$type";
