@@ -8,4 +8,3 @@ include('inc/config.php');
 
 // include monolith's optional functions
 include('inc/sidebars.php'); // handles the site's sidebars and widget areas
-
