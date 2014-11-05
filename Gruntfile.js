@@ -16,18 +16,20 @@ module.exports = function(grunt) {
             },
             src: {
                 all: '_src',
-                scss: '_src/scss'
+                scss: '_src/scss',
+                js: '_src/js'
             },
             dist: 'assets/dist',
             dependencies: {
                 default: [
                     '<%= project.assets.bower %>/foundation/js/foundation/foundation.js',
                     '<%= project.assets.bower %>/foundation/js/foundation/foundation.topbar.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.dropdown.js',
                     '<%= project.assets.bower %>/modernizr/modernizr.js',
                     '<%= project.assets.bower %>/holderjs/holder.js',
                     '<%= project.assets.bower %>/fastclick/lib/fastclick.js',
                     '<%= project.assets.bower %>/retina.js/dist/retina.js',                   
-                    '<%= project.src %>/js/custom.js'
+                    '<%= project.src.js %>/custom.js'
                 ],
                 ie: [
                     '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
