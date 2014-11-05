@@ -21,7 +21,6 @@ module.exports = function(grunt) {
             dist: 'assets/dist',
             dependencies: {
                 default: [
-                    '<%= project.assets.bower %>/css_browser_selector/css_browser_selector.js',
                     '<%= project.assets.bower %>/modernizr/modernizr.js',
                     '<%= project.assets.bower %>/holderjs/holder.js',
                     '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
