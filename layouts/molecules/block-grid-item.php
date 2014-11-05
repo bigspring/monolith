@@ -7,18 +7,25 @@
 ?>
 
 <!-- start block grid li --> 
-<li class="monolith-block-grid-item">
-  <a href="<?php the_permalink(); ?>">
-    <?php if(has_post_thumbnail()) : ?>
-      <?php the_post_thumbnail(); ?>
-    <?php else : ?> 
-      [insert defualt thumb here]
+<li class="item">  
+  
+  <!-- featured image -->  
+  <a class="featured-image" href="<?php the_permalink(); ?>">    
+    <?php if(has_post_thumbnail()) : // check if post has a thumbnail ?>
+      <?php the_post_thumbnail(); ?>    
+    <?php else : // otherwise display the default image ?> 
+      <img alt="<?php bloginfo('description'); ?>" class="default-image th" src="<?= get_template_directory_uri();?>/assets/img/default.jpg" />    
     <?php endif; ?>
-  </a>
+  </a>  
+  
   <div class="caption">
-    <h3><?php the_title(); ?></h3>
-    <?php the_excerpt(); ?>
-    <a class="button small" href="<?php the_permalink(); ?>">Read more</a>
+    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+    
+    <div class="summary">
+      <?php the_excerpt(); ?>
+    </div>        
+    <a class="permalink read-more" role="permalink" href="<?php the_permalink(); ?>"><?php _e('Read more'); ?></a>
   </div>
+  
 </li>
 <!-- end block grid li -->
