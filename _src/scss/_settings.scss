@@ -103,15 +103,15 @@ $vapor       : #F6F6F6;
 // $silver      : #EFEFEF;
 $smoke       : #EEEEEE;
 // $gainsboro   : #DDDDDD;
-// $iron        : #CCCCCC;
+$iron        : #CCCCCC;
 // $base        : #AAAAAA;
 // $aluminum    : #999999;
 // $jumbo       : #888888;
 // $monsoon     : #777777;
 $steel       : #666666;
-// $charcoal    : #555555;
-// $tuatara     : #444444;
-// $oil         : #333333;
+$charcoal    : #555555;
+$tuatara     : #444444;
+$oil         : #333333;
 // $jet         : #222222;
 // $black       : #000000;
 
@@ -122,6 +122,9 @@ $steel       : #666666;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
+
+// text muted color
+$text-muted-color : $charcoal;
 
 // We use these to control various global styles
 // $body-bg: $white;

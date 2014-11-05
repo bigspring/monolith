@@ -6976,3 +6976,58 @@ th.hide-for-touch {
   .social-icons .webicon:hover {
     box-shadow: none;
     margin: 0; }
+
+.no-margin {
+  margin: 0; }
+
+.no-margin-top {
+  margin-top: 0; }
+
+.no-margin-right {
+  margin-right: 0; }
+
+.no-margin-bottom {
+  margin-bottom: 0; }
+
+.no-margin-left {
+  margin-left: 0; }
+
+.text-muted {
+  color: #555555; }
+
+ul.tick {
+  list-style: none;
+  margin-left: 0; }
+  ul.tick li:before {
+    font-family: 'fontAwesome';
+    float: left; }
+  ul.tick li {
+    padding-left: 1.3rem; }
+  ul.tick li:before {
+    content: "\f00c";
+    color: #43ac6a;
+    margin-left: -1.3rem; }
+
+ul.chevron {
+  list-style: none;
+  margin-left: 0; }
+  ul.chevron li:before {
+    font-family: 'fontAwesome';
+    float: left; }
+  ul.chevron li {
+    padding-left: 0.7rem; }
+  ul.chevron li:before {
+    content: "\f105";
+    margin-left: -0.7rem; }
+
+ul.caret {
+  list-style: none;
+  margin-left: 0; }
+  ul.caret li:before {
+    font-family: 'fontAwesome';
+    float: left; }
+  ul.caret li {
+    padding-left: 0.7rem; }
+  ul.caret li:before {
+    content: "\f0da";
+    margin-left: -0.7rem; }
