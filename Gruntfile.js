@@ -21,6 +21,8 @@ module.exports = function(grunt) {
             dist: 'assets/dist',
             dependencies: {
                 default: [
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.topbar.js',
                     '<%= project.assets.bower %>/modernizr/modernizr.js',
                     '<%= project.assets.bower %>/holderjs/holder.js',
                     '<%= project.assets.bower %>/fastclick/lib/fastclick.js',
