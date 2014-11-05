@@ -23,12 +23,14 @@ module.exports = function(grunt) {
                 default: [
                     '<%= project.assets.bower %>/modernizr/modernizr.js',
                     '<%= project.assets.bower %>/holderjs/holder.js',
-                    '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
+                    '<%= project.assets.bower %>/fastclick/lib/fastclick.js',
+                    '<%= project.assets.bower %>/retina.js/dist/retina.js',                   
                     '<%= project.src %>/js/custom.js'
                 ],
                 ie: [
-                    '<%= project.bower %>/html5shiv-dist/html5shiv.js',
-                    '<%= project.bower %>/respond/dest/respond.src.js'
+                    '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
+                    '<%= project.assets.bower %>/html5shiv/dist/html5shiv.js',
+                    '<%= project.assets.bower %>/respond/dest/respond.src.js'
                 ]
             }
         },
