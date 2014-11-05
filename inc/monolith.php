@@ -1,4 +1,10 @@
 <?php
+/**
+ * Collection of functions and classes for all core Monolith functionality such as menus, the walker and basic theme setup actions
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+
 add_action( 'after_setup_theme', 'monolith_setup' ); // sets up all standard
 
 function monolith_setup() {
@@ -65,14 +71,7 @@ function monolith_setup() {
      * Adds required scripts to the page
      */
     function monolith_script_enqueuer() {
-
         wp_enqueue_script('jquery'); // load jquery
-
-        //if we enabled custom js, load the file
-        if(CUSTOM_JS)
-        {
-            wp_register_script( 'site-js', get_template_directory_uri().'/js/base.min.js');
-            wp_enqueue_script( 'site-js' );
-        }
     }
+
 }

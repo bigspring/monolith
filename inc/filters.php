@@ -1,5 +1,11 @@
 <?php
 /**
+ * Collection of functions to handle all filters required for Monolith
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+
+/**
  * Append page slugs to the body class
  *
  * @param 	array

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Collection of functions to handle all hooks required for Monolith
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
 
 if ( ! function_exists( 'login_css' ) ) {
     /**

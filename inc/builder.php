@@ -1,4 +1,10 @@
 <?php
+/**
+ * The builder class used for building layouts based on a set of arguments and a custom loop if required
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+
 class Builder
 {
     private $layouts_path;
@@ -31,7 +37,7 @@ class Builder
      */
     private function _set_loop()
     {
-        if(!$this->query) {
+        if (!$this->query) {
             global $wp_query;
             $this->loop = $wp_query;
         } else {
@@ -66,10 +72,11 @@ class Builder
         $layout_file = $this->layouts_path . 'organisms/' . $this->layout . '.php';
 
         ob_start();
-        if(!@include($layout_file)) // if the file doesn't exist, display an alert on the front end
-            return $this->_raise_alert('The layout file "'.$this->layout.'"could not be found');
-        else // otherwise return the content
+        if (!@include($layout_file)) { // if the file doesn't exist, display an alert on the front end
+            return $this->_raise_alert('The layout file "' . $this->layout . '"could not be found');
+        } else { // otherwise return the content
             return ob_get_clean();
+        }
     }
 
     /**
@@ -79,8 +86,10 @@ class Builder
      */
     private function _raise_alert($message)
     {
-        // @TODO conditionally do this based on teh development / production mode
-        return '<p class="alert-box alert">'.$message.'</p>';
+        // only display error when in development environment
+        if (ENVIRONMENT === 'development') {
+            return '<p class="alert-box alert">' . $message . '</p>';
+        }
     }
 }
 
