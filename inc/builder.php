@@ -12,14 +12,15 @@ class Builder
     private $query = null;
     private $args = array();
     private $loop = null;
-    private $default_args = array(
+    private $default_args = array( // default arguments
         'classes' => '',
         'size' => BLOCK_GRID_SIZE,
         'has_image' => true,
         'has_caption' => true,
         'has_title' => true,
         'has_summary' => true,
-        'has_readmore' => true
+        'has_readmore' => true,
+        'has_date' => true
     );
 
     public function __construct($layout = null, $args = null, $query = null)
