@@ -18,7 +18,13 @@
   // -------------------------
   
   .widget {
+    
     margin-bottom: 1rem; // add some margin to the widget    
+    
+    // adjust the size of the sidebar headings
+    h3 {
+      font-size: 1.2rem;
+    }
     
     // style the lists in widgets – remove margins
     ul {

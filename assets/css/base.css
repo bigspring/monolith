@@ -6943,6 +6943,8 @@ th.hide-for-touch {
 
 .widget {
   margin-bottom: 1rem; }
+  .widget h3 {
+    font-size: 1.2rem; }
   .widget ul {
     margin: 0;
     list-style: none; }
