@@ -54,7 +54,6 @@
         <?php wp_footer(); ?>
 
         <script src="<?= get_asset_uri('js', 'base') ?>"></script>
-        
     </body>
 
 </html>
