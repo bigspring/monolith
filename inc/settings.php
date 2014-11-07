@@ -59,13 +59,13 @@ add_action('admin_menu', function() {
 
                 <table class="form-table">
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_blog_page_title">Title</label></th>
+                        <th scope="row"><label for="monolith_blog_page_title">Blog Page Title (*)</label></th>
                         <td>
-                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50" placeholder="News">
+                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50" placeholder="News" required>
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_blog_page_introtext">Introductory Text</label></th>
+                        <th scope="row"><label for="monolith_blog_page_introtext">Blog Page Introductory Text</label></th>
                         <td>
                             <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3" placeholder="This is my news blog."><?= get_option('monolith_blog_page_introtext') ? get_option('monolith_blog_page_introtext') : '' ?></textarea>
                         </td>
