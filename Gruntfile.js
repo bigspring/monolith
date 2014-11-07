@@ -24,6 +24,7 @@ module.exports = function(grunt) {
                 default: [
                     '<%= project.assets.bower %>/foundation/js/foundation/foundation.js',
                     '<%= project.assets.bower %>/foundation/js/foundation/foundation.topbar.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.offcanvas.js',
                     '<%= project.assets.bower %>/foundation/js/foundation/foundation.dropdown.js',
                     '<%= project.assets.bower %>/modernizr/modernizr.js',
                     '<%= project.assets.bower %>/holderjs/holder.js',
