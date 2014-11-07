@@ -9,6 +9,9 @@
 // 01 – Sidebars
 // 02 – Single Post
 // 03 – Social Icons
+// 04 - Structures
+// 05 - Dirty Hax
+// 06 – Breadcrumbs
 
 
 // 01 – SIDEBARS
@@ -96,3 +99,29 @@
     }
   
   } // .social-icons
+  
+// 04 - Builder Structures
+// =========================
+
+  // Block Grid
+  .builder-block-grid > ul > li.item {
+    
+    // make the image link a block element, add some margin for spacing
+    .featured-image {
+      display: block;
+      margin-bottom: 0.8rem; // add some margin, as the h3 is adding 0.2rem top margin
+    }
+    
+  }
+  
+// 05 - Hax
+// =========================
+  
+  // force all images to jave auto heights in main content block
+  .block-main img {height: auto !important;}
+  
+// 06 – Breadcrumbs
+// =========================
+
+  // support for NavXT breadcrumbs
+  

@@ -22,6 +22,11 @@
     <body>
 
         <?php get_template_part('layouts/organisms/nav-topbar'); // load the navigation ?>
+        
+        <?php if( !is_front_page() ) : // load the breadcrumbs, except on the homepage
+          get_template_part('layouts/molecules/breadcrumbs');
+          endif;
+        ?>
 
         <!-- start main -->
         <main class="block-main" role="main">
