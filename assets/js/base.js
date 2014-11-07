@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*! monolith 2.0.0 - 2014-11-07 11:10:23
-=======
-/*! monolith 2.0.0 - 2014-11-07 10:48:41
->>>>>>> FETCH_HEAD
+/*! monolith 2.0.0 - 2014-11-07 12:10:29
 * https://github.com/bigspring/monolith
 * Copyright (c) 2014 BigSpring
 * License: MIT

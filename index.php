@@ -17,7 +17,7 @@ get_header(); ?>
     <div class="columns <?= is_page_template('page-fullwidth.php') ? FULLWIDTH_SIZE : MAIN_SIZE; ?>" role="main">
       <?php      
         if( is_single() || is_page() ) :       
-            build('content'); // load the content part on posts & pages
+          build('content'); // load the content part on posts & pages
         else :        
           build('snippets'); // otherwise, load the snippets builder                  
         endif;
