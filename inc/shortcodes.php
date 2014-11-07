@@ -5,7 +5,6 @@
  * @package monolith
  */
 
-
 /**
  * Clean up gallery_shortcode()
  *
@@ -216,7 +215,7 @@ function childpages($atts, $content = null)
 	);
 
 	ob_start();
-    build($layout, $args);
+    build($layout, null, $args);
 	return ob_get_clean();
 }
 add_shortcode('childpages', 'childpages');
@@ -243,7 +242,7 @@ function pages_shortcode($atts, $content = null) {
     );
 
     ob_start();
-    build($layout, $args);
+    build($layout, null, $args);
     return ob_get_clean();
 
 }//end function
