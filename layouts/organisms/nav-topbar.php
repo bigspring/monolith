@@ -7,8 +7,8 @@
 ?>
 
 <!-- start main navigation -->
-<div class="top-bar-container contain-to-grid" role="navigation">
-  <nav class="top-bar" data-topbar>
+<div class="top-bar-container contain-to-grid">
+  <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
     
     <!-- start the title area -->
     <ul class="title-area">
