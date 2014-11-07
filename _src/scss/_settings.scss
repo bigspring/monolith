@@ -116,7 +116,7 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
+$primary-color: #008CBA;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -132,6 +132,10 @@ $text-muted-color : $charcoal;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
+
+// page header styles
+$page-header-background: $primary-color;
+$page-header-color: $white;
 
 // We use this to control font-smoothing
 // $font-smoothing: antialiased;

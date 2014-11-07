@@ -11,7 +11,7 @@
 // 03 – Social Icons
 // 04 - Structures
 // 05 - Dirty Hax
-// 06 – Breadcrumbs
+// 06 – Page Header
 
 
 // 01 – SIDEBARS
@@ -120,8 +120,29 @@
   // force all images to jave auto heights in main content block
   .block-main img {height: auto !important;}
   
-// 06 – Breadcrumbs
+// 06 – Page Header
 // =========================
 
-  // support for NavXT breadcrumbs
+  .page-header {
+    
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    background: $page-header-background;
+    color: $page-header-color;
+    
+    // h1 heading spacing
+    h1 {
+      margin: 0;
+      color: $page-header-color;
+    }
+  }
   
+// 07 – Post Title
+// =========================
+
+  .post-title {
+    
+    margin-bottom: 1rem;
+    h1 {margin-bottom: 0;}
+    
+  }

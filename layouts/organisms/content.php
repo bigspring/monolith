@@ -12,12 +12,6 @@
   <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
     <article id="post-<?= $post->ID; ?>" <?php post_class(); ?>>
 
-      <!-- date / meta -->
-      <?php global $post;
-        if('post' == $post->post_type) { // only show the date if it's a post
-          get_template_part('layouts/molecules/date');
-      } ?>
-
       <!-- the post summary -->
       <?php if( has_excerpt() ) : ?>
       <section class="entry-summary">
@@ -28,7 +22,7 @@
       <!-- the featured image -->
       <?php if( has_post_thumbnail() ) : ?>
       <section class="post-featured-image">
-        <?php the_post_thumbnail(); ?>
+        <?php the_post_thumbnail('large'); ?>
       </section>
       <?php endif; ?>
 
