@@ -78,3 +78,21 @@ if ( ! function_exists( 'my_register_mce_button' ) ) {
 		}
 
 }
+
+if ( ! function_exists( 'display_environment_on_admin_bar' ) ) {
+    /**
+     * Display notification in Wordpress bar when in development mode
+     */
+    function display_environment_on_admin_bar($wp_admin_bar)
+    {
+        $args = array(
+            'id' => 'monolith_env',
+            'title' => '<span style="color: #FFFFFF; background-color: #FF0000; padding: 2px 5px; border-radius: 3px; font-size: 0.9em;">DEV MODE</span>',
+        );
+        $wp_admin_bar->add_node($args);
+    }
+}
+
+if (ENVIRONMENT === 'development') {
+    add_action('admin_bar_menu', 'display_environment_on_admin_bar', 1);
+}
