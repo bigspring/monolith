@@ -38,7 +38,7 @@
 										},	
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="list" type="' + e.data.listboxListTypes + '"]');
+										editor.insertContent( '[childpages layout="list" class="' + e.data.listboxListTypes + '"]');
 									}
 								});
 							}
@@ -114,50 +114,45 @@
 	
 										{
 											type: 'checkbox',
-											name: 'checkboxNoImage',
-											label: 'Exclude Image?',
-											'values': [
-												{checked:'checked',  value: ''},
-											]
+											name: 'checkboxImage',
+											label: 'Include Image?',
+                                            checked: 'true'
 										},	
 
 										{
 											type: 'checkbox',
-											name: 'checkboxNoTitle',
-											label: 'Exclude Title?',
-											'values': [
-												{text: 'Yes', value: ''},
-											]
+											name: 'checkboxTitle',
+											label: 'Include Title?',
+                                            checked: 'true'
 										},	
 
 
 										{
 											type: 'checkbox',
-											name: 'checkboxNoExcerpt',
-											label: 'Exclude Excerpt?',
-											'values': [
-												{text: 'Yes', value: ''},
-											]
+											name: 'checkboxExcerpt',
+											label: 'Include Excerpt?',
+                                            checked: 'true'
 										},	
 
 										{
 											type: 'checkbox',
-											name: 'checkboxNoReadMore',
-											label: 'Exclude Readmore Link?',
-											'values': [
-												{text: 'Yes', value: ''},
-											]
-										},	
-
-										
+											name: 'checkboxReadMore',
+											label: 'Include Readmore Link?',
+                                            checked: 'true'
+										},
+                                        {
+                                            type: 'checkbox',
+                                            name: 'checkboxThumbnail',
+                                            label: 'Include Border on Image?',
+                                            checked: 'true'
+                                        }
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid"]');
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'"]');
 									}
 								});
 							}
-						},
-						
+						}
 					]
 				},
 
