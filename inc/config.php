@@ -46,3 +46,4 @@ require_once('template_tags.php');
 require_once('shortcodes.php');
 require_once('builder.php');
 require_once('settings.php');
+require_once('monolith-widgets.php');
