@@ -168,7 +168,7 @@
 											type: 'checkbox',
 											name: 'checkboxReadMore',
 											label: 'Include Readmore Link?',
-                                            checked: 'true'
+                      checked: 'true'
 										},
                     {
                         type: 'checkbox',

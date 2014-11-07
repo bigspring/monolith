@@ -11,13 +11,13 @@
     
   <?php if( $args['has_image'] ) : // display the featured image if argument is true ?>
     <!-- the featured image -->         
-    <a class="featured-image <?= $args['is_thumbnail'] ? 'th' : ''; // add th class if enabled (default: true)?> " href="<?php the_permalink(); ?>"> 
+    <a class="featured-image <?= $args['is_thumbnail'] ? 'th' : ''; // add th class if enabled (default: true)?>" href="<?php the_permalink(); ?>"> 
     <?php if(has_post_thumbnail()) : // check if post has a thumbnail ?>      
         <?php the_post_thumbnail(); ?>    
       <?php else : // otherwise display the default image ?> 
         <img alt="<?php bloginfo('description'); ?>" class="default-image th" src="<?= get_template_directory_uri();?>/assets/img/default.jpg" />    
-      </a>
     <?php endif; // end has_post_thumbnail ?>    
+    </a>
   <?php endif; // end has_image ?>
   
   <?php if( $args['has_caption'] ) : // display if captions are enabled (default is true) ?>
