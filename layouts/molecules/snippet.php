@@ -16,7 +16,7 @@
 
   <?php if( $args['has_date'] ) : // display the date if argument is true ?>
   <!-- entry meta / date -->
-  <section class="post-meta">
+  <section class="post-meta subheader">
   <?php global $post;
     if('post' == $post->post_type) { // only show the date if it's a post
       get_template_part('layouts/molecules/date');
