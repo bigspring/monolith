@@ -96,3 +96,36 @@ if ( ! function_exists( 'display_environment_on_admin_bar' ) ) {
 if (ENVIRONMENT === 'development') {
     add_action('admin_bar_menu', 'display_environment_on_admin_bar', 1);
 }
+
+if ( ! function_exists( 'set_default_site_options' ) ) {
+    /**
+     * Add default site options if they don't exist in the database
+     */
+    function set_default_site_options()
+    {
+        // blog
+        add_option('monolith_blog_page_title', 'Latest News');
+        add_option('monolith_blog_page_introtext', '');
+
+        // contact
+        add_option('monolith_address_1', '');
+        add_option('monolith_address_2', '');
+        add_option('monolith_address_3', '');
+        add_option('monolith_city', '');
+        add_option('monolith_county', '');
+        add_option('monolith_postcode', '');
+        add_option('monolith_country', '');
+        add_option('monolith_phone', '');
+
+        // social media
+        add_option('monolith_facebook', '');
+        add_option('monolith_twitter', '');
+        add_option('monolith_googleplus', '');
+        add_option('monolith_youtube', '');
+        add_option('monolith_linkedin', '');
+        add_option('monolith_pinterest', '');
+        add_option('monolith_instagram', '');
+    }
+}
+
+add_action( 'after_setup_theme', 'set_default_site_options' );
