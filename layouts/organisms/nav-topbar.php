@@ -20,7 +20,7 @@
     <!-- end the title area -->
     
     <!-- start main navigation section -->
-    <section class="top-bar-section">
+    <section class="top-bar-section main-navigation">
       <?php
       	$args = array(
           'container' => false, // remove nav container
