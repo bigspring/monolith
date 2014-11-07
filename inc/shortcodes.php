@@ -278,8 +278,14 @@ function childpages($atts, $content = null)
     extract( shortcode_atts( array( // set our defaults for the shortcode
         'layout' => 'list', // default layout
         'id' => $post->ID,
-        'classes' => '',
-        'exclude_pages' => null
+        'class' => '',
+        'size' => '',
+        'exclude_pages' => null,
+        'image_border' => 'false',
+        'image' => true,
+        'title' => true,
+        'excerpt' => true,
+        'readmore' => true
     ), $atts ) ); // @TODO can we handle these defaults through the builder class instead?
 
 	$args = array(
@@ -290,12 +296,23 @@ function childpages($atts, $content = null)
 			'posts_per_page' => -1
 	);
 
+    // define our arguments for the builder based on whether we want to show images, titles, etc
+    $builder_args = array();
+    $builder_args['is_thumbnail'] = ($image_border == 'false') ? false : true;
+    $builder_args['has_image'] = ($image == 'false') ? false : true;
+    $builder_args['has_title'] = ($title == 'false') ? false : true;
+    $builder_args['has_excerpt'] = ($excerpt == 'false') ? false : true;
+    $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
+    $builder_args['classes'] = $class;
+    $builder_args['size'] = $size;
+
+
     if($exclude_pages) {
         $args['post__not_in'] = explode(',', $exclude_pages);
     }
 
 	ob_start();
-    build($layout, null, $args);
+    build($layout, $builder_args, $args);
 	return ob_get_clean();
 }
 add_shortcode('childpages', 'childpages');

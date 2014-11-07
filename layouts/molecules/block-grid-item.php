@@ -19,6 +19,7 @@
         <!-- <img alt="<?php bloginfo('description'); ?>" class="default-image th" src="<?= get_template_directory_uri();?>/assets/img/default.jpg" /> -->    
       </a>
     <?php endif; // end has_post_thumbnail ?>    
+    </a>
   <?php endif; // end has_image ?>
   
   <?php if( $args['has_caption'] ) : // display if captions are enabled (default is true) ?>
