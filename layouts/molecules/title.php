@@ -43,11 +43,11 @@
 			  
 			  <h1>Search results for '<?php echo get_search_query(); ?>'</h1>
 			  
-		  <?php elseif ( is_post_type_archive() ) : ?>
+		  <?php elseif ( is_post_type_archive() ) : // if it's a post type arch, use the name ?>
 		  
 		    <h1><?php post_type_archive_title(); ?></h1>
 		    
-	    <?php elseif ( is_tax() ) : ?>	    
+	    <?php elseif ( is_tax() ) : // or if it's a tax, use the tax name ?>	    
      
         <?php global $wp_query;
           $term = $wp_query->get_queried_object();
@@ -55,7 +55,7 @@
         
         <h1><?=$term->name;; ?></h1>
 			
-			<?php else : ?>
+			<?php else : // otherwise, display the WP blog title as a fallback ?>
 			
 			  <h1 class="entry-title"><?php the_title(); ?></h1>
 			
