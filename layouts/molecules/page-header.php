@@ -35,9 +35,9 @@
 			  
 			  <h1 class="author-name"><?php _e('Author:','monolith'); ?> <?php the_author(); ?></h1>
 			
-			<?php elseif ( is_home() ) : ?>
+			<?php elseif ( is_home() ) : // on the blog page, show the site option ?>
 			  
-			  <h1><?php bloginfo('name'); ?></h1>
+			  <h1><?= get_option('monolith_blog_page_title'); // display site option ?></h1>
 			
 			<?php elseif ( is_search() ) : ?>
 			  
@@ -55,9 +55,16 @@
         
         <h1><?=$term->name;; ?></h1>
 			
-			<?php else : // otherwise, display the WP blog title as a fallback ?>
+			<?php elseif ( is_page() ) : // on pages, show the title ?>
 			
 			  <h1 class="entry-title"><?php the_title(); ?></h1>
+			
+			<?php else : // otherwise, display the post title as a fallback ?>
+			
+			  <h1 class="entry-title"><?php the_title(); ?></h1>
+			  
+			  <?php // on a single post, show the date ?>
+			  <?php if( is_singular('post') ) : get_template_part('layouts/molecules/date'); endif ?>
 			
 			<?php endif; ?>
 

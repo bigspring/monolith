@@ -6753,6 +6753,20 @@ th.hide-for-touch {
 .block-main img {
   height: auto !important; }
 
+.page-header {
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  background: #008cba;
+  color: white; }
+  .page-header h1 {
+    margin: 0;
+    color: white; }
+
+.post-title {
+  margin-bottom: 1rem; }
+  .post-title h1 {
+    margin-bottom: 0; }
+
 .no-margin {
   margin: 0; }
 

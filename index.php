@@ -7,14 +7,20 @@
 get_header(); ?>
 
   <!-- start the title row -->
-  <?php get_template_part('layouts/molecules/title'); ?>
+  <?php get_template_part('layouts/molecules/page-header'); ?>
   <!-- end the title row -->
+
+  <?php if( !is_front_page() ) : // load the breadcrumbs, except on the homepage
+    get_template_part('layouts/molecules/breadcrumbs');
+    endif;
+  ?>
 
   <!-- start the main content row -->
   <div class="row">    
     
     <?php // if we're using the fullwdith template, apply the relevant class ?>
     <div class="columns <?= is_page_template('page-fullwidth.php') ? FULLWIDTH_SIZE : MAIN_SIZE; ?>" role="main">
+
       <?php      
         if( is_single() || is_page() ) :       
           build('content'); // load the content part on posts & pages
