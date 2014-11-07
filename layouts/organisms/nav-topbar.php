@@ -7,7 +7,7 @@
 ?>
 
 <!-- start main navigation -->
-<div class="top-bar-container contain-to-grid">
+<header class="block-header top-bar-container contain-to-grid">
   <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
     
     <!-- start the title area -->
@@ -43,5 +43,5 @@
     <!-- end main navigation section -->
     
   </nav>
-</div>
+</header>
 <!-- end main navigation -->
