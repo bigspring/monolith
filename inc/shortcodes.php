@@ -278,7 +278,8 @@ function childpages($atts, $content = null)
     extract( shortcode_atts( array( // set our defaults for the shortcode
         'layout' => 'list', // default layout
         'id' => $post->ID,
-        'classes' => ''
+        'classes' => '',
+        'exclude_pages' => null
     ), $atts ) ); // @TODO can we handle these defaults through the builder class instead?
 
 	$args = array(
@@ -288,6 +289,10 @@ function childpages($atts, $content = null)
 			'orderby' => 'menu_order',
 			'posts_per_page' => -1
 	);
+
+    if($exclude_pages) {
+        $args['post__not_in'] = explode(',', $exclude_pages);
+    }
 
 	ob_start();
     build($layout, null, $args);
@@ -302,7 +307,7 @@ function pages_shortcode($atts, $content = null) {
     extract( shortcode_atts( array( // set our defaults for the shortcode
         'ids' => '', // default layout
         'layout' => 'list'
-    ), $atts ) ); // @TODO can we handle these defaults through the builder class instead?
+    ), $atts ) );
 
     $page_ids = array();
     $page_ids = explode(',', $atts['ids']);

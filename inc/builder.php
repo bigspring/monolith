@@ -75,14 +75,17 @@ class Builder
         $loop = &$this->loop;
         $args = &$this->args;
         $layouts_path = $this->layouts_path;
-        $layout_file = $this->layouts_path . 'organisms/' . $this->layout . '.php';
 
         ob_start();
-        if (!@include($layout_file)) { // if the file doesn't exist, display an alert on the front end
-            return $this->_raise_alert('The layout file "' . $this->layout . '"could not be found');
-        } else { // otherwise return the content
-            return ob_get_clean();
+        if (!@include($this->_get_layout_file())) { // if the file doesn't exist, handle the error
+            if(ENVIRONMENT === 'development') { // if we're in development mode then show the error
+                return $this->_raise_alert('The layout file "' . $this->layout . '"could not be found');
+            } else { // otherwise default to the list layout
+                $this->layout = 'list';
+                include($this->_get_layout_file());
+            }
         }
+        return ob_get_clean();
     }
 
     /**
@@ -96,6 +99,11 @@ class Builder
         if (ENVIRONMENT === 'development') {
             return '<p class="alert-box alert">' . $message . '</p>';
         }
+    }
+
+    private function _get_layout_file()
+    {
+        return $this->layouts_path . 'organisms/' . $this->layout . '.php';
     }
 }
 

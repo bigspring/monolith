@@ -29,6 +29,16 @@ define('DEFAULT_IMAGE', get_template_directory().'/assets/img/default.jpg'); // 
 define('GALLERY_SIZE', 'col-md-3'); // the col size used in the gallery shortcode
 
 /**
+ * Featured image sizes
+ */
+ 
+set_post_thumbnail_size( 640, 360, true);
+add_image_size( 'square', 640, 640, true );
+add_image_size( 'thumbnail', 320, 320, true );
+add_image_size( 'medium', 640, 360, true );
+add_image_size( 'large', 970, 546, true );
+
+/**
  * Shortcodes
  */
 
@@ -46,3 +56,4 @@ require_once('template_tags.php');
 require_once('shortcodes.php');
 require_once('builder.php');
 require_once('settings.php');
+require_once('monolith-widgets.php');
