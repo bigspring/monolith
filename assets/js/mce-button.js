@@ -79,7 +79,7 @@
 										{
 											type: 'listbox',
 											name: 'listboxSizeSmall',
-											label: 'Small Grid',
+											label: 'Mobile',
 											'values': [
 												{text: 'One', value: 'small-block-grid-1'},
 												{text: 'Two', value: 'small-block-grid-2'}	,									
@@ -91,7 +91,7 @@
 										{
 											type: 'listbox',
 											name: 'listboxSizeMedium',
-											label: 'Medium Grid',
+											label: 'Tablet',
 											'values': [
 												{text: 'One', value: 'medium-block-grid-1'},
 												{text: 'Two', value: 'medium-block-grid-2'}	,									
@@ -103,7 +103,7 @@
 										{
 											type: 'listbox',
 											name: 'listboxSizeLarge',
-											label: 'Large Grid',
+											label: 'Desktop',
 											'values': [
 												{text: 'One', value: 'large-block-grid-1'},
 												{text: 'Two', value: 'large-block-grid-2'}	,									
@@ -111,7 +111,44 @@
 												{text: 'Four', value: 'large-block-grid-4'}											
 											]
 										},	
-										
+	
+										{
+											type: 'checkbox',
+											name: 'checkboxNoImage',
+											label: 'Exclude Image?',
+											'values': [
+												{checked:'checked',  value: ''},
+											]
+										},	
+
+										{
+											type: 'checkbox',
+											name: 'checkboxNoTitle',
+											label: 'Exclude Title?',
+											'values': [
+												{text: 'Yes', value: ''},
+											]
+										},	
+
+
+										{
+											type: 'checkbox',
+											name: 'checkboxNoExcerpt',
+											label: 'Exclude Excerpt?',
+											'values': [
+												{text: 'Yes', value: ''},
+											]
+										},	
+
+										{
+											type: 'checkbox',
+											name: 'checkboxNoReadMore',
+											label: 'Exclude Readmore Link?',
+											'values': [
+												{text: 'Yes', value: ''},
+											]
+										},	
+
 										
 									],
 									onsubmit: function( e ) {
