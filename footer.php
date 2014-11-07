@@ -50,10 +50,9 @@
                 <!-- use this section to test out features in development mode -->
             </div>
         <?php endif; ?>
-
+        <script src="<?= get_asset_uri('js', 'base') ?>"></script>
         <?php wp_footer(); ?>
 
-        <script src="<?= get_asset_uri('js', 'base') ?>"></script>
     </body>
 
 </html>
