@@ -56,6 +56,9 @@ module.exports = function(grunt) {
                     '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
                     '<%= project.assets.bower %>/html5shiv/dist/html5shiv.js',
                     '<%= project.assets.bower %>/respond/dest/respond.src.js'
+                ],
+                dev: [
+                    '<%= project.assets.bower %>/holderjs/holder.js'
                 ]
             }
         },
@@ -73,17 +76,33 @@ module.exports = function(grunt) {
          * - minification
          */
         concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: true
+            dev: {
+                options: {
+                    banner: '<%= banner %>',
+                    stripBanners: true
+                },
+                main: { // main js files
+                    src: '<%= project.dependencies.default.concat(project.dependencies.dev) %>',
+                    dest: '<%= project.assets.js %>/base.js'
+                },
+                ie: { // ie support js files
+                    src: '<%= project.dependencies.ie %>',
+                    dest: '<%= project.assets.js %>/ie.js'
+                }
             },
-            main: { // main js files
-                src: '<%= project.dependencies.default %>',
-                dest: '<%= project.assets.js %>/base.js'
-            },
-            ie: { // ie support js files
-                src: '<%= project.dependencies.ie %>',
-                dest: '<%= project.assets.js %>/ie.js'
+            prod: {
+                options: {
+                    banner: '<%= banner %>',
+                    stripBanners: true
+                },
+                main: { // main js files
+                    src: '<%= project.dependencies.default %>',
+                    dest: '<%= project.assets.js %>/base.js'
+                },
+                ie: { // ie support js files
+                    src: '<%= project.dependencies.ie %>',
+                    dest: '<%= project.assets.js %>/ie.js'
+                }
             }
         },
         uglify: {
@@ -149,6 +168,6 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Default task
-    grunt.registerTask('default', ['concat', 'sass', 'watch']); // dev mode
-    grunt.registerTask('prod', ['concat', 'uglify', 'sass', 'cssmin']); // prod mode
+    grunt.registerTask('default', ['concat:dev', 'sass', 'watch']); // dev mode
+    grunt.registerTask('prod', ['concat:prod', 'uglify', 'sass', 'cssmin']); // prod mode
 };
