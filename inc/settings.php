@@ -1,7 +1,7 @@
 <?php
 /**
  * Monolith by BigSpring
- * Licensed under MIT Open Source
+ * @license MIT http://opensource.org/licenses/MIT
  */
 
 /**

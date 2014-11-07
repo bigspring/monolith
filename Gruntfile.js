@@ -16,20 +16,25 @@ module.exports = function(grunt) {
             },
             src: {
                 all: '_src',
-                scss: '_src/scss'
+                scss: '_src/scss',
+                js: '_src/js'
             },
             dist: 'assets/dist',
             dependencies: {
                 default: [
-                    '<%= project.assets.bower %>/css_browser_selector/css_browser_selector.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.topbar.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.dropdown.js',
                     '<%= project.assets.bower %>/modernizr/modernizr.js',
                     '<%= project.assets.bower %>/holderjs/holder.js',
-                    '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
-                    '<%= project.src %>/js/custom.js'
+                    '<%= project.assets.bower %>/fastclick/lib/fastclick.js',
+                    '<%= project.assets.bower %>/retina.js/dist/retina.js',                   
+                    '<%= project.src.js %>/custom.js'
                 ],
                 ie: [
-                    '<%= project.bower %>/html5shiv-dist/html5shiv.js',
-                    '<%= project.bower %>/respond/dest/respond.src.js'
+                    '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
+                    '<%= project.assets.bower %>/html5shiv/dist/html5shiv.js',
+                    '<%= project.assets.bower %>/respond/dest/respond.src.js'
                 ]
             }
         },
@@ -37,8 +42,8 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= pkg.version %> - ' + // name/version
             '<%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %>\n' + // current year
             '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + // homepage (not currently set in package.json)
-            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-            '* License: <%= pkg.license %>\n\n' +
+            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\n' +
+            '* License: <%= pkg.license %>\n' +
             '* Packages: <%= _.map(pkg.devDependencies, function(package, key) {return key}).join(", ") %> */\n\n',
 
         /**

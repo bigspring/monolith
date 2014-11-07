@@ -1,7 +1,9 @@
 <?php
-// Monolith by BigSpring
-// Licensed under MIT Open Source
-
+/**
+ * Main functions file for any custom theme functions
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
 // include monolith's critical functions - do not touch these or I will break your fingers
 include('inc/config.php');
 

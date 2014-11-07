@@ -95,22 +95,35 @@
 									multiline: true,
 									minWidth: 400,
 								},
+																
 								{
-									type: 'textbox',
-									name: 'textboxType',
+									type: 'listbox',
+									name: 'listboxType',
 									label: 'Type',
-									value: '',
-									multiline: true,
-									minWidth: 400,
-								},
+									'values': [
+										{text: 'Primary', value: 'primary'},
+										{text: 'Secondary', value: 'secondary'}	,									
+										{text: 'Success', value: 'success'},
+										{text: 'Alert', value: 'alert'},
+										{text: 'Warning', value: 'info'},
+										{text: 'Info', value: 'warning'}
+										
+									]
+								},	
+								
 								{
-									type: 'textbox',
-									name: 'textboxSize',
+									type: 'listbox',
+									name: 'listboxSize',
 									label: 'Size',
-									value: '',
-									multiline: true,
-									minWidth: 400,
-								},
+									'values': [
+										{text: 'Tiny', value: 'tiny'},
+										{text: 'Small', value: 'small'}	,									
+										{text: 'Medium', value: 'medium'},
+										{text: 'Large', value: 'large'}									
+									]
+								},								
+															
+								
 								{
 									type: 'textbox',
 									name: 'textboxText',
@@ -120,9 +133,13 @@
 									minWidth: 400,
 									minHeight: 100,
 								},
+								
+								
+								
+								
 							],
 							onsubmit: function( e ) {
-								editor.insertContent( '[button text="' + e.data.textboxText + '" URL="' + e.data.textboxUrl + '" Type="' + e.data.textboxType + '" Size="' + e.data.textboxSize + '"]');
+								editor.insertContent( '[button text="' + e.data.textboxText + '" URL="' + e.data.textboxUrl + '" Type="' + e.data.listboxType + '" Size="' + e.data.listboxSize + '"]');
 							}
 						});
 					}
@@ -133,7 +150,7 @@
 					text: 'Intro',
 						onclick: function() {
 							editor.windowManager.open( {
-								title: 'Insert Block Grid Shortcode',
+								title: 'Insert intro Shortcode',
 								body: [
 									{
 										type: 'textbox',
