@@ -20,6 +20,7 @@
 							onclick: function() {
 								editor.windowManager.open( {
 									title: 'Insert Childpages List Shortcode',
+									minWidth: 300,
 									body: [
 										{
 											type: 'listbox',
@@ -44,17 +45,44 @@
 							}
 						},						
 
+						
 						// start childpages snippet 
 						{
 							text: 'Snippet',
 							onclick: function() {
-								editor.insertContent( '[childpages layout="snippet"]');
+								editor.windowManager.open( {
+									title: 'Insert Snippet Shortcode',
+									minWidth: 300,
+
+									body: [
+
+										{
+											type: 'checkbox',
+											name: 'checkboxExcerpt',
+											label: 'Include Excerpt?',
+                      checked: 'true'
+										},	
+
+										{
+											type: 'checkbox',
+											name: 'checkboxReadMore',
+											label: 'Include Readmore Link?',
+                                            checked: 'true'
+										},
+									],
+									onsubmit: function( e ) {
+										editor.insertContent( '[childpages layout="snippets" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'"]');
+									}
+								});
 							}
-						},						
+						},
+						
+											
 
 						// start childpages accordion 
 						{
 							text: 'Accordion',
+							minWidth: 300,
 							onclick: function() {
 								editor.insertContent( '[childpages layout="accordion"]');
 							}
@@ -63,6 +91,7 @@
 						// start childpages tabs 
 						{
 							text: 'Tabs',
+							minWidth: 300,
 							onclick: function() {
 								editor.insertContent( '[childpages layout="tabs"]');
 							}
@@ -71,6 +100,7 @@
 						//start childpages block grid modal
 						{
 							text: 'Block Grid',
+							minWidth: 300,
 							onclick: function() {
 								editor.windowManager.open( {
 									title: 'Insert Block Grid Shortcode',
@@ -82,7 +112,7 @@
 											label: 'Mobile',
 											'values': [
 												{text: 'One', value: 'small-block-grid-1'},
-												{text: 'Two', value: 'small-block-grid-2'}	,									
+												{text: 'Two', value: 'small-block-grid-2'},									
 												{text: 'Three', value: 'small-block-grid-3'},
 												{text: 'Four', value: 'small-block-grid-4'}											
 											]
@@ -116,14 +146,14 @@
 											type: 'checkbox',
 											name: 'checkboxImage',
 											label: 'Include Image?',
-                                            checked: 'true'
+                      checked: 'true'
 										},	
 
 										{
 											type: 'checkbox',
 											name: 'checkboxTitle',
 											label: 'Include Title?',
-                                            checked: 'true'
+                      checked: 'true'
 										},	
 
 
@@ -131,7 +161,7 @@
 											type: 'checkbox',
 											name: 'checkboxExcerpt',
 											label: 'Include Excerpt?',
-                                            checked: 'true'
+                      checked: 'true'
 										},	
 
 										{
@@ -140,12 +170,12 @@
 											label: 'Include Readmore Link?',
                                             checked: 'true'
 										},
-                                        {
-                                            type: 'checkbox',
-                                            name: 'checkboxThumbnail',
-                                            label: 'Include Border on Image?',
-                                            checked: 'true'
-                                        }
+                    {
+                        type: 'checkbox',
+                        name: 'checkboxThumbnail',
+                        label: 'Include Border on Image?',
+                        checked: 'true'
+                    }
 									],
 									onsubmit: function( e ) {
 										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'"]');
@@ -159,6 +189,7 @@
 				//Button Shortcode
 				{
 					text: 'Button',
+					minWidth: 300,
 					onclick: function() {
 						editor.windowManager.open( {
 							title: 'Insert Button Shortcode',

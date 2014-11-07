@@ -279,6 +279,7 @@ function childpages($atts, $content = null)
         'layout' => 'list', // default layout
         'id' => $post->ID,
         'class' => '',
+        'size' => '',
         'exclude_pages' => null,
         'image_border' => false,
         'image' => true,
@@ -303,6 +304,8 @@ function childpages($atts, $content = null)
     $builder_args['has_excerpt'] = ($excerpt == 'false') ? false : true;
     $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
     $builder_args['classes'] = $class;
+    $builder_args['size'] = $size;
+
 
     if($exclude_pages) {
         $args['post__not_in'] = explode(',', $exclude_pages);
