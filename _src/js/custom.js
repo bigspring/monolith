@@ -4,6 +4,8 @@
 
 jQuery(document).ready(function($) {
 
+	$(document).foundation();
+	
 	// custom JS goes here
 
 });

@@ -6,14 +6,20 @@
  */
 ?>
 
-<!-- start the navbar -->
-<div class="top-bar-container contain-to-grid show-for-medium-up" role="navigation">
-  <nav class="top-bar" data-topbar="">
+<!-- start main navigation -->
+<div class="top-bar-container contain-to-grid" role="navigation">
+  <nav class="top-bar" data-topbar>
+    
+    <!-- start the title area -->
     <ul class="title-area">
       <li class="name">
         <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
       </li>
+      <li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
     </ul>
+    <!-- end the title area -->
+    
+    <!-- start main navigation section -->
     <section class="top-bar-section">
       <?php
       	$args = array(
@@ -32,12 +38,10 @@
       	);
 
       	wp_nav_menu($args);
-      ?>
-
-      <!-- navbar search form -->
-      <?php get_template_part('layouts/molecules/top-bar-search-form'); ?>
-
+      ?>    
     </section>
+    <!-- end main navigation section -->
+    
   </nav>
 </div>
-<!-- end the navbar -->
+<!-- end main navigation -->
