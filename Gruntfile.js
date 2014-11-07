@@ -22,16 +22,37 @@ module.exports = function(grunt) {
             dist: 'assets/dist',
             dependencies: {
                 default: [
+                    '<%= project.assets.bower %>/jquery/dist/jquery.js',
+                    // foundation dependency list - (un)comment as required)
                     '<%= project.assets.bower %>/foundation/js/foundation/foundation.js',
-                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.topbar.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.abide.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.accordion.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.alert.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.clearing.js',
                     '<%= project.assets.bower %>/foundation/js/foundation/foundation.dropdown.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.equalizer.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.interchange.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.joyride.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.magellan.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.offcanvas.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.orbit.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.reveal.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.slider.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.tab.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.tooltip.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.topbar.js',
+
+                    // other dependencies
                     '<%= project.assets.bower %>/modernizr/modernizr.js',
                     '<%= project.assets.bower %>/holderjs/holder.js',
                     '<%= project.assets.bower %>/fastclick/lib/fastclick.js',
-                    '<%= project.assets.bower %>/retina.js/dist/retina.js',                   
+                    '<%= project.assets.bower %>/retina.js/dist/retina.js',
+
+                    // site dependencies
                     '<%= project.src.js %>/custom.js'
                 ],
                 ie: [
+                    // nonsense IE fixes
                     '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
                     '<%= project.assets.bower %>/html5shiv/dist/html5shiv.js',
                     '<%= project.assets.bower %>/respond/dest/respond.src.js'
