@@ -97,35 +97,60 @@ if (ENVIRONMENT === 'development') {
     add_action('admin_bar_menu', 'display_environment_on_admin_bar', 1);
 }
 
-if ( ! function_exists( 'set_default_site_options' ) ) {
-    /**
-     * Add default site options if they don't exist in the database
-     */
-    function set_default_site_options()
-    {
-        // blog
-        add_option('monolith_blog_page_title', 'Latest News');
-        add_option('monolith_blog_page_introtext', '');
+/**
+ * Enable excerpt for each new user at registration
+ */
+add_action('user_register', function ($user_id = null) {
 
-        // contact
-        add_option('monolith_address_1', '');
-        add_option('monolith_address_2', '');
-        add_option('monolith_address_3', '');
-        add_option('monolith_city', '');
-        add_option('monolith_county', '');
-        add_option('monolith_postcode', '');
-        add_option('monolith_country', '');
-        add_option('monolith_phone', '');
+    // These are the metakeys we will need to update
+    $meta_key['order'] = 'meta-box-order_post';
+    $meta_key['hidden'] = 'metaboxhidden_post';
 
-        // social media
-        add_option('monolith_facebook', '');
-        add_option('monolith_twitter', '');
-        add_option('monolith_googleplus', '');
-        add_option('monolith_youtube', '');
-        add_option('monolith_linkedin', '');
-        add_option('monolith_pinterest', '');
-        add_option('monolith_instagram', '');
+    // So this can be used without hooking into user_register
+    if ( ! $user_id)
+        $user_id = get_current_user_id();
+
+    // Set the default order if it has not been set yet
+    if ( ! get_user_option( $user_id, $meta_key['order'], true) ) {
+        $meta_value = array(
+            'side' => 'submitdiv,formatdiv,categorydiv,postimagediv',
+            'normal' => 'postexcerpt,tagsdiv-post_tag,postcustom,commentstatusdiv,commentsdiv,trackbacksdiv,slugdiv,authordiv,revisionsdiv',
+            'advanced' => '',
+        );
+        update_user_option( $user_id, $meta_key['order'], $meta_value, true );
     }
-}
 
-add_action( 'after_setup_theme', 'set_default_site_options' );
+    // Set the default hiddens if it has not been set yet
+    if ( ! get_user_option( $user_id, $meta_key['hidden'], true) ) {
+        $meta_value = array('postcustom','trackbacksdiv','commentstatusdiv','commentsdiv','slugdiv','authordiv','revisionsdiv');
+        update_user_option( $user_id, $meta_key['hidden'], $meta_value, true );
+    }
+});
+
+/**
+ * Remove default excerpt box
+ */
+add_action('admin_menu', function () {
+    remove_meta_box('postexcerpt', 'post', 'normal');
+}, 999);
+
+/**
+ *
+ */
+add_action('edit_form_after_title', function ($post) {
+    ?>
+    <br>
+    <div id="postbox-container-69" class="postbox-container">
+        <div id="normal-sortables" class="meta-box-sortables">
+            <div id="postexcerpt" class="postbox">
+                <div class="handlediv" title="Click to toggle"><br /></div>
+                <h3 class='hndle'><span>Excerpt</span></h3>
+                <div class="inside">
+                    <label class="screen-reader-text" for="excerpt">Excerpt</label>
+                    <textarea rows="1" cols="40" name="excerpt" id="excerpt"><?= $post->post_excerpt ?></textarea>
+                    <p>A brief summary of the full post content.</p>
+                </div>
+        </div>
+    </div>
+    <?php
+});
