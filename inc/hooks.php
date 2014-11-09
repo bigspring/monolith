@@ -135,7 +135,7 @@ add_action('admin_menu', function () {
 }, 999);
 
 /**
- *
+ * Insert excerpt box markup after the title
  */
 add_action('edit_form_after_title', function ($post) {
     ?>
