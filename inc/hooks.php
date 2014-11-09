@@ -140,7 +140,7 @@ add_action('admin_menu', function () {
 add_action('edit_form_after_title', function ($post) {
     ?>
     <br>
-    <div id="postbox-container-69" class="postbox-container">
+    <div id="postbox-container-666" class="postbox-container">
         <div id="normal-sortables" class="meta-box-sortables">
             <div id="postexcerpt" class="postbox">
                 <div class="handlediv" title="Click to toggle"><br /></div>
