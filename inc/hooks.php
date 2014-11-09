@@ -79,10 +79,6 @@ if ( ! function_exists( 'my_register_mce_button' ) ) {
 
 }
 
-if ( ! function_exists( 'display_environment_on_admin_bar' ) ) {
-
-}
-
 if (ENVIRONMENT === 'development') {
     /**
      * Display notification in Wordpress bar when in development mode
