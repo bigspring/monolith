@@ -1,4 +1,5 @@
-// magic code to add a tinymce dropdown for shortcodes in Monolith.
+// magic code to add a tinymce dropdown for shortcodes in WP post editor
+// thanks to http://www.wpexplorer.com/wordpress-tinymce-tweaks/ for the help!
 
 (function() {
 	tinymce.PluginManager.add('my_mce_button', function( editor, url ) {
@@ -7,186 +8,41 @@
 			icon: false,
 			type: 'menubutton',
 			menu: [
-				
-				//new shiz
+
+				//Blockquote Shortcode
 				{
-					text: 'Childpages',
-					menu: [
-						
-						// start childpages list 
-						{
-							text: 'List',
-							
-							onclick: function() {
-								editor.windowManager.open( {
-									title: 'Insert Childpages List Shortcode',
-									minWidth: 300,
-									body: [
-										{
-											type: 'listbox',
-											name: 'listboxListTypes',
-											label: 'List Type',
-											'values': [
-												{text: 'Unstyled', value: 'no-bullet'},
-												{text: 'Inline', value: 'inline-list'},
-												{text: 'Chevron', value: 'chevron'}	,									
-												{text: 'Circle', value: 'circle'},
-												{text: 'Disc', value: 'disc'},
-												{text: 'Square', value: 'square'},
-												{text: 'Caret', value: 'caret'},											
-												{text: 'Tick', value: 'tick'}											
-											]
-										},	
-									],
-									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="list" class="' + e.data.listboxListTypes + '"]');
-									}
-								});
+					text: 'Blockquote',
+					onclick: function() {
+						editor.windowManager.open( {
+							title: 'Insert Blockquote',
+							body: [
+								{
+									type: 'textbox',
+									name: 'textboxQuote',
+									label: 'Quote',
+									value: '',
+									multiline: true,
+									minWidth: 400,
+									minHeight: 200,
+								},
+								{
+									type: 'textbox',
+									name: 'textboxCite',
+									label: 'Cite',
+									value: '',
+									multiline: true,
+									minWidth: 400,
+								},
+							],
+							onsubmit: function( e ) {
+								editor.insertContent( '[blockquote cite="' + e.data.textboxCite + '" ]' + e.data.textboxQuote + '[/blockquote]');
 							}
-						},						
-
-						
-						// start childpages snippet 
-						{
-							text: 'Snippet',
-							onclick: function() {
-								editor.windowManager.open( {
-									title: 'Insert Snippet Shortcode',
-									minWidth: 300,
-
-									body: [
-
-										{
-											type: 'checkbox',
-											name: 'checkboxExcerpt',
-											label: 'Include Excerpt?',
-                      checked: 'true'
-										},	
-
-										{
-											type: 'checkbox',
-											name: 'checkboxReadMore',
-											label: 'Include Readmore Link?',
-                                            checked: 'true'
-										},
-									],
-									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="snippets" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'"]');
-									}
-								});
-							}
-						},
-						
-											
-
-						// start childpages accordion 
-						{
-							text: 'Accordion',
-							minWidth: 300,
-							onclick: function() {
-								editor.insertContent( '[childpages layout="accordion"]');
-							}
-						},						
-
-						// start childpages tabs 
-						{
-							text: 'Tabs',
-							minWidth: 300,
-							onclick: function() {
-								editor.insertContent( '[childpages layout="tabs"]');
-							}
-						},						
-						
-						//start childpages block grid modal
-						{
-							text: 'Block Grid',
-							minWidth: 300,
-							onclick: function() {
-								editor.windowManager.open( {
-									title: 'Insert Block Grid Shortcode',
-									body: [
-										
-										{
-											type: 'listbox',
-											name: 'listboxSizeSmall',
-											label: 'Mobile',
-											'values': [
-												{text: 'One', value: 'small-block-grid-1'},
-												{text: 'Two', value: 'small-block-grid-2'},									
-												{text: 'Three', value: 'small-block-grid-3'},
-												{text: 'Four', value: 'small-block-grid-4'}											
-											]
-										},	
-										
-										{
-											type: 'listbox',
-											name: 'listboxSizeMedium',
-											label: 'Tablet',
-											'values': [
-												{text: 'One', value: 'medium-block-grid-1'},
-												{text: 'Two', value: 'medium-block-grid-2'}	,									
-												{text: 'Three', value: 'medium-block-grid-3'},
-												{text: 'Four', value: 'medium-block-grid-4'}											
-											]
-										},	
-										
-										{
-											type: 'listbox',
-											name: 'listboxSizeLarge',
-											label: 'Desktop',
-											'values': [
-												{text: 'One', value: 'large-block-grid-1'},
-												{text: 'Two', value: 'large-block-grid-2'}	,									
-												{text: 'Three', value: 'large-block-grid-3'},
-												{text: 'Four', value: 'large-block-grid-4'}											
-											]
-										},	
-	
-										{
-											type: 'checkbox',
-											name: 'checkboxImage',
-											label: 'Include Image?',
-                      checked: 'true'
-										},	
-
-										{
-											type: 'checkbox',
-											name: 'checkboxTitle',
-											label: 'Include Title?',
-                      checked: 'true'
-										},	
-
-
-										{
-											type: 'checkbox',
-											name: 'checkboxExcerpt',
-											label: 'Include Excerpt?',
-                      checked: 'true'
-										},	
-
-										{
-											type: 'checkbox',
-											name: 'checkboxReadMore',
-											label: 'Include Readmore Link?',
-                      checked: 'true'
-										},
-                    {
-                        type: 'checkbox',
-                        name: 'checkboxThumbnail',
-                        label: 'Include Border on Image?',
-                        checked: 'true'
-                    }
-									],
-									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'"]');
-									}
-								});
-							}
-						}
-					]
-				},
+						});
+					}
+				}, // end block quote
 
 				//Button Shortcode
+				// ====================================
 				{
 					text: 'Button',
 					minWidth: 300,
@@ -252,6 +108,195 @@
 					}
 				},
 
+				
+				//new shiz
+				{
+					text: 'Child Pages',
+					menu: [
+						
+						// Accordions
+						// ====================================
+						{
+							text: 'Accordion',
+							minWidth: 300,
+							onclick: function() {
+								editor.insertContent( '[childpages layout="accordion"]');
+							}
+						},						
+
+						// Grid
+						// ====================================
+						{
+							text: 'Grid',
+							minWidth: 300,
+							onclick: function() {
+								editor.windowManager.open( {
+									title: 'Insert Block Grid Shortcode',
+									body: [
+										
+										{
+											type: 'listbox',
+											name: 'listboxSizeSmall',
+											label: 'Mobile',
+											value: 'small-block-grid-1',
+											'values': [
+												{text: '1 column', value: 'small-block-grid-1'},
+												{text: '2 columns', value: 'small-block-grid-2'},									
+												{text: '3 columns', value: 'small-block-grid-3'},
+												{text: '4 columns', value: 'small-block-grid-4'}
+											]
+										},	
+										
+										{
+											type: 'listbox',
+											name: 'listboxSizeMedium',
+											label: 'Tablet',
+											value: 'medium-block-grid-2',
+											'values': [
+												{text: '1 column', value: 'medium-block-grid-1'},
+												{text: '2 columns', value: 'medium-block-grid-2'}	,									
+												{text: '3 columns', value: 'medium-block-grid-3'},
+												{text: '4 columns', value: 'medium-block-grid-4'}											
+											]
+										},	
+										
+										{
+											type: 'listbox',
+											name: 'listboxSizeLarge',
+											label: 'Desktop',
+											value: 'large-block-grid-2', // pre-select the value
+											'values': [
+												{text: '1 column', value: 'large-block-grid-1'},
+												{text: '2 columns', value: 'large-block-grid-2'},									
+												{text: '3 columns', value: 'large-block-grid-3'},
+												{text: '4 columns', value: 'large-block-grid-4'}											
+											]
+										},	
+	
+										{
+											type: 'checkbox',
+											name: 'checkboxImage',
+											label: 'Featured Image',
+                      checked: true
+										},	
+
+                    {
+                        type: 'checkbox',
+                        name: 'checkboxThumbnail',
+                        label: 'Image border',
+                        checked: false
+                    },
+
+										{
+											type: 'checkbox',
+											name: 'checkboxTitle',
+											label: 'Page Title',
+                      checked: false
+										},	
+
+
+										{
+											type: 'checkbox',
+											name: 'checkboxExcerpt',
+											label: 'Page Summary',
+                      checked: false
+										},	
+
+										{
+											type: 'checkbox',
+											name: 'checkboxReadMore',
+											label: '"Read More" link',
+                      checked: false
+										}
+									],
+									onsubmit: function( e ) {
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'"]');
+									}
+								});
+							}
+						}, // end grid list
+
+						// List
+						// ====================================
+						{
+							text: 'List',
+							
+							onclick: function() {
+								editor.windowManager.open( {
+									title: 'Insert Childpages List Shortcode',
+									minWidth: 300,
+									body: [
+										{
+											type: 'listbox',
+											name: 'listboxListTypes',
+											label: 'List Type',
+											'values': [
+												{text: 'Disc (default list)', value: 'disc'},
+												{text: 'Unstyled List', value: 'no-bullet'},
+												{text: 'Inline List', value: 'inline-list'},
+												{text: 'Chevrons', value: 'chevron'}	,									
+												{text: 'Circle List', value: 'circle'},												
+												{text: 'Square List', value: 'square'},
+												{text: 'Caret List', value: 'caret'},											
+												{text: 'Tick List', value: 'tick'}											
+											]
+										},	
+									],
+									onsubmit: function( e ) {
+										editor.insertContent( '[childpages layout="list" class="' + e.data.listboxListTypes + '"]');
+									}
+								});
+							}
+						},						
+
+
+						// Snippets
+						// ====================================
+						{
+							text: 'Snippet',
+							onclick: function() {
+								editor.windowManager.open( {
+									title: 'Insert Snippet Shortcode',
+									minWidth: 300,
+
+									body: [
+
+										{
+											type: 'checkbox',
+											name: 'checkboxExcerpt',
+											label: 'Include Excerpt?',
+                      checked: 'true'
+										},	
+
+										{
+											type: 'checkbox',
+											name: 'checkboxReadMore',
+											label: 'Include Readmore Link?',
+                                            checked: 'true'
+										},
+									],
+									onsubmit: function( e ) {
+										editor.insertContent( '[childpages layout="snippets" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'"]');
+									}
+								});
+							}
+						},
+
+
+						// Tabs
+						// ====================================
+						{
+							text: 'Tabs',
+							minWidth: 300,
+							onclick: function() {
+								editor.insertContent( '[childpages layout="tabs"]');
+							}
+						}					
+						
+					]
+				},
+
+
 				/*
 				// Intro shortcode
 				{
@@ -299,39 +344,6 @@
 						}
 				},	
 				*/					
-
-
-				//Blockquote Shortcode
-				{
-					text: 'Blockquote',
-					onclick: function() {
-						editor.windowManager.open( {
-							title: 'Insert Blockquote',
-							body: [
-								{
-									type: 'textbox',
-									name: 'textboxQuote',
-									label: 'Quote',
-									value: '',
-									multiline: true,
-									minWidth: 400,
-									minHeight: 200,
-								},
-								{
-									type: 'textbox',
-									name: 'textboxCite',
-									label: 'Cite',
-									value: '',
-									multiline: true,
-									minWidth: 400,
-								},
-							],
-							onsubmit: function( e ) {
-								editor.insertContent( '[blockquote cite="' + e.data.textboxCite + '" ]' + e.data.textboxQuote + '[/blockquote]');
-							}
-						});
-					}
-				},
 				
 			]
 		});
