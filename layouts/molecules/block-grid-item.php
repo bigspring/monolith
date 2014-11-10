@@ -13,7 +13,7 @@
     <!-- the featured image -->         
     <a name="<?= the_title(); ?>" class="featured-image <?= $args['is_thumbnail'] ? 'th' : ''; // add th class if enabled (default: true)?> " href="<?php the_permalink(); ?>"> 
     <?php if(has_post_thumbnail()) : // check if post has a thumbnail ?>      
-        <?php the_post_thumbnail(); ?>    
+        <?php the_post_thumbnail('large'); ?>    
       <?php else : // otherwise display the default image ?> 
         <img src="holder.js/970x546"/>
         <!-- <img alt="<?php bloginfo('description'); ?>" class="default-image th" src="<?= get_template_directory_uri();?>/assets/img/default.jpg" /> -->    
