@@ -252,6 +252,7 @@
 					}
 				},
 
+				/*
 				// Intro shortcode
 				{
 					text: 'Intro',
@@ -296,7 +297,8 @@
 								}
 							});
 						}
-				},						
+				},	
+				*/					
 
 
 				//Blockquote Shortcode
