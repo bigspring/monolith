@@ -7,9 +7,9 @@
 ?>
 
 <!-- start accordion -->
-  <dd class="accordion-navigation <?= $count == 0 ? 'active' : '' ?>">
+  <dd class="accordion-navigation">
     <a href="#panel-<?= get_the_id() ?>"><?php the_title(); ?></a>
-    <div class="content  <?= $count == 0 ? 'active' : '' ?>" id="panel-<?= get_the_id() ?>">
+    <div class="content" id="panel-<?= get_the_id() ?>">
       <?php the_content(); ?>
     </div>
   </dd>
