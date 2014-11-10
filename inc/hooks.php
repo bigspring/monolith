@@ -121,32 +121,3 @@ add_action('user_register', function ($user_id = null) {
         update_user_option( $user_id, $meta_key['hidden'], $meta_value, true );
     }
 });
-
-/**
- * Remove default excerpt box
- */
-add_action('admin_menu', function () {
-    remove_meta_box('postexcerpt', 'post', 'normal');
-}, 999);
-
-/**
- * Add custom excerpt box
- */
-add_action('edit_form_after_title', function ($post) {
-    if (post_type_supports($post->post_type, 'excerpt')) {
-        ?>
-        <br>
-        <div id="normal-sortables" class="meta-box-sortables">
-            <div id="postexcerpt" class="postbox">
-                <div class="handlediv" title="Click to toggle"><br/></div>
-                <h3 class='hndle'><span>Excerpt</span></h3>
-                <div class="inside">
-                    <label class="screen-reader-text" for="excerpt">Excerpt</label>
-                    <textarea rows="1" cols="40" name="excerpt" id="excerpt"><?= $post->post_excerpt ?></textarea>
-                    <p>A brief summary of the <?= $post->post_type ?> content.</p>
-                </div>
-            </div>
-        </div>
-        <?php
-    }
-});
