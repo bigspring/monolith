@@ -301,7 +301,7 @@ function childpages($atts, $content = null)
     $builder_args['is_thumbnail'] = ($image_border == 'false') ? false : true;
     $builder_args['has_image'] = ($image == 'false') ? false : true;
     $builder_args['has_title'] = ($title == 'false') ? false : true;
-    $builder_args['has_excerpt'] = ($excerpt == 'false') ? false : true;
+    $builder_args['has_summary'] = ($excerpt == 'false') ? false : true;
     $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
     $builder_args['classes'] = $class;
     $builder_args['size'] = $size;
