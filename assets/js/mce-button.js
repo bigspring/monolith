@@ -194,12 +194,24 @@
 						editor.windowManager.open( {
 							title: 'Insert Button Shortcode',
 							body: [
+
+								// button text
+								{
+									type: 'textbox',
+									name: 'textboxText',
+									label: 'Button Text',
+									value: 'Learn More',
+									multiline: false,
+									minWidth: 400
+								},
+
+								// button URL
 								{
 									type: 'textbox',
 									name: 'textboxUrl',
 									label: 'URL',
 									value: 'http://',
-									multiline: true,
+									multiline: false,
 									minWidth: 400,
 								},
 																
@@ -208,13 +220,11 @@
 									name: 'listboxType',
 									label: 'Type',
 									'values': [
+										{text: 'Default', value: ''},
 										{text: 'Primary', value: 'primary'},
 										{text: 'Secondary', value: 'secondary'}	,									
 										{text: 'Success', value: 'success'},
-										{text: 'Alert', value: 'alert'},
-										{text: 'Warning', value: 'info'},
-										{text: 'Info', value: 'warning'}
-										
+										{text: 'Alert', value: 'alert'}	
 									]
 								},	
 								
@@ -223,22 +233,16 @@
 									name: 'listboxSize',
 									label: 'Size',
 									'values': [
+										{text: 'Default', value: ''},
 										{text: 'Tiny', value: 'tiny'},
 										{text: 'Small', value: 'small'}	,									
 										{text: 'Medium', value: 'medium'},
-										{text: 'Large', value: 'large'}									
+										{text: 'Large', value: 'large'},
+										{text: 'Expand', value: 'expand'}										
 									]
 								},								
 								
-								{
-									type: 'textbox',
-									name: 'textboxText',
-									label: 'Button Text',
-									value: '',
-									multiline: true,
-									minWidth: 400,
-									minHeight: 100,
-								},
+
 								
 							],
 							onsubmit: function( e ) {
