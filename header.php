@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="<?= get_asset_uri('css', 'base') ?>">
         <!-- HTML5 & responsive support for IE browsers... -->
-        <!--[if lt IE 9]>
+        <!--[if lt IE 10]>
         <link href="<?= get_asset_uri('css', 'ie') ?>" rel="stylesheet" type="text/css">
         <script src="<?= get_asset_uri('js', 'ie') ?>"></script>
         <![endif]-->
