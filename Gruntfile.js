@@ -55,7 +55,9 @@ module.exports = function(grunt) {
                     // nonsense IE fixes
                     '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
                     '<%= project.assets.bower %>/html5shiv/dist/html5shiv.js',
-                    '<%= project.assets.bower %>/respond/dest/respond.src.js'
+                    '<%= project.assets.bower %>/respond/dest/respond.src.js',
+                    // IE site dependencies
+                    '<%= project.src.js %>/ie-custom.js'
                 ]
             }
         },
