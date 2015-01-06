@@ -285,14 +285,18 @@ function childpages($atts, $content = null)
         'image' => true,
         'title' => true,
         'excerpt' => true,
-        'readmore' => true
+        'readmore' => true,
+        'orderby' => 'post_title'
     ), $atts ) ); // @TODO can we handle these defaults through the builder class instead?
+
+    dump($orderby); die;
+
 
 	$args = array(
 			'post_parent' => $id,
 			'post_type' => 'page',
 			'order' => 'ASC',
-			'orderby' => 'menu_order',
+			'orderby' => $orderby,
 			'posts_per_page' => -1
 	);
 
