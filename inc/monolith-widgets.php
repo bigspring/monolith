@@ -50,7 +50,9 @@ class MonolithRelativePagesWidget extends WP_Widget {
         if ($has_children || $has_parent) : ?>
 
             <div class="widget">
+	            <?php if($title) : ?>
                 <h3><?= $title ?></h3>
+              <?php endif; ?>
                 <ul class="list-unstyled">
                     <?php $class = (!$has_parent) ? ' class="current_page_item"' : ''; ?>
                     <li<?= $class ?>><a href="<?= $parent_link ?>">Overview</a></li>
