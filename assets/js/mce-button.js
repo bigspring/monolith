@@ -172,6 +172,19 @@
 												{text: '4 columns', value: 'large-block-grid-4'}											
 											]
 										},	
+
+										{
+											type: 'listbox',
+											name: 'listboxOrder',
+											label: 'Ordering',
+											value: 'menu_order', // pre-select the value
+											'values': [
+												{text: 'Title', value: 'title'},									
+												{text: 'Menu Order', value: 'menu_order'},
+												{text: 'Date', value: 'date'},
+												{text: 'Random', value: 'rand'}											
+											]
+										},	
 	
 										{
 											type: 'checkbox',
@@ -210,7 +223,7 @@
 										}
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'"]');
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'   orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -240,10 +253,25 @@
 												{text: 'Caret List', value: 'caret'},											
 												{text: 'Tick List', value: 'tick'}											
 											]
+										},
+										
+										{
+											type: 'listbox',
+											name: 'listboxOrder',
+											label: 'Ordering',
+											value: 'menu_order', // pre-select the value
+											'values': [
+												{text: 'Title', value: 'title'},									
+												{text: 'Menu Order', value: 'menu_order'},
+												{text: 'Date', value: 'date'},
+												{text: 'Random', value: 'rand'}											
+											]
 										},	
+										
+											
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="list" class="' + e.data.listboxListTypes + '"]');
+										editor.insertContent( '[childpages layout="list" class="' + e.data.listboxListTypes + ' orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -274,9 +302,23 @@
 											label: 'Include Readmore Link?',
                                             checked: 'true'
 										},
+										
+										{
+											type: 'listbox',
+											name: 'listboxOrder',
+											label: 'Ordering',
+											value: 'menu_order', // pre-select the value
+											'values': [
+												{text: 'Title', value: 'title'},									
+												{text: 'Menu Order', value: 'menu_order'},
+												{text: 'Date', value: 'date'},
+												{text: 'Random', value: 'rand'}											
+											]
+										},	
+										
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="snippets" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'"]');
+										editor.insertContent( '[childpages layout="snippets" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
 									}
 								});
 							}

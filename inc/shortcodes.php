@@ -295,7 +295,8 @@ function childpages($atts, $content = null)
         'title' => true,
         'excerpt' => true,
         'readmore' => true,
-        'orderby' => 'menu_order'
+        'orderby' => 'menu_order',
+        'order' => 'ASC'
     ), $atts ) ); // @TODO can we handle these defaults through the builder class instead?
 
 	$args = array(
@@ -313,6 +314,7 @@ function childpages($atts, $content = null)
     $builder_args['has_title'] = ($title == 'false') ? false : true;
     $builder_args['has_summary'] = ($excerpt == 'false') ? false : true;
     $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
+		$builder_args['orderby'] = $orderby;
     $builder_args['classes'] = $class;
     $builder_args['size'] = $size;
 
