@@ -206,6 +206,15 @@ function hr_shortcode($atts, $content = null)
 add_shortcode('divider', 'hr_shortcode'); // hr divider shortcode
 
 /**
+ * Panel shortcode [panel]
+ */
+function panel_shortcode($atts, $content = null)
+{
+	return '<div class="panel">'.$content.'</div>';
+}
+add_shortcode('panel', 'panel_shortcode');
+
+/**
  * Renders Foundation buttons
  * @param array $atts
  * @param string $content
