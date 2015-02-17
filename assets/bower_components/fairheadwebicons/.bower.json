@@ -1,0 +1,14 @@
+{
+  "name": "fairheadwebicons",
+  "homepage": "https://github.com/adamfairhead/webicons",
+  "_release": "4c14b73625",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "4c14b73625c6cf6198e017a6e2e4fc89a3e28524"
+  },
+  "_source": "git://github.com/adamfairhead/webicons.git",
+  "_target": "*",
+  "_originalSource": "fairheadwebicons",
+  "_direct": true
+}

@@ -1,14 +1,12 @@
 <?php
-require_once('inc/config.php');
+/**
+ * Main functions file for any custom theme functions
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+// include monolith's critical functions - do not touch these or I will break your fingers
+include('inc/config.php');
 
-// image sizes
-// ----------------------------------------
 
-	set_post_thumbnail_size( 200, 150, true);
-	// add_image_size( $name, $width, $height, $crop );
-
-
-// create additional navigations
-// ----------------------------------------
-
-	// register_nav_menu( 'secondary', 'Secondary Navigation' );
+// include monolith's optional functions
+include('inc/sidebars.php'); // handles the site's sidebars and widget areas

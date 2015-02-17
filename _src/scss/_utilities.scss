@@ -1,0 +1,87 @@
+// Monolith by BigSpring
+// Licensed under MIT Open Source
+
+// Description: Contains custom styles for this project, and is compiled by compiler.scss into the main base.min.css included in the site header.
+
+// CONTENTS
+// =========================
+
+// 01 – Margin Classes
+// 02 – Tpoy
+
+
+// 01 – MARGIN CLASSES
+// =========================
+.no-margin {margin: 0;}
+.no-margin-top {margin-top: 0;}
+.no-margin-right {margin-right: 0;}
+.no-margin-bottom {margin-bottom: 0;}
+.no-margin-left {margin-left: 0;}
+
+// 02 – TYPO
+// =========================
+
+  // text muted – a relic from the Bootstrap Years <3
+  // ------------------------------------------------------------
+  .text-muted {
+    color: $text-muted-color;
+  }
+
+  // Styled <ul> lists
+  // ------------------------------
+    
+  // ninja mixin to reset list styles
+  @mixin reset-list() {
+    list-style: none;
+    margin-left: 0; 
+    
+    li {      
+      
+      // float the icon left and apply some ninja magics
+      &:before {
+        font-family: 'fontAwesome';
+        float: left;
+      } //:before  
+    
+    } // li
+    
+  } //mixin
+  
+  // tick list
+  ul.tick {
+    @include reset-list;
+    
+    li {padding-left: 1.3rem;}
+    
+    li:before {
+      content: $fa-var-check;
+      color: $success-color;
+      margin-left: -1.3rem;
+    }
+  }
+  
+  // chevron
+  ul.chevron {
+    @include reset-list;
+    
+    li {padding-left: 0.7rem;}
+    
+    li:before {
+      content: $fa-var-angle-right;
+      margin-left: -0.6rem;
+    }
+    
+  }
+  
+  // caret right
+  ul.caret {
+    @include reset-list;
+    
+    li {padding-left: 0.7rem;}    
+    
+    li:before {
+      content: $fa-var-caret-right;
+      margin-left: -0.6rem;
+    }
+    
+  }  
