@@ -22,7 +22,6 @@ module.exports = function(grunt) {
             dist: 'assets/dist',
             dependencies: {
                 default: [
-                    '<%= project.assets.bower %>/jquery/dist/jquery.js',
                     // foundation dependency list - (un)comment as required)
                     '<%= project.assets.bower %>/foundation/js/foundation/foundation.js',
                     //'<%= project.assets.bower %>/foundation/js/foundation/foundation.abide.js',
