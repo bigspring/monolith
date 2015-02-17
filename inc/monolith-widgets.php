@@ -13,8 +13,8 @@ class MonolithRelativePagesWidget extends WP_Widget {
         // widget actual processes
         parent::__construct(
             'monolith_relative_pages_widget',
-            __('Monolith Relative Pages Widget', 'thing'),
-            array('description' => __('Display relatives of current page.', 'thing'), )
+            __('Monolith Relative Pages', 'accu-translations'),
+            array('description' => __('Display relatives of current page.', 'accu-translations'), )
         );
     }
 
@@ -28,8 +28,14 @@ class MonolithRelativePagesWidget extends WP_Widget {
         // outputs the content of the widget
 
         $title = apply_filters( 'monolith_upcoming_events_widget', $instance['title'] );
+        $page = apply_filters( 'monolith_upcoming_events_widget', $instance['page'] );
 
-        global $post;
+        if ($page) {
+            $post = get_post($page);
+        } else {
+            global $post;
+        }
+
         $children = get_pages('child_of='.$post->ID); // get all child pages
         $has_children = ($children) ? true : false; // check if this page has children
         $has_parent = ($post->post_parent) ? true : false; // check if it has a parent
@@ -50,12 +56,11 @@ class MonolithRelativePagesWidget extends WP_Widget {
         if ($has_children || $has_parent) : ?>
 
             <div class="widget">
-	            <?php if($title) : ?>
-                <h3><?= $title ?></h3>
-              <?php endif; ?>
-                <ul class="list-unstyled">
+                <?php if($title) : ?>
+                    <h3><?= $title ?></h3>
+                <?php endif; ?>
+                <ul class="chevron">
                     <?php $class = (!$has_parent) ? ' class="current_page_item"' : ''; ?>
-                    <li<?= $class ?>><a href="<?= $parent_link ?>">Overview</a></li>
                     <?= $output; ?>
                 </ul>
             </div>
@@ -78,13 +83,22 @@ class MonolithRelativePagesWidget extends WP_Widget {
     public function form( $instance ) {
         // outputs the options form on admin
 
+        $page = (isset($instance['page'])) ? $instance['page'] : __('');
         $title = (isset($instance['title'])) ? $instance['title'] : __('');
 
         ?>
 
         <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Siblings Widget Title' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+
+            <label for="<?php echo $this->get_field_id( 'page' ); ?>"><?php _e( 'Specify Page' ); ?></label>
+            <select class="widefat" id="<?php echo $this->get_field_id( 'page' ); ?>" name="<?php echo $this->get_field_name( 'page' ); ?>">
+                <option value="0"<?= ((int)esc_attr( $page ) === 0) ? ' selected' : '' ?>>Current</option>
+                <?php foreach (get_pages() as $p) : ?>
+                    <option value="<?= $p->ID ?>"<?= ((int)esc_attr( $page ) === (int)$p->ID) ? ' selected' : '' ?>><?= $p->post_title ?></option>
+                <?php endforeach; ?>
+            </select>
         </p>
 
     <?php
@@ -102,6 +116,7 @@ class MonolithRelativePagesWidget extends WP_Widget {
         // processes widget options to be saved
         $instance = array();
         $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+        $instance['page'] = (!empty($new_instance['page'])) ? strip_tags($new_instance['page']) : '';
         return $instance;
     }
 }
