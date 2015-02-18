@@ -6821,3 +6821,28 @@ ul.caret {
   ul.caret li:before {
     content: "\f0da";
     margin-left: -0.6rem; }
+
+.wpcf7 .wpcf7-form-control-wrap {
+  position: relative;
+  display: block; }
+  .wpcf7 .wpcf7-form-control-wrap .wpcf7-form-control {
+    margin-bottom: 0.5rem; }
+  .wpcf7 .wpcf7-form-control-wrap .wpcf7-not-valid-tip {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.6rem;
+    display: block;
+    font-size: 0.8rem;
+    color: #f04124; }
+  .wpcf7 .wpcf7-form-control-wrap .wpcf7-not-valid {
+    border-color: #f04124; }
+.wpcf7 .wpcf7-response-output {
+  border: none;
+  color: white;
+  margin: 1rem 0;
+  text-align: center;
+  padding: 1rem; }
+  .wpcf7 .wpcf7-response-output.wpcf7-validation-errors {
+    background: #f04124; }
+  .wpcf7 .wpcf7-response-output.wpcf7-mail-sent-ok {
+    background: #43ac6a; }
