@@ -1,6 +1,6 @@
-/*! monolith 2.0.0 - 2014-11-09 02:50:26
+/*! monolith 2.0.0 - 2015-02-18 15:20:59
 * https://github.com/bigspring/monolith
-* Copyright (c) 2014 BigSpring
+* Copyright (c) 2015 BigSpring
 * License: MIT
 * Packages: node-sass, grunt, grunt-contrib-concat, grunt-contrib-uglify, grunt-sass, grunt-contrib-cssmin, grunt-contrib-watch, load-grunt-tasks */
 
@@ -734,3 +734,11 @@
     w.attachEvent("onresize", callMedia);
   }
 })(this);
+// Monolith by BigSpring
+// Licensed under MIT Open Source
+// Use this file to store your site-specific custom Internet Explorer JS magic.
+
+jQuery(document).ready(function($) {
+
+	// custom JS goes here
+});

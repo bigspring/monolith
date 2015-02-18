@@ -52,6 +52,11 @@
         <?php endif; ?>
         <script src="<?= get_asset_uri('js', 'base') ?>"></script>
         <?php wp_footer(); ?>
+				
+				<?php /* load the fail rem code for ie only */ ?>
+				<!--[if lt IE 9]>
+				<script src="<?= get_template_directory_uri(); ?>/assets/bower_components/REM-unit-polyfill/js/rem.min.js" type="text/javascript"></script>
+				<![endif]-->
 
     </body>
 </html>
