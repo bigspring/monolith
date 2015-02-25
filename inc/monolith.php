@@ -13,7 +13,7 @@ function monolith_setup() {
     add_theme_support('post-thumbnails'); // adds post thumbnail support
     add_post_type_support( 'page', 'excerpt' ); // add support for excerpts to pages
     remove_action('wp_head', 'wp_generator'); // remove the generator from the head
-    wp_enqueue_script('jquery');
+    wp_enqueue_script('jquery'); // enable jQuery
 
     /**
      * Registers the default menu
