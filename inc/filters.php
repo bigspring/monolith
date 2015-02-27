@@ -1,5 +1,9 @@
 <?php
-add_filter( 'body_class', 'add_slug_to_body_class' );
+/**
+ * Collection of functions to handle all filters required for Monolith
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
 
 /**
  * Append page slugs to the body class
@@ -24,3 +28,4 @@ function add_slug_to_body_class( $classes ) {
 
 	return $classes;
 }
+add_filter( 'body_class', 'add_slug_to_body_class' );

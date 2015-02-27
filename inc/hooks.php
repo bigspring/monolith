@@ -1,52 +1,123 @@
 <?php
-// if the option for analytics ID is enabled in config.php, run the hook
-if(GOOGLE_ANALYTICS_ID == true)
-	add_action('wp_head', 'analytics_head');
-
-// if the option for opengraph is enabled in config.php, run the hook
-if(OPENGRAPH_HEAD == true)
-	add_action('wp_head', 'opengraph_head');
-
 /**
- * Google Analytics
+ * Collection of functions to handle all hooks required for Monolith
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
  */
-function analytics_head() { ?>
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', '<?= GOOGLE_ANALYTICS_ID ?>']);
-		_gaq.push(['_trackPageview']);
-		
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
-<?php }
 
-/**
- * Adds opengraph tags to the header
- */
-function opengraph_head()
-{
-	if(is_single() || is_category() || is_page()) {
-		global $post;
-		$thumbsrc = home_url() . SITE_LOGO;
-		if(has_post_thumbnail())
-		{
-			$thumbsrc = wp_get_attachment_image_src(get_post_thumbnail_id());
-			$thumbsrc = $thumbsrc[0];
-		}
-		?>
-			<meta property="og:title" content="<?= get_the_title() ?>"/>
-			<meta property="og:type" content="article"/>
-			<?php if(is_single()) : ?>
-				<meta property="og:url" content="<?= get_permalink() ?>"/>
-			<?php else : ?>
-				<meta property="og:url" content="http://<?= $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ?>"/>
-			<?php endif; ?>	<meta property="og:image" content="<?= $thumbsrc ?>"/>
-			<meta property="og:site_name" content="<?= bloginfo('name') ?>"/>
-			<meta property="og:description" content="<?= $post->post_excerpt ?>"/>	
-		    <meta property="fb:admins" content="<?= FACEBOOOK_ADMIN_ID ?>"/>
-		<?php }
+if ( ! function_exists( 'login_css' ) ) {
+    /**
+     * Custom WordPress Login styling, use the login.css to style the WP login page with site logo etc...
+     * @return void
+     */
+    function login_css() {
+        wp_enqueue_style( 'login_css', get_template_directory_uri() . '/css/login.css' );
+    }
+    add_action('login_head', 'login_css');
 }
+
+if ( ! function_exists( 'wpb_imagelink_setup' ) ) {
+    /**
+     * Stop WP from automatically linking images to themselves
+     * @return void
+     */
+    function wpb_imagelink_setup() {
+        $image_set = get_option( 'image_default_link_type' );
+
+        if ($image_set !== 'none') {
+            update_option('image_default_link_type', 'none');
+        }
+    }
+    add_action('admin_init', 'wpb_imagelink_setup', 10);
+}	
+
+
+// Add a tinyMCE button
+if ( ! function_exists( 'my_add_mce_button' ) ) {
+    /**
+     * Hooks your functions into the correct filters
+     * @return array
+     */
+
+		// Hooks your functions into the correct filters
+		function my_add_mce_button() {
+			// check user permissions
+			if ( !current_user_can( 'edit_posts' ) && !current_user_can( 'edit_pages' ) ) {
+				return;
+			}
+			// check if WYSIWYG is enabled
+			if ( 'true' == get_user_option( 'rich_editing' ) ) {
+				add_filter( 'mce_external_plugins', 'my_add_tinymce_plugin' );
+				add_filter( 'mce_buttons', 'my_register_mce_button' );
+			}
+		}
+		add_action('admin_head', 'my_add_mce_button');
+}
+
+if ( ! function_exists( 'my_add_tinymce_plugin' ) ) {
+    /**
+     * Register new button in the editor
+     * @return array
+     */
+
+		// Declare script for new button
+		function my_add_tinymce_plugin( $plugin_array ) {
+			$plugin_array['my_mce_button'] = get_template_directory_uri() .'/assets/js/mce-button.js';
+			return $plugin_array;
+		}
+}
+
+if ( ! function_exists( 'my_register_mce_button' ) ) {
+    /**
+     * Register new button in the editor
+     * @return array
+     */
+		function my_register_mce_button( $buttons ) {
+			array_push( $buttons, 'my_mce_button' );
+			return $buttons;
+		}
+
+}
+
+if (ENVIRONMENT === 'development') {
+    /**
+     * Display notification in Wordpress bar when in development mode
+     */
+    add_action('admin_bar_menu', function ($wp_admin_bar) {
+        $args = array(
+            'id' => 'monolith_env',
+            'title' => '<span style="color: #FFFFFF; background-color: #FF0000; padding: 2px 5px; border-radius: 3px; font-size: 0.9em;">DEV MODE</span>',
+        );
+        $wp_admin_bar->add_node($args);
+    }, 1);
+}
+
+/**
+ * Enable excerpt for each new user at registration
+ */
+add_action('user_register', function ($user_id = null) {
+
+    // These are the metakeys we will need to update
+    $meta_key['order'] = 'meta-box-order_post';
+    $meta_key['hidden'] = 'metaboxhidden_post';
+
+    // So this can be used without hooking into user_register
+    if ( ! $user_id)
+        $user_id = get_current_user_id();
+
+    // Set the default order if it has not been set yet
+    if ( ! get_user_option( $user_id, $meta_key['order'], true) ) {
+        $meta_value = array(
+            'side' => 'submitdiv,formatdiv,categorydiv,postimagediv',
+            'normal' => 'postexcerpt,tagsdiv-post_tag,postcustom,commentstatusdiv,commentsdiv,trackbacksdiv,slugdiv,authordiv,revisionsdiv',
+            'advanced' => '',
+        );
+        update_user_option( $user_id, $meta_key['order'], $meta_value, true );
+    }
+
+    // Set the default hiddens if it has not been set yet
+    if ( ! get_user_option( $user_id, $meta_key['hidden'], true) ) {
+        $meta_value = array('postcustom','trackbacksdiv','commentstatusdiv','commentsdiv','slugdiv','authordiv','revisionsdiv');
+        update_user_option( $user_id, $meta_key['hidden'], $meta_value, true );
+    }
+});

@@ -1,67 +1,44 @@
-<?php 
-/*
- * Monolith
- * WordPress Index
- * The WordPress index does most of the heavy lifting for loops – categories, archives, tags etc.
-*/
-?>
+<?php
+/**
+ * Main index file, which does all the heavy lifting.
+ * @license MIT http://opensource.org/licenses/MIT
+ * @package monolith
+ */
+get_header(); ?>
 
+  <!-- start the title row -->
+  <?php get_template_part('layouts/molecules/page-header'); ?>
+  <!-- end the title row -->
 
-<?php get_header() ?>
+  <?php if( !is_front_page() ) : // load the breadcrumbs, except on the homepage
+    get_template_part('layouts/molecules/breadcrumbs');
+    endif;
+  ?>
 
-<div class="wrapper-main" role="main">
+  <!-- start the main content row -->
+  <div class="row">    
+    
+    <?php // if we're using the fullwdith template, apply the relevant class ?>
+    <div class="columns <?= is_page_template('page-fullwidth.php') ? FULLWIDTH_SIZE : MAIN_SIZE; ?>" role="main">
 
-	<div class="container">
-	
-		<? get_template_part('parts/breadcrumb'); // load breadcrumb ?>
-	
-		<header class="page-header archive-header" itemprop="name">
-			
-			<?php if ( is_day() ) : ?>
-			<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'D F Y' ); ?></h1>
-			
-			<?php elseif ( is_month() ) : ?>
-			<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'F Y' ); ?></h1>
-			
-			<?php elseif ( is_year() ) : ?>
-			<h1 class="archive-title h1">Archive: <?php echo  get_the_date( 'Y' ); ?></h1>	
-			
-			<?php elseif ( is_tag() ) : ?>
-			<h1 class="archive-title h1">Tag Archive: <?php single_tag_title(); ?></h1>						
-			
-			<?php elseif ( is_category() ) : ?>
-			<h1 class="category-title h1"><?php single_cat_title() ?></h1>
-			
-			<?php elseif ( is_author() ) : get_template_part('parts/author-header') ?>
-			
-			<?php elseif ( is_home() ) : ?>
-			<h1>The Blog</h1>
-			
-			<?php elseif ( is_search() ) : ?>
-			<h1>Search results for '<?php echo get_search_query(); ?>'</h1>
-			
-			<?php else : ?>
-			<h1 class="archive-title h1">Archive</h1>
-			
-			<?php endif; ?>
-		
-		</header>
+      <?php      
+        if( is_single() || is_page() ) :       
+          build('content'); // load the content part on posts & pages
+        else :        
+          build('snippets'); // otherwise, load the snippets builder                  
+        endif;
+      ?>      
+    </div>
+    
+    <!-- start the sidebar -->
+    <?php if( !is_page_template('page-fullwidth.php') ) : // do not load sidebar if using fullwidth template ?>
+    <div id="sidebar" class="columns <?= SIDEBAR_SIZE; ?> sidebar" role="complementary">      
+      <?php get_template_part('layouts/organisms/sidebar'); ?> 
+    </div>
+    <?php endif; ?>
+    <!-- end the sidebar -->
+    
+  </div><!-- /.row -->
+  <!-- end the main content row -->
 
-
-		<div class="row">
-
-			<main class="<?= MAIN_SIZE ?>" role="main">
-				
-				<?php get_template_part('parts/loop-posts') // load the posts loop ?>
-
-			</main><!-- MAIN_SIZE -->
-
-			<? get_template_part('parts/sidebar'); // right sidebar ?>
-
-		</div><!-- /ROW_CLASSES -->	
-
-	</div><!-- /CONTAINER_CLASSES -->
-
-</div><!-- /main -->	
-
-<?php get_footer(); ?>
+<?php get_footer();

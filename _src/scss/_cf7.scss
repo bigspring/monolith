@@ -1,0 +1,51 @@
+// CONTACT FORM 7 STYLES / HACKS
+
+.wpcf7 {
+  
+  .wpcf7-form-control-wrap {
+    position: relative; // make the span relative so we can position validation
+    display: block;
+    
+    .wpcf7-form-control {
+      margin-bottom: 0.5rem;
+    }
+  
+    // style the error tips
+    .wpcf7-not-valid-tip {
+      position: absolute;
+      right: 0.5rem;
+      top: 0.6rem;
+      display: block;
+      font-size: 0.8rem;
+      color: $alert-color;
+    }
+    
+    // style the control borders error
+    .wpcf7-not-valid {
+      border-color: $alert-color;
+    }
+  
+  }
+  
+  
+  // output messages
+  .wpcf7-response-output {
+    border: none;    
+    color: $white;
+    margin: 1rem 0;
+    text-align: center;
+    padding: 1rem;
+
+    // fail state
+    &.wpcf7-validation-errors {
+      background: $alert-color;
+    }
+    
+    // success state
+    &.wpcf7-mail-sent-ok {
+      background: $success-color;
+    }
+
+  }
+  
+}

@@ -1,122 +1,155 @@
-/*global module:false*/
 module.exports = function(grunt) {
 
-/**
- * Define paths/names
- */
-var bower_path = 'bower_components/';
-var dependencies_main = [
-	bower_path + 'css_browser_selector/css_browser_selector.js',
-	bower_path + 'modernizr/modernizr.js',
-	bower_path + 'holderjs/holder.js',	
-	bower_path + 'jquery-placeholder/jquery.placeholder.js',
-	// load some bootstrap components
-	bower_path + 'bootstrap/js/dropdown.js',	
-	bower_path + 'bootstrap/js/transition.js',	
-	bower_path + 'bootstrap/js/collapse.js',	
-	bower_path + 'bootstrap/js/modal.js',	
-	bower_path + 'bootstrap/js/tab.js',	
-	// load main site.js
-	'_src/js/site.js'
-];
-var dependencies_ie = [
-	bower_path + 'html5shiv-dist/html5shiv.js',
-	bower_path + 'respond/dest/respond.src.js'
-];
-var less_files = [
-	'_src/less/base.less'
-];
+    grunt.initConfig({
 
-  /**
-  * Project configuration
-  */
-  grunt.initConfig({
-    // Metadata.
-    pkg: grunt.file.readJSON('package.json'),
-    dirs: {
-	  jsdest: 'js/',
-	  cssdest: 'css/'
-    },
-    banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' + // name/version
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' + // current year
-      '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + // homepage (not currently set in package.json)
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-      '* License: <%= pkg.license %>\n\n' +
-	  '* Packages: <%= _.map(pkg.devDependencies, function(package, key) {return key}).join(", ") %>\n' +
-	  '* WARNING: THIS FILE IS GENERATED DYNAMICALLY - any changes will be overwritten! */\n\n',
+        // Metadata.
+        pkg: grunt.file.readJSON('package.json'),
 
-    /**
-     * Task configuration
-     */
+        /**
+         * Define project constants, dependencies, etc.
+         */
+        project: {
+            assets: {
+                js: 'assets/js',
+                css: 'assets/css',
+                bower: 'assets/bower_components'
+            },
+            src: {
+                all: '_src',
+                scss: '_src/scss',
+                js: '_src/js'
+            },
+            dist: 'assets/dist',
+            dependencies: {
+                default: [
+                    // foundation dependency list - ([un]comment as required)
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.abide.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.accordion.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.alert.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.clearing.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.dropdown.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.equalizer.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.interchange.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.joyride.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.magellan.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.offcanvas.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.orbit.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.reveal.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.slider.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.tab.js',
+                    //'<%= project.assets.bower %>/foundation/js/foundation/foundation.tooltip.js',
+                    '<%= project.assets.bower %>/foundation/js/foundation/foundation.topbar.js',
 
-    // JS tasks
-    concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: true
-      },
-	  main: { // main js files
-        src: dependencies_main,
-	    dest: '<%= dirs.jsdest %>/base.js'
-      },
-	  ie: { // ie support js files
-	    src: dependencies_ie,
-		dest: '<%= dirs.jsdest %>/ie.js'
-	  }
-    },
-    uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      dist: {
-        files: {
-	      '<%= dirs.jsdest %>/base.min.js': '<%= concat.main.dest %>',
-	      '<%= dirs.jsdest %>/ie.min.js': '<%= concat.ie.dest %>'
+                    // other dependencies
+                    '<%= project.assets.bower %>/modernizr/modernizr.js',
+                    '<%= project.assets.bower %>/holderjs/holder.js',
+                    '<%= project.assets.bower %>/fastclick/lib/fastclick.js',
+                    '<%= project.assets.bower %>/retina.js/dist/retina.js',
+
+                    // site dependencies
+                    '<%= project.src.js %>/custom.js'
+                ],
+                ie: [
+                    // nonsense IE fixes
+                    '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
+                    '<%= project.assets.bower %>/html5shiv/dist/html5shiv.js',
+                    '<%= project.assets.bower %>/respond/dest/respond.src.js',
+                    // IE site dependencies
+                    '<%= project.src.js %>/ie-custom.js'
+                ]
+            }
+        },
+
+        banner: '/*! <%= pkg.name %> <%= pkg.version %> - ' + // name/version
+            '<%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %>\n' + // current year
+            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + // homepage (not currently set in package.json)
+            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\n' +
+            '* License: <%= pkg.license %>\n' +
+            '* Packages: <%= _.map(pkg.devDependencies, function(package, key) {return key}).join(", ") %> */\n\n',
+
+        /**
+         * JS tasks
+         * - concatenation of files
+         * - minification
+         */
+        concat: {
+            options: {
+                banner: '<%= banner %>',
+                stripBanners: true
+            },
+            main: { // main js files
+                src: '<%= project.dependencies.default %>',
+                dest: '<%= project.assets.js %>/base.js'
+            },
+            ie: { // ie support js files
+                src: '<%= project.dependencies.ie %>',
+                dest: '<%= project.assets.js %>/ie.js'
+            }
+        },
+        uglify: {
+            options: {
+                banner: '<%= banner %>'
+            },
+            dist: {
+                files: {
+                    '<%= project.dist %>/base.min.js': '<%= concat.main.dest %>',
+                    '<%= project.dist %>/ie.min.js': '<%= concat.ie.dest %>'
+                }
+            }
+        },
+
+        /**
+         * CSStasks
+         * - SASS compilation
+         * - minification
+         */
+        sass: {
+            options: {
+                includePaths: ['<%= project.assets.bower %>/foundation/scss', '<%= project.assets.bower %>']
+            },
+            dist: {
+                options: {
+                    outputStyle: 'nested'
+                },
+                files: {
+                    '<%= project.assets.css %>/base.css': '<%= project.src.scss %>/compiler.scss'
+                }
+            }
+        },
+        cssmin: {
+            options: {
+                banner: '<%= banner %>',
+                keepSpecialComments: 0
+            },
+            minify: {
+                expand: true,
+                cwd: '<%= project.assets.css %>',
+                src: ['*.css', '!*.min.css'],
+                dest: '<%= project.dist %>',
+                ext: '.min.css'
+            }
+        },
+
+        /**
+         * WATCH ALL THE THINGS
+         */
+        watch: {
+            js: {
+                files: ['<%= project.src.all %>/**/*.js'],
+                tasks: ['concat']
+            },
+            css: {
+                files: ['<%= project.src.scss %>/**/*.scss'],
+                tasks: ['sass']
+            }
         }
-      }
-    },
+    });
 
-	// CSS tasks
-	less: {
-	  options: {
-		banner: '<%= banner %>'
-	  },
-	  main: {
-	    files: {
-	      'css/base.css': less_files
-	    }
-	  }
-	},
-	cssmin: {
-	  options: {
-		banner: '<%= banner %>'
-	  },
-	  minify: {
-		  expand: true,
-		  cwd: 'css/',
-		  src: ['*.css', '!*.min.css'], // currently not minimising all files in css/
-		  dest: '<%= dirs.cssdest %>/',
-		  ext: '.min.css'
-	  }
-	},
+    // Load all grunt packages from package.json dependencies.
+    require('load-grunt-tasks')(grunt);
 
-	// WATCH ALL THE THINGS
-	watch: {
-	  js: {
-		files: dependencies_main.concat(dependencies_ie),
-		tasks: ['concat', 'uglify']
-	  },
-	  css: {
-		files: ['_src/less/*.less'], // sets the folders to watch
-		tasks: ['less', 'cssmin'] // runs the tasks
-	  }
-	}
-  });
-
-  // Load all grunt packages from package.json dependencies.
-  require('load-grunt-tasks')(grunt);
-
-  // Default task.
-  grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'watch']);
-
+    // Default task
+    grunt.registerTask('default', ['concat', 'sass', 'watch']); // dev mode
+    grunt.registerTask('prod', ['concat', 'uglify', 'sass', 'cssmin']); // prod mode
 };

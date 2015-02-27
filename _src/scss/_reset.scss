@@ -1,0 +1,168 @@
+// Monolith by BigSpring
+// Licensed under MIT Open Source
+
+// This file includes some basic hacks and fixes, such as spacing etc.
+
+// CONTENTS
+// =========================
+
+// 01 – Sidebars
+// 02 – Single Post
+// 03 – Social Icons
+// 04 - Structures
+// 05 - Dirty Hax
+// 06 – Page Header
+// 07 - Post Title
+// 08 - Typo
+
+
+// 01 – SIDEBARS
+// =========================
+
+  // Sidebar Widgets
+  // -------------------------
+  
+  .widget {
+    
+    margin-bottom: 1rem; // add some margin to the widget    
+    
+    // adjust the size of the sidebar headings
+    h3 {
+      font-size: 1.2rem;
+    }
+    
+    // style the lists in widgets – remove margins
+    ul {
+      margin: 0;
+      list-style: none;
+    }//.ul
+    
+  }//.widget
+  
+
+// 02 – SINGLE POST
+// =========================
+
+  // add a default margin to a post's featured image
+  .post-featured-image {
+    margin-bottom: 1rem;
+  }
+
+
+  // alignment classes
+  .alignleft {
+    float: left;
+    margin-right: 1rem;
+  }
+  
+  .alignright {
+    float: right;
+    margin-left: 1rem;
+  }
+  
+  .aligncenter {
+    margin: 0 auto;
+  }
+
+ // captions
+  .wp-caption {  
+    
+    text-align: center;
+    margin-bottom: 1rem;
+    max-width: 100%;
+    font-style: italic;
+    
+    .wp-caption-text {
+      margin: 0;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      color: $steel;
+    }
+    
+  }
+  
+
+// 03 – SOCIAL ICONS
+// =========================
+
+  .social-icons {
+    
+    // reduce the default inline-list margin 
+    li {
+      margin-left: 0.5rem;
+    }
+  
+    // remove the box shadown from web icons
+    .webicon {
+      box-shadow: none; // kill the box shadows
+      
+      // remove wack effects on hover
+      &:hover {
+        box-shadow: none;
+        margin: 0;
+      }
+      
+    }
+  
+  } // .social-icons
+  
+// 04 - Builder Structures
+// =========================
+
+  // Block Grid
+  .builder-block-grid > ul > li.item {
+    
+    // make the image link a block element, add some margin for spacing
+    .featured-image {
+      display: block;
+      margin-bottom: 0.8rem; // add some margin, as the h3 is adding 0.2rem top margin
+    }
+    
+  }
+  
+// 05 - Hax
+// =========================
+  
+  // force all images to jave auto heights in main content block
+  .block-main img {height: auto !important;}
+  
+// 06 – Page Header
+// =========================
+
+  .page-header {
+    
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    background: $page-header-background;
+    color: $page-header-color;
+    
+    // h1 heading spacing
+    h1 {
+      margin: 0;
+      color: $page-header-color;
+    }
+  }
+  
+// 07 – Post Title
+// =========================
+
+  .post-title {
+    
+    margin-bottom: 1rem;
+    h1 {margin-bottom: 0;}
+    
+  }
+
+// 08 - Typo hacks
+// =========================
+
+ // hack to make the .lead class work when it's surrounding a paragraph due to WP's auto paragraph filters
+ .lead > p { @include lead; }
+ 
+ .panel {
+   
+   .button {margin-bottom: 0;}
+   
+ }
+  
+  
