@@ -223,7 +223,7 @@
 										}
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'   orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -271,7 +271,7 @@
 											
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="list" class="' + e.data.listboxListTypes + ' orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[childpages layout="list" class="' + e.data.listboxListTypes + '" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
