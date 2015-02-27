@@ -153,8 +153,16 @@
     
   }
 
-// 08 - Typo
+// 08 - Typo hacks
 // =========================
 
  // hack to make the .lead class work when it's surrounding a paragraph due to WP's auto paragraph filters
-  .lead > p { @include lead; }
+ .lead > p { @include lead; }
+ 
+ .panel {
+   
+   .button {margin-bottom: 0;}
+   
+ }
+  
+  

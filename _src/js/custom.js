@@ -5,6 +5,7 @@
 jQuery(document).ready(function($) {
 
 	$(document).foundation();
+	$('p:empty').remove();
 	
 	// custom JS goes here
 
