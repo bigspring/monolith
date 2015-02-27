@@ -3026,7 +3026,7 @@ table {
 
 meta.foundation-mq-topbar {
   font-family: "/only screen and (min-width:64em)/";
-  width: 0em; }
+  width: 64em; }
 
 /* Wrapped around .top-bar to contain to grid width */
 .contain-to-grid {
@@ -3543,7 +3543,7 @@ meta.foundation-mq-topbar {
   .small-text-justify {
     text-align: justify !important; } }
 
-@media only screen and (min-width:40.063em) and (max-width:64em) {
+@media only screen and (min-width:40.063em) and (max-width:63.37em) {
   .medium-only-text-left {
     text-align: left !important; }
   .medium-only-text-right {
@@ -6727,11 +6727,14 @@ th.hide-for-touch {
   float: right;
   margin-left: 1rem; }
 
+.aligncenter {
+  margin: 0 auto; }
+
 .wp-caption {
   text-align: center;
-  padding: 5px;
-  background: #eeeeee;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  max-width: 100%;
+  font-style: italic; }
   .wp-caption .wp-caption-text {
     margin: 0;
     padding: 0.5rem;
@@ -6766,6 +6769,13 @@ th.hide-for-touch {
   margin-bottom: 1rem; }
   .post-title h1 {
     margin-bottom: 0; }
+
+.lead > p {
+  font-size: 1.21875rem;
+  line-height: 1.6; }
+
+.panel .button {
+  margin-bottom: 0; }
 
 .no-margin {
   margin: 0; }
