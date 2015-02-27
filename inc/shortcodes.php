@@ -192,7 +192,7 @@ add_shortcode('gallery', 'foundation_gallery_shortcode');
  */
 function intro_text_shortcode($atts, $content = null)
 {
-	return '<span class="lead">'.apply_filters('the_content', $content).'</span>';
+	return '<div class="lead">'.apply_filters('the_content', $content).'</div>';
 }
 add_shortcode('intro', 'intro_text_shortcode');
 
