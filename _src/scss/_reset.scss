@@ -12,6 +12,8 @@
 // 04 - Structures
 // 05 - Dirty Hax
 // 06 – Page Header
+// 07 - Post Title
+// 08 - Typo
 
 
 // 01 – SIDEBARS
@@ -150,3 +152,9 @@
     h1 {margin-bottom: 0;}
     
   }
+
+// 08 - Typo
+// =========================
+
+ // hack to make the .lead class work when it's surrounding a paragraph due to WP's auto paragraph filters
+  .lead > p { @include lead; }

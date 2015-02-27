@@ -192,7 +192,7 @@ add_shortcode('gallery', 'foundation_gallery_shortcode');
  */
 function intro_text_shortcode($atts, $content = null)
 {
-	return '<p class="lead">'.$content.'</p>';
+	return '<span class="lead">'.apply_filters('the_content', $content).'</span>';
 }
 add_shortcode('intro', 'intro_text_shortcode');
 
@@ -210,7 +210,7 @@ add_shortcode('divider', 'hr_shortcode'); // hr divider shortcode
  */
 function panel_shortcode($atts, $content = null)
 {
-	return '<div class="panel">'.$content.'</div>';
+	return '<div class="panel">'.apply_filters('the_content', $content).'</div>';
 }
 add_shortcode('panel', 'panel_shortcode');
 
@@ -245,7 +245,7 @@ function buttons( $atts, $content = null ) {
 	$output .= $text;
 	$output .= '</a>';
 
-	return $output;
+	return apply_filters('the_content', $output);
 }
 add_shortcode('button', 'buttons');
 
@@ -270,7 +270,7 @@ function blockquotes( $atts, $content = null )
 
 	$output .= '</blockquote>';
 
-	return $output;
+	return apply_filters('the_content', $output);
 }
 add_shortcode('blockquote', 'blockquotes');
 
@@ -360,7 +360,7 @@ add_shortcode('pages', 'pages_shortcode');
 //shortcode for bio column structures
 function columns_shortcode($atts, $content = null) {
 	global $post;
-	return '<div class="columns">' . do_shortcode($content) . '</div>';
+	return '<div class="columns">' .apply_filters('the_content', $content). '</div>';
 }
 add_shortcode('columns', 'columns_shortcode');
 
