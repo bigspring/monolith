@@ -62,9 +62,9 @@
   .wp-caption {  
     
     text-align: center;
-    padding: 5px;
-    background: $smoke;
     margin-bottom: 1rem;
+    max-width: 100%;
+    font-style: italic;
     
     .wp-caption-text {
       margin: 0;
