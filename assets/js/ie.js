@@ -1,17 +1,24 @@
-/*! monolith 2.0.0 - 2015-02-27 13:58:04
+/*! monolith 2.0.0 - 2015-03-02 14:46:56
 * https://github.com/bigspring/monolith
 * Copyright (c) 2015 BigSpring
 * License: MIT
 * Packages: node-sass, grunt, grunt-contrib-concat, grunt-contrib-uglify, grunt-sass, grunt-contrib-cssmin, grunt-contrib-watch, load-grunt-tasks */
 
-/*! http://mths.be/placeholder v2.0.8 by @mathias */
-;(function(window, document, $) {
+/*! http://mths.be/placeholder v2.0.9 by @mathias */
+(function(factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['jquery'], factory);
+	} else {
+		// Browser globals
+		factory(jQuery);
+	}
+}(function($) {
 
 	// Opera Mini v7 doesn’t support placeholder although its DOM seems to indicate so
 	var isOperaMini = Object.prototype.toString.call(window.operamini) == '[object OperaMini]';
 	var isInputSupported = 'placeholder' in document.createElement('input') && !isOperaMini;
 	var isTextareaSupported = 'placeholder' in document.createElement('textarea') && !isOperaMini;
-	var prototype = $.fn;
 	var valHooks = $.valHooks;
 	var propHooks = $.propHooks;
 	var hooks;
@@ -19,7 +26,7 @@
 
 	if (isInputSupported && isTextareaSupported) {
 
-		placeholder = prototype.placeholder = function() {
+		placeholder = $.fn.placeholder = function() {
 			return this;
 		};
 
@@ -27,7 +34,7 @@
 
 	} else {
 
-		placeholder = prototype.placeholder = function() {
+		placeholder = $.fn.placeholder = function() {
 			var $this = this;
 			$this
 				.filter((isInputSupported ? 'textarea' : ':input') + '[placeholder]')
@@ -66,7 +73,7 @@
 				if (!$element.data('placeholder-enabled')) {
 					return element.value = value;
 				}
-				if (value == '') {
+				if (value === '') {
 					element.value = value;
 					// Issue #56: Setting the placeholder causes problems if the element continues to have focus.
 					if (element != safeActiveElement()) {
@@ -129,7 +136,7 @@
 		var $input = $(input);
 		if (input.value == $input.attr('placeholder') && $input.hasClass('placeholder')) {
 			if ($input.data('placeholder-password')) {
-				$input = $input.hide().next().show().attr('id', $input.removeAttr('id').data('placeholder-id'));
+				$input = $input.hide().nextAll('input[type="password"]:first').show().attr('id', $input.removeAttr('id').data('placeholder-id'));
 				// If `clearPlaceholder` was called from `$.valHooks.input.set`
 				if (event === true) {
 					return $input[0].value = value;
@@ -148,8 +155,8 @@
 		var input = this;
 		var $input = $(input);
 		var id = this.id;
-		if (input.value == '') {
-			if (input.type == 'password') {
+		if (input.value === '') {
+			if (input.type === 'password') {
 				if (!$input.data('placeholder-textinput')) {
 					try {
 						$replacement = $input.clone().attr({ 'type': 'text' });
@@ -170,7 +177,7 @@
 						})
 						.before($replacement);
 				}
-				$input = $input.removeAttr('id').hide().prev().attr('id', id).show();
+				$input = $input.removeAttr('id').hide().prevAll('input[type="text"]:first').attr('id', id).show();
 				// Note: `$input[0] != input` now!
 			}
 			$input.addClass('placeholder');
@@ -188,7 +195,7 @@
 		} catch (exception) {}
 	}
 
-}(this, document, jQuery));
+}));
 
 ;(function(window, document) {
 /*jshint evil:true */
