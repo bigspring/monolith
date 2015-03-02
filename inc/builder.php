@@ -35,6 +35,7 @@ class Builder
         $this->_set_args(); // set any custom arguments we have
 
         echo $this->_render(); // render the view
+        wp_reset_query();
     }
 
     /**
