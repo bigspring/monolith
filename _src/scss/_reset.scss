@@ -126,6 +126,12 @@
   // force all images to jave auto heights in main content block
   .block-main img {height: auto !important;}
   
+  // remove margins from shortcode panels
+  .shortcode-panel {
+    padding-bottom: 0;
+  }
+  
+  
 // 06 – Page Header
 // =========================
 

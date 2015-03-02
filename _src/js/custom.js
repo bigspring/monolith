@@ -5,6 +5,8 @@
 jQuery(document).ready(function($) {
 
 	$(document).foundation();
+	
+	// hack to remove empty <p> tags
 	$('p:empty').remove();
 	
 	// custom JS goes here

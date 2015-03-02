@@ -1,4 +1,4 @@
-/*! monolith 2.0.0 - 2015-03-02 14:51:21
+/*! monolith 2.0.0 - 2015-03-02 15:19:40
 * https://github.com/bigspring/monolith
 * Copyright (c) 2015 BigSpring
 * License: MIT
@@ -4551,6 +4551,8 @@ License:  http://opensource.org/licenses/MIT
 jQuery(document).ready(function($) {
 
 	$(document).foundation();
+	
+	// hack to remove empty <p> tags
 	$('p:empty').remove();
 	
 	// custom JS goes here
