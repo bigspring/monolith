@@ -6746,6 +6746,9 @@ th.hide-for-touch {
 .block-main img {
   height: auto !important; }
 
+.shortcode-panel {
+  padding-bottom: 0 !important; }
+
 .page-header {
   margin-bottom: 1rem;
   padding: 1rem 0;
@@ -6821,6 +6824,32 @@ ul.caret {
   ul.caret li:before {
     content: "\f0da";
     margin-left: -0.6rem; }
+
+.styled-list ul {
+  list-style: none;
+  margin-left: 0; }
+  .styled-list ul li:before {
+    font-family: 'fontAwesome';
+    float: left; }
+  .styled-list ul li:before {
+    font-family: 'fontAwesome';
+    float: left; }
+.styled-list.chevron li {
+  padding-left: 0.7rem; }
+.styled-list.chevron li:before {
+  content: "\f105";
+  margin-left: -0.6rem; }
+.styled-list.caret li {
+  padding-left: 0.7rem; }
+.styled-list.caret li:before {
+  content: "\f0da";
+  margin-left: -0.6rem; }
+.styled-list.tick li {
+  padding-left: 1.3rem; }
+.styled-list.tick li:before {
+  content: "\f00c";
+  color: #43ac6a;
+  margin-left: -1.3rem; }
 
 .wpcf7 .wpcf7-form-control-wrap {
   position: relative;
