@@ -6747,7 +6747,7 @@ th.hide-for-touch {
   height: auto !important; }
 
 .shortcode-panel {
-  padding-bottom: 0; }
+  padding-bottom: 0 !important; }
 
 .page-header {
   margin-bottom: 1rem;

@@ -214,7 +214,7 @@ function panel_shortcode($atts, $content = null) {
 	), $atts ) );
 
 
-	return '<div class="shortcode-panel panel" class="'. $type .'">'.apply_filters('the_content', $content).'</div>';
+	return '<div class="shortcode-panel panel '. $type .'">'.apply_filters('the_content', $content).'</div>';
 }
 add_shortcode('panel', 'panel_shortcode');
 
