@@ -6875,3 +6875,11 @@ ul.caret {
     background: #f04124; }
   .wpcf7 .wpcf7-response-output.wpcf7-mail-sent-ok {
     background: #43ac6a; }
+
+.hero-unit {
+  padding: 5% 0;
+  margin-bottom: 2rem; }
+  .hero-unit .hero-unit-subtitle {
+    margin: 0; }
+  .hero-unit .button {
+    margin: 1rem 0 0; }
