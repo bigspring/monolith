@@ -1,0 +1,21 @@
+// Monolith by BigSpring
+// Licensed under MIT Open Source
+
+// This file controls the styles for the hero unit
+
+.hero-unit {
+  
+  padding: 5% 0; // apply some dynamic padding
+  margin-bottom: 2rem;
+  
+  // remove the margins from the subtitle
+  .hero-unit-subtitle {
+    margin: 0;
+  }
+  
+  // apply some margins to the buttons
+  .button {
+    margin: 1rem 0 0;
+  }
+  
+}
