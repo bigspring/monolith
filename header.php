@@ -33,6 +33,9 @@
         <!-- the main block -->
         <main class="block-main" role="main">
 
+          <!-- the breadcrumbs block -->
+          <?php get_template_part('layouts/molecules/breadcrumbs'); ?>
+
           <!-- page title & hero unit -->          
           <?php 
                         
@@ -47,10 +50,7 @@
             endif;
             
           ?>
-        
-          <!-- the breadcrumbs block -->
-          <?php get_template_part('layouts/molecules/breadcrumbs'); ?>
-          
+                  
           <!-- start the main content row -->
           <div class="row">
             

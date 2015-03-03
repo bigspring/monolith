@@ -8,7 +8,7 @@ get_header(); ?>
 
 <?php      
 
-  if ( is_home() ) :        
+  if ( is_home() || is_archive() ) :        
    
     build('snippets'); // if it's the main loop, load snippets
     
