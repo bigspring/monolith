@@ -124,7 +124,7 @@ $primary-color: #008CBA;
 // $info-color: #a0d3e8;
 
 // text muted color
-$text-muted-color : $charcoal;
+$text-muted-color : $jumbo;
 
 // We use these to control various global styles
 // $body-bg: $white;
@@ -132,10 +132,6 @@ $text-muted-color : $charcoal;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
-
-// page header styles
-$page-header-background: $primary-color;
-$page-header-color: $white;
 
 // We use this to control font-smoothing
 // $font-smoothing: antialiased;
@@ -413,7 +409,7 @@ $crumb-border-style: none; // solid;
 
 // We use these to set various text styles for breadcrumbs.
 $crumb-font-size: rem-calc(12);
-// $crumb-font-color: $primary-color;
+$crumb-font-color: $text-muted-color;
 // $crumb-font-color-current: $oil;
 // $crumb-font-color-unavailable: $aluminum;
 $crumb-font-transform: none;

@@ -1,0 +1,36 @@
+// Monolith by BigSpring
+// Licensed under MIT Open Source
+
+// This file includes some basic hacks and fixes, such as spacing etc.
+
+// Remove the margin from the breadcrumbs <ul>
+.breadcrumbs {
+  margin-bottom: 0;
+}
+  
+// force all images to jave auto heights in main content block
+.block-main img {height: auto !important;}
+
+// remove margins from shortcode panels – this is a filthy wack hack
+.shortcode-panel {
+  padding-bottom: 0 !important; // :( GRUMPY CAT
+}
+
+// hack to make the .lead class work when it's surrounding a paragraph due to WP's auto paragraph filters
+.lead > p {
+  @include lead;
+}
+
+// Builder Structures
+// =========================
+
+// Block Grid
+.builder-block-grid > ul > li.item {
+  
+  // make the image link a block element, add some margin for spacing
+  .featured-image {
+    display: block;
+    margin-bottom: 0.8rem; // add some margin, as the h3 is adding 0.2rem top margin
+  }
+  
+}
