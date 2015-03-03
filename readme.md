@@ -10,5 +10,7 @@ Created by team at [BigSpring](http://www.bigspring.co.uk)
 changelog
 -----
 
+* 2.1.0 – refactored header/footer, introduced hero unit, refactored CSS stuff
+
 * 2.0.1 – improved bower, updated dependencies
 * 2.0.0 – hello cleveland!
