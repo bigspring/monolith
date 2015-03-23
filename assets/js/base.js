@@ -1,8 +1,8 @@
-/*! monolith 2.0.0 - 2015-03-23 15:52:33
+/*! monolith 2.0.2 - 2015-03-23 20:26:27
 * https://github.com/bigspring/monolith
 * Copyright (c) 2015 BigSpring
 * License: MIT
-* Packages: node-sass, grunt, grunt-contrib-concat, grunt-contrib-uglify, grunt-sass, grunt-contrib-cssmin, grunt-contrib-watch, load-grunt-tasks */
+* Packages: grunt, grunt-contrib-concat, grunt-contrib-copy, grunt-contrib-cssmin, grunt-contrib-uglify, grunt-contrib-watch, grunt-sass, load-grunt-tasks */
 
 (function ($, window, document, undefined) {
   'use strict';
@@ -4551,6 +4551,8 @@ License:  http://opensource.org/licenses/MIT
 jQuery(document).ready(function($) {
 
 	$(document).foundation();
+	
+	// hack to remove empty <p> tags
 	$('p:empty').remove();
 	
 	// custom JS goes here

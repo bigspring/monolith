@@ -8,7 +8,20 @@ get_header(); ?>
 
 <?php      
 
-  if ( is_home() || is_archive() ) :        
+  if (is_page()) :
+    ?>
+
+      <ul class="tick">
+          <li>Test</li>
+          <li>Test</li>
+          <li>Test</li>
+          <li>Test</li>
+          <li>Test</li>
+      </ul>
+
+    <?php
+
+  elseif ( is_home() || is_archive() ) :
    
     build('snippets'); // if it's the main loop, load snippets
     
