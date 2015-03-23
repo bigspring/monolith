@@ -12,7 +12,9 @@ module.exports = function(grunt) {
             assets: {
                 js: 'assets/js',
                 css: 'assets/css',
-                bower: 'assets/bower_components'
+                bower: 'assets/bower_components',
+                icons: 'assets/icons',
+                fonts: 'assets/fonts'
             },
             src: {
                 all: '_src',
@@ -132,6 +134,32 @@ module.exports = function(grunt) {
         },
 
         /**
+         * Copy other dependencies
+         * - Fairhead web icons
+         * - Font Awesome fonts
+         */
+        copy: {
+            main: {
+                files: [
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= project.assets.bower %>/fairheadwebicons/',
+                        src: ['webicons/*.*'],
+                        dest: '<%= project.assets.icons %>/fairheadwebicons/'
+                    },
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= project.assets.bower %>/fontawesome/',
+                        src: ['fonts/*.*'],
+                        dest: '<%= project.assets.fonts %>/fontawesome/'
+                    }
+                ]
+            }
+        },
+
+        /**
          * WATCH ALL THE THINGS
          */
         watch: {
@@ -150,6 +178,6 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Default task
-    grunt.registerTask('default', ['concat', 'sass', 'watch']); // dev mode
-    grunt.registerTask('prod', ['concat', 'uglify', 'sass', 'cssmin']); // prod mode
+    grunt.registerTask('default', ['concat', 'sass', 'copy', 'watch']); // dev mode
+    grunt.registerTask('prod', ['concat', 'uglify', 'sass', 'cssmin', 'copy']); // prod mode
 };

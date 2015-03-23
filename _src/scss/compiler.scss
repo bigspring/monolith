@@ -55,11 +55,11 @@ for more information on Foundation components, visit http://foundation.zurb.com/
 // =========================
 
 // web icons (by http://fairheadcreative.com/)
-$webicons-url: "../bower_components/fairheadwebicons/webicons/" !default; // set the path of the web icons folder
+$webicons-url: "../icons/fairheadwebicons/webicons/" !default;
 @import "fairheadwebicons/webicons"; // load the social icons
 
 // fontawesome (by https://github.com/FortAwesome/Font-Awesome)
-$fa-font-path: "../bower_components/fontawesome/fonts" !default;
+$fa-font-path: "../fonts/fontawesome/fonts" !default;
 @import "fontawesome/scss/font-awesome";
 
 // 04 – SETTINGS & UTILITIES
