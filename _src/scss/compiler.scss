@@ -54,10 +54,6 @@ for more information on Foundation components, visit http://foundation.zurb.com/
 // 03 – CUSTOM ICONS/FONTS
 // =========================
 
-// web icons (by http://fairheadcreative.com/)
-$webicons-url: "../icons/fairheadwebicons/webicons/" !default;
-@import "fairheadwebicons/webicons"; // load the social icons
-
 // fontawesome (by https://github.com/FortAwesome/Font-Awesome)
 $fa-font-path: "../fonts/fontawesome/fonts" !default;
 @import "fontawesome/scss/font-awesome";
