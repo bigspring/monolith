@@ -8,19 +8,62 @@
   
   // reduce the default inline-list margin 
   li {
-    margin-left: 0.5rem;
+    margin-left: 0rem;
+
+  }
+  
+  // colour code the icons
+  .facebook > .fa-stack > .fa-circle {
+    color: #3b5998;
+  }
+  
+  .twitter > .fa-stack > .fa-circle {
+    color: #00aced;
   }
 
-  // remove the box shadown from web icons
-  .webicon {
-    box-shadow: none; // kill the box shadows
+  .google > .fa-stack > .fa-circle {
+    color: #dd4b39;
+  }
+
+  .instagram > .fa-stack > .fa-circle {
+    color: #517fa4;
+  }
+
+  .linkedin > .fa-stack > .fa-circle {
+    color: #007bb6;
+  }
+
+  .youtube > .fa-stack > .fa-circle {
+    color: #bb0000;
+  }
+  
+  &:hover {
     
-    // remove wack effects on hover
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg); 
+    -o-transform:rotate(360deg);    
+  }
+    
+  &.spin > li {
+    
+    // rotation
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out; 
+    -o-transition: all 0.3s ease-in-out; 
+    -ms-transition: all 0.3s ease-in-out; 
+    
     &:hover {
-      box-shadow: none;
-      margin: 0;
-    }
+      
+      -webkit-transform: rotate(360deg); 
+      -moz-transform: rotate(360deg); 
+      -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);       
+      
+    }    
     
   }
+
 
 } // .social-icons
+
+
