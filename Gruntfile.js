@@ -135,19 +135,11 @@ module.exports = function(grunt) {
 
         /**
          * Copy other dependencies
-         * - Fairhead web icons
          * - Font Awesome fonts
          */
         copy: {
             main: {
                 files: [
-                    {
-                        expand: true,
-                        dot: true,
-                        cwd: '<%= project.assets.bower %>/fairheadwebicons/',
-                        src: ['webicons/*.*'],
-                        dest: '<%= project.assets.icons %>/fairheadwebicons/'
-                    },
                     {
                         expand: true,
                         dot: true,
