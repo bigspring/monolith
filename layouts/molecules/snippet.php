@@ -7,7 +7,7 @@
 ?>
 
 <!-- start single snippet -->
-<article <?php post_class(); ?>>
+<article <?php post_class('snippet'); ?>>
 
   <!-- entry title -->
   <header>

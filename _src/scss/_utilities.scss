@@ -84,4 +84,65 @@
       margin-left: -0.6rem;
     }
     
-  }  
+  }
+  
+  
+ // Styled <ul> lists using monolith lists shortcode
+ // NB no real way of using the markup above as a mixin as it is the 
+ // wrapping div which gets the specific name
+ // rather than the ul itself, maybe we can improve this in the future?
+ // --------------------------------------------------------------------
+
+ .styled-list {
+	 
+	 ul {
+    @include reset-list;
+    
+    li {      
+      
+      // float the icon left and apply some ninja magics
+      &:before {
+        font-family: 'fontAwesome';
+        float: left;
+      } //:before  
+    
+    } // li    
+    
+	 }//ul
+	 
+	 //chevron
+	 &.chevron {
+    li {padding-left: 0.7rem;}
+    
+    li:before {
+      content: $fa-var-angle-right;
+      margin-left: -0.6rem;
+    }
+	 }//chevron
+	 
+  // caret right
+  &.caret {
+    
+    li {padding-left: 0.7rem;}    
+    
+    li:before {
+      content: $fa-var-caret-right;
+      margin-left: -0.6rem;
+    }
+  }// caret right  
+  
+  // tick list
+  &.tick {
+    
+    li {padding-left: 1.3rem;}
+    
+    li:before {
+      content: $fa-var-check;
+      color: $success-color;
+      margin-left: -1.3rem;
+    }
+  }// tick list
+  
+	 
+ }//monolith-list
+    

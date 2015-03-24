@@ -1,0 +1,42 @@
+// Monolith by BigSpring
+// Licensed under MIT Open Source
+// @package monolith
+
+// Styles for single post
+
+// add a default margin to a post's featured image
+.post-featured-image {
+  margin-bottom: 1rem;
+}
+
+// alignment classes
+.alignleft {
+  float: left;
+  margin-right: 1rem;
+}
+
+.alignright {
+  float: right;
+  margin-left: 1rem;
+}
+
+.aligncenter {
+  margin: 0 auto;
+}
+
+// captions
+.wp-caption {  
+  
+  text-align: center;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  font-style: italic;
+  
+  .wp-caption-text {
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    color: $steel;
+  }
+  
+}

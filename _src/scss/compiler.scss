@@ -51,23 +51,32 @@ for more information on Foundation components, visit http://foundation.zurb.com/
 //  "foundation/components/offcanvas",
 "foundation/components/visibility";
 
-// 03 – Custom Fonts
+// 03 – CUSTOM ICONS/FONTS
 // =========================
 
 // web icons (by http://fairheadcreative.com/)
-$webicons-url: "../bower_components/fairheadwebicons/webicons/" !default; // set the path of the web icons folder
+$webicons-url: "../icons/fairheadwebicons/webicons/" !default;
 @import "fairheadwebicons/webicons"; // load the social icons
 
 // fontawesome (by https://github.com/FortAwesome/Font-Awesome)
-$fa-font-path: "../bower_components/fontawesome/fonts" !default;
+$fa-font-path: "../fonts/fontawesome/fonts" !default;
 @import "fontawesome/scss/font-awesome";
 
 // 04 – SETTINGS & UTILITIES
 // =========================
-@import "reset"; 		
+@import "hacks"; 		
 @import "utilities";
 @import "cf7"; // add contact form 7 style support
 
-// 05 – CUSTOM STYLES (load this at the end to avoid pain)
+// 05 – MONOLITH MODULES
+// =========================
+@import "hero-unit";
+@import "page-header";
+@import "sidebars";
+@import "social-icons";
+@import "post";
+@import "snippet";
+
+// 06 – CUSTOM STYLES (load this at the end to avoid pain)
 // =========================
 @import "custom";

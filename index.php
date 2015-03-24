@@ -6,39 +6,18 @@
  */
 get_header(); ?>
 
-  <!-- start the title row -->
-  <?php get_template_part('layouts/molecules/page-header'); ?>
-  <!-- end the title row -->
+<?php      
 
-  <?php if( !is_front_page() ) : // load the breadcrumbs, except on the homepage
-    get_template_part('layouts/molecules/breadcrumbs');
-    endif;
-  ?>
+  if ( is_home() || is_archive() ) :
+   
+    build('snippets'); // if it's the main loop, load snippets
+    
+  else :
 
-  <!-- start the main content row -->
-  <div class="row">    
-    
-    <?php // if we're using the fullwdith template, apply the relevant class ?>
-    <div class="columns <?= is_page_template('page-fullwidth.php') ? FULLWIDTH_SIZE : MAIN_SIZE; ?>" role="main">
+    build('content');  // otherwise, load content by default
 
-      <?php      
-        if( is_single() || is_page() ) :       
-          build('content'); // load the content part on posts & pages
-        else :        
-          build('snippets'); // otherwise, load the snippets builder                  
-        endif;
-      ?>      
-    </div>
-    
-    <!-- start the sidebar -->
-    <?php if( !is_page_template('page-fullwidth.php') ) : // do not load sidebar if using fullwidth template ?>
-    <div id="sidebar" class="columns <?= SIDEBAR_SIZE; ?> sidebar" role="complementary">      
-      <?php get_template_part('layouts/organisms/sidebar'); ?> 
-    </div>
-    <?php endif; ?>
-    <!-- end the sidebar -->
-    
-  </div><!-- /.row -->
-  <!-- end the main content row -->
+  endif;
+
+?>
 
 <?php get_footer();

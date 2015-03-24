@@ -6,16 +6,16 @@
  */
 ?>
 
-<nav class="block-breadcrumbs">
-  <div class="row">
-    <div class="columns small-12">
-      <ul class="breadcrumbs">
-          <?php if(function_exists('bcn_display'))
-          {
-              bcn_display_list();
-          }?>
-      </ul>        
-    </div><!-- /.columns -->
-  </div><!-- /.row -->
-</nav><!-- /.block-breadcrumbs -->
+<?php if(function_exists('bcn_display') && !is_front_page() ) : // load the bradcrumbs, except on the front page ?>
 
+  <nav class="block-breadcrumbs">
+    <div class="row">
+      <div class="columns small-12">
+        <ul class="breadcrumbs">
+          <?php bcn_display_list(); ?>
+        </ul>        
+      </div><!-- /.columns -->
+    </div><!-- /.row -->
+  </nav><!-- /.block-breadcrumbs -->
+
+<?php endif; ?>

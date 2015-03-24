@@ -208,9 +208,13 @@ add_shortcode('divider', 'hr_shortcode'); // hr divider shortcode
 /**
  * Panel shortcode [panel]
  */
-function panel_shortcode($atts, $content = null)
-{
-	return '<div class="panel">'.apply_filters('the_content', $content).'</div>';
+function panel_shortcode($atts, $content = null) {
+	extract( shortcode_atts( array(
+			'type' => ''
+	), $atts ) );
+
+
+	return '<div class="shortcode-panel panel '. $type .'">'.apply_filters('the_content', $content).'</div>';
 }
 add_shortcode('panel', 'panel_shortcode');
 
@@ -371,3 +375,25 @@ function kitchensink_shortcode($atts, $content = null) {
     return ob_get_clean();
 }
 add_shortcode('kitchensink', 'kitchensink_shortcode');
+
+
+/**
+ * Renders wrapper div to create different types of lists
+ * @param array $atts
+ * @param string $content
+ * @return string
+ */
+ 
+function list_shortcode( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+			'type' => '', /* no-bullet, ticks, chevron etc */
+	), $atts ) );
+
+
+	$output = '<div class="styled-list '. $type . '">';
+	$output .= apply_filters('the_content', $content);
+	$output .= '</div>';
+
+	return $output;
+}
+add_shortcode('list', 'list_shortcode');

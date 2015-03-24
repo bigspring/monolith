@@ -244,14 +244,14 @@
 											name: 'listboxListTypes',
 											label: 'List Type',
 											'values': [
-												{text: 'Disc (default list)', value: 'disc'},
-												{text: 'Unstyled List', value: 'no-bullet'},
-												{text: 'Inline List', value: 'inline-list'},
+												{text: 'Default', value: 'disc'},
+												{text: 'Unstyled', value: 'no-bullet'},
+												{text: 'Inline', value: 'inline-list'},
 												{text: 'Chevrons', value: 'chevron'}	,									
-												{text: 'Circle List', value: 'circle'},												
-												{text: 'Square List', value: 'square'},
-												{text: 'Caret List', value: 'caret'},											
-												{text: 'Tick List', value: 'tick'}											
+												{text: 'Circles', value: 'circle'},												
+												{text: 'Squares', value: 'square'},
+												{text: 'Carets', value: 'caret'},											
+												{text: 'Ticks', value: 'tick'}											
 											]
 										},
 										
@@ -338,9 +338,35 @@
 					]
 				},
 
+				//List Shortcode
+				// ====================================
+				
+				{
+					text: 'List',
+					onclick: function() {
+						editor.windowManager.open( {
+							title: 'Insert list style',
+							body: [
+								{
+									type: 'listbox',
+									name: 'listboxListTypes',
+									label: 'List Type',
+									'values': [
+										{text: 'Chevrons', value: 'chevron'},									
+										{text: 'Carets', value: 'caret'},											
+										{text: 'Ticks', value: 'tick'}											
+									]
+								},
+							],
+							onsubmit: function( e ) {
+								editor.insertContent( '[list type="' + e.data.listboxListTypes + '" ]<ul><li>List Item</li></ul>[/list]');
+							}
+						});
+					}
+				}, // end list shortcode
 
-				/*
 				// Intro shortcode
+				// ====================================
 				{
 					text: 'Intro',
 						onclick: function() {
@@ -364,6 +390,34 @@
 						}
 				},						
 
+				// Panel Shortcode
+				// ====================================
+				
+				{
+					text: 'Panel',
+					onclick: function() {
+						editor.windowManager.open( {
+							title: 'Choose panel style',
+							body: [
+								{
+									type: 'listbox',
+									name: 'listboxListTypes',
+									label: 'List Type',
+									'values': [
+										{text: 'Default', value: ''},									
+										{text: 'Callout', value: 'callout'}											
+									]
+								},
+							],
+							onsubmit: function( e ) {
+								editor.insertContent( '[panel type="' + e.data.listboxListTypes + '" ]<p>Panel Content</p>[/panel]');
+							}
+						});
+					}
+				}, // end list shortcode
+
+
+				/*
 				// Pages shortcode
 				{
 					text: 'Pages',

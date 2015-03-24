@@ -269,7 +269,7 @@ if ( ! function_exists( 'get_asset_uri' ) ) {
      */
     function get_asset_uri($type, $file) {
 
-        $base_uri = get_stylesheet_directory_uri() . '/assets';
+        $base_uri = get_template_directory_uri() . '/assets';
         $final_uri = '';
         $allowed_types = array('css', 'js');
 
