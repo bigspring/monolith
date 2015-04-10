@@ -20,6 +20,7 @@ class Builder
         'has_title' => true,
         'has_summary' => true,
         'has_readmore' => true,
+        'has_titlelink' => true,
         'has_date' => true
     );
 
