@@ -249,7 +249,7 @@ function buttons( $atts, $content = null ) {
 	$output .= $text;
 	$output .= '</a>';
 
-	return apply_filters('the_content', $output);
+	return $output;
 }
 add_shortcode('button', 'buttons');
 
