@@ -22,7 +22,14 @@
       get_template_part('layouts/molecules/date');
   } ?>
   </section>
-  <?php endif; // end has_date ?>  
+  <?php endif; // end has_date ?>
+
+  <?php if( $args['has_image'] && has_post_thumbnail() ) : // check if post image argument ?>
+  <section class="snippet-image">
+    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+    <hr class="spacer"/>
+  </section>
+  <?php endif; ?>
 
   <?php if( $args['has_summary'] ) : // display the summary if argument is true ?>
     <!-- entry summary -->
