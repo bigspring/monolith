@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*! monolith 2.0.0 - 2015-03-23 15:55:09
-=======
-/*! monolith 2.0.2 - 2015-03-23 20:26:27
->>>>>>> 6dd128f35901627aa7c1ee4e212068e02a435d2e
+/*! monolith 2.0.4 - 2015-04-10 17:12:05
 * https://github.com/bigspring/monolith
 * Copyright (c) 2015 BigSpring
 * License: MIT

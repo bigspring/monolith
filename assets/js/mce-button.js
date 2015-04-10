@@ -70,7 +70,7 @@
 									multiline: false,
 									minWidth: 400,
 								},
-																
+
 								{
 									type: 'listbox',
 									name: 'listboxType',
@@ -78,12 +78,12 @@
 									'values': [
 										{text: 'Default', value: ''},
 										{text: 'Primary', value: 'primary'},
-										{text: 'Secondary', value: 'secondary'}	,									
+										{text: 'Secondary', value: 'secondary'}	,
 										{text: 'Success', value: 'success'},
-										{text: 'Alert', value: 'alert'}	
+										{text: 'Alert', value: 'alert'}
 									]
-								},	
-								
+								},
+
 								{
 									type: 'listbox',
 									name: 'listboxSize',
@@ -91,15 +91,15 @@
 									'values': [
 										{text: 'Default', value: ''},
 										{text: 'Tiny', value: 'tiny'},
-										{text: 'Small', value: 'small'}	,									
+										{text: 'Small', value: 'small'}	,
 										{text: 'Medium', value: 'medium'},
 										{text: 'Large', value: 'large'},
-										{text: 'Expand', value: 'expand'}										
+										{text: 'Expand', value: 'expand'}
 									]
-								},								
-								
+								},
 
-								
+
+
 							],
 							onsubmit: function( e ) {
 								editor.insertContent( '[button text="' + e.data.textboxText + '" URL="' + e.data.textboxUrl + '" Type="' + e.data.listboxType + '" Size="' + e.data.listboxSize + '"]');
@@ -108,12 +108,12 @@
 					}
 				},
 
-				
+
 				//new shiz
 				{
 					text: 'Child Pages',
 					menu: [
-						
+
 						// Accordions
 						// ====================================
 						{
@@ -122,7 +122,7 @@
 							onclick: function() {
 								editor.insertContent( '[childpages layout="accordion"]');
 							}
-						},						
+						},
 
 						// Grid
 						// ====================================
@@ -133,7 +133,7 @@
 								editor.windowManager.open( {
 									title: 'Insert Block Grid Shortcode',
 									body: [
-										
+
 										{
 											type: 'listbox',
 											name: 'listboxSizeSmall',
@@ -141,12 +141,12 @@
 											value: 'small-block-grid-1',
 											'values': [
 												{text: '1 column', value: 'small-block-grid-1'},
-												{text: '2 columns', value: 'small-block-grid-2'},									
+												{text: '2 columns', value: 'small-block-grid-2'},
 												{text: '3 columns', value: 'small-block-grid-3'},
 												{text: '4 columns', value: 'small-block-grid-4'}
 											]
-										},	
-										
+										},
+
 										{
 											type: 'listbox',
 											name: 'listboxSizeMedium',
@@ -154,12 +154,12 @@
 											value: 'medium-block-grid-2',
 											'values': [
 												{text: '1 column', value: 'medium-block-grid-1'},
-												{text: '2 columns', value: 'medium-block-grid-2'}	,									
+												{text: '2 columns', value: 'medium-block-grid-2'}	,
 												{text: '3 columns', value: 'medium-block-grid-3'},
-												{text: '4 columns', value: 'medium-block-grid-4'}											
+												{text: '4 columns', value: 'medium-block-grid-4'}
 											]
-										},	
-										
+										},
+
 										{
 											type: 'listbox',
 											name: 'listboxSizeLarge',
@@ -167,11 +167,11 @@
 											value: 'large-block-grid-2', // pre-select the value
 											'values': [
 												{text: '1 column', value: 'large-block-grid-1'},
-												{text: '2 columns', value: 'large-block-grid-2'},									
+												{text: '2 columns', value: 'large-block-grid-2'},
 												{text: '3 columns', value: 'large-block-grid-3'},
-												{text: '4 columns', value: 'large-block-grid-4'}											
+												{text: '4 columns', value: 'large-block-grid-4'}
 											]
-										},	
+										},
 
 										{
 											type: 'listbox',
@@ -179,19 +179,19 @@
 											label: 'Ordering',
 											value: 'menu_order', // pre-select the value
 											'values': [
-												{text: 'Title', value: 'title'},									
+												{text: 'Title', value: 'title'},
 												{text: 'Menu Order', value: 'menu_order'},
 												{text: 'Date', value: 'date'},
-												{text: 'Random', value: 'rand'}											
+												{text: 'Random', value: 'rand'}
 											]
-										},	
-	
+										},
+
 										{
 											type: 'checkbox',
 											name: 'checkboxImage',
 											label: 'Featured Image',
                       checked: true
-										},	
+										},
 
                     {
                         type: 'checkbox',
@@ -205,7 +205,14 @@
 											name: 'checkboxTitle',
 											label: 'Page Title',
                       checked: false
-										},	
+										},
+
+										{
+											type: 'checkbox',
+											name: 'checkboxLinkTitle',
+											label: 'Link Title',
+                      checked: false
+										},
 
 
 										{
@@ -213,7 +220,7 @@
 											name: 'checkboxExcerpt',
 											label: 'Page Summary',
                       checked: false
-										},	
+										},
 
 										{
 											type: 'checkbox',
@@ -223,7 +230,7 @@
 										}
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -233,7 +240,7 @@
 						// ====================================
 						{
 							text: 'List',
-							
+
 							onclick: function() {
 								editor.windowManager.open( {
 									title: 'Insert Childpages List Shortcode',
@@ -247,35 +254,35 @@
 												{text: 'Default', value: 'disc'},
 												{text: 'Unstyled', value: 'no-bullet'},
 												{text: 'Inline', value: 'inline-list'},
-												{text: 'Chevrons', value: 'chevron'}	,									
-												{text: 'Circles', value: 'circle'},												
+												{text: 'Chevrons', value: 'chevron'}	,
+												{text: 'Circles', value: 'circle'},
 												{text: 'Squares', value: 'square'},
-												{text: 'Carets', value: 'caret'},											
-												{text: 'Ticks', value: 'tick'}											
+												{text: 'Carets', value: 'caret'},
+												{text: 'Ticks', value: 'tick'}
 											]
 										},
-										
+
 										{
 											type: 'listbox',
 											name: 'listboxOrder',
 											label: 'Ordering',
 											value: 'menu_order', // pre-select the value
 											'values': [
-												{text: 'Title', value: 'title'},									
+												{text: 'Title', value: 'title'},
 												{text: 'Menu Order', value: 'menu_order'},
 												{text: 'Date', value: 'date'},
-												{text: 'Random', value: 'rand'}											
+												{text: 'Random', value: 'rand'}
 											]
-										},	
-										
-											
+										},
+
+
 									],
 									onsubmit: function( e ) {
 										editor.insertContent( '[childpages layout="list" class="' + e.data.listboxListTypes + '" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
-						},						
+						},
 
 
 						// Snippets
@@ -291,34 +298,48 @@
 
 										{
 											type: 'checkbox',
+											name: 'checkboxTitle',
+											label: 'Page Title',
+                      checked: true
+										},	
+
+										{
+											type: 'checkbox',
+											name: 'checkboxLinkTitle',
+											label: 'Link Title',
+                      checked: true
+										},	
+
+										{
+											type: 'checkbox',
 											name: 'checkboxExcerpt',
 											label: 'Include Excerpt?',
                       checked: 'true'
-										},	
+										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxReadMore',
 											label: 'Include Readmore Link?',
-                                            checked: 'true'
+                      checked: 'true'
 										},
-										
+
 										{
 											type: 'listbox',
 											name: 'listboxOrder',
 											label: 'Ordering',
 											value: 'menu_order', // pre-select the value
 											'values': [
-												{text: 'Title', value: 'title'},									
+												{text: 'Title', value: 'title'},
 												{text: 'Menu Order', value: 'menu_order'},
 												{text: 'Date', value: 'date'},
-												{text: 'Random', value: 'rand'}											
+												{text: 'Random', value: 'rand'}
 											]
-										},	
-										
+										},
+
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="snippets" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
+										editor.insertContent( '[childpages layout="snippets" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
 									}
 								});
 							}
@@ -333,14 +354,14 @@
 							onclick: function() {
 								editor.insertContent( '[childpages layout="tabs"]');
 							}
-						}					
-						
+						}
+
 					]
 				},
 
 				//List Shortcode
 				// ====================================
-				
+
 				{
 					text: 'List',
 					onclick: function() {
@@ -352,9 +373,9 @@
 									name: 'listboxListTypes',
 									label: 'List Type',
 									'values': [
-										{text: 'Chevrons', value: 'chevron'},									
-										{text: 'Carets', value: 'caret'},											
-										{text: 'Ticks', value: 'tick'}											
+										{text: 'Chevrons', value: 'chevron'},
+										{text: 'Carets', value: 'caret'},
+										{text: 'Ticks', value: 'tick'}
 									]
 								},
 							],
@@ -381,18 +402,18 @@
 										multiline: true,
 										minWidth: 300,
 										minHeight: 100
-									},										
+									},
 								],
 								onsubmit: function( e ) {
 									editor.insertContent( '[intro]' + e.data.textboxIntro + '[/intro]');
 								}
 							});
 						}
-				},						
+				},
 
 				// Panel Shortcode
 				// ====================================
-				
+
 				{
 					text: 'Panel',
 					onclick: function() {
@@ -404,8 +425,8 @@
 									name: 'listboxListTypes',
 									label: 'List Type',
 									'values': [
-										{text: 'Default', value: ''},									
-										{text: 'Callout', value: 'callout'}											
+										{text: 'Default', value: ''},
+										{text: 'Callout', value: 'callout'}
 									]
 								},
 							],
@@ -416,32 +437,19 @@
 					}
 				}, // end list shortcode
 
-
-				/*
-				// Pages shortcode
+				// Text Columns
+				// ====================================
 				{
-					text: 'Pages',
-						onclick: function() {
-							editor.windowManager.open( {
-								title: 'Insert pages Shortcode',
-								body: [
-									{
-										type: 'textbox',
-										name: 'textboxIds',
-										label: 'Page IDs',
-										value: '',
-										minWidth: 300,
-									},										
-								],
-								onsubmit: function( e ) {
-									editor.insertContent( '[pages ids="' + e.data.textboxIds + '"]');
-								}
-							});
-						}
-				},	
-				*/					
-				
+					text: 'Columns',
+					minWidth: 300,
+					onclick: function() {
+						editor.insertContent( '[columns][/columns]');
+					}
+				}
+
 			]
+
 		});
+
 	});
 })();

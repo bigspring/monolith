@@ -29,9 +29,12 @@
                 wp_nav_menu($args);
                 ?>
                 <!-- end menu items -->
-
+								
+								
             </ul>
             <!-- end the footer menu -->
+
+            <?php get_template_part('layouts/molecules/address'); // load the social media icons ?>
 
         </div><!-- /.columns -->
 

@@ -19,10 +19,11 @@
       </section>
       <?php endif; ?>
 
+
+      <?php if (has_post_thumbnail()) : ?>
       <!-- the featured image -->
-      <?php if( has_post_thumbnail() ) : ?>
       <section class="post-featured-image">
-        <?php the_post_thumbnail('large'); ?>
+        <?= monolith_post_thumbnail('large'); ?>
       </section>
       <?php endif; ?>
 

@@ -9,10 +9,6 @@
  */
 add_action('admin_init', function() {
 
-    // blog
-    register_setting('monolith-group', 'monolith_blog_page_title');
-    register_setting('monolith-group', 'monolith_blog_page_introtext');
-
     // contact
     register_setting('monolith-group', 'monolith_address_1');
     register_setting('monolith-group', 'monolith_address_2');
@@ -22,22 +18,16 @@ add_action('admin_init', function() {
     register_setting('monolith-group', 'monolith_postcode');
     register_setting('monolith-group', 'monolith_country');
     register_setting('monolith-group', 'monolith_phone');
+    register_setting('monolith-group', 'monolith_secondary_phone');
+    register_setting('monolith-group', 'monolith_email');
 
-    // social media
-    register_setting('monolith-group', 'monolith_facebook');
-    register_setting('monolith-group', 'monolith_twitter');
-    register_setting('monolith-group', 'monolith_googleplus');
-    register_setting('monolith-group', 'monolith_youtube');
-    register_setting('monolith-group', 'monolith_linkedin');
-    register_setting('monolith-group', 'monolith_pinterest');
-    register_setting('monolith-group', 'monolith_instagram');
 });
 
 /**
  * Produce admin menu markup for options
  */
 add_action('admin_menu', function() {
-    add_options_page('Site Options', 'Site Options', 'manage_options', 'monolith_settings', function() {
+    add_options_page('Contact Details', 'Contact Details', 'manage_options', 'monolith_contact_details_settings', function() {
         if (!current_user_can('manage_options')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
@@ -48,29 +38,13 @@ add_action('admin_menu', function() {
 
         <div class="wrap">
 
-            <h1>Site Options</h1>
+            <h1>Contact Details</h1>
+            <hr />
 
             <form method="post" action="options.php">
 
                 <?php @settings_fields('monolith-group'); ?>
                 <?php @do_settings_sections('monolith-group'); ?>
-
-                <h3>Blog</h3>
-
-                <table class="form-table">
-                    <tr valign="top">
-                        <th scope="row"><label for="monolith_blog_page_title">Blog Page Title (*)</label></th>
-                        <td>
-                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50" placeholder="News" required>
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row"><label for="monolith_blog_page_introtext">Blog Page Introductory Text</label></th>
-                        <td>
-                            <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3" placeholder="This is my news blog."><?= get_option('monolith_blog_page_introtext') ? get_option('monolith_blog_page_introtext') : '' ?></textarea>
-                        </td>
-                    </tr>
-                </table>
 
 
                 <h3>Contact</h3>
@@ -123,58 +97,25 @@ add_action('admin_menu', function() {
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_phone">Phone</label></th>
+                        <th scope="row"><label for="monolith_phone">Phone Number</label></th>
                         <td>
                             <input type="text" name="monolith_phone" id="monolith_phone" value="<?= get_option('monolith_phone') ? get_option('monolith_phone') : '' ?>" size="15" placeholder="(0115) 906 1321">
                         </td>
                     </tr>
-                </table>
-
-                <h3>Social Media</h3>
-
-                <table class="form-table">
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_facebook">Facebook</label></th>
+                        <th scope="row"><label for="monolith_secondary_phone">Secondary Phone Number</label></th>
                         <td>
-                            <input type="text" name="monolith_facebook" id="monolith_facebook" value="<?= get_option('monolith_facebook') ? get_option('monolith_facebook') : '' ?>" size="50" placeholder="https://facebook.com/youraccountnamehere">
+                            <input type="text" name="monolith_secondary_phone" id="monolith_secondary_phone" value="<?= get_option('monolith_secondary_phone') ? get_option('monolith_secondary_phone') : '' ?>" size="15" placeholder="(0) 123 906 1321">
                         </td>
                     </tr>
+                    
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_twitter">Twitter</label></th>
+                        <th scope="row"><label for="monolith_email">Email</label></th>
                         <td>
-                            <input type="text" name="monolith_twitter" id="monolith_twitter" value="<?= get_option('monolith_twitter') ? get_option('monolith_twitter') : '' ?>" size="50" placeholder="https://www.twitter.com/youraccountnamehere">
+                            <input type="text" name="monolith_email" id="monolith_email" value="<?= get_option('monolith_email') ? get_option('monolith_email') : '' ?>" size="35" placeholder="hello@website.com">
                         </td>
                     </tr>
-                    <tr valign="top">
-                        <th scope="row"><label for="monolith_googleplus">Google+</label></th>
-                        <td>
-                            <input type="text" name="monolith_googleplus" id="monolith_googleplus" value="<?= get_option('monolith_googleplus') ? get_option('monolith_googleplus') : '' ?>" size="50" placeholder="https://plus.google.com/+youraccountnamehere">
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row"><label for="monolith_youtube">Youtube</label></th>
-                        <td>
-                            <input type="text" name="monolith_youtube" id="monolith_youtube" value="<?= get_option('monolith_youtube') ? get_option('monolith_youtube') : '' ?>" size="50" placeholder="http://www.youtube.com/user/youraccountnamehere">
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row"><label for="monolith_linkedin">LinkedIn</label></th>
-                        <td>
-                            <input type="text" name="monolith_linkedin" id="monolith_linkedin" value="<?= get_option('monolith_linkedin') ? get_option('monolith_linkedin') : '' ?>" size="50" placeholder="http://www.linkedin.com/company/youraccountnamehere">
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row"><label for="monolith_pinterest">Pinterest</label></th>
-                        <td>
-                            <input type="text" name="monolith_pinterest" id="monolith_pinterest" value="<?= get_option('monolith_pinterest') ? get_option('monolith_pinterest') : '' ?>" size="50" placeholder="http://www.pinterest.com/youraccountnamehere">
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row"><label for="monolith_instagram">Instagram</label></th>
-                        <td>
-                            <input type="text" name="monolith_instagram" id="monolith_instagram" value="<?= get_option('monolith_instagram') ? get_option('monolith_instagram') : '' ?>" size="50" placeholder="http://instagram.com/youraccountnamehere">
-                        </td>
-                    </tr>
+                    
                 </table>
 
                 <?php @submit_button(); ?>
@@ -206,15 +147,9 @@ if ( ! function_exists( 'set_default_site_options' ) ) {
         add_option('monolith_postcode', '');
         add_option('monolith_country', '');
         add_option('monolith_phone', '');
+        add_option('monolith_secondary_phone', '');
+        add_option('monolith_email', '');
 
-        // social media
-        add_option('monolith_facebook', '');
-        add_option('monolith_twitter', '');
-        add_option('monolith_googleplus', '');
-        add_option('monolith_youtube', '');
-        add_option('monolith_linkedin', '');
-        add_option('monolith_pinterest', '');
-        add_option('monolith_instagram', '');
     }
 }
 

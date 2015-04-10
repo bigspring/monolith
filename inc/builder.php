@@ -20,6 +20,7 @@ class Builder
         'has_title' => true,
         'has_summary' => true,
         'has_readmore' => true,
+        'has_titlelink' => true,
         'has_date' => true
     );
 
@@ -76,16 +77,20 @@ class Builder
         $loop = &$this->loop;
         $args = &$this->args;
         $layouts_path = $this->layouts_path;
+        global $post;
 
         ob_start();
-        if (!@include($this->_get_layout_file())) { // if the file doesn't exist, handle the error
+
+        if (!file_exists($this->_get_layout_file())) { // if the file doesn't exist, handle the error
             if(ENVIRONMENT === 'development') { // if we're in development mode then show the error
                 return $this->_raise_alert('The layout file "' . $this->layout . '"could not be found');
             } else { // otherwise default to the list layout
                 $this->layout = 'list';
-                include($this->_get_layout_file());
             }
         }
+
+        include($this->_get_layout_file());
+
         return ob_get_clean();
     }
 

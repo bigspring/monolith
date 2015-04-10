@@ -1,0 +1,36 @@
+/* 
+Use this stylesheet to style the front end login page test
+*/
+
+/* colour the background here */
+html, body.login {
+}
+
+/* add the logo here */
+h1 a { 
+/*
+background-image:url() !important;
+background-size: auto !important;
+width: auto !important;
+height: 50px !important;
+*/
+}
+
+/* style the login and back to blog links */
+.login #nav a, .login #backtoblog a {
+}
+
+.login #nav a:hover, .login #backtoblog a:hover {
+}
+
+/* style the submit button */
+.wp-core-ui .button, .wp-core-ui .button-primary, .wp-core-ui .button-secondary {
+}
+
+/* 	style the login form */
+.login form {
+}
+
+/* style the label text */
+.login label   {
+}

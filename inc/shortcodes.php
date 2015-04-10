@@ -241,7 +241,7 @@ function buttons( $atts, $content = null ) {
 	else{
 		$size = $size;
 	}
-	
+
 	if($pageid != '')
 		$url = get_permalink($pageid);
 
@@ -249,7 +249,7 @@ function buttons( $atts, $content = null ) {
 	$output .= $text;
 	$output .= '</a>';
 
-	return apply_filters('the_content', $output);
+	return $output;
 }
 add_shortcode('button', 'buttons');
 
@@ -297,6 +297,7 @@ function childpages($atts, $content = null)
         'image_border' => 'false',
         'image' => true,
         'title' => true,
+        'titlelink' => true,
         'excerpt' => true,
         'readmore' => true,
         'orderby' => 'menu_order',
@@ -316,6 +317,7 @@ function childpages($atts, $content = null)
     $builder_args['is_thumbnail'] = ($image_border == 'false') ? false : true;
     $builder_args['has_image'] = ($image == 'false') ? false : true;
     $builder_args['has_title'] = ($title == 'false') ? false : true;
+    $builder_args['has_titlelink'] = ($titlelink == 'false') ? false : true;
     $builder_args['has_summary'] = ($excerpt == 'false') ? false : true;
     $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
 		$builder_args['orderby'] = $orderby;
@@ -338,8 +340,19 @@ add_shortcode('childpages', 'childpages');
 function pages_shortcode($atts, $content = null) {
 
     extract( shortcode_atts( array( // set our defaults for the shortcode
-        'ids' => '', // default layout
-        'layout' => 'list'
+        'layout' => 'list', // default layout
+        'ids' => '',
+        'class' => '',
+        'size' => '',
+        'exclude_pages' => null,
+        'image_border' => 'false',
+        'image' => true,
+        'title' => true,
+        'excerpt' => true,
+        'readmore' => true,
+        'orderby' => 'menu_order',
+        'order' => 'ASC'
+
     ), $atts ) );
 
     $page_ids = array();
@@ -350,21 +363,39 @@ function pages_shortcode($atts, $content = null) {
         'post__in' => $page_ids,
         'post_type' => 'page',
         'order' => 'ASC',
-        'orderby' => 'menu_order'
+        'orderby' => 'menu_order',
+        'posts_per_page' => -1
 
     );
 
+    // define our arguments for the builder based on whether we want to show images, titles, etc
+    $builder_args = array();
+    $builder_args['is_thumbnail'] = ($image_border == 'false') ? false : true;
+    $builder_args['has_image'] = ($image == 'false') ? false : true;
+    $builder_args['has_title'] = ($title == 'false') ? false : true;
+    $builder_args['has_summary'] = ($excerpt == 'false') ? false : true;
+    $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
+    $builder_args['orderby'] = $orderby;
+    $builder_args['classes'] = $class;
+    $builder_args['size'] = $size;
+
     ob_start();
-    build($layout, null, $args);
+    build($layout, $builder_args, $args);
     return ob_get_clean();
 
 }//end function
 add_shortcode('pages', 'pages_shortcode');
 
-//shortcode for bio column structures
+/**
+ * Renders wrapper div to display content in columns
+ * @param array $atts
+ * @param string $content
+ * @return string
+ */
+
 function columns_shortcode($atts, $content = null) {
 	global $post;
-	return '<div class="columns">' .apply_filters('the_content', $content). '</div>';
+	return '<div class="text-columns columns-shortcode">' .apply_filters('the_content', $content). '</div>';
 }
 add_shortcode('columns', 'columns_shortcode');
 
@@ -383,7 +414,7 @@ add_shortcode('kitchensink', 'kitchensink_shortcode');
  * @param string $content
  * @return string
  */
- 
+
 function list_shortcode( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 			'type' => '', /* no-bullet, ticks, chevron etc */
