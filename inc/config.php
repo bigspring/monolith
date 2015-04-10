@@ -55,5 +55,7 @@ require_once('filters.php');
 require_once('template_tags.php');
 require_once('shortcodes.php');
 require_once('builder.php');
-require_once('settings.php');
+require_once('contact_details.php');
+require_once('blog_settings.php');
+require_once('social_media.php');
 require_once('monolith-widgets.php');
