@@ -13,7 +13,7 @@
 define('ENVIRONMENT', 'development'); // development/production
 
 /**
- * Scaffolding
+ * The Grid
  */
 
 define('FULLWIDTH_SIZE', 'small-12 medium-12 large-12'); // the size of a full width area
@@ -31,7 +31,7 @@ define('GALLERY_SIZE', 'col-md-3'); // the col size used in the gallery shortcod
 /**
  * Featured image sizes
  */
- 
+
 set_post_thumbnail_size( 640, 360, true);
 add_image_size( 'square', 640, 640, true );
 add_image_size( 'thumbnail', 320, 320, true );

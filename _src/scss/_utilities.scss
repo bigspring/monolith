@@ -9,6 +9,7 @@
 // 01 – MARGINS
 // 02 – TYPO
 // 03 – SPACERS
+// 04 – TEXT COLUMNS
 
 
 // 01 – MARGINS
@@ -158,5 +159,16 @@
     display: block;
     height: 1rem;
     margin: 0;
+
+  }
+
+// 04 - TEXT COLUMNS
+// =========================
+
+  .text-columns {
+    
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
 
   }
