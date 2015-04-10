@@ -5760,6 +5760,9 @@ th.hide-for-touch {
   display: block;
   margin-bottom: 0.8rem; }
 
+.snippet {
+  margin-bottom: 2rem; }
+
 .no-margin {
   margin: 0; }
 
@@ -5841,6 +5844,12 @@ ul.caret {
   color: #43AC6A;
   margin-left: -1.3rem; }
 
+hr.spacer {
+  border-color: transparent;
+  display: block;
+  height: 1rem;
+  margin: 0; }
+
 .wpcf7 .wpcf7-form-control-wrap {
   position: relative;
   display: block; }
@@ -5865,32 +5874,6 @@ ul.caret {
     background: #f04124; }
   .wpcf7 .wpcf7-response-output.wpcf7-mail-sent-ok {
     background: #43AC6A; }
-
-.hero-unit {
-  padding: 5% 0;
-  margin-bottom: 2rem;
-  background: #008CBA;
-  color: #FFFFFF; }
-  .hero-unit h1 {
-    color: #FFFFFF; }
-  .hero-unit .hero-unit-subtitle {
-    margin: 0; }
-  .hero-unit .button {
-    margin: 1rem 0 0; }
-
-.page-header {
-  margin-bottom: 1rem;
-  padding: 2rem 0; }
-  .page-header h1 {
-    margin: 0; }
-
-.sidebar > .widget {
-  margin-bottom: 1rem; }
-  .sidebar > .widget h3 {
-    font-size: 1.2rem; }
-  .sidebar > .widget ul {
-    margin: 0;
-    list-style: none; }
 
 .social-icons li {
   margin-left: 0rem; }
@@ -5921,30 +5904,28 @@ ul.caret {
     -o-transform: rotate(360deg);
     -ms-transform: rotate(360deg); }
 
-.post-featured-image {
-  margin-bottom: 1rem; }
+.hero-unit {
+  padding: 5% 0;
+  margin-bottom: 2rem;
+  background: #008CBA;
+  color: #FFFFFF; }
+  .hero-unit h1 {
+    color: #FFFFFF; }
+  .hero-unit .hero-unit-subtitle {
+    margin: 0; }
+  .hero-unit .button {
+    margin: 1rem 0 0; }
 
-.alignleft {
-  float: left;
-  margin-right: 1rem; }
-
-.alignright {
-  float: right;
-  margin-left: 1rem; }
-
-.aligncenter {
-  margin: 0 auto; }
-
-.wp-caption {
-  text-align: center;
+.page-header {
   margin-bottom: 1rem;
-  max-width: 100%;
-  font-style: italic; }
-  .wp-caption .wp-caption-text {
-    margin: 0;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    color: #666666; }
+  padding: 2rem 0; }
+  .page-header h1 {
+    margin: 0; }
 
-.snippet {
-  margin-bottom: 2rem; }
+.sidebar > .widget {
+  margin-bottom: 1rem; }
+  .sidebar > .widget h3 {
+    font-size: 1.2rem; }
+  .sidebar > .widget ul {
+    margin: 0;
+    list-style: none; }

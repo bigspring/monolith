@@ -5,18 +5,18 @@
 // Styles for social media icons
 
 .social-icons {
-  
-  // reduce the default inline-list margin 
+
+  // reduce the default inline-list margin
   li {
     margin-left: 0rem;
 
   }
-  
+
   // colour code the icons
   .facebook > .fa-stack > .fa-circle {
     color: #3b5998;
   }
-  
+
   .twitter > .fa-stack > .fa-circle {
     color: #00aced;
   }
@@ -36,34 +36,31 @@
   .youtube > .fa-stack > .fa-circle {
     color: #bb0000;
   }
-  
+
   &:hover {
-    
+
     -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg); 
-    -o-transform:rotate(360deg);    
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
   }
-    
+
   &.spin > li {
-    
+
     // rotation
     -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out; 
-    -o-transition: all 0.3s ease-in-out; 
-    -ms-transition: all 0.3s ease-in-out; 
-    
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+
     &:hover {
-      
-      -webkit-transform: rotate(360deg); 
-      -moz-transform: rotate(360deg); 
+
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
       -o-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);       
-      
-    }    
-    
+      -ms-transform: rotate(360deg);
+
+    }
+
   }
 
-
 } // .social-icons
-
-

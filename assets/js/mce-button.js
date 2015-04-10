@@ -207,6 +207,13 @@
                       checked: false
 										},	
 
+										{
+											type: 'checkbox',
+											name: 'checkboxLinkTitle',
+											label: 'Link Title',
+                      checked: false
+										},	
+
 
 										{
 											type: 'checkbox',
@@ -223,7 +230,7 @@
 										}
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -291,6 +298,20 @@
 
 										{
 											type: 'checkbox',
+											name: 'checkboxTitle',
+											label: 'Page Title',
+                      checked: true
+										},	
+
+										{
+											type: 'checkbox',
+											name: 'checkboxLinkTitle',
+											label: 'Link Title',
+                      checked: true
+										},	
+
+										{
+											type: 'checkbox',
 											name: 'checkboxExcerpt',
 											label: 'Include Excerpt?',
                       checked: 'true'
@@ -300,7 +321,7 @@
 											type: 'checkbox',
 											name: 'checkboxReadMore',
 											label: 'Include Readmore Link?',
-                                            checked: 'true'
+                      checked: 'true'
 										},
 										
 										{
@@ -318,7 +339,7 @@
 										
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="snippets" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
+										editor.insertContent( '[childpages layout="snippets" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
 									}
 								});
 							}

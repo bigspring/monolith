@@ -293,3 +293,15 @@ if ( ! function_exists( 'get_asset_uri' ) ) {
         return $final_uri;
     }
 }
+
+if ( ! function_exists( 'monolith_post_thumbnail' ) ) {
+    /**
+     * Return featured image URI if one exists, otherwise return default fallback image URI
+     */
+    function monolith_post_thumbnail($size)
+    {
+        return has_post_thumbnail()
+                ? get_the_post_thumbnail($size)
+                : '<img src="'.get_template_directory_uri().'/assets/img/fallback.png" alt="" />';
+    }
+}
