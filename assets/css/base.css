@@ -5850,6 +5850,13 @@ hr.spacer {
   height: 1rem;
   margin: 0; }
 
+.text-columns {
+  -webkit-column-count: 2;
+  /* Chrome, Safari, Opera */
+  -moz-column-count: 2;
+  /* Firefox */
+  column-count: 2; }
+
 .wpcf7 .wpcf7-form-control-wrap {
   position: relative;
   display: block; }
