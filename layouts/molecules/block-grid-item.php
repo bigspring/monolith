@@ -20,7 +20,15 @@
   <div class="caption">
     <?php if( $args['has_title'] ) : // display only if the summary is enabled (default is true) ?>
       <!-- the title -->
-      <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+      <h3>
+		    <?php if( $args['has_titlelink'] ) : // link the title if has_linktitle is true ?>
+		      <a href="<?php the_permalink(); ?>">
+			      <?php the_title(); ?>
+			    </a>
+			  <?php else : ?>
+		      <?php the_title(); ?>
+		    <?php endif; // end has_linktitle ?>
+	    </h3>
     <?php endif; // end has_title ?>
 
     <?php if( $args['has_summary'] ) : // display only if the summary is enabled (default is true) ?>
