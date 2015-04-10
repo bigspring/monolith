@@ -77,6 +77,7 @@ class Builder
         $loop = &$this->loop;
         $args = &$this->args;
         $layouts_path = $this->layouts_path;
+        global $post;
 
         ob_start();
         if (!@include($this->_get_layout_file())) { // if the file doesn't exist, handle the error
