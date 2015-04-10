@@ -361,7 +361,8 @@ function pages_shortcode($atts, $content = null) {
         'post__in' => $page_ids,
         'post_type' => 'page',
         'order' => 'ASC',
-        'orderby' => 'menu_order'
+        'orderby' => 'menu_order',
+        'posts_per_page' => -1
 
     );
 
