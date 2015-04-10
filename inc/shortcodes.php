@@ -338,8 +338,19 @@ add_shortcode('childpages', 'childpages');
 function pages_shortcode($atts, $content = null) {
 
     extract( shortcode_atts( array( // set our defaults for the shortcode
-        'ids' => '', // default layout
-        'layout' => 'list'
+        'layout' => 'list', // default layout
+        'ids' => '',
+        'class' => '',
+        'size' => '',
+        'exclude_pages' => null,
+        'image_border' => 'false',
+        'image' => true,
+        'title' => true,
+        'excerpt' => true,
+        'readmore' => true,
+        'orderby' => 'menu_order',
+        'order' => 'ASC'
+
     ), $atts ) );
 
     $page_ids = array();
@@ -354,8 +365,19 @@ function pages_shortcode($atts, $content = null) {
 
     );
 
+    // define our arguments for the builder based on whether we want to show images, titles, etc
+    $builder_args = array();
+    $builder_args['is_thumbnail'] = ($image_border == 'false') ? false : true;
+    $builder_args['has_image'] = ($image == 'false') ? false : true;
+    $builder_args['has_title'] = ($title == 'false') ? false : true;
+    $builder_args['has_summary'] = ($excerpt == 'false') ? false : true;
+    $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
+    $builder_args['orderby'] = $orderby;
+    $builder_args['classes'] = $class;
+    $builder_args['size'] = $size;
+
     ob_start();
-    build($layout, null, $args);
+    build($layout, $builder_args, $args);
     return ob_get_clean();
 
 }//end function
