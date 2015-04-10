@@ -11,7 +11,19 @@
 
   <!-- entry title -->
   <header>
-    <h2 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+	  
+    <?php if( $args['has_title'] ) : // display only if the summary is enabled (default is true) ?>
+      <!-- the title -->
+      <h2>
+		    <?php if( $args['has_titlelink'] ) : // link the title if has_linktitle is true ?>
+		      <a href="<?php the_permalink(); ?>">
+			      <?php the_title(); ?>
+			    </a>
+			  <?php else : ?>  
+		      <?php the_title(); ?>
+		    <?php endif; // end has_linktitle ?>
+	    </h2>
+    <?php endif; // end has_title ?>
   </header>
 
   <?php if( $args['has_date'] ) : // display the date if argument is true ?>
