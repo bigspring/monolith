@@ -19,3 +19,6 @@
 <?php else  :// otherwise show the content none organism ?>
     <?php include($layouts_path . 'organisms/content-none.php'); ?>
 <?php endif; ?>
+
+
+    <?php include($layouts_path . 'organisms/pagination.php'); ?>
