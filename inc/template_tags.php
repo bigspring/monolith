@@ -68,7 +68,7 @@ if ( ! function_exists( 'is_related' ) ) {
     function is_related($page_id) {
         global $post;
 
-        if(is_page() && ($post->ID == $page_id || $post->post_parent==$page_id || get_topmost_parent_id() == $page_id)) {
+        if(is_page() && ($post->ID === $page_id || $post->post_parent === $page_id || get_topmost_parent_id() === $page_id)) {
             return true;
         } else {
             return false;
@@ -85,7 +85,7 @@ if ( ! function_exists( 'is_descendant' ) ) {
     function is_descendant($page_id) {
         global $post;
 
-        if(is_page() && ($post->post_parent==$page_id || get_topmost_parent_id() == $page_id)) {
+        if(is_page() && ($post->post_parent===$page_id || get_topmost_parent_id() === $page_id)) {
             return true;
         } else {
             return false;
@@ -240,7 +240,7 @@ if ( ! function_exists( 'time_ago' ) ) {
      * @return string
      */
     function time_ago( $type = 'post' ) {
-        $d = 'comment' == $type ? 'get_comment_time' : 'get_post_time';
+        $d = 'comment' === $type ? 'get_comment_time' : 'get_post_time';
         $now = time();
 
         $posttime = $d('U');
