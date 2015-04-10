@@ -22,6 +22,9 @@ add_action('admin_init', function() {
     register_setting('monolith-group', 'monolith_postcode');
     register_setting('monolith-group', 'monolith_country');
     register_setting('monolith-group', 'monolith_phone');
+    register_setting('monolith-group', 'monolith_secondary_phone');
+    register_setting('monolith-group', 'monolith_email');
+
 
     // social media
     register_setting('monolith-group', 'monolith_facebook');
@@ -48,7 +51,8 @@ add_action('admin_menu', function() {
 
         <div class="wrap">
 
-            <h1>Site Options</h1>
+            <h1>Site Options & Contact Details</h1>
+            <hr />
 
             <form method="post" action="options.php">
 
@@ -123,11 +127,25 @@ add_action('admin_menu', function() {
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_phone">Phone</label></th>
+                        <th scope="row"><label for="monolith_phone">Phone Number</label></th>
                         <td>
                             <input type="text" name="monolith_phone" id="monolith_phone" value="<?= get_option('monolith_phone') ? get_option('monolith_phone') : '' ?>" size="15" placeholder="(0115) 906 1321">
                         </td>
                     </tr>
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_secondary_phone">Secondary Phone Number</label></th>
+                        <td>
+                            <input type="text" name="monolith_secondary_phone" id="monolith_secondary_phone" value="<?= get_option('monolith_secondary_phone') ? get_option('monolith_secondary_phone') : '' ?>" size="15" placeholder="(0) 123 906 1321">
+                        </td>
+                    </tr>
+                    
+                    <tr valign="top">
+                        <th scope="row"><label for="monolith_email">Email</label></th>
+                        <td>
+                            <input type="text" name="monolith_email" id="monolith_email" value="<?= get_option('monolith_email') ? get_option('monolith_email') : '' ?>" size="35" placeholder="hello@website.com">
+                        </td>
+                    </tr>
+                    
                 </table>
 
                 <h3>Social Media</h3>
@@ -206,6 +224,9 @@ if ( ! function_exists( 'set_default_site_options' ) ) {
         add_option('monolith_postcode', '');
         add_option('monolith_country', '');
         add_option('monolith_phone', '');
+        add_option('monolith_secondary_phone', '');
+        add_option('monolith_email', '');
+
 
         // social media
         add_option('monolith_facebook', '');
