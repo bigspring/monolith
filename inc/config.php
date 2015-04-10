@@ -9,11 +9,8 @@
 /**
  * Environment
  */
-
-// This should be defined in wp-config.php but will default to prod justincase
-if (!defined(ENVIRONMENT)) {
-    define('ENVIRONMENT', 'production'); // development/production
-}
+ 
+define('ENVIRONMENT', 'production'); // development/production
 
 /**
  * The Grid
