@@ -241,7 +241,7 @@ function buttons( $atts, $content = null ) {
 	else{
 		$size = $size;
 	}
-	
+
 	if($pageid != '')
 		$url = get_permalink($pageid);
 
@@ -363,10 +363,16 @@ function pages_shortcode($atts, $content = null) {
 }//end function
 add_shortcode('pages', 'pages_shortcode');
 
-//shortcode for bio column structures
+/**
+ * Renders wrapper div to display content in columns
+ * @param array $atts
+ * @param string $content
+ * @return string
+ */
+
 function columns_shortcode($atts, $content = null) {
 	global $post;
-	return '<div class="columns">' .apply_filters('the_content', $content). '</div>';
+	return '<div class="text-columns columns-shortcode">' .apply_filters('the_content', $content). '</div>';
 }
 add_shortcode('columns', 'columns_shortcode');
 
@@ -385,7 +391,7 @@ add_shortcode('kitchensink', 'kitchensink_shortcode');
  * @param string $content
  * @return string
  */
- 
+
 function list_shortcode( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 			'type' => '', /* no-bullet, ticks, chevron etc */
