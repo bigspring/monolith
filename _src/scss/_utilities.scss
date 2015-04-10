@@ -8,6 +8,7 @@
 
 // 01 – MARGINS
 // 02 – TYPO
+// 03 – SPACERS
 
 
 // 01 – MARGINS
@@ -145,3 +146,17 @@
 
 
  }//monolith-list
+
+// 03 – SPACERS
+// =========================
+
+
+  // a class to create a 1rem vertical space using a transparent <hr/>
+  hr.spacer {
+
+    border-color: transparent;
+    display: block;
+    height: 1rem;
+    margin: 0;
+
+  }

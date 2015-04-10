@@ -5844,6 +5844,12 @@ ul.caret {
   color: #43AC6A;
   margin-left: -1.3rem; }
 
+hr.spacer {
+  border-color: transparent;
+  display: block;
+  height: 1rem;
+  margin: 0; }
+
 .wpcf7 .wpcf7-form-control-wrap {
   position: relative;
   display: block; }
