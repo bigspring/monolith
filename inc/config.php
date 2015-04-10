@@ -9,8 +9,8 @@
 /**
  * Environment
  */
- 
-define('ENVIRONMENT', 'production'); // development/production
+
+define('ENVIRONMENT', 'development'); // development/production
 
 /**
  * The Grid
