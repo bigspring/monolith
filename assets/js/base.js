@@ -1,4 +1,4 @@
-/*! monolith 2.0.4 - 2015-04-10 17:12:05
+/*! monolith 2.0.4 - 2015-04-20 15:47:13
 * https://github.com/bigspring/monolith
 * Copyright (c) 2015 BigSpring
 * License: MIT
@@ -4551,8 +4551,9 @@ License:  http://opensource.org/licenses/MIT
 jQuery(document).ready(function($) {
 
 	$(document).foundation({
-    equalizer : {
-    equalize_on_stack: true
+        equalizer : {
+            equalize_on_stack: true
+        }
 	});
 	
 	// hack to remove empty <p> tags
