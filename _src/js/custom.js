@@ -5,8 +5,9 @@
 jQuery(document).ready(function($) {
 
 	$(document).foundation({
-    equalizer : {
-    equalize_on_stack: true
+        equalizer : {
+            equalize_on_stack: true
+        }
 	});
 	
 	// hack to remove empty <p> tags
