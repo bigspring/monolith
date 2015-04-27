@@ -34,7 +34,7 @@
             </ul>
             <!-- end the footer menu -->
 
-            <?php get_template_part('layouts/molecules/address'); // load the social media icons ?>
+            <?php // get_template_part('layouts/molecules/address'); // load the social media icons ?>
 
         </div><!-- /.columns -->
 
