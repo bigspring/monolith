@@ -10,16 +10,16 @@
 add_action('admin_init', function() {
 
     // contact
-    register_setting('monolith-group', 'monolith_address_1');
-    register_setting('monolith-group', 'monolith_address_2');
-    register_setting('monolith-group', 'monolith_address_3');
-    register_setting('monolith-group', 'monolith_city');
-    register_setting('monolith-group', 'monolith_county');
-    register_setting('monolith-group', 'monolith_postcode');
-    register_setting('monolith-group', 'monolith_country');
-    register_setting('monolith-group', 'monolith_phone');
-    register_setting('monolith-group', 'monolith_secondary_phone');
-    register_setting('monolith-group', 'monolith_email');
+    register_setting('monolith-contact-group', 'monolith_address_1');
+    register_setting('monolith-contact-group', 'monolith_address_2');
+    register_setting('monolith-contact-group', 'monolith_address_3');
+    register_setting('monolith-contact-group', 'monolith_city');
+    register_setting('monolith-contact-group', 'monolith_county');
+    register_setting('monolith-contact-group', 'monolith_postcode');
+    register_setting('monolith-contact-group', 'monolith_country');
+    register_setting('monolith-contact-group', 'monolith_phone');
+    register_setting('monolith-contact-group', 'monolith_secondary_phone');
+    register_setting('monolith-contact-group', 'monolith_email');
 
 });
 
@@ -43,8 +43,8 @@ add_action('admin_menu', function() {
 
             <form method="post" action="options.php">
 
-                <?php @settings_fields('monolith-group'); ?>
-                <?php @do_settings_sections('monolith-group'); ?>
+                <?php @settings_fields('monolith-contact-group'); ?>
+                <?php @do_settings_sections('monolith-contact-group'); ?>
 
 
                 <h3>Contact</h3>

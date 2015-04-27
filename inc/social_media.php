@@ -10,13 +10,13 @@
 add_action('admin_init', function() {
 
     // social media
-    register_setting('monolith-group', 'monolith_facebook');
-    register_setting('monolith-group', 'monolith_twitter');
-    register_setting('monolith-group', 'monolith_googleplus');
-    register_setting('monolith-group', 'monolith_youtube');
-    register_setting('monolith-group', 'monolith_linkedin');
-    register_setting('monolith-group', 'monolith_pinterest');
-    register_setting('monolith-group', 'monolith_instagram');
+    register_setting('monolith-social-group', 'monolith_facebook');
+    register_setting('monolith-social-group', 'monolith_twitter');
+    register_setting('monolith-social-group', 'monolith_googleplus');
+    register_setting('monolith-social-group', 'monolith_youtube');
+    register_setting('monolith-social-group', 'monolith_linkedin');
+    register_setting('monolith-social-group', 'monolith_pinterest');
+    register_setting('monolith-social-group', 'monolith_instagram');
 });
 
 /**
@@ -37,8 +37,8 @@ add_action('admin_menu', function() {
 
             <form method="post" action="options.php">
 
-                <?php @settings_fields('monolith-group'); ?>
-                <?php @do_settings_sections('monolith-group'); ?>
+                <?php @settings_fields('monolith-social-group'); ?>
+                <?php @do_settings_sections('monolith-social-group'); ?>
 
                 <h3>Social Media</h3>
 
