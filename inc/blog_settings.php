@@ -10,8 +10,8 @@
 add_action('admin_init', function() {
 
     // blog
-    register_setting('monolith-group', 'monolith_blog_page_title');
-    register_setting('monolith-group', 'monolith_blog_page_introtext');
+    register_setting('monolith-blog-group', 'monolith_blog_page_title');
+    register_setting('monolith-blog-group', 'monolith_blog_page_introtext');
 
 
 });
@@ -35,8 +35,8 @@ add_action('admin_menu', function() {
 
             <form method="post" action="options.php">
 
-                <?php @settings_fields('monolith-group'); ?>
-                <?php @do_settings_sections('monolith-group'); ?>
+                <?php @settings_fields('monolith-blog-group'); ?>
+                <?php @do_settings_sections('monolith-blog-group'); ?>
 
                 <h3>Blog</h3>
 
