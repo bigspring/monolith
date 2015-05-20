@@ -428,3 +428,45 @@ function list_shortcode( $atts, $content = null ) {
 	return $output;
 }
 add_shortcode('list', 'list_shortcode');
+
+/**
+ * Renders accordion
+ * @param array $atts
+ * @param string $content
+ * @return string
+ */
+
+
+function monolith_foundation_accordion_shortcode($atts, $content) {
+
+    extract( shortcode_atts( array( // set our defaults for the shortcode
+        'class' => ''
+    ), $atts ) );
+
+    $output = '<dl class="accordion '.$class.'" data-accordion role="tablist">';
+    $output .= do_shortcode($content);
+    $output .= '</dl>';
+
+    return apply_filters('the_content', $output);
+}
+add_shortcode('accordion', 'monolith_foundation_accordion_shortcode');
+
+function monolith_accordion_panel_shortcode($atts, $content) {
+
+    extract( shortcode_atts( array( // set our defaults for the shortcode
+        'title' => 'Please enter an accordion title',
+        'class' => ''
+    ), $atts ) );
+
+    $id = rand(1, 1000);
+
+    $output = '<dd class="accordion-navigation '.$class.'">';
+    $output .= '<a href="#panel'.$id.'" role="tab" id="panel'.$id.'-heading" aria-controls="panel'.$id.'">'.$title.'</a>';
+    $output .= '<div id="panel'.$id.'" class="content" role="tabpanel" aria-labelledby="panel'.$id.'-heading">';
+    $output .= $content;
+    $output .= '</div>';
+    $output .= '</dd>';
+
+    return apply_filters('accordion_panel', $output);
+}
+add_shortcode('accordion_panel', 'monolith_accordion_panel_shortcode');
