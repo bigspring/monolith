@@ -1,4 +1,5 @@
-/*! monolith 2.0.4 - * https://github.com/bigspring/monolith
+/*! monolith 2.0.4
+* * https://github.com/bigspring/monolith
 * Copyright (c) 2015 BigSpring
 * License: MIT
 * Packages: grunt, grunt-contrib-concat, grunt-contrib-copy, grunt-contrib-cssmin, grunt-contrib-jshint, grunt-contrib-uglify, grunt-contrib-watch, grunt-sass, load-grunt-tasks */
