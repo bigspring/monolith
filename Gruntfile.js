@@ -66,11 +66,11 @@ module.exports = function(grunt) {
       }
     },
 
-    banner: '/*! <%= pkg.name %> <%= pkg.version %>\n' + // name/version
-    '* <%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + // homepage
+    banner: '/*!\n* <%= pkg.name %> <%= pkg.version %>\n' + // name/version
+    '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + // homepage
     '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\n' +
     '* License: <%= pkg.license %>\n' +
-    '* Packages: <%= _.map(pkg.devDependencies, function(package, key) {return key}).join(", ") %> */\n\n',
+    '* Packages: <%= _.map(pkg.devDependencies, function(package, key) {return key}).join(", ") %>\n*/\n',
 
     /**
     * JS tasks
