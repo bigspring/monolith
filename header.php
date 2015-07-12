@@ -20,7 +20,7 @@
 
         <link rel="stylesheet" href="<?= get_asset_uri('css', 'base') ?>">
         <!-- HTML5 & responsive support for IE browsers... -->
-        <!--[if lt IE 10]>
+        <!--[if lte IE 9]>
         <link href="<?= get_asset_uri('css', 'ie') ?>" rel="stylesheet" type="text/css">
         <script src="<?= get_asset_uri('js', 'ie') ?>"></script>
         <![endif]-->
@@ -37,30 +37,30 @@
     <body <?php body_class(); ?>>
 
         <?php get_template_part('layouts/organisms/nav-topbar'); // load the navigation ?>
-        
+
         <!-- the main block -->
         <main class="block-main" role="main">
 
           <!-- the breadcrumbs block -->
           <?php get_template_part('layouts/molecules/breadcrumbs'); ?>
 
-          <!-- page title & hero unit -->          
-          <?php 
-                        
+          <!-- page title & hero unit -->
+          <?php
+
             if ( is_front_page() ) : // if it's a static homepage, load the hero unit
 
               get_template_part('layouts/organisms/hero-unit');
-            
+
             else : // otherwise, load the standard page header
 
               get_template_part('layouts/organisms/page-header');
 
             endif;
-            
+
           ?>
-                  
+
           <!-- start the main content row -->
           <div class="row">
-            
+
             <?php // if we're using the fullwdith template, apply the relevant class ?>
             <div class="columns <?= is_page_template('page-fullwidth.php') ? FULLWIDTH_SIZE : MAIN_SIZE; ?>" role="main">
