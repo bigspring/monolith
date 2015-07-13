@@ -320,7 +320,6 @@ function childpages($atts, $content = null)
     $builder_args['has_titlelink'] = ($titlelink == 'false') ? false : true;
     $builder_args['has_summary'] = ($excerpt == 'false') ? false : true;
     $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
-		$builder_args['orderby'] = $orderby;
     $builder_args['classes'] = $class;
     $builder_args['size'] = $size;
 
@@ -363,7 +362,7 @@ function pages_shortcode($atts, $content = null) {
         'post__in' => $page_ids,
         'post_type' => 'page',
         'order' => 'ASC',
-        'orderby' => 'menu_order',
+        'orderby' => $orderby,
         'posts_per_page' => -1
 
     );
@@ -375,7 +374,6 @@ function pages_shortcode($atts, $content = null) {
     $builder_args['has_title'] = ($title == 'false') ? false : true;
     $builder_args['has_summary'] = ($excerpt == 'false') ? false : true;
     $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
-    $builder_args['orderby'] = $orderby;
     $builder_args['classes'] = $class;
     $builder_args['size'] = $size;
 
