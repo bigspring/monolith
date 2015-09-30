@@ -16,10 +16,9 @@
         <?php get_template_part('layouts/organisms/site-footer'); ?>
 
         <?php if (ENVIRONMENT === 'development') : ?>
-            <!-- debug stuff -->
-            <div class="debug">
-                <!-- use this section to test out features in development mode -->
-            </div>
+            <!-- dev specific stuff -->
+            <div class="debug"></div>
+            <script src="//localhost:35729/livereload.js"></script>
         <?php endif; ?>
         <script src="<?= get_asset_uri('js', 'base') ?>"></script>
         <?php wp_footer(); ?>
