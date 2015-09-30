@@ -143,7 +143,7 @@ function foundation_gallery_shortcode($attr) {
 
     $output = apply_filters( 'gallery_style', $gallery_container );
 
-    wp_enqueue_script('foundation-clearing', get_template_directory_uri() . '/assets/bower_components/foundation/js/foundation/foundation.clearing.js');
+    wp_enqueue_script('foundation-clearing', get_template_directory_uri() . '/assets/bower_components/foundation/js/foundation/foundation.clearing.js', array(), '1.0.0', true);
 
     $i = 0;
     foreach ( $attachments as $id => $attachment ) {
