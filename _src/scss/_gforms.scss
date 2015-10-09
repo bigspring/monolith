@@ -1,0 +1,50 @@
+ul.gform_fields {
+  list-style: none;
+  margin: 0;
+  li {
+    clear: both;
+    position: relative;
+
+    label {display: none;}
+
+    @media#{$large-up} {
+      &.gf_left_half {
+        width: 49%;
+        float: left;
+        clear: none;
+      }
+      &.gf_right_half {
+        width: 49%;
+        float: right;
+        clear: none;
+      }
+
+    }//@large-up
+
+    //validationo messagio
+    &.gfield_error  {
+      input, textarea {
+        background-color: scale-color($alert-color, $lightness: 75%);
+        border-color: $alert-color;
+        &:focus {
+          background-color: $white;
+          border-color: $white;
+        }
+      }
+    }
+
+    .validation_message {
+
+      position: absolute;
+      right: 1rem;
+      top: 0.75rem;
+      color: $alert-color;
+
+    }//validation_message
+
+    &:focus {
+      .validation_message {display: none !important;}
+    }
+
+  }//li
+}//gform_fields
