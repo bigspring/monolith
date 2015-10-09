@@ -9,27 +9,27 @@ meta.foundation-version {
 
 meta.foundation-mq-small {
   font-family: "/only screen/";
-  width: 0em; }
+  width: 0; }
 
 meta.foundation-mq-small-only {
   font-family: "/only screen and (max-width: 40em)/";
-  width: 0em; }
+  width: 0; }
 
 meta.foundation-mq-medium {
-  font-family: "/only screen and (min-width:40.063em)/";
-  width: 40.063em; }
+  font-family: "/only screen and (min-width:40.0625em)/";
+  width: 40.0625em; }
 
 meta.foundation-mq-medium-only {
-  font-family: "/only screen and (min-width:40.063em) and (max-width:63.37em)/";
-  width: 40.063em; }
+  font-family: "/only screen and (min-width:40.0625em) and (max-width:64em)/";
+  width: 40.0625em; }
 
 meta.foundation-mq-large {
-  font-family: "/only screen and (min-width:64em)/";
-  width: 64em; }
+  font-family: "/only screen and (min-width:64.0625em)/";
+  width: 64.0625em; }
 
 meta.foundation-mq-large-only {
-  font-family: "/only screen and (min-width:64em) and (max-width:90em)/";
-  width: 64em; }
+  font-family: "/only screen and (min-width:64.0625em) and (max-width:90em)/";
+  width: 64.0625em; }
 
 meta.foundation-mq-xlarge {
   font-family: "/only screen and (min-width:90.0625em)/";
@@ -311,7 +311,7 @@ select {
     .small-block-grid-12 > li:nth-of-type(12n+1) {
       clear: both; } }
 
-@media only screen and (min-width: 40.063em) {
+@media only screen and (min-width: 40.0625em) {
   .medium-block-grid-1 > li {
     list-style: none;
     width: 100%; }
@@ -397,7 +397,7 @@ select {
     .medium-block-grid-12 > li:nth-of-type(12n+1) {
       clear: both; } }
 
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 64.0625em) {
   .large-block-grid-1 > li {
     list-style: none;
     width: 100%; }
@@ -491,8 +491,8 @@ select {
   margin-left: 0;
   overflow: hidden;
   padding: 0.5rem 0;
-  background-color: white;
-  border-color: #e6e6e6;
+  background-color: #f4f4f4;
+  border-color: gainsboro;
   border-radius: 3px; }
   .breadcrumbs > * {
     color: #888888;
@@ -712,7 +712,7 @@ button::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
-@media only screen and (min-width: 40.063em) {
+@media only screen and (min-width: 40.0625em) {
   button, .button {
     display: inline-block; } }
 
@@ -925,7 +925,7 @@ button::-moz-focus-inner {
       -webkit-bottom-right-radius: 3px;
       border-bottom-left-radius: 3px;
       border-bottom-right-radius: 3px; }
-  @media only screen and (min-width: 40.063em) {
+  @media only screen and (min-width: 40.0625em) {
     .button-group.radius.stack-for-small > * {
       display: inline-block;
       margin: 0 -2px; }
@@ -1063,7 +1063,7 @@ button::-moz-focus-inner {
       -webkit-bottom-right-radius: 1rem;
       border-bottom-left-radius: 1rem;
       border-bottom-right-radius: 1rem; }
-  @media only screen and (min-width: 40.063em) {
+  @media only screen and (min-width: 40.0625em) {
     .button-group.round.stack-for-small > * {
       display: inline-block;
       margin: 0 -2px; }
@@ -1237,7 +1237,7 @@ button::-moz-focus-inner {
   .clearing-feature li.clearing-featured-img {
     display: block; }
 
-@media only screen and (min-width: 40.063em) {
+@media only screen and (min-width: 40.0625em) {
   .clearing-main-prev,
   .clearing-main-next {
     height: 100%;
@@ -2278,7 +2278,7 @@ label.error {
     padding-right: 0.9375rem;
     float: left; } }
 
-@media only screen and (min-width: 40.063em) {
+@media only screen and (min-width: 40.0625em) {
   .medium-push-0 {
     position: relative;
     left: 0;
@@ -2563,7 +2563,7 @@ label.error {
     right: 91.6666666667%;
     left: auto; } }
 
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 64.0625em) {
   .large-push-0 {
     position: relative;
     left: 0;
@@ -3281,7 +3281,7 @@ table {
     .tabs-content.vertical > .content {
       padding: 0 0.9375rem; }
 
-@media only screen and (min-width: 40.063em) {
+@media only screen and (min-width: 40.0625em) {
   .tabs.vertical {
     float: left;
     margin: 0;
@@ -3313,8 +3313,8 @@ table {
     border-radius: 3px; }
 
 meta.foundation-mq-topbar {
-  font-family: "/only screen and (min-width:64em)/";
-  width: 64em; }
+  font-family: "/only screen and (min-width:64.0625em)/";
+  width: 64.0625em; }
 
 /* Wrapped around .top-bar to contain to grid width */
 .contain-to-grid {
@@ -3658,7 +3658,7 @@ meta.foundation-mq-topbar {
 .js-generated {
   display: block; }
 
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 64.0625em) {
   .top-bar {
     background: #333333;
     overflow: visible; }
@@ -3872,7 +3872,7 @@ meta.foundation-mq-topbar {
   .small-text-justify {
     text-align: justify !important; } }
 
-@media only screen and (min-width: 40.063em) and (max-width: 63.37em) {
+@media only screen and (min-width: 40.0625em) and (max-width: 64em) {
   .medium-only-text-left {
     text-align: left !important; }
   .medium-only-text-right {
@@ -3882,7 +3882,7 @@ meta.foundation-mq-topbar {
   .medium-only-text-justify {
     text-align: justify !important; } }
 
-@media only screen and (min-width: 40.063em) {
+@media only screen and (min-width: 40.0625em) {
   .medium-text-left {
     text-align: left !important; }
   .medium-text-right {
@@ -3892,7 +3892,7 @@ meta.foundation-mq-topbar {
   .medium-text-justify {
     text-align: justify !important; } }
 
-@media only screen and (min-width: 64em) and (max-width: 90em) {
+@media only screen and (min-width: 64.0625em) and (max-width: 90em) {
   .large-only-text-left {
     text-align: left !important; }
   .large-only-text-right {
@@ -3902,7 +3902,7 @@ meta.foundation-mq-topbar {
   .large-only-text-justify {
     text-align: justify !important; } }
 
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 64.0625em) {
   .large-text-left {
     text-align: left !important; }
   .large-text-right {
@@ -4188,7 +4188,7 @@ blockquote p {
   border: none;
   padding: 0 0.0625rem; }
 
-@media only screen and (min-width: 40.063em) {
+@media only screen and (min-width: 40.0625em) {
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.4; }
   h1 {
@@ -4281,7 +4281,7 @@ blockquote p {
     display: table-cell !important; } }
 
 /* medium displays */
-@media only screen and (min-width: 40.063em) {
+@media only screen and (min-width: 40.0625em) {
   .hide-for-small-only, .show-for-small-up, .hide-for-small, .hide-for-small-down, .show-for-medium-only, .show-for-medium-up, .show-for-medium, .show-for-medium-down, .hide-for-large-only, .hide-for-large-up, .hide-for-large, .show-for-large-down, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xlarge, .show-for-xlarge-down, .hide-for-xxlarge-only, .hide-for-xxlarge-up, .hide-for-xxlarge, .show-for-xxlarge-down {
     display: inherit !important; }
   .show-for-small-only, .hide-for-small-up, .show-for-small, .show-for-small-down, .hide-for-medium-only, .hide-for-medium-up, .hide-for-medium, .hide-for-medium-down, .show-for-large-only, .show-for-large-up, .show-for-large, .hide-for-large-down, .show-for-xlarge-only, .show-for-xlarge-up, .show-for-xlarge, .hide-for-xlarge-down, .show-for-xxlarge-only, .show-for-xxlarge-up, .show-for-xxlarge, .hide-for-xxlarge-down {
@@ -4310,7 +4310,7 @@ blockquote p {
     display: table-cell !important; } }
 
 /* large displays */
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 64.0625em) {
   .hide-for-small-only, .show-for-small-up, .hide-for-small, .hide-for-small-down, .hide-for-medium-only, .show-for-medium-up, .hide-for-medium, .hide-for-medium-down, .show-for-large-only, .show-for-large-up, .show-for-large, .show-for-large-down, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xlarge, .show-for-xlarge-down, .hide-for-xxlarge-only, .hide-for-xxlarge-up, .hide-for-xxlarge, .show-for-xxlarge-down {
     display: inherit !important; }
   .show-for-small-only, .hide-for-small-up, .show-for-small, .show-for-small-down, .show-for-medium-only, .hide-for-medium-up, .show-for-medium, .show-for-medium-down, .hide-for-large-only, .hide-for-large-up, .hide-for-large, .hide-for-large-down, .show-for-xlarge-only, .show-for-xlarge-up, .show-for-xlarge, .hide-for-xlarge-down, .show-for-xxlarge-only, .show-for-xxlarge-up, .show-for-xxlarge, .hide-for-xxlarge-down {
@@ -6762,3 +6762,28 @@ hr.spacer {
   .sidebar > .widget ul {
     margin: 0;
     list-style: none; }
+
+.post-featured-image {
+  margin-bottom: 1rem; }
+
+.alignleft {
+  float: left;
+  margin-right: 1rem; }
+
+.alignright {
+  float: right;
+  margin-left: 1rem; }
+
+.aligncenter {
+  margin: 0 auto; }
+
+.wp-caption {
+  text-align: center;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  font-style: italic; }
+  .wp-caption .wp-caption-text {
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    color: #666666; }
