@@ -23,10 +23,5 @@
     <script src="<?= get_asset_uri( 'js', 'base' ) ?>"></script>
     <?php wp_footer(); ?>
 
-    <?php /* load the fail rem code for ie only */ ?>
-    <!--[if lt IE 9]>
-    <script src="<?= get_asset_uri('js', 'ie8') ?>" type="text/javascript"></script>
-    <![endif]-->
-
   </body>
 </html>

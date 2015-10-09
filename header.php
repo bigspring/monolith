@@ -28,6 +28,10 @@
     <link href="<?= get_asset_uri('css', 'ie') ?>" rel="stylesheet" type="text/css">
     <script src="<?= get_asset_uri('js', 'ie') ?>"></script>
     <![endif]-->
+    <?php /* load the fail rem code for <IE9 only */ ?>
+    <!--[if lt IE 9]>
+    <script src="<?= get_asset_uri('js', 'ie8') ?>" type="text/javascript"></script>
+    <![endif]-->
 
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
