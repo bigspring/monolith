@@ -8,6 +8,6 @@
 
 <!-- start content-none organism -->
 <div data-alert class="alert-box info">
-Sorry, no results found.
+  Sorry, no results found.
 </div>
 <!-- end content-none organism -->
