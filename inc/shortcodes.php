@@ -78,7 +78,7 @@ function foundation_gallery_shortcode( $attr ) {
   extract( shortcode_atts( $gallery_defaults, $attr, 'gallery' ) );
 
   $id = intval( $id );
-  if ( 'RAND' == $order ) {
+  if ( 'RAND' === $order ) {
     $orderby = 'none';
   }
 
@@ -272,7 +272,7 @@ function buttons( $atts, $content = null ) {
 
   $type = $type;
 
-  if ( $size == "" ) {
+  if ( $size === "" ) {
     $size = "";
   } else {
     $size = $size;
@@ -355,12 +355,12 @@ function childpages( $atts, $content = null ) {
 
   // define our arguments for the builder based on whether we want to show images, titles, etc
   $builder_args                  = array();
-  $builder_args['is_thumbnail']  = ( $image_border == 'false' ) ? false : true;
-  $builder_args['has_image']     = ( $image == 'false' ) ? false : true;
-  $builder_args['has_title']     = ( $title == 'false' ) ? false : true;
-  $builder_args['has_titlelink'] = ( $titlelink == 'false' ) ? false : true;
-  $builder_args['has_summary']   = ( $excerpt == 'false' ) ? false : true;
-  $builder_args['has_readmore']  = ( $readmore == 'false' ) ? false : true;
+  $builder_args['is_thumbnail']  = ( $image_border === 'false' ) ? false : true;
+  $builder_args['has_image']     = ( $image === 'false' ) ? false : true;
+  $builder_args['has_title']     = ( $title === 'false' ) ? false : true;
+  $builder_args['has_titlelink'] = ( $titlelink === 'false' ) ? false : true;
+  $builder_args['has_summary']   = ( $excerpt === 'false' ) ? false : true;
+  $builder_args['has_readmore']  = ( $readmore === 'false' ) ? false : true;
   $builder_args['classes']       = $class;
   $builder_args['size']          = $size;
 
@@ -412,11 +412,11 @@ function pages_shortcode( $atts, $content = null ) {
 
   // define our arguments for the builder based on whether we want to show images, titles, etc
   $builder_args                 = array();
-  $builder_args['is_thumbnail'] = ( $image_border == 'false' ) ? false : true;
-  $builder_args['has_image']    = ( $image == 'false' ) ? false : true;
-  $builder_args['has_title']    = ( $title == 'false' ) ? false : true;
-  $builder_args['has_summary']  = ( $excerpt == 'false' ) ? false : true;
-  $builder_args['has_readmore'] = ( $readmore == 'false' ) ? false : true;
+  $builder_args['is_thumbnail'] = ( $image_border === 'false' ) ? false : true;
+  $builder_args['has_image']    = ( $image === 'false' ) ? false : true;
+  $builder_args['has_title']    = ( $title === 'false' ) ? false : true;
+  $builder_args['has_summary']  = ( $excerpt === 'false' ) ? false : true;
+  $builder_args['has_readmore'] = ( $readmore === 'false' ) ? false : true;
   $builder_args['classes']      = $class;
   $builder_args['size']         = $size;
 
