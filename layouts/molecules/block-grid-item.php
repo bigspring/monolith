@@ -14,7 +14,7 @@
     <a name="<?= the_title(); ?>"
        class="featured-image <?= $args['is_thumbnail'] ? 'th' : ''; // add th class if enabled (default: true) ?> "
        href="<?php the_permalink(); ?>">
-      <?php monolith_post_thumbnail( 'large' ); ?>
+      <?php the_monolith_post_thumbnail( 'large' ); ?>
     </a>
   <?php endif; // end has_image ?>
 

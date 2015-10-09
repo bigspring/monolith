@@ -23,7 +23,7 @@
       <?php if ( has_post_thumbnail() ) : ?>
         <!-- the featured image -->
         <section class="post-featured-image">
-          <?= monolith_post_thumbnail( 'large' ); ?>
+          <?= the_monolith_post_thumbnail( 'large' ); ?>
         </section>
       <?php endif; ?>
 
