@@ -84,6 +84,39 @@ if ( ! function_exists( 'my_register_mce_button' ) ) {
 
 }
 
+if ( ! function_exists( 'get_address' ) ) {
+	/**
+	 * Returns the address set in Monolith Contact Settings
+	 *
+	 * @param array|null $details
+	 *
+	 * @return array
+	 */
+	function get_address( $details = null ) {
+		if ( ! $details ) {
+			$details = array(
+				'address_1',
+				'address_2',
+				'address_3',
+				'city',
+				'county',
+				'country',
+				'postcode'
+			);
+		}
+
+		foreach ( $details as &$detail ) {
+			if ( get_option( 'monolith_' . $detail ) ) {
+				$detail = get_option( 'monolith_' . $detail );
+			} else {
+				unset( $detail );
+			}
+		}
+
+		return array_values( $details );
+	}
+}
+
 if ( ENVIRONMENT === 'development' ) {
 	/**
 	 * Display notification in Wordpress bar when in development mode

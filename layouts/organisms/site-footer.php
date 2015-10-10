@@ -34,7 +34,7 @@
       </ul>
       <!-- end the footer menu -->
 
-      <?php // get_template_part('layouts/molecules/address'); // load the social media icons ?>
+      <?//= do_shortcode('[contact_details class="inline-list" delimiter=", "]'); // display the address ?>
 
     </div>
     <!-- /.columns -->

@@ -527,7 +527,7 @@ function monolith_accordion_panel_shortcode( $atts, $content ) {
 add_shortcode( 'accordion_panel', 'monolith_accordion_panel_shortcode' );
 
 /**
- * Render kitchen sink
+ * Renders kitchen sink
  * @return string
  */
 
@@ -539,3 +539,57 @@ function kitchen_sink() {
 }
 
 add_shortcode( 'kitchen_sink', 'kitchen_sink' );
+
+/**
+ * Returns Monolith contact component(s)
+ *
+ * Vars:
+ *
+ * detail: Specify the detail to display - can pull any ONE of the following:
+ *             address_1, address_2, address_3, city, county, country, postcode, phone, secondary_phone, email
+ *         If left blank, will display whole address
+ * class:  Add classes to the address list parent element
+ * link:   If set to 'true', will enclose the detail in an anchor element
+ * test:   Specify text to appear
+ *
+ * The 'link' attribute can be set to 'true' for email and phone
+ */
+add_shortcode( 'contact_details', function ( $atts, $content = null ) {
+
+  extract( shortcode_atts( array(
+    'detail'    => '',
+    'class'     => '',
+    'link'      => '',
+    'delimiter' => ''
+  ), $atts ) );
+
+  if ( ! $detail ) {
+
+    $address['details'] = get_address();
+    $address['class']   = $class;
+
+    if ( $delimiter ) { // if a delimiter is provided, apply it
+      return implode( $delimiter, $address['details'] );
+    }
+
+    ob_start();
+    include( get_template_directory() . '/layouts/molecules/address.php' );
+
+    return ob_get_clean();
+  }
+
+  if ( $link === 'true' ) {
+    $modifier = '';
+    if ( $detail === 'phone' ) {
+      $modifier = 'tel:';
+    }
+    if ( $detail === 'email' ) {
+      $modifier = 'mailto:';
+    }
+    $content = get_option( 'monolith_' . $detail );
+
+    return '<a href="' . $modifier . str_replace( ' ', '', get_option( 'monolith_' . $detail ) ) . '">' . $content . '</a>';
+  }
+
+  return get_option( 'monolith_' . $detail );
+} );

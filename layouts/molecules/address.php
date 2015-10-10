@@ -1,5 +1,9 @@
-<?php if ( get_option( 'monolith_address_1' ) ) : ?>
-  <p><?= get_option( 'monolith_address_1' ) ?> - <?= get_option( 'monolith_address_2' ) ?>
-    , <?= get_option( 'monolith_address_3' ) ?>, <?= get_option( 'monolith_city' ) ?>
-    , <?= get_option( 'monolith_postcode' ) ?></p>
-<?php endif; ?>
+<?php
+$address['details'] = isset( $address['details'] ) ? $address['details'] : get_address();
+$address['class']   = isset( $address['class'] ) ? $address['class'] : '';
+?>
+<ul class="no-bullet address-list <?= $address['class'] ?>">
+  <?php foreach ( $address['details'] as $detail ) : ?>
+    <li><?= $detail ?></li>
+  <?php endforeach; ?>
+</ul>
