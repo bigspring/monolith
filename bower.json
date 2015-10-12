@@ -23,6 +23,7 @@
     "fastclick": "~1.0.3",
     "fontawesome": "~4.2.0",
     "retina.js": "~1.3.0",
-    "respond": "~1.4.2"
+    "respond": "~1.4.2",
+    "motion-ui": "~1.0.0"
   }
 }
