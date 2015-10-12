@@ -1,9 +1,10 @@
-/*! monolith 2.0.4 - 2015-04-10 17:12:05
+/*!
+* monolith 2.0.4
 * https://github.com/bigspring/monolith
 * Copyright (c) 2015 BigSpring
 * License: MIT
-* Packages: grunt, grunt-contrib-concat, grunt-contrib-copy, grunt-contrib-cssmin, grunt-contrib-uglify, grunt-contrib-watch, grunt-sass, load-grunt-tasks */
-
+* Packages: grunt, grunt-contrib-concat, grunt-contrib-copy, grunt-contrib-cssmin, grunt-contrib-jshint, grunt-contrib-uglify, grunt-contrib-watch, grunt-sass, load-grunt-tasks
+*/
 /*! http://mths.be/placeholder v2.0.9 by @mathias */
 (function(factory) {
 	if (typeof define === 'function' && define.amd) {
@@ -200,7 +201,7 @@
 ;(function(window, document) {
 /*jshint evil:true */
   /** version */
-  var version = '3.7.2';
+  var version = '3.7.3';
 
   /** Preset options */
   var options = window.html5 || {};
@@ -317,7 +318,7 @@
    * returns a shived element for the given nodeName and document
    * @memberOf html5
    * @param {String} nodeName name of the element
-   * @param {Document} ownerDocument The context document.
+   * @param {Document|DocumentFragment} ownerDocument The context document.
    * @returns {Object} The shived element.
    */
   function createElement(nodeName, ownerDocument, data){
@@ -515,7 +516,11 @@
   // shiv the document
   shivDocument(document);
 
-}(this, document));
+  if(typeof module == 'object' && module.exports){
+    module.exports = html5;
+  }
+
+}(typeof window !== "undefined" ? window : this, document));
 
 /*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
 /*! NOTE: If you're already including a window.matchMedia polyfill via Modernizr or otherwise, you don't need this part */
