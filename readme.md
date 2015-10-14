@@ -9,6 +9,7 @@ Created by team at [BigSpring](http://www.bigspring.co.uk)
 
 ## changelog
 
+* 2.0.5 - minor bug fixes & improvements
 * 2.0.4 – minor bug fixes & improvements [changelog](https://github.com/bigspring/monolith/pull/305)
 * 2.0.3 – extended Grunt to copy font/icon dependencies (to ./assets/fonts and ./assets/icons respectively)
 * 2.0.2 – fixed a bug with fontawesome
