@@ -1,7 +1,7 @@
         </div><!-- end the main structural div (.columns) -->
 
         <!-- start the sidebar -->
-        <?php if ( ! is_page_template( 'page-fullwidth.php' ) ) : // do not load sidebar if using fullwidth template ?>
+        <?php if ( ! is_page_template( 'page-fullwidth.php' ) && !is_404() && !is_search() ) : // do not load sidebar if using fullwidth template ?>
           <div id="sidebar" class="columns <?= SIDEBAR_SIZE; ?> sidebar" role="complementary">
             <?php get_template_part( 'layouts/organisms/sidebar' ); ?>
           </div>

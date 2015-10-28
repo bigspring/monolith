@@ -63,4 +63,4 @@
       <div class="row">
 
         <?php // if we're using the fullwdith template, apply the relevant class ?>
-        <div class="columns <?= is_page_template( 'page-fullwidth.php' ) ? FULLWIDTH_SIZE : MAIN_SIZE; ?>" role="main">
+        <div class="columns <?= is_page_template( 'page-fullwidth.php') || is_404() ? FULLWIDTH_SIZE : MAIN_SIZE; ?>" role="main">
