@@ -142,8 +142,8 @@ function foundation_gallery_shortcode($attr) {
     $gallery_container = "<section class=\"gallery\"><ul class='clearing-thumbs gallery galleryid-{$id} {$block_class}' data-clearing>";
 
     $output = apply_filters( 'gallery_style', $gallery_container );
-
-    wp_enqueue_script('foundation-clearing', get_template_directory_uri() . '/assets/bower_components/foundation/js/foundation/foundation.clearing.js');
+  
+    wp_enqueue_script('foundation-clearing', get_template_directory_uri() . '/assets/bower_components/foundation/js/foundation/foundation.clearing.js', array(), '1.0.0', true);
 
     $i = 0;
     foreach ( $attachments as $id => $attachment ) {
@@ -320,7 +320,6 @@ function childpages($atts, $content = null)
     $builder_args['has_titlelink'] = ($titlelink == 'false') ? false : true;
     $builder_args['has_summary'] = ($excerpt == 'false') ? false : true;
     $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
-		$builder_args['orderby'] = $orderby;
     $builder_args['classes'] = $class;
     $builder_args['size'] = $size;
 
