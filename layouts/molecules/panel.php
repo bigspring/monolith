@@ -8,10 +8,10 @@
 
 <!-- start panel -->
 <div class="monolith-panel panel">
- 
+
   <!-- the panel heading -->
   <h2 class="entry-name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-  
+
   <!-- the content -->
   <?php the_content(); ?>
 
