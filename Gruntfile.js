@@ -180,9 +180,6 @@ module.exports = function(grunt) {
       css: {
         files: ['<%= project.src.scss %>/**/*.scss'],
         tasks: ['sass']
-      },
-      options: {
-        livereload: true
       }
     }
   });

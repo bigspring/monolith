@@ -6,19 +6,19 @@
  */
 ?>
 
-<?php if ( $loop->have_posts() ) :  // if we have results run the loop ?>
+<?php if($loop->have_posts()) :  // if we have results run the loop ?>
 
-  <!-- start snippets loop -->
-  <div class="monolith-snippets <?= $args['classes'] ?>">
+<!-- start snippets loop -->
+<div class="monolith-snippets <?= $args['classes'] ?>">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-      <?php include( $layouts_path . 'molecules/snippet.php' ); ?>
+        <?php include($layouts_path . 'molecules/snippet.php'); ?>
     <?php endwhile; ?>
-  </div>
-  <!-- end snippets loop -->
+</div>
+<!-- end snippets loop -->
 
 <?php else  :// otherwise show the content none organism ?>
-  <?php include( $layouts_path . 'organisms/content-none.php' ); ?>
+    <?php include($layouts_path . 'organisms/content-none.php'); ?>
 <?php endif; ?>
 
 
-<?php include( $layouts_path . 'organisms/pagination.php' ); ?>
+    <?php include($layouts_path . 'organisms/pagination.php'); ?>
