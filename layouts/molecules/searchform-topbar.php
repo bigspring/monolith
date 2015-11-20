@@ -1,7 +1,6 @@
 <?php
 /**
  * A search form for inclusion in the top bar, based on http://foundation.zurb.com/docs/components/topbar.html#
- *
  * @package monolith
  */
 ?>
@@ -14,7 +13,7 @@
         <input type="text" placeholder="<?php _e( 'Search...', 'monolith' ); ?>">
       </div>
       <div class="large-4 small-3 columns">
-        <a href="#" class="button expand">Search</a>
+        <button class="button postfix">Go</button>
       </div>
     </div>
   </li>

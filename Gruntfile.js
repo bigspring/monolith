@@ -34,7 +34,7 @@ module.exports = function(grunt) {
           '<%= project.assets.bower %>/foundation/js/foundation/foundation.equalizer.js',
           '<%= project.assets.bower %>/foundation/js/foundation/foundation.interchange.js',
           //'<%= project.assets.bower %>/foundation/js/foundation/foundation.joyride.js',
-          //'<%= project.assets.bower %>/foundation/js/foundation/foundation.magellan.js',
+          '<%= project.assets.bower %>/foundation/js/foundation/foundation.magellan.js',
           //'<%= project.assets.bower %>/foundation/js/foundation/foundation.offcanvas.js',
           //'<%= project.assets.bower %>/foundation/js/foundation/foundation.orbit.js',
           //'<%= project.assets.bower %>/foundation/js/foundation/foundation.reveal.js',
@@ -48,6 +48,7 @@ module.exports = function(grunt) {
           '<%= project.assets.bower %>/holderjs/holder.js',
           '<%= project.assets.bower %>/fastclick/lib/fastclick.js',
           '<%= project.assets.bower %>/retina.js/dist/retina.js',
+          '<%= project.assets.js%>/morph-search.js',
 
           // site dependencies
           '<%= project.src.js %>/custom.js'
