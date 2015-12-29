@@ -7,7 +7,7 @@
 ?>
 
 <!-- start social media icon list -->
-<ul class="inline-list right social-icons spin">
+<ul class="inline-list social-icons spin">
 
   <?php if ( get_option( 'monolith_facebook' ) ) { ?>
     <li>
