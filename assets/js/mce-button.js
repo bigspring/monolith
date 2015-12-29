@@ -108,8 +108,268 @@
 					}
 				},
 
+				{
+					text: 'Pages',
+					menu: [
 
-				//new shiz
+						// Grid
+						// ====================================
+						{
+							text: 'Grid',
+							minWidth: 300,
+							onclick: function() {
+								editor.windowManager.open( {
+									title: 'Insert Pages Block Grid Shortcode',
+									body: [
+
+										{
+											type: 'textbox',
+											name: 'pageIds',
+											label: 'Page IDs (comma delimited list)',
+											value: '',
+											multiline: true,
+											minWidth: 300,
+											minHeight: 100
+										},
+
+
+										{
+											type: 'listbox',
+											name: 'listboxSizeSmall',
+											label: 'Mobile',
+											value: 'small-block-grid-1',
+											'values': [
+												{text: '1 column', value: 'small-block-grid-1'},
+												{text: '2 columns', value: 'small-block-grid-2'},
+												{text: '3 columns', value: 'small-block-grid-3'},
+												{text: '4 columns', value: 'small-block-grid-4'}
+											]
+										},
+
+										{
+											type: 'listbox',
+											name: 'listboxSizeMedium',
+											label: 'Tablet',
+											value: 'medium-block-grid-2',
+											'values': [
+												{text: '1 column', value: 'medium-block-grid-1'},
+												{text: '2 columns', value: 'medium-block-grid-2'}	,
+												{text: '3 columns', value: 'medium-block-grid-3'},
+												{text: '4 columns', value: 'medium-block-grid-4'}
+											]
+										},
+
+										{
+											type: 'listbox',
+											name: 'listboxSizeLarge',
+											label: 'Desktop',
+											value: 'large-block-grid-2', // pre-select the value
+											'values': [
+												{text: '1 column', value: 'large-block-grid-1'},
+												{text: '2 columns', value: 'large-block-grid-2'},
+												{text: '3 columns', value: 'large-block-grid-3'},
+												{text: '4 columns', value: 'large-block-grid-4'}
+											]
+										},
+
+										{
+											type: 'listbox',
+											name: 'listboxOrder',
+											label: 'Ordering',
+											value: 'menu_order', // pre-select the value
+											'values': [
+												{text: 'Title', value: 'title'},
+												{text: 'Menu Order', value: 'menu_order'},
+												{text: 'Date', value: 'date'},
+												{text: 'Random', value: 'rand'}
+											]
+										},
+
+										{
+											type: 'checkbox',
+											name: 'checkboxImage',
+											label: 'Featured Image',
+                      checked: true
+										},
+
+                    {
+                        type: 'checkbox',
+                        name: 'checkboxThumbnail',
+                        label: 'Image border',
+                        checked: false
+                    },
+
+										{
+											type: 'checkbox',
+											name: 'checkboxTitle',
+											label: 'Page Title',
+                      checked: false
+										},
+
+										{
+											type: 'checkbox',
+											name: 'checkboxLinkTitle',
+											label: 'Link Title',
+                      checked: false
+										},
+
+
+										{
+											type: 'checkbox',
+											name: 'checkboxExcerpt',
+											label: 'Page Summary',
+                      checked: false
+										},
+
+										{
+											type: 'checkbox',
+											name: 'checkboxReadMore',
+											label: '"Read More" link',
+                      checked: false
+										}
+									],
+									onsubmit: function( e ) {
+										editor.insertContent( '[pages ids="' + e.data.pageIds + '" size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
+									}
+								});
+							}
+						}, // end pages block grid
+
+						// List
+						// ====================================
+						{
+							text: 'List',
+
+							onclick: function() {
+								editor.windowManager.open( {
+									title: 'Insert Childpages List Shortcode',
+									minWidth: 300,
+									body: [
+										{
+											type: 'textbox',
+											name: 'pageIds',
+											label: 'Page IDs (comma delimited list)',
+											value: '',
+											multiline: true,
+											minWidth: 300,
+											minHeight: 100
+										},
+
+										{
+											type: 'listbox',
+											name: 'listboxListTypes',
+											label: 'List Type',
+											'values': [
+												{text: 'Default', value: 'disc'},
+												{text: 'Unstyled', value: 'no-bullet'},
+												{text: 'Inline', value: 'inline-list'},
+												{text: 'Chevrons', value: 'chevron'}	,
+												{text: 'Circles', value: 'circle'},
+												{text: 'Squares', value: 'square'},
+												{text: 'Carets', value: 'caret'},
+												{text: 'Ticks', value: 'tick'}
+											]
+										},
+
+										{
+											type: 'listbox',
+											name: 'listboxOrder',
+											label: 'Ordering',
+											value: 'menu_order', // pre-select the value
+											'values': [
+												{text: 'Title', value: 'title'},
+												{text: 'Menu Order', value: 'menu_order'},
+												{text: 'Date', value: 'date'},
+												{text: 'Random', value: 'rand'}
+											]
+										},
+
+
+									],
+									onsubmit: function( e ) {
+										editor.insertContent( '[pages ids="' + e.data.pageIds + '" layout="list" class="' + e.data.listboxListTypes + '" orderby="'+ e.data.listboxOrder+'"]');
+									}
+								});
+							}
+						},
+
+
+						// Snippets
+						// ====================================
+						{
+							text: 'Snippet',
+							onclick: function() {
+								editor.windowManager.open( {
+									title: 'Insert Snippet Shortcode',
+									minWidth: 300,
+
+									body: [
+
+										{
+											type: 'textbox',
+											name: 'pageIds',
+											label: 'Page IDs (comma delimited list)',
+											value: '',
+											multiline: true,
+											minWidth: 300,
+											minHeight: 100
+										},
+
+										{
+											type: 'checkbox',
+											name: 'checkboxTitle',
+											label: 'Page Title',
+                      checked: true
+										},	
+
+										{
+											type: 'checkbox',
+											name: 'checkboxLinkTitle',
+											label: 'Link Title',
+                      checked: true
+										},	
+
+										{
+											type: 'checkbox',
+											name: 'checkboxExcerpt',
+											label: 'Include Excerpt?',
+                      checked: 'true'
+										},
+
+										{
+											type: 'checkbox',
+											name: 'checkboxReadMore',
+											label: 'Include Readmore Link?',
+                      checked: 'true'
+										},
+
+										{
+											type: 'listbox',
+											name: 'listboxOrder',
+											label: 'Ordering',
+											value: 'menu_order', // pre-select the value
+											'values': [
+												{text: 'Title', value: 'title'},
+												{text: 'Menu Order', value: 'menu_order'},
+												{text: 'Date', value: 'date'},
+												{text: 'Random', value: 'rand'}
+											]
+										},
+
+									],
+									onsubmit: function( e ) {
+										editor.insertContent( '[pages ids="' + e.data.pageIds + '" layout="snippets" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
+									}
+								});
+							}
+						},
+
+
+					]
+				},
+
+
+				//child pages
 				{
 					text: 'Child Pages',
 					menu: [
@@ -235,6 +495,8 @@
 								});
 							}
 						}, // end grid list
+
+
 
 						// List
 						// ====================================
