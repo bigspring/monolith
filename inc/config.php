@@ -39,7 +39,7 @@ add_image_size( 'small-landscape', 640, 360, true );
 add_image_size( 'landscape', 970, 546, true );
 add_image_size( 'portrait', 600, 840, true );
 
-// New thumbnail size
+// Add new image sizes to attachment settings size dropdown
 $img_config['imgSize']['newthumbnail'] = array('width'=>200,  'height'=>200);
 
 function monolith_change_image_size_array($sizes) {
@@ -65,6 +65,20 @@ add_filter( 'image_size_names_choose', 'monolith_change_image_size_array', 10, 1
  */
 
 define( 'CHILD_GRID_SIZE', 'col-md-4' ); // the col size used in the child pages grid shortcode
+
+
+/**
+ * Fullwidth function
+ */
+
+function fullwidth_conditions() {
+	return
+		is_page_template( 'page-fullwidth.php' ) ||
+		is_front_page() ||
+		is_404() ||
+		is_search();
+}
+
 
 /**
  * ACHTUNG!
