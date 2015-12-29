@@ -484,27 +484,27 @@ select {
       clear: both; } }
 
 .breadcrumbs {
-  border-style: none;
+  border-style: solid;
   border-width: 1px;
   display: block;
   list-style: none;
   margin-left: 0;
   overflow: hidden;
-  padding: 0.5rem 0;
+  padding: 0.5625rem 0.875rem 0.5625rem;
   background-color: #f4f4f4;
   border-color: gainsboro;
   border-radius: 3px; }
   .breadcrumbs > * {
-    color: #888888;
+    color: #008CBA;
     float: left;
-    font-size: 0.75rem;
-    line-height: 0.75rem;
+    font-size: 0.6875rem;
+    line-height: 0.6875rem;
     margin: 0;
-    text-transform: none; }
+    text-transform: uppercase; }
     .breadcrumbs > *:hover a, .breadcrumbs > *:focus a {
       text-decoration: underline; }
     .breadcrumbs > * a {
-      color: #888888; }
+      color: #008CBA; }
     .breadcrumbs > *.current {
       color: #333333;
       cursor: default; }
@@ -526,7 +526,7 @@ select {
     .breadcrumbs > *:before {
       color: #AAAAAA;
       content: "/";
-      margin: 0 0.625rem;
+      margin: 0 0.75rem;
       position: relative;
       top: 1px; }
     .breadcrumbs > *:first-child:before {
@@ -1963,7 +1963,7 @@ fieldset {
     padding: 0 0.1875rem; }
 
 /* Error Handling */
-"[data-abide]" .error small.error, "[data-abide]" .error span.error, "[data-abide]" span.error, "[data-abide]" small.error {
+[data-abide] .error small.error, [data-abide] .error span.error, [data-abide] span.error, [data-abide] small.error {
   display: block;
   font-size: 0.75rem;
   font-style: italic;
@@ -1974,7 +1974,7 @@ fieldset {
   background: #f04124;
   color: #FFFFFF; }
 
-"[data-abide]" span.error, "[data-abide]" small.error {
+[data-abide] span.error, [data-abide] small.error {
   display: none; }
 
 span.error, small.error {
@@ -3032,99 +3032,6 @@ ul.pagination {
       font-weight: bold;
       text-transform: uppercase; }
 
-.split.button {
-  position: relative;
-  padding-right: 5.0625rem; }
-  .split.button span {
-    display: block;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    border-left: solid 1px; }
-    .split.button span:after {
-      position: absolute;
-      content: "";
-      width: 0;
-      height: 0;
-      display: block;
-      border-style: inset;
-      top: 50%;
-      left: 50%; }
-    .split.button span:active {
-      background-color: rgba(0, 0, 0, 0.1); }
-  .split.button span {
-    border-left-color: rgba(255, 255, 255, 0.5); }
-  .split.button span {
-    width: 3.09375rem; }
-    .split.button span:after {
-      border-top-style: solid;
-      border-width: 0.375rem;
-      margin-left: -0.375rem;
-      top: 48%; }
-  .split.button span:after {
-    border-color: #FFFFFF transparent transparent transparent; }
-  .split.button.secondary span {
-    border-left-color: rgba(255, 255, 255, 0.5); }
-  .split.button.secondary span:after {
-    border-color: #FFFFFF transparent transparent transparent; }
-  .split.button.alert span {
-    border-left-color: rgba(255, 255, 255, 0.5); }
-  .split.button.success span {
-    border-left-color: rgba(255, 255, 255, 0.5); }
-  .split.button.tiny {
-    padding-right: 3.75rem; }
-    .split.button.tiny span {
-      width: 2.25rem; }
-      .split.button.tiny span:after {
-        border-top-style: solid;
-        border-width: 0.375rem;
-        margin-left: -0.375rem;
-        top: 48%; }
-  .split.button.small {
-    padding-right: 4.375rem; }
-    .split.button.small span {
-      width: 2.625rem; }
-      .split.button.small span:after {
-        border-top-style: solid;
-        border-width: 0.4375rem;
-        margin-left: -0.375rem;
-        top: 48%; }
-  .split.button.large {
-    padding-right: 5.5rem; }
-    .split.button.large span {
-      width: 3.4375rem; }
-      .split.button.large span:after {
-        border-top-style: solid;
-        border-width: 0.3125rem;
-        margin-left: -0.375rem;
-        top: 48%; }
-  .split.button.expand {
-    padding-left: 2rem; }
-  .split.button.secondary span:after {
-    border-color: #333333 transparent transparent transparent; }
-  .split.button.radius span {
-    -webkit-border-bottom-right-radius: 3px;
-    -webkit-border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px; }
-  .split.button.round span {
-    -webkit-border-bottom-right-radius: 1000px;
-    -webkit-border-top-right-radius: 1000px;
-    border-bottom-right-radius: 1000px;
-    border-top-right-radius: 1000px; }
-  .split.button.no-pip span:before {
-    border-style: none; }
-  .split.button.no-pip span:after {
-    border-style: none; }
-  .split.button.no-pip span > i {
-    display: block;
-    left: 50%;
-    margin-left: -0.28889em;
-    margin-top: -0.48889em;
-    position: absolute;
-    top: 50%; }
-
 .sub-nav {
   display: block;
   margin: -0.25rem 0 1.125rem;
@@ -3313,8 +3220,8 @@ table {
     border-radius: 3px; }
 
 meta.foundation-mq-topbar {
-  font-family: "/only screen and (min-width:64.0625em)/";
-  width: 64.0625em; }
+  font-family: "/only screen and (min-width:40.0625em)/";
+  width: 40.0625em; }
 
 /* Wrapped around .top-bar to contain to grid width */
 .contain-to-grid {
@@ -3455,7 +3362,7 @@ meta.foundation-mq-topbar {
     width: 100%; }
   .top-bar-section .divider,
   .top-bar-section [role="separator"] {
-    border-top: transparent;
+    border-top: solid 1px #1a1a1a;
     clear: both;
     height: 1px;
     width: 100%; }
@@ -3658,7 +3565,7 @@ meta.foundation-mq-topbar {
 .js-generated {
   display: block; }
 
-@media only screen and (min-width: 64.0625em) {
+@media only screen and (min-width: 40.0625em) {
   .top-bar {
     background: #333333;
     overflow: visible; }
@@ -3796,7 +3703,7 @@ meta.foundation-mq-topbar {
         top: 0; }
     .top-bar-section > ul > .divider,
     .top-bar-section > ul > [role="separator"] {
-      border-right: transparent;
+      border-right: solid 1px #4e4e4e;
       border-bottom: none;
       border-top: none;
       clear: none;
@@ -4562,15 +4469,15 @@ th.hide-for-touch {
     display: table-cell !important; } }
 
 /*!
- *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome/fonts/fontawesome-webfont.eot?v=4.4.0");
-  src: url("../fonts/fontawesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../fonts/fontawesome/fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../fonts/fontawesome/fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../fonts/fontawesome/fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../fonts/fontawesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
+  src: url("../fonts/fontawesome/fonts/fontawesome-webfont.eot?v=4.2.0");
+  src: url("../fonts/fontawesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0") format("embedded-opentype"), url("../fonts/fontawesome/fonts/fontawesome-webfont.woff?v=4.2.0") format("woff"), url("../fonts/fontawesome/fonts/fontawesome-webfont.ttf?v=4.2.0") format("truetype"), url("../fonts/fontawesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -4621,23 +4528,10 @@ th.hide-for-touch {
     left: -1.8571428571em; }
 
 .fa-border {
-  padding: 0.2em 0.25em 0.15em;
+  padding: .2em .25em .15em;
   border: solid 0.08em #eee;
   border-radius: .1em; }
 
-.fa-pull-left {
-  float: left; }
-
-.fa-pull-right {
-  float: right; }
-
-.fa.fa-pull-left {
-  margin-right: .3em; }
-
-.fa.fa-pull-right {
-  margin-left: .3em; }
-
-/* Deprecated as of 4.4.0 */
 .pull-right {
   float: right; }
 
@@ -4653,10 +4547,6 @@ th.hide-for-touch {
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear; }
-
-.fa-pulse {
-  -webkit-animation: fa-spin 1s infinite steps(8);
-  animation: fa-spin 1s infinite steps(8); }
 
 @-webkit-keyframes fa-spin {
   0% {
@@ -5183,7 +5073,6 @@ th.hide-for-touch {
 .fa-twitter:before {
   content: ""; }
 
-.fa-facebook-f:before,
 .fa-facebook:before {
   content: ""; }
 
@@ -5196,7 +5085,6 @@ th.hide-for-touch {
 .fa-credit-card:before {
   content: ""; }
 
-.fa-feed:before,
 .fa-rss:before {
   content: ""; }
 
@@ -5834,8 +5722,7 @@ th.hide-for-touch {
 .fa-male:before {
   content: ""; }
 
-.fa-gittip:before,
-.fa-gratipay:before {
+.fa-gittip:before {
   content: ""; }
 
 .fa-sun-o:before {
@@ -6078,8 +5965,6 @@ th.hide-for-touch {
 .fa-git:before {
   content: ""; }
 
-.fa-y-combinator-square:before,
-.fa-yc-square:before,
 .fa-hacker-news:before {
   content: ""; }
 
@@ -6248,346 +6133,11 @@ th.hide-for-touch {
 .fa-meanpath:before {
   content: ""; }
 
-.fa-buysellads:before {
-  content: ""; }
-
-.fa-connectdevelop:before {
-  content: ""; }
-
-.fa-dashcube:before {
-  content: ""; }
-
-.fa-forumbee:before {
-  content: ""; }
-
-.fa-leanpub:before {
-  content: ""; }
-
-.fa-sellsy:before {
-  content: ""; }
-
-.fa-shirtsinbulk:before {
-  content: ""; }
-
-.fa-simplybuilt:before {
-  content: ""; }
-
-.fa-skyatlas:before {
-  content: ""; }
-
-.fa-cart-plus:before {
-  content: ""; }
-
-.fa-cart-arrow-down:before {
-  content: ""; }
-
-.fa-diamond:before {
-  content: ""; }
-
-.fa-ship:before {
-  content: ""; }
-
-.fa-user-secret:before {
-  content: ""; }
-
-.fa-motorcycle:before {
-  content: ""; }
-
-.fa-street-view:before {
-  content: ""; }
-
-.fa-heartbeat:before {
-  content: ""; }
-
-.fa-venus:before {
-  content: ""; }
-
-.fa-mars:before {
-  content: ""; }
-
-.fa-mercury:before {
-  content: ""; }
-
-.fa-intersex:before,
-.fa-transgender:before {
-  content: ""; }
-
-.fa-transgender-alt:before {
-  content: ""; }
-
-.fa-venus-double:before {
-  content: ""; }
-
-.fa-mars-double:before {
-  content: ""; }
-
-.fa-venus-mars:before {
-  content: ""; }
-
-.fa-mars-stroke:before {
-  content: ""; }
-
-.fa-mars-stroke-v:before {
-  content: ""; }
-
-.fa-mars-stroke-h:before {
-  content: ""; }
-
-.fa-neuter:before {
-  content: ""; }
-
-.fa-genderless:before {
-  content: ""; }
-
-.fa-facebook-official:before {
-  content: ""; }
-
-.fa-pinterest-p:before {
-  content: ""; }
-
-.fa-whatsapp:before {
-  content: ""; }
-
-.fa-server:before {
-  content: ""; }
-
-.fa-user-plus:before {
-  content: ""; }
-
-.fa-user-times:before {
-  content: ""; }
-
-.fa-hotel:before,
-.fa-bed:before {
-  content: ""; }
-
-.fa-viacoin:before {
-  content: ""; }
-
-.fa-train:before {
-  content: ""; }
-
-.fa-subway:before {
-  content: ""; }
-
-.fa-medium:before {
-  content: ""; }
-
-.fa-yc:before,
-.fa-y-combinator:before {
-  content: ""; }
-
-.fa-optin-monster:before {
-  content: ""; }
-
-.fa-opencart:before {
-  content: ""; }
-
-.fa-expeditedssl:before {
-  content: ""; }
-
-.fa-battery-4:before,
-.fa-battery-full:before {
-  content: ""; }
-
-.fa-battery-3:before,
-.fa-battery-three-quarters:before {
-  content: ""; }
-
-.fa-battery-2:before,
-.fa-battery-half:before {
-  content: ""; }
-
-.fa-battery-1:before,
-.fa-battery-quarter:before {
-  content: ""; }
-
-.fa-battery-0:before,
-.fa-battery-empty:before {
-  content: ""; }
-
-.fa-mouse-pointer:before {
-  content: ""; }
-
-.fa-i-cursor:before {
-  content: ""; }
-
-.fa-object-group:before {
-  content: ""; }
-
-.fa-object-ungroup:before {
-  content: ""; }
-
-.fa-sticky-note:before {
-  content: ""; }
-
-.fa-sticky-note-o:before {
-  content: ""; }
-
-.fa-cc-jcb:before {
-  content: ""; }
-
-.fa-cc-diners-club:before {
-  content: ""; }
-
-.fa-clone:before {
-  content: ""; }
-
-.fa-balance-scale:before {
-  content: ""; }
-
-.fa-hourglass-o:before {
-  content: ""; }
-
-.fa-hourglass-1:before,
-.fa-hourglass-start:before {
-  content: ""; }
-
-.fa-hourglass-2:before,
-.fa-hourglass-half:before {
-  content: ""; }
-
-.fa-hourglass-3:before,
-.fa-hourglass-end:before {
-  content: ""; }
-
-.fa-hourglass:before {
-  content: ""; }
-
-.fa-hand-grab-o:before,
-.fa-hand-rock-o:before {
-  content: ""; }
-
-.fa-hand-stop-o:before,
-.fa-hand-paper-o:before {
-  content: ""; }
-
-.fa-hand-scissors-o:before {
-  content: ""; }
-
-.fa-hand-lizard-o:before {
-  content: ""; }
-
-.fa-hand-spock-o:before {
-  content: ""; }
-
-.fa-hand-pointer-o:before {
-  content: ""; }
-
-.fa-hand-peace-o:before {
-  content: ""; }
-
-.fa-trademark:before {
-  content: ""; }
-
-.fa-registered:before {
-  content: ""; }
-
-.fa-creative-commons:before {
-  content: ""; }
-
-.fa-gg:before {
-  content: ""; }
-
-.fa-gg-circle:before {
-  content: ""; }
-
-.fa-tripadvisor:before {
-  content: ""; }
-
-.fa-odnoklassniki:before {
-  content: ""; }
-
-.fa-odnoklassniki-square:before {
-  content: ""; }
-
-.fa-get-pocket:before {
-  content: ""; }
-
-.fa-wikipedia-w:before {
-  content: ""; }
-
-.fa-safari:before {
-  content: ""; }
-
-.fa-chrome:before {
-  content: ""; }
-
-.fa-firefox:before {
-  content: ""; }
-
-.fa-opera:before {
-  content: ""; }
-
-.fa-internet-explorer:before {
-  content: ""; }
-
-.fa-tv:before,
-.fa-television:before {
-  content: ""; }
-
-.fa-contao:before {
-  content: ""; }
-
-.fa-500px:before {
-  content: ""; }
-
-.fa-amazon:before {
-  content: ""; }
-
-.fa-calendar-plus-o:before {
-  content: ""; }
-
-.fa-calendar-minus-o:before {
-  content: ""; }
-
-.fa-calendar-times-o:before {
-  content: ""; }
-
-.fa-calendar-check-o:before {
-  content: ""; }
-
-.fa-industry:before {
-  content: ""; }
-
-.fa-map-pin:before {
-  content: ""; }
-
-.fa-map-signs:before {
-  content: ""; }
-
-.fa-map-o:before {
-  content: ""; }
-
-.fa-map:before {
-  content: ""; }
-
-.fa-commenting:before {
-  content: ""; }
-
-.fa-commenting-o:before {
-  content: ""; }
-
-.fa-houzz:before {
-  content: ""; }
-
-.fa-vimeo:before {
-  content: ""; }
-
-.fa-black-tie:before {
-  content: ""; }
-
-.fa-fonticons:before {
-  content: ""; }
-
 .breadcrumbs {
   margin-bottom: 0; }
 
 .block-main img {
   height: auto !important; }
-
-.shortcode-panel {
-  padding-bottom: 0 !important; }
 
 .lead > p {
   font-size: 1.21875rem;
@@ -6616,7 +6166,7 @@ th.hide-for-touch {
   margin-left: 0; }
 
 .text-muted {
-  color: #888888; }
+  color: #DDDDDD; }
 
 ul.tick {
   list-style: none;
@@ -6686,6 +6236,15 @@ ul.caret {
   content: "";
   color: #43AC6A;
   margin-left: -1.3rem; }
+
+@media only screen and (max-width: 40em) {
+  .inline-list.centered-inline-list {
+    list-style-type: none;
+    text-align: center;
+    margin: 0 auto; }
+    .inline-list.centered-inline-list li {
+      float: none;
+      display: inline-block; } }
 
 hr.spacer {
   border-color: transparent;
@@ -6764,24 +6323,38 @@ hr.spacer {
     list-style: none; }
 
 .post-featured-image {
-  margin-bottom: 1rem; }
+  margin-bottom: 2rem; }
 
 .alignleft {
-  float: left;
-  margin-right: 1rem; }
+  float: none;
+  margin: 1rem 0; }
 
 .alignright {
-  float: right;
-  margin-left: 1rem; }
+  float: none;
+  margin-left: 1rem 0; }
+
+.alignright, .alignleft {
+  max-width: 100%;
+  width: 100%; }
+
+@media only screen and (min-width: 40.0625em) {
+  .alignright {
+    float: right;
+    margin: 1rem 1rem 0 1rem; }
+  .alignleft {
+    float: left;
+    margin: 1rem 1rem 1rem 0; }
+  .alignright, .alignleft {
+    max-width: 33%;
+    width: 33%; } }
 
 .aligncenter {
   margin: 0 auto; }
 
 .wp-caption {
-  text-align: center;
+  text-align: left;
   margin-bottom: 1rem;
-  max-width: 100%;
-  font-style: italic; }
+  max-width: 100%; }
   .wp-caption .wp-caption-text {
     margin: 0;
     padding: 0.5rem;
