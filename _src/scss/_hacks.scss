@@ -14,8 +14,9 @@
 
 
 // remove margins from shortcode panels – this is a filthy wack hack
+// NB I don't think this actually works so removing it for now Captain Hessian 29/12/15
 .shortcode-panel {
-  padding-bottom: 0 !important; // :( GRUMPY CAT
+ // padding-bottom: 0 !important; // :( GRUMPY CAT
 }
 
 // hack to make the .lead class work when it's surrounding a paragraph due to WP's auto paragraph filters
