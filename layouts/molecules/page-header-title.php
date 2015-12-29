@@ -35,6 +35,11 @@
   <?php elseif ( is_home() ) : // on the blog page, show the site option ?>
 
     <h1><?= get_option( 'monolith_blog_page_title' ); // display site option  ?></h1>
+    <?php if(get_option( 'monolith_blog_page_introtext' )) : ?>
+		  <p class="lead">
+		  	<?= get_option( 'monolith_blog_page_introtext' ); // display site option ?>
+		  </p>	
+	  <?php endif; ?>
 
   <?php elseif ( is_search() ) : ?>
 
