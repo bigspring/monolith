@@ -19,7 +19,9 @@ add_action( 'admin_init', function () {
   register_setting( 'monolith-contact-group', 'monolith_country' );
   register_setting( 'monolith-contact-group', 'monolith_phone' );
   register_setting( 'monolith-contact-group', 'monolith_secondary_phone' );
+  register_setting( 'monolith-contact-group', 'monolith_fax' );
   register_setting( 'monolith-contact-group', 'monolith_email' );
+  register_setting( 'monolith-contact-group', 'monolith_company_number' );
 
 } );
 
@@ -365,6 +367,14 @@ add_action( 'admin_menu', function () {
                      size="15" placeholder="(0) 123 906 1321">
             </td>
           </tr>
+          <tr valign="top">
+            <th scope="row"><label for="monolith_fax">Fax Number</label></th>
+            <td>
+              <input type="text" name="monolith_phone" id="monolith_fax"
+                     value="<?= get_option( 'monolith_phone' ) ? get_option( 'monolith_fax' ) : '' ?>" size="15"
+                     placeholder="(0115) 906 1321">
+            </td>
+          </tr>
 
           <tr valign="top">
             <th scope="row"><label for="monolith_email">Email</label></th>
@@ -372,6 +382,15 @@ add_action( 'admin_menu', function () {
               <input type="text" name="monolith_email" id="monolith_email"
                      value="<?= get_option( 'monolith_email' ) ? get_option( 'monolith_email' ) : '' ?>" size="35"
                      placeholder="hello@website.com">
+            </td>
+          </tr>
+
+          <tr valign="top">
+            <th scope="row"><label for="monolith_company_number">Company Number</label></th>
+            <td>
+              <input type="text" name="monolith_company_number" id="monolith_company_number"
+                     value="<?= get_option( 'monolith_company_number' ) ? get_option( 'monolith_company_number' ) : '' ?>" size="35"
+                     placeholder="123456789">
             </td>
           </tr>
 
@@ -406,7 +425,9 @@ if ( ! function_exists( 'set_default_site_options' ) ) {
     add_option( 'monolith_country', '' );
     add_option( 'monolith_phone', '' );
     add_option( 'monolith_secondary_phone', '' );
+    add_option( 'monolith_fax', '' );
     add_option( 'monolith_email', '' );
+    add_option( 'monolith_company_number', '' );
 
   }
 }
