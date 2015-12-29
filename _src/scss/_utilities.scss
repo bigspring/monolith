@@ -26,7 +26,7 @@
   // text muted – a relic from the Bootstrap Years <3
   // ------------------------------------------------------------
   .text-muted {
-    color: $text-muted-color;
+    color: $gainsboro;
   }
 
   // Styled <ul> lists
@@ -147,6 +147,31 @@
 
 
  }//monolith-list
+ 
+ 
+ 	// centered list
+ 	// -------------
+ 	
+ 	.inline-list {
+	 	
+	 	&.centered-inline-list {
+		 	
+		 	@media#{$small-only} { // I reckon this will only be useful on mobile
+		 					 	
+			 	list-style-type: none; 
+			 	text-align: center;
+			 	margin: 0 auto;
+			 	
+			 	li {
+				 	float: none;
+				 	display: inline-block;
+			 	}
+		 	
+		 	}//$small-only
+		 	
+	 	}//centered-inline-list
+	 	
+ 	}//inline-list
 
 // 03 – SPACERS
 // =========================
