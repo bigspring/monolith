@@ -6,37 +6,65 @@
 
 // add a default margin to a post's featured image
 .post-featured-image {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.alignnone {
+  //margin-bottom: 2rem;
 }
 
 // alignment classes
 .alignleft {
-  float: left;
-  margin-right: 1rem;
+  float: none;
+  margin: 1rem 0;
 }
 
 .alignright {
-  float: right;
-  margin-left: 1rem;
+  float: none;
+  margin-left: 1rem 0;
 }
+
+.alignright, .alignleft {
+	max-width: 100%;
+	width: 100%;
+}
+
+@media#{$medium-up}{
+	.alignright {
+	  float: right;
+    margin: 1rem 1rem 0 1rem;
+	}
+	
+	.alignleft {
+	  float: left;
+	  margin: 1rem 1rem 1rem 0;  
+	}
+
+	.alignright, .alignleft {
+		max-width: 33%;
+		width: 33%;
+	}
+	
+}//@media#{$medium-up}
+
 
 .aligncenter {
   margin: 0 auto;
 }
 
 // captions
-.wp-caption {  
-  
-  text-align: center;
+.wp-caption {
+
+  text-align: left;
   margin-bottom: 1rem;
   max-width: 100%;
-  font-style: italic;
-  
+  //font-style: italic;
+
   .wp-caption-text {
     margin: 0;
     padding: 0.5rem;
     font-size: 0.9rem;
     color: $steel;
   }
-  
+
 }
