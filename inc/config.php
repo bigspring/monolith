@@ -34,9 +34,31 @@ define( 'GALLERY_SIZE', 'col-md-3' ); // the col size used in the gallery shortc
 
 set_post_thumbnail_size( 640, 360, true );
 add_image_size( 'square', 640, 640, true );
-add_image_size( 'thumbnail', 320, 320, true );
-add_image_size( 'medium', 640, 360, true );
-add_image_size( 'large', 970, 546, true );
+add_image_size( 'small-square', 320, 320, true );
+add_image_size( 'small-landscape', 640, 360, true );
+add_image_size( 'landscape', 970, 546, true );
+add_image_size( 'portrait', 600, 840, true );
+
+// New thumbnail size
+$img_config['imgSize']['newthumbnail'] = array('width'=>200,  'height'=>200);
+
+function monolith_change_image_size_array($sizes) {
+	global $img_config;
+		
+	$img_config['selectableImgSize'] = array(
+	'square' 				=> __('Square','monolith'),
+	'small-square' 			=> __('Small Square','monolith_framework'),
+	'landscape'  			=> __('Landscape','monolith_framework'),
+	'small-landscape'  		=> __('Small Landscape','monolith_framework'),
+	'portrait'  		=> __('Portrait','monolith_framework'),
+	);
+	
+	$sizes = array_merge($sizes, $img_config['selectableImgSize']);
+
+	return $sizes; 	
+}
+add_filter( 'image_size_names_choose', 'monolith_change_image_size_array', 10, 1);
+
 
 /**
  * Shortcodes
