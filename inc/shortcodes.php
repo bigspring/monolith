@@ -434,8 +434,6 @@ add_shortcode('list', 'list_shortcode');
  * @param string $content
  * @return string
  */
-
-
 function monolith_foundation_accordion_shortcode($atts, $content) {
 
     extract( shortcode_atts( array( // set our defaults for the shortcode

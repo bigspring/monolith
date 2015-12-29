@@ -6,18 +6,14 @@
  */
 get_header(); ?>
 
-<?php      
+<?php if ( is_home() || is_archive() ) : ?>
 
-  if ( is_home() || is_archive() ) :
-   
-    build('snippets'); // if it's the main loop, load snippets
-    
-  else :
+	<?php build( 'snippets' ); // if it's the main loop, load snippets ?>
 
-    build('content');  // otherwise, load content by default
+<?php else : ?>
 
-  endif;
+	<?php build( 'content' );  // otherwise, load content by default ?>
 
-?>
+<?php endif; ?>
 
 <?php get_footer();

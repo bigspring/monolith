@@ -39,7 +39,7 @@ for more information on Foundation components, visit http://foundation.zurb.com/
 //  "foundation/components/progress-bars",
 //  "foundation/components/reveal",
 "foundation/components/side-nav",
-"foundation/components/split-buttons",
+// "foundation/components/split-buttons",
 "foundation/components/sub-nav",
 //  "foundation/components/switch",
 "foundation/components/tables",
@@ -62,7 +62,8 @@ $fa-font-path: "../fonts/fontawesome/fonts" !default;
 // =========================
 @import "hacks";
 @import "utilities";
-@import "cf7"; // contactform7 style overrides
+//@import "cf7"; // contactform7 style overrides
+//@import "gforms" // Gravity Forms overrides
 
 // 05 – MODULES
 // =========================
@@ -72,6 +73,7 @@ $fa-font-path: "../fonts/fontawesome/fonts" !default;
 @import "hero-unit";
 @import "page-header";
 @import "sidebars";
+@import "post";
 
 // 06 – CUSTOM STYLES (load this at the end to avoid pain)
 // =========================

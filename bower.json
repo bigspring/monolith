@@ -1,6 +1,6 @@
 {
   "name": "monolith",
-  "version": "2.0",
+  "version": "2.0.5",
   "homepage": "https://github.com/bigspring/monolith",
   "authors": [
     "BigSpring"
@@ -18,11 +18,12 @@
   "dependencies": {
     "REM-unit-polyfill": "~1.3.2",
     "foundation": "~5.5.2",
-    "holderjs": "~2.4.0",
+    "holderjs": "~2.8.2",
     "html5shiv": "~3.7.2",
     "fastclick": "~1.0.3",
-    "fontawesome": "~4.2.0",
+    "fontawesome": "~4.4.0",
     "retina.js": "~1.3.0",
-    "respond": "~1.4.2"
+    "respond": "~1.4.2",
+    "motion-ui": "~1.0.0"
   }
 }
