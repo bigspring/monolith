@@ -38,7 +38,7 @@
 
   <?php if ( $args['has_image'] && has_post_thumbnail() ) : // check if post image argument ?>
     <section class="snippet-image">
-      <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+      <a href="<?php the_permalink(); ?>"><?= the_monolith_post_thumbnail( 'large' ); ?></a>
       <hr class="spacer"/>
     </section>
   <?php endif; ?>
