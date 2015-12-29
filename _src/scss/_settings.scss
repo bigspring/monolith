@@ -1373,9 +1373,9 @@ $include-html-global-classes: $include-html-classes;
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: $oil;
+// $topbar-dropdown-bg: $oil; // --- colours the li in the dropdown ul (only affects mobile dropdown as the <a> has no bg colour) --- //  
 // $topbar-dropdown-link-color: $white;
-// $topbar-dropdown-link-bg: $oil;
+// $topbar-dropdown-link-bg: $oil; // --- only affects the background of the <a> on a desktop dropdown, doesn't affect the mobile menu dropdown --- //
 // $topbar-dropdown-link-weight: $font-weight-normal;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: $white;
@@ -1389,9 +1389,9 @@ $include-html-global-classes: $include-html-classes;
 // $topbar-link-weight: $font-weight-normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-color-hover: $charcoal;
-// $topbar-link-bg-hover: #272727;
+// $topbar-link-bg: $topbar-bg; // --- affects the <a> links only on desktop --- //
+// $topbar-link-bg-color-hover: $charcoal; // --- Does NOTHING as far as I can work out --- //
+// $topbar-link-bg-hover: #272727; // --- only affects parent link of dropdown on desktop and all links in the mobile menu --- //
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
