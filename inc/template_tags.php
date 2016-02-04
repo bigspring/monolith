@@ -315,7 +315,7 @@ if ( ! function_exists( 'monolith_post_thumbnail' ) ) {
   /**
    * Return featured image URI if one exists, otherwise return default fallback image URI
    */
-  function the_monolith_post_thumbnail( $size ) {
+  function monolith_post_thumbnail( $size ) {
     return has_post_thumbnail()
       ? get_the_post_thumbnail( get_the_ID(), $size )
       : '<img src="' . get_template_directory_uri() . '/assets/img/fallback.png" alt="" />';
