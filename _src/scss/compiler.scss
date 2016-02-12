@@ -59,28 +59,3 @@ for more information on Foundation components, visit http://foundation.zurb.com/
 // fontawesome (by https://github.com/FortAwesome/Font-Awesome)
 $fa-font-path: "../fonts/fontawesome/fonts" !default;
 @import "fontawesome/scss/font-awesome";
-<<<<<<< Updated upstream
-
-// 04 – UTILITIES
-// =========================
-@import "hacks";
-@import "utilities";
-//@import "cf7"; // contactform7 style overrides
-//@import "gforms" // Gravity Forms overrides
-
-// 05 – MODULES
-// =========================
-@import "footer";
-@import "header";
-@import "social-media-icons";
-@import "hero-unit";
-@import "page-header";
-@import "sidebars";
-@import "post";
-@import "card";
-
-// 06 – CUSTOM STYLES (load this at the end to avoid pain)
-// =========================
-@import "custom";
-=======
->>>>>>> Stashed changes
