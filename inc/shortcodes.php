@@ -63,14 +63,11 @@ function foundation_gallery_shortcode($attr) {
         'itemtag'    => 'dl',
         'icontag'    => 'dt',
         'captiontag' => 'dd',
-        'columns'    => 4,
+        'columns'    => 3,
         'size'       => 'thumbnail',
         'include'    => '',
         'exclude'    => ''
     );
-
-    //Filter gallery deafults
-    $gallery_defaults = apply_filters( 'prso_gallery_shortcode_args', $gallery_defaults );
 
     extract(shortcode_atts($gallery_defaults, $attr, 'gallery'));
 
@@ -117,25 +114,25 @@ function foundation_gallery_shortcode($attr) {
     //Set bloch grid class based on columns
     switch( $columns ) {
         case 1:
-            $block_class = apply_filters( 'prso_found_gallery_large_class', 'large-block-grid-1', $columns ) . ' ' . apply_filters( 'prso_found_gallery_small_class', 'small-block-grid-3', $columns );
+            $block_class = 'large-block-grid-1 medium-block-grid-1 small-block-grid-1';
             break;
         case 2:
-            $block_class = apply_filters( 'prso_found_gallery_large_class', 'large-block-grid-2', $columns ) . ' ' . apply_filters( 'prso_found_gallery_small_class', 'small-block-grid-3', $columns );
+            $block_class = 'large-block-grid-2 medium-block-grid-1 small-block-grid-1';
             break;
         case 3:
-            $block_class = apply_filters( 'prso_found_gallery_large_class', 'large-block-grid-3', $columns ) . ' ' . apply_filters( 'prso_found_gallery_small_class', 'small-block-grid-3', $columns );
+            $block_class = 'large-block-grid-3 medium-block-grid-1 small-block-grid-1';
             break;
         case 4:
-            $block_class = apply_filters( 'prso_found_gallery_large_class', 'large-block-grid-4', $columns ) . ' ' . apply_filters( 'prso_found_gallery_small_class', 'small-block-grid-3', $columns );
+            $block_class = 'large-block-grid-4 medium-block-grid-2 small-block-grid-1';
             break;
         case 5:
-            $block_class = apply_filters( 'prso_found_gallery_large_class', 'large-block-grid-5', $columns ) . ' ' . apply_filters( 'prso_found_gallery_small_class', 'small-block-grid-3', $columns );
+            $block_class = 'large-block-grid-5 medium-block-grid-2 small-block-grid-1';
             break;
         case 6:
-            $block_class = apply_filters( 'prso_found_gallery_large_class', 'large-block-grid-6', $columns ) . ' ' . apply_filters( 'prso_found_gallery_small_class', 'small-block-grid-3', $columns );
+            $block_class = 'large-block-grid-6 medium-block-grid-3 small-block-grid-1';
             break;
         default:
-            $block_class = apply_filters( 'prso_found_gallery_large_class', 'large-block-grid-4', 'default' ) . ' ' . apply_filters( 'prso_found_gallery_small_class', 'small-block-grid-3', 'default' );
+            $block_class = 'large-block-grid-3 medium-block-grid-2 small-block-grid-1';
             break;
     }
 
@@ -160,7 +157,7 @@ function foundation_gallery_shortcode($attr) {
         $caption_text = NULL;
         if ( trim($attachment->post_excerpt) ) {
             $caption_text = wptexturize($attachment->post_excerpt);
-            $caption_text = apply_filters( 'prso_found_gallery_image_caption', $caption_text, $attachment );
+            //$caption_text = apply_filters( 'prso_found_gallery_image_caption', $caption_text, $attachment );
         }
 
         //Add caption to img tag
@@ -168,7 +165,8 @@ function foundation_gallery_shortcode($attr) {
 
         ob_start();
         ?>
-        <li class="<?php echo apply_filters( 'prso_found_gallery_li_class', $columns, $attachment ); ?>">
+        <!--<li class="<?php /*echo apply_filters( 'prso_found_gallery_li_class', $columns, $attachment ); */?>">-->
+        <li class="<?= $columns ?>">
             <?php echo $image_output; ?>
         </li>
         <?php
@@ -179,7 +177,7 @@ function foundation_gallery_shortcode($attr) {
 
     $output .= "</ul></section>";
 
-    return apply_filters( 'prso_found_gallery_output',$output, $columns, $attachment );
+    return $output;
 }
 remove_shortcode('gallery');
 add_shortcode('gallery', 'foundation_gallery_shortcode');
