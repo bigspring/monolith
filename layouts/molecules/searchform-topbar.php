@@ -13,7 +13,7 @@
         <input type="text" placeholder="<?php _e( 'Search...', 'monolith' ); ?>">
       </div>
       <div class="large-4 small-3 columns">
-        <button class="button postfix">Go</button>
+        <button class="button postfix"><?php _e( 'Go', 'monolith' ); ?></button>
       </div>
     </div>
   </li>

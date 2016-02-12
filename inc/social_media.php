@@ -32,7 +32,7 @@ add_action( 'admin_menu', function () {
 
     <div class="wrap">
 
-      <h1>Social Media Options</h1>
+      <h1><?php _e( 'Social Media Options', 'monolith' ); ?></h1>
       <hr/>
 
       <form method="post" action="options.php">
@@ -40,11 +40,11 @@ add_action( 'admin_menu', function () {
         <?php @settings_fields( 'monolith-social-group' ); ?>
         <?php @do_settings_sections( 'monolith-social-group' ); ?>
 
-        <h3>Social Media</h3>
+        <h3><?php _e( 'Social Media', 'monolith' ); ?></h3>
 
         <table class="form-table">
           <tr valign="top">
-            <th scope="row"><label for="monolith_facebook">Facebook</label></th>
+            <th scope="row"><label for="monolith_facebook"><?php _e( 'Facebook', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_facebook" id="monolith_facebook"
                      value="<?= get_option( 'monolith_facebook' ) ? get_option( 'monolith_facebook' ) : '' ?>" size="50"
@@ -52,7 +52,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_twitter">Twitter</label></th>
+            <th scope="row"><label for="monolith_twitter"><?php _e( 'Twitter', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_twitter" id="monolith_twitter"
                      value="<?= get_option( 'monolith_twitter' ) ? get_option( 'monolith_twitter' ) : '' ?>" size="50"
@@ -60,7 +60,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_googleplus">Google+</label></th>
+            <th scope="row"><label for="monolith_googleplus"><?php _e( 'Google+', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_googleplus" id="monolith_googleplus"
                      value="<?= get_option( 'monolith_googleplus' ) ? get_option( 'monolith_googleplus' ) : '' ?>"
@@ -68,7 +68,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_youtube">Youtube</label></th>
+            <th scope="row"><label for="monolith_youtube"><?php _e( 'Youtube', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_youtube" id="monolith_youtube"
                      value="<?= get_option( 'monolith_youtube' ) ? get_option( 'monolith_youtube' ) : '' ?>" size="50"
@@ -76,7 +76,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_linkedin">LinkedIn</label></th>
+            <th scope="row"><label for="monolith_linkedin"><?php _e( 'LinkedIn', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_linkedin" id="monolith_linkedin"
                      value="<?= get_option( 'monolith_linkedin' ) ? get_option( 'monolith_linkedin' ) : '' ?>" size="50"
@@ -84,7 +84,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_pinterest">Pinterest</label></th>
+            <th scope="row"><label for="monolith_pinterest"><?php _e( 'Pinterest', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_pinterest" id="monolith_pinterest"
                      value="<?= get_option( 'monolith_pinterest' ) ? get_option( 'monolith_pinterest' ) : '' ?>"
@@ -92,7 +92,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_instagram">Instagram</label></th>
+            <th scope="row"><label for="monolith_instagram"><?php _e( 'Instagram', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_instagram" id="monolith_instagram"
                      value="<?= get_option( 'monolith_instagram' ) ? get_option( 'monolith_instagram' ) : '' ?>"
