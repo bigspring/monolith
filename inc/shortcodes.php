@@ -383,18 +383,6 @@ function pages_shortcode($atts, $content = null) {
 }//end function
 add_shortcode('pages', 'pages_shortcode');
 
-/**
- * Renders wrapper div to display content in columns
- * @param array $atts
- * @param string $content
- * @return string
- */
-
-function columns_shortcode($atts, $content = null) {
-	global $post;
-	return '<div class="text-columns columns-shortcode">' .apply_filters('the_content', $content). '</div>';
-}
-add_shortcode('columns', 'columns_shortcode');
 
 function kitchensink_shortcode($atts, $content = null) {
 
@@ -465,3 +453,32 @@ function monolith_accordion_panel_shortcode($atts, $content) {
     return apply_filters('accordion_panel', $output);
 }
 add_shortcode('accordion_panel', 'monolith_accordion_panel_shortcode');
+
+/**
+ * Foundation row [row]
+ * @param array $atts
+ * @param string $content
+ * @return string
+ */
+function foundation_row_shortcode($atts, $content = null) { 
+	return '<div class="row">'.apply_filters('the_content', $content).'</div>'; } 
+add_shortcode('row', 'foundation_row_shortcode');
+
+/**
+ * Foundation columns [foundation_columns]
+ * @param array $atts
+ * @param string $content
+ * @return string
+ */
+function foundation_columns_shortcode( $atts, $content = null ) {
+extract( shortcode_atts( array(
+'columns' => '', /* large-12 small-5 etc */
+), $atts ) );
+
+$output = '<div class="columns '. $columns . '">';
+$output .= apply_filters('the_content', $content);
+$output .= '</div>';
+
+return $output;
+}
+add_shortcode('foundation_columns', 'foundation_columns_shortcode');

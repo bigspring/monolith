@@ -7,12 +7,6 @@
  */
 
 /**
- * Environment
- */
-
-define( 'ENVIRONMENT', 'development' ); // development/production
-
-/**
  * The Grid
  */
 
