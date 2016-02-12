@@ -699,13 +699,13 @@
 					}
 				}, // end list shortcode
 
-				// Text Columns
+				// Foundation Columns
 				// ====================================
 				{
 					text: 'Columns',
 					minWidth: 300,
 					onclick: function() {
-						editor.insertContent( '[columns][/columns]');
+						editor.insertContent( '[row][foundation_columns columns="insert your column widths here"]Content goes here[/foundation_columns][foundation_columns columns="insert your column widths here"]Content goes here[/foundation_columns][/row]');
 					}
 				}
 
