@@ -693,6 +693,44 @@
 						}
 				},
 
+				// Accordion shortcode
+				// ====================================
+				{
+					text: 'Accordion',
+						onclick: function() {
+							editor.windowManager.open( {
+								title: 'Insert Accordion Shortcode',
+								body: [
+
+									{
+										type: 'textbox',
+										name: 'accordionTitle',
+										label: 'Accordion Panel Title',
+										value: '',
+										multiline: true,
+										minWidth: 300,
+										minHeight: 50
+									},
+
+									{
+										type: 'textbox',
+										name: 'accordionContent',
+										label: 'Accordion Panel Text',
+										value: '',
+										multiline: true,
+										minWidth: 300,
+										minHeight: 100
+									},
+
+								],
+								onsubmit: function( e ) {
+									editor.insertContent( '[accordion][accordion_panel title="' + e.data.accordionTitle + '"]' + e.data.accordionContent + '[/accordion_panel][/accordion]');
+								}
+							});
+						}
+				},
+
+
 				// Panel Shortcode
 				// ====================================
 
