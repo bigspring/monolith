@@ -19,24 +19,28 @@
           </div>
         <?php endif; // end has_image ?>
 
-        <div class="caption">
+        <div class="caption" data-equalizer-watch>
         <?php if ( $args['has_title'] ) : // display only if the summary is enabled (default is true) ?>
           <h3 class="title <?= $args['has_summary'] ? 'has-summary' : ''?>"><?php the_title(); ?></h3>
         <?php endif; // end has_title ?>
 
         <?php if ( $args['has_summary'] ) : // display only if the summary is enabled (default is true) ?>
           <div class="summary">
-            <?= get_the_excerpt(); ?>
+
+            <?= wp_trim_words( get_the_excerpt(), 35, '...' ); ?>
+
           </div>
         <?php endif; // end has_summary ?>
 
+
+        </div>
+
         <?php if ( $args['has_link'] && $args['has_readmore'] ) : // display only if the summary is enabled (default is true) ?>
           <div class="read-more">
-            <?php _e('Read more','monolith'); ?>
+            <?php _e('Read more &rarr;','monolith'); ?>
           </div>
         <?php endif; // end ?>
 
-        </div>
     </div>
 
     <?php if ( $args['has_link'] ) : ?>
