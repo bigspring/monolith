@@ -500,4 +500,3 @@ function address_shortcode( $atts, $content = null ) {
     return ob_get_clean();
 }
 add_shortcode('monolith_address', 'address_shortcode');
-
