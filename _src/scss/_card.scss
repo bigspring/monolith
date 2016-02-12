@@ -1,0 +1,56 @@
+// Card settings
+$card-padding: 1rem;
+
+// background colour
+$card-bg: $white;
+$card-bg-hover: darken($card-bg, 3%);
+
+// text colours
+$card-border-color: $gainsboro;
+$card-title-color: $body-font-color;
+$card-title-color-hover: $primary-color;
+$card-summary-color: $body-font-color;
+$card-summary-color-hover: $primary-color;
+$card-read-more-color: $primary-color;
+
+.card {
+  background-color: $card-bg;
+  border: 1px solid $card-border-color;
+
+  // link
+  a {display: block;}
+
+  // the image
+  .featured-image {
+    display: block;
+  }
+
+  .caption {
+    // padding: $card-padding;
+  }
+
+  .title {
+    margin: $card-padding;
+    color: $card-title-color;
+
+    &.has-summary {margin-bottom: -$card-padding / 2;}
+  }
+
+  .summary {
+    padding: $card-padding;
+    color: $card-summary-color;
+  }
+
+  .read-more {
+    padding: 0 $card-padding $card-padding;
+    color: $card-read-more-color;
+  }
+
+}
+
+// Hover States
+.item > a > .card:hover {
+  background-color: $card-bg-hover;
+  .title {color: $card-title-color-hover;}
+  .summary {color: $card-summary-color-hover;}
+}
