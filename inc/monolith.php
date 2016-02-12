@@ -6,10 +6,11 @@
  */
 
 add_action( 'after_setup_theme', 'monolith_setup' ); // sets up all standard
+add_action( 'wp_enqueue_scripts', 'monolith_script_enqueuer');
 
-add_action( 'wp_enqueue_scripts', function() {
+function monolith_script_enqueuer() {
 	wp_enqueue_script( 'jquery' ); // enable jQuery
-} );
+}
 
 function monolith_setup() {
 
