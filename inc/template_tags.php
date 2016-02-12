@@ -281,13 +281,13 @@ if ( ! function_exists( 'get_asset_uri' ) ) {
    *
    * @param string $type The type of file (must be 'css' or 'js')
    * @param string $file The name of the required file (without extension)
+   * @param bool $minified If true, ignore environment definition and get minified file
    *
    * @return bool|string
    */
-  function get_asset_uri( $type, $file ) {
-
+  function get_asset_uri( $type, $file, $minified = false ) {
 	  $base_uri = get_template_directory_uri() . '/assets';
-	  $path = get_asset_path( $type, $file );
+	  $path = get_asset_path( $type, $file, $minified );
 
 	  return $path ? $base_uri . $path : false;
   }
@@ -299,11 +299,12 @@ if ( ! function_exists ( 'get_asset_path' )) {
 	 *
 	 * @param string $type The type of file (must be 'css' or 'js')
 	 * @param string $file The name of the required file (without extension)
+   * @param bool $minified If true, ignore environment definition and get minified file
 	 * @return bool|string
 	 */
-	function get_asset_directory( $type, $file ) {
+	function get_asset_directory( $type, $file, $minified = false ) {
 		$base_uri = get_template_directory() . '/assets';
-		$path = get_asset_path( $type, $file );
+		$path = get_asset_path( $type, $file, $minified );
 
 		return $path ? $base_uri . $path : false;
 
@@ -316,9 +317,10 @@ if ( ! function_exists ( 'get_asset_path' )) {
 	 *
 	 * @param string $type The type of file (must be 'css' or 'js')
 	 * @param string $file The name of the required file (without extension)
+   * @param bool $minified If true, ignore environment definition and get minified file
 	 * @return bool|string
 	 */
-	function get_asset_path( $type, $file ) {
+	function get_asset_path( $type, $file, $minified = false ) {
 
 		$final_uri     = '';
 		$allowed_types = array( 'css', 'js' );
@@ -328,17 +330,20 @@ if ( ! function_exists ( 'get_asset_path' )) {
 			return false;
 		}
 
-		// check environment and build final URI
-		switch ( ENVIRONMENT ) {
-			case 'development':
-				$final_uri = "/$type/$file.$type";
-				break;
-			case 'production':
-				$final_uri = "/dist/$file.min.$type";
-				break;
-			default:
-				return false;
-		}
+    if ($minified) { // get minified filepath
+      $final_uri = "/dist/$file.min.$type";
+    } else {
+      switch ( ENVIRONMENT ) {
+        case 'development':
+          $final_uri = "/$type/$file.$type";
+          break;
+        case 'production':
+          $final_uri = "/dist/$file.min.$type";
+          break;
+        default:
+          return false;
+      }
+    }
 
 		return $final_uri;
 	}
