@@ -8432,10 +8432,5 @@ jQuery(document).ready(function($) {
             equalize_on_stack: true
         }
 	});
-	
-	// hack to remove empty <p> tags
-	$('p:empty').remove();
-	
-	// custom JS goes here
 
 });
