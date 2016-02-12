@@ -29,7 +29,7 @@ add_action( 'admin_init', function () {
  * Produce admin menu markup for options
  */
 add_action( 'admin_menu', function () {
-  add_options_page( 'Contact Details', 'Contact Details', 'manage_options', 'monolith_contact_details_settings', function () {
+  add_options_page( 'Company Details', 'Company Details', 'manage_options', 'monolith_contact_details_settings', function () {
     if ( ! current_user_can( 'manage_options' ) ) {
       wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
     }
@@ -370,8 +370,8 @@ add_action( 'admin_menu', function () {
           <tr valign="top">
             <th scope="row"><label for="monolith_fax">Fax Number</label></th>
             <td>
-              <input type="text" name="monolith_phone" id="monolith_fax"
-                     value="<?= get_option( 'monolith_phone' ) ? get_option( 'monolith_fax' ) : '' ?>" size="15"
+              <input type="text" name="monolith_fax" id="monolith_fax"
+                     value="<?= get_option( 'monolith_fax' ) ? get_option( 'monolith_fax' ) : '' ?>" size="15"
                      placeholder="(0115) 906 1321">
             </td>
           </tr>
@@ -386,10 +386,11 @@ add_action( 'admin_menu', function () {
           </tr>
 
           <tr valign="top">
-            <th scope="row"><label for="monolith_company_number">Company Number</label></th>
+            <th scope="row"><label for="monolith_company_number">Company Registration Number</label></th>
             <td>
               <input type="text" name="monolith_company_number" id="monolith_company_number"
-                     value="<?= get_option( 'monolith_company_number' ) ? get_option( 'monolith_company_number' ) : '' ?>" size="35"
+                     value="<?= get_option( 'monolith_company_number' ) ? get_option( 'monolith_company_number' ) : '' ?>"
+                     size="35"
                      placeholder="123456789">
             </td>
           </tr>
