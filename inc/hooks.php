@@ -131,43 +131,24 @@ if ( ENVIRONMENT === 'development' ) {
 }
 
 /**
- * Enable excerpt for each new user at registration
+ * Display excerpt by default
  */
-add_action( 'user_register', function ( $user_id = null ) {
-
-	// These are the metakeys we will need to update
-	$meta_key['order']  = 'meta-box-order_post';
-	$meta_key['hidden'] = 'metaboxhidden_post';
-
-	// So this can be used without hooking into user_register
-	if ( ! $user_id ) {
-		$user_id = get_current_user_id();
-	}
-
-	// Set the default order if it has not been set yet
-	if ( ! get_user_option( $user_id, $meta_key['order'], true ) ) {
-		$meta_value = array(
-			'side'     => 'submitdiv,formatdiv,categorydiv,postimagediv',
-			'normal'   => 'postexcerpt,tagsdiv-post_tag,postcustom,commentstatusdiv,commentsdiv,trackbacksdiv,slugdiv,authordiv,revisionsdiv',
-			'advanced' => '',
-		);
-		update_user_option( $user_id, $meta_key['order'], $meta_value, true );
-	}
-
-	// Set the default hiddens if it has not been set yet
-	if ( ! get_user_option( $user_id, $meta_key['hidden'], true ) ) {
-		$meta_value = array(
-			'postcustom',
+add_filter( 'default_hidden_meta_boxes', function ( $hidden, $screen ) {
+	if ( 'post' == $screen->base || 'page' == $screen->base ) {
+		$hidden = array(
+			'slugdiv',
 			'trackbacksdiv',
+			'postcustom',
 			'commentstatusdiv',
 			'commentsdiv',
-			'slugdiv',
 			'authordiv',
 			'revisionsdiv'
 		);
-		update_user_option( $user_id, $meta_key['hidden'], $meta_value, true );
 	}
-} );
+
+	// removed 'postcustom',
+	return $hidden;
+}, 10, 2 );
 
 // create custom gravity forms error message
   add_filter( 'gform_validation_message', function( $message, $form ) {
