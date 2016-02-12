@@ -58,7 +58,7 @@ html, body {
 
 body {
   background: #fff;
-  color: #222;
+  color: #222222;
   cursor: auto;
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-style: normal;
@@ -3732,7 +3732,7 @@ dl dd {
 abbr, acronym {
   text-transform: uppercase;
   font-size: 90%;
-  color: #222;
+  color: #222222;
   cursor: help; }
 
 abbr {
@@ -6067,10 +6067,6 @@ th.hide-for-touch {
   font-size: 1.21875rem;
   line-height: 1.6; }
 
-.builder-block-grid > ul > li.item .featured-image {
-  display: block;
-  margin-bottom: 0.8rem; }
-
 .snippet {
   margin-bottom: 2rem; }
 
@@ -6270,3 +6266,28 @@ hr.spacer {
     padding: 0.5rem;
     font-size: 0.9rem;
     color: #666666; }
+
+.card {
+  background-color: white;
+  border: 1px solid #DDDDDD; }
+  .card a {
+    display: block; }
+  .card .featured-image {
+    display: block; }
+  .card .title {
+    margin: 1rem;
+    color: #222222; }
+    .card .title.has-summary {
+      margin-bottom: -0.5rem; }
+  .card .summary {
+    padding: 1rem;
+    color: #222222; }
+  .card .read-more {
+    padding: 0 1rem 1rem; }
+
+.item > a > .card:hover {
+  background-color: #f7f7f7; }
+  .item > a > .card:hover .title {
+    color: #008CBA; }
+  .item > a > .card:hover .summary {
+    color: #008CBA; }

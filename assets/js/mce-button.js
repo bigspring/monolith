@@ -320,14 +320,14 @@
 											name: 'checkboxTitle',
 											label: 'Page Title',
                       checked: true
-										},	
+										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxLinkTitle',
 											label: 'Link Title',
                       checked: true
-										},	
+										},
 
 										{
 											type: 'checkbox',
@@ -449,48 +449,41 @@
 										{
 											type: 'checkbox',
 											name: 'checkboxImage',
-											label: 'Featured Image',
+											label: 'Display Featured Image',
                       checked: true
 										},
-
-                    {
-                        type: 'checkbox',
-                        name: 'checkboxThumbnail',
-                        label: 'Image border',
-                        checked: false
-                    },
 
 										{
 											type: 'checkbox',
 											name: 'checkboxTitle',
-											label: 'Page Title',
-                      checked: false
+											label: 'Display Page Title',
+                      checked: true
 										},
 
 										{
 											type: 'checkbox',
-											name: 'checkboxLinkTitle',
-											label: 'Link Title',
-                      checked: false
+											name: 'checkboxLinked',
+											label: 'Link to Page',
+                      checked: true
 										},
 
 
 										{
 											type: 'checkbox',
 											name: 'checkboxExcerpt',
-											label: 'Page Summary',
+											label: 'Display Excerpt',
                       checked: false
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxReadMore',
-											label: '"Read More" link',
+											label: 'Display a \"Read More\" link',
                       checked: false
 										}
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" linked="'+ e.data.checkboxLinked+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -563,14 +556,14 @@
 											name: 'checkboxTitle',
 											label: 'Page Title',
                       checked: true
-										},	
+										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxLinkTitle',
 											label: 'Link Title',
                       checked: true
-										},	
+										},
 
 										{
 											type: 'checkbox',

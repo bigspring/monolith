@@ -292,10 +292,9 @@ function childpages($atts, $content = null)
         'class' => '',
         'size' => '',
         'exclude_pages' => null,
-        'image_border' => 'false',
         'image' => true,
         'title' => true,
-        'titlelink' => true,
+        'linked' => true,
         'excerpt' => true,
         'readmore' => true,
         'orderby' => 'menu_order',
@@ -312,10 +311,9 @@ function childpages($atts, $content = null)
 
     // define our arguments for the builder based on whether we want to show images, titles, etc
     $builder_args = array();
-    $builder_args['is_thumbnail'] = ($image_border == 'false') ? false : true;
     $builder_args['has_image'] = ($image == 'false') ? false : true;
     $builder_args['has_title'] = ($title == 'false') ? false : true;
-    $builder_args['has_titlelink'] = ($titlelink == 'false') ? false : true;
+    $builder_args['has_link'] = ($linked == 'false') ? false : true;
     $builder_args['has_summary'] = ($excerpt == 'false') ? false : true;
     $builder_args['has_readmore'] = ($readmore == 'false') ? false : true;
     $builder_args['classes'] = $class;

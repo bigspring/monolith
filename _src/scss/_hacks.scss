@@ -27,17 +27,6 @@
 // Builder Structures
 // =========================
 
-  // Block Grid
-  .builder-block-grid > ul > li.item {
-
-    // make the image link a block element, add some margin for spacing
-    .featured-image {
-      display: block;
-      margin-bottom: 0.8rem; // add some margin, as the h3 is adding 0.2rem top margin
-    }
-
-  }
-
   // Snippet
   .snippet {
     margin-bottom: 2rem;
