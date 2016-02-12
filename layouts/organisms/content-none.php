@@ -10,7 +10,7 @@
 
 <article class="no-search-results">
 
-  <p class="lead">Your search did not match any pages.</p>
+  <p class="lead"><?php _e('Your search did not match any pages.');?>'</p>
 
   <p>Suggestions:</p>
   <ul>
