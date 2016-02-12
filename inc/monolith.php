@@ -12,6 +12,7 @@ function monolith_script_enqueuer() {
 
 	wp_enqueue_script( 'jquery' ); // enable jQuery
 	wp_enqueue_style('base-css', get_asset_uri('css', 'base'), null, filemtime(get_asset_directory('css', 'base')));
+	wp_enqueue_script('base-js', get_asset_uri('js', 'base'), array('jquery'), filemtime(get_asset_directory('js', 'base')), true);
 }
 
 function monolith_setup() {
