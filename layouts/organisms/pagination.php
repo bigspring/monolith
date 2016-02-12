@@ -14,14 +14,12 @@ $pagination_links = paginate_links( array(
 ) );
 
 ?>
+<?php if ( $pagination_links ) { ?>
 <div class="pagination-links">
   <ul class="pagination">
-
-    <?php if ( $pagination_links ) {
-      foreach ( $pagination_links AS $link ) { ?>
+      <?php foreach ( $pagination_links AS $link ) { ?>
         <li><?= $link ?></li>
-      <?php }
-    } ?>
-
+      <?php } ?>
   </ul>
 </div>
+<?php } ?>
