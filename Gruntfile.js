@@ -6,8 +6,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     /**
-    * Define project constants, dependencies, etc.
-    */
+     * Define project constants, dependencies, etc.
+     */
     project: {
       assets: {
         js: 'assets/js',
@@ -74,11 +74,11 @@ module.exports = function(grunt) {
     '* Packages: <%= _.map(pkg.devDependencies, function(package, key) {return key}).join(", ") %>\n*/\n',
 
     /**
-    * JS tasks
-    * - jshint validation
-    * - concatenation of files
-    * - minification
-    */
+     * JS tasks
+     * - jshint validation
+     * - concatenation of files
+     * - minification
+     */
     jshint: { // TODO: assign to a task
       files: ['Gruntfile.js', 'assets/js/**/*.js'],
       src: {
@@ -122,10 +122,10 @@ module.exports = function(grunt) {
     },
 
     /**
-    * CSStasks
-    * - SASS compilation
-    * - minification
-    */
+     * CSStasks
+     * - SASS compilation
+     * - minification
+     */
     sass: {
       options: {
         includePaths: ['<%= project.assets.bower %>/foundation/scss', '<%= project.assets.bower %>']
@@ -136,29 +136,45 @@ module.exports = function(grunt) {
         },
         files: {
           '<%= project.assets.css %>/base.css': '<%= project.src.scss %>/compiler.scss',
+          '<%= project.assets.css %>/custom.css': '<%= project.src.scss %>/custom-compiler.scss',
           '<%= project.assets.css %>/ie.css': '<%= project.src.scss %>/ie.scss',
           '<%= project.assets.css %>/ie8.css': '<%= project.src.scss %>/ie8.scss'
         }
       }
     },
+
     cssmin: {
-      options: {
-        banner: '<%= banner %>',
-        keepSpecialComments: 0
+      dev: {
+        src: [
+        '<%= project.assets.css %>/base.css'
+        ],
+        dest: '<%= project.dist %>/base.min.css'
       },
-      minify: {
-        expand: true,
-        cwd: '<%= project.assets.css %>',
-        src: ['*.css', '!*.min.css'],
-        dest: '<%= project.dist %>',
-        ext: '.min.css'
+      prod: {
+        src: [
+          '<%= project.assets.css %>/base.css',
+          '<%= project.assets.css %>/custom.css'
+        ],
+        dest: '<%= project.dist %>/base.min.css'
+      },
+      ie : {
+        src: [
+          '<%= project.assets.css %>/ie.css'
+        ],
+        dest: '<%= project.dist %>/ie.min.css'
+      },
+      ie8: {
+        src: [
+          '<%= project.assets.css %>/ie8.css'
+        ],
+        dest: '<%= project.dist %>/ie8.min.css'
       }
     },
 
     /**
-    * Copy other dependencies
-    * - Font Awesome
-    */
+     * Copy other dependencies
+     * - Font Awesome
+     */
     copy: {
       main: {
         files: [
@@ -174,8 +190,8 @@ module.exports = function(grunt) {
     },
 
     /**
-    * WATCH ALL THE THINGS
-    */
+     * WATCH ALL THE THINGS
+     */
     watch: {
       js: {
         files: ['<%= project.src.all %>/**/*.js'],
@@ -195,6 +211,6 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   // Default task
-  grunt.registerTask('default', ['concat', 'sass', 'copy', 'watch']); // dev mode
-  grunt.registerTask('prod', ['concat', 'uglify', 'sass', 'cssmin', 'copy']); // prod mode
+  grunt.registerTask('default', ['concat', 'sass', 'cssmin:dev', 'copy', 'watch']); // dev mode
+  grunt.registerTask('prod', ['concat', 'uglify', 'sass', 'cssmin:prod', 'cssmin:ie', 'cssmin:ie8', 'copy']); // prod mode
 };

@@ -1,5 +1,7 @@
 /*
-Description: This is the main compiler SCSS file. It creates a single base.css file in the /assets/css folder, which is loaded into the WordPress header. Use this file to call in SCSS scripts as needed.
+Description: This is the main compiler SCSS file.
+
+It creates a single base.css file in the /assets/css folder.
 
 for more information on Foundation components, visit http://foundation.zurb.com/docs/
 */
@@ -6055,6 +6057,7 @@ th.hide-for-touch {
   content: "\f27e"; }
 
 .fa-fonticons:before {
+<<<<<<< Updated upstream
   content: "\f280"; }
 
 .breadcrumbs {
@@ -6301,3 +6304,6 @@ hr.spacer {
     color: #008CBA; }
   .item > a > .card:hover .summary {
     color: #008CBA; }
+=======
+  content: ""; }
+>>>>>>> Stashed changes

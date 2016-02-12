@@ -2,7 +2,9 @@
 // Licensed under MIT Open Source
 
 /*
-Description: This is the main compiler SCSS file. It creates a single base.css file in the /assets/css folder, which is loaded into the WordPress header. Use this file to call in SCSS scripts as needed.
+Description: This is the main compiler SCSS file.
+
+It creates a single base.css file in the /assets/css folder.
 
 for more information on Foundation components, visit http://foundation.zurb.com/docs/
 */
@@ -57,6 +59,7 @@ for more information on Foundation components, visit http://foundation.zurb.com/
 // fontawesome (by https://github.com/FortAwesome/Font-Awesome)
 $fa-font-path: "../fonts/fontawesome/fonts" !default;
 @import "fontawesome/scss/font-awesome";
+<<<<<<< Updated upstream
 
 // 04 – UTILITIES
 // =========================
@@ -79,3 +82,5 @@ $fa-font-path: "../fonts/fontawesome/fonts" !default;
 // 06 – CUSTOM STYLES (load this at the end to avoid pain)
 // =========================
 @import "custom";
+=======
+>>>>>>> Stashed changes
