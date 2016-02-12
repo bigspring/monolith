@@ -54,14 +54,14 @@ module.exports = function(grunt) {
           '<%= project.src.js %>/custom.js'
         ],
         ie: [
-          // nonsense IE fixes
           '<%= project.assets.bower %>/jquery-placeholder/jquery.placeholder.js',
-          '<%= project.assets.bower %>/html5shiv/dist/html5shiv.js',
-          '<%= project.assets.bower %>/respond/dest/respond.src.js',
-          // IE site dependencies
           '<%= project.src.js %>/ie-custom.js'
         ],
         ie8: [
+          '<%= project.assets.bower %>/html5shiv/dist/html5shiv.js',
+          '<%= project.assets.bower %>/nwmatcher/src/nwmatcher.js.js',
+          '<%= project.assets.bower %>/selectivizr/selectivizr.js',
+          '<%= project.assets.bower %>/respond/dest/respond.src.js',
           '<%= project.assets.bower %>/REM-unit-polyfill/js/rem.js'
         ]
       }
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
       },
       main: { // main js files
         src: '<%= project.dependencies.default %>',
-        dest: '<%= project.assets.js %>/base.js',
+        dest: '<%= project.assets.js %>/base.js'
       },
       ie: { // ie support js files
         src: '<%= project.dependencies.ie %>',
@@ -115,7 +115,8 @@ module.exports = function(grunt) {
       dist: {
         files: {
           '<%= project.dist %>/base.min.js': '<%= concat.main.dest %>',
-          '<%= project.dist %>/ie.min.js': '<%= concat.ie.dest %>'
+          '<%= project.dist %>/ie.min.js': '<%= concat.ie.dest %>',
+          '<%= project.dist %>/ie8.min.js': '<%= concat.ie8.dest %>'
         }
       }
     },
@@ -134,7 +135,9 @@ module.exports = function(grunt) {
           outputStyle: 'nested'
         },
         files: {
-          '<%= project.assets.css %>/base.css': '<%= project.src.scss %>/compiler.scss'
+          '<%= project.assets.css %>/base.css': '<%= project.src.scss %>/compiler.scss',
+          '<%= project.assets.css %>/ie.css': '<%= project.src.scss %>/ie.scss',
+          '<%= project.assets.css %>/ie8.css': '<%= project.src.scss %>/ie8.scss'
         }
       }
     },
