@@ -172,6 +172,28 @@
 	 	}//centered-inline-list
 	 	
  	}//inline-list
+ 	
+  // inline address lists
+  // ------------------------------
+	
+	.address-list.inline-list {
+		li {
+			margin-left: 0.33rem;
+			
+			&:first-child {
+				margin-left: 1.375rem;
+			}
+			
+			&:after {
+				content: ","
+			}
+			
+			&:last-child:after {
+				content: none;
+			}
+
+		}//li
+	}//address-list
 
 // 03 – SPACERS
 // =========================
