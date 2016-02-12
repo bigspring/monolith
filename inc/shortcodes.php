@@ -482,3 +482,22 @@ $output .= '</div>';
 return $output;
 }
 add_shortcode('foundation_columns', 'foundation_columns_shortcode');
+
+/**
+ * Address [address]
+ * @param array $atts
+ * @param string $content
+ * @return string
+ */
+
+function address_shortcode( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+	'type' => 'no-bullet', /* no-bullet inline-list */
+	), $atts ) );
+
+    ob_start();
+    include(get_template_directory() . '/layouts/organisms/address.php');
+    return ob_get_clean();
+}
+add_shortcode('monolith_address', 'address_shortcode');
+

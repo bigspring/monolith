@@ -648,6 +648,33 @@
 					}
 				}, // end list shortcode
 
+				// Address Shortcode
+				// ====================================
+
+				{
+					text: 'Address',
+					onclick: function() {
+						editor.windowManager.open( {
+							title: 'Insert address',
+							body: [
+								{
+									type: 'listbox',
+									name: 'addressListTypes',
+									label: 'Address Type',
+									'values': [
+										{text: 'Vertical', value: 'no-bullet'},
+										{text: 'Horizontal', value: 'inline-list'}
+									]
+								},
+							],
+							onsubmit: function( e ) {
+								editor.insertContent( '[monolith_address type="' + e.data.addressListTypes + '" ]');
+							}
+						});
+					}
+				}, // end address shortcode
+
+
 				// Intro shortcode
 				// ====================================
 				{

@@ -6555,6 +6555,15 @@ ul.caret {
       float: none;
       display: inline-block; } }
 
+.address-list.inline-list li {
+  margin-left: 0.33rem; }
+  .address-list.inline-list li:first-child {
+    margin-left: 1.375rem; }
+  .address-list.inline-list li:after {
+    content: ","; }
+  .address-list.inline-list li:last-child:after {
+    content: none; }
+
 hr.spacer {
   border-color: transparent;
   display: block;
