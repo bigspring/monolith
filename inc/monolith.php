@@ -6,6 +6,13 @@
  */
 
 add_action( 'after_setup_theme', 'monolith_setup' ); // sets up all standard
+add_action( 'wp_enqueue_scripts', 'monolith_script_enqueuer');
+
+function monolith_script_enqueuer() {
+
+	wp_enqueue_script( 'jquery' ); // enable jQuery
+	wp_enqueue_style('base-css', get_asset_uri('css', 'base'), null, filemtime(get_asset_directory('css', 'base')));
+}
 
 function monolith_setup() {
 
@@ -13,7 +20,6 @@ function monolith_setup() {
 	add_theme_support( 'post-thumbnails' ); // adds post thumbnail support
 	add_post_type_support( 'page', 'excerpt' ); // add support for excerpts to pages
 	remove_action( 'wp_head', 'wp_generator' ); // remove the generator from the head
-	wp_enqueue_script( 'jquery' ); // enable jQuery
 
 	/**
 	 * Registers the default menu

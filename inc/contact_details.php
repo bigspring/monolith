@@ -280,7 +280,7 @@ add_action( 'admin_menu', function () {
 
     <div class="wrap">
 
-      <h1>Contact Details</h1>
+      <h1><?php _e( 'Contact Details', 'monolith' ); ?></h1>
       <hr/>
 
       <form method="post" action="options.php">
@@ -289,11 +289,11 @@ add_action( 'admin_menu', function () {
         <?php @do_settings_sections( 'monolith-contact-group' ); ?>
 
 
-        <h3>Contact</h3>
+        <h3><?php _e( 'Contact', 'monolith' ); ?></h3>
 
         <table class="form-table">
           <tr valign="top">
-            <th scope="row"><label for="monolith_address_1">Address 1</label></th>
+            <th scope="row"><label for="monolith_address_1"><?php _e( 'Address 1', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_address_1" id="monolith_address_1"
                      value="<?= get_option( 'monolith_address_1' ) ? get_option( 'monolith_address_1' ) : '' ?>"
@@ -301,7 +301,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_address_2">Address 2</label></th>
+            <th scope="row"><label for="monolith_address_2"><?php _e( 'Address 2', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_address_2" id="monolith_address_2"
                      value="<?= get_option( 'monolith_address_2' ) ? get_option( 'monolith_address_2' ) : '' ?>"
@@ -309,7 +309,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_address_3">Address 3</label></th>
+            <th scope="row"><label for="monolith_address_3"><?php _e( 'Address 3', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_address_3" id="monolith_address_3"
                      value="<?= get_option( 'monolith_address_3' ) ? get_option( 'monolith_address_3' ) : '' ?>"
@@ -317,7 +317,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_city">City</th>
+            <th scope="row"><label for="monolith_city"><?php _e( 'City', 'monolith' ); ?></th>
             <td>
               <input type="text" name="monolith_city" id="monolith_city"
                      value="<?= get_option( 'monolith_city' ) ? get_option( 'monolith_city' ) : '' ?>" size="50"
@@ -325,7 +325,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_county">County</label></th>
+            <th scope="row"><label for="monolith_county"><?php _e( 'County', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_county" id="monolith_county"
                      value="<?= get_option( 'monolith_county' ) ? get_option( 'monolith_county' ) : '' ?>" size="50"
@@ -333,7 +333,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_postcode">Postcode</label></th>
+            <th scope="row"><label for="monolith_postcode"><?php _e( 'Postcode', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_postcode" id="monolith_postcode"
                      value="<?= get_option( 'monolith_postcode' ) ? get_option( 'monolith_postcode' ) : '' ?>" size="15"
@@ -341,7 +341,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_country">Country</label></th>
+            <th scope="row"><label for="monolith_country"><?php _e( 'Country', 'monolith' ); ?></label></th>
             <td>
               <select name="monolith_country" id="monolith_country">
                 <?php foreach ( $countries as $country ) : ?>
@@ -352,7 +352,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_phone">Phone Number</label></th>
+            <th scope="row"><label for="monolith_phone"><?php _e( 'Phone Number', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_phone" id="monolith_phone"
                      value="<?= get_option( 'monolith_phone' ) ? get_option( 'monolith_phone' ) : '' ?>" size="15"
@@ -360,7 +360,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_secondary_phone">Secondary Phone Number</label></th>
+            <th scope="row"><label for="monolith_secondary_phone"><?php _e( 'Secondary phone Number', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_secondary_phone" id="monolith_secondary_phone"
                      value="<?= get_option( 'monolith_secondary_phone' ) ? get_option( 'monolith_secondary_phone' ) : '' ?>"
@@ -368,7 +368,7 @@ add_action( 'admin_menu', function () {
             </td>
           </tr>
           <tr valign="top">
-            <th scope="row"><label for="monolith_fax">Fax Number</label></th>
+            <th scope="row"><label for="monolith_fax"><?php _e( 'Fax Number', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_fax" id="monolith_fax"
                      value="<?= get_option( 'monolith_fax' ) ? get_option( 'monolith_fax' ) : '' ?>" size="15"
@@ -377,7 +377,7 @@ add_action( 'admin_menu', function () {
           </tr>
 
           <tr valign="top">
-            <th scope="row"><label for="monolith_email">Email</label></th>
+            <th scope="row"><label for="monolith_email"><?php _e( 'Email', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_email" id="monolith_email"
                      value="<?= get_option( 'monolith_email' ) ? get_option( 'monolith_email' ) : '' ?>" size="35"
@@ -386,7 +386,7 @@ add_action( 'admin_menu', function () {
           </tr>
 
           <tr valign="top">
-            <th scope="row"><label for="monolith_company_number">Company Registration Number</label></th>
+            <th scope="row"><label for="monolith_company_number"><?php _e( 'Company Registration Number', 'monolith' ); ?></label></th>
             <td>
               <input type="text" name="monolith_company_number" id="monolith_company_number"
                      value="<?= get_option( 'monolith_company_number' ) ? get_option( 'monolith_company_number' ) : '' ?>"

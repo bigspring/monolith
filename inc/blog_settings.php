@@ -30,7 +30,7 @@ add_action('admin_menu', function() {
 
         <div class="wrap">
 
-            <h1>Blog Settings</h1>
+            <h1><?php _e( 'Blog Settings', 'monolith' ); ?></h1>
             <hr />
 
             <form method="post" action="options.php">
@@ -38,19 +38,19 @@ add_action('admin_menu', function() {
                 <?php @settings_fields('monolith-blog-group'); ?>
                 <?php @do_settings_sections('monolith-blog-group'); ?>
 
-                <h3>Blog</h3>
+                <h3><?php _e( 'Blog', 'monolith' ); ?></h3>
 
                 <table class="form-table">
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_blog_page_title">Blog Page Title (*)</label></th>
+                        <th scope="row"><label for="monolith_blog_page_title"><?php _e( 'Blog Page Title (*)', 'monolith' ); ?></label></th>
                         <td>
-                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50" placeholder="News" required>
+                            <input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title" value="<?= get_option('monolith_blog_page_title') ? get_option('monolith_blog_page_title') : '' ?>" size="50" placeholder="<?php _e( 'News', 'monolith' ); ?>" required>
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><label for="monolith_blog_page_introtext">Blog Page Introductory Text</label></th>
+                        <th scope="row"><label for="monolith_blog_page_introtext"><?php _e( 'Blog Page Introductory Text', 'monolith' ); ?></label></th>
                         <td>
-                            <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3" placeholder="This is my news blog."><?= get_option('monolith_blog_page_introtext') ? get_option('monolith_blog_page_introtext') : '' ?></textarea>
+                            <textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3" placeholder="<?php _e( 'This is my news blog.', 'monolith' ); ?>"><?= get_option('monolith_blog_page_introtext') ? get_option('monolith_blog_page_introtext') : '' ?></textarea>
                         </td>
                     </tr>
                 </table>

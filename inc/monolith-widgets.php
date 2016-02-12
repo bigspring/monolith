@@ -107,7 +107,7 @@ class MonolithRelativePagesWidget extends WP_Widget {
       <label for="<?php echo $this->get_field_id( 'page' ); ?>"><?php _e( 'Specify Page' ); ?></label>
       <select class="widefat" id="<?php echo $this->get_field_id( 'page' ); ?>"
               name="<?php echo $this->get_field_name( 'page' ); ?>">
-        <option value="0"<?= ( (int) esc_attr( $page ) === 0 ) ? ' selected' : '' ?>>Current</option>
+        <option value="0"<?= ( (int) esc_attr( $page ) === 0 ) ? ' selected' : '' ?>><?php _e( 'Current', 'monolith' ); ?></option>
         <?php foreach ( get_pages() as $p ) : ?>
           <option
             value="<?= $p->ID ?>"<?= ( (int) esc_attr( $page ) === (int) $p->ID ) ? ' selected' : '' ?>><?= $p->post_title ?></option>
