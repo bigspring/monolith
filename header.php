@@ -18,7 +18,7 @@
 
         <?php wp_head(); ?>
 
-        <link rel="stylesheet" href="<?= get_asset_uri('css', 'base') ?>">
+        <!--<link rel="stylesheet" href="<?/*= get_asset_uri('css', 'base') */?>">-->
         <!-- HTML5 & responsive support for IE browsers... -->
         <!--[if lte IE 9]>
         <link href="<?= get_asset_uri('css', 'ie') ?>" rel="stylesheet" type="text/css">

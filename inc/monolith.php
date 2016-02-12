@@ -9,7 +9,9 @@ add_action( 'after_setup_theme', 'monolith_setup' ); // sets up all standard
 add_action( 'wp_enqueue_scripts', 'monolith_script_enqueuer');
 
 function monolith_script_enqueuer() {
+
 	wp_enqueue_script( 'jquery' ); // enable jQuery
+	wp_enqueue_style('base-css', get_asset_uri('css', 'base'), null, filemtime(get_asset_directory('css', 'base')));
 }
 
 function monolith_setup() {

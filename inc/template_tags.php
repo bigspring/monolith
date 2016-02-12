@@ -286,29 +286,62 @@ if ( ! function_exists( 'get_asset_uri' ) ) {
    */
   function get_asset_uri( $type, $file ) {
 
-    $base_uri      = get_template_directory_uri() . '/assets';
-    $final_uri     = '';
-    $allowed_types = array( 'css', 'js' );
+	  $base_uri = get_template_directory_uri() . '/assets';
+	  $path = get_asset_path( $type, $file );
 
-    // escape if the type of file is invalid
-    if ( ! in_array( $type, $allowed_types ) ) {
-      return false;
-    }
-
-    // check environment and build final URI
-    switch ( ENVIRONMENT ) {
-      case 'development':
-        $final_uri = $base_uri . "/$type/$file.$type";
-        break;
-      case 'production':
-        $final_uri = $base_uri . "/dist/$file.min.$type";
-        break;
-      default:
-        return false;
-    }
-
-    return $final_uri;
+	  return $path ? $base_uri . $path : false;
   }
+}
+
+if ( ! function_exists ( 'get_asset_path' )) {
+	/**
+	 * Return the directory for the required asset files based on whether we're in production or development environment
+	 *
+	 * @param string $type The type of file (must be 'css' or 'js')
+	 * @param string $file The name of the required file (without extension)
+	 * @return bool|string
+	 */
+	function get_asset_directory( $type, $file ) {
+		$base_uri = get_template_directory() . '/assets';
+		$path = get_asset_path( $type, $file );
+
+		return $path ? $base_uri . $path : false;
+
+	}
+}
+
+if ( ! function_exists ( 'get_asset_path' )) {
+	/**
+	 * Returns the correct path for a file, depending on whether we're in production or development
+	 *
+	 * @param string $type The type of file (must be 'css' or 'js')
+	 * @param string $file The name of the required file (without extension)
+	 * @return bool|string
+	 */
+	function get_asset_path( $type, $file ) {
+
+		$final_uri     = '';
+		$allowed_types = array( 'css', 'js' );
+
+		// escape if the type of file is invalid
+		if ( ! in_array( $type, $allowed_types ) ) {
+			return false;
+		}
+
+		// check environment and build final URI
+		switch ( ENVIRONMENT ) {
+			case 'development':
+				$final_uri = "/$type/$file.$type";
+				break;
+			case 'production':
+				$final_uri = "/dist/$file.min.$type";
+				break;
+			default:
+				return false;
+		}
+
+		return $final_uri;
+	}
 }
 
 if ( ! function_exists( 'get_monolith_post_thumbnail' ) ) {
