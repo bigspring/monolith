@@ -63,7 +63,7 @@ function foundation_gallery_shortcode($attr) {
         'itemtag'    => 'dl',
         'icontag'    => 'dt',
         'captiontag' => 'dd',
-        'columns'    => 4,
+        'columns'    => 3,
         'size'       => 'thumbnail',
         'include'    => '',
         'exclude'    => ''
