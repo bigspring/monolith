@@ -136,7 +136,7 @@ module.exports = function(grunt) {
         },
         files: {
           '<%= project.assets.css %>/base.css': '<%= project.src.scss %>/compiler.scss',
-          '<%= project.assets.css %>/custom.css': '<%= project.src.scss %>/custom-compiler.scss',
+          '<%= project.assets.css %>/custom.css': '<%= project.src.scss %>/compiler-custom.scss',
           '<%= project.assets.css %>/ie.css': '<%= project.src.scss %>/ie.scss',
           '<%= project.assets.css %>/ie8.css': '<%= project.src.scss %>/ie8.scss'
         }

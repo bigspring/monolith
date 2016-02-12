@@ -13,7 +13,7 @@ function monolith_script_enqueuer() {
 	wp_enqueue_script( 'jquery' ); // enable jQuery
 	wp_enqueue_style('base', get_asset_uri('css', 'base', true), null, filemtime(get_asset_directory('css', 'base', true)));
 	if (ENVIRONMENT === 'development') {
-		wp_enqueue_style('base', get_asset_uri('css', 'custom'), null, filemtime(get_asset_directory('css', 'custom')));
+		wp_enqueue_style('custom', get_asset_uri('css', 'custom'), null, filemtime(get_asset_directory('css', 'custom')));
 	}
 	wp_enqueue_script('base', get_asset_uri('js', 'base'), array('jquery'), filemtime(get_asset_directory('js', 'base')), true);
 }

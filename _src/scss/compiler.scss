@@ -52,10 +52,3 @@ for more information on Foundation components, visit http://foundation.zurb.com/
 "foundation/components/type",
 //  "foundation/components/offcanvas",
 "foundation/components/visibility";
-
-// 03 – FONT AWESOME
-// =========================
-
-// fontawesome (by https://github.com/FortAwesome/Font-Awesome)
-$fa-font-path: "../fonts/fontawesome/fonts" !default;
-@import "fontawesome/scss/font-awesome";

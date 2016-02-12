@@ -7,6 +7,15 @@ Description: This is the custom compiler SCSS file. It creates anything in addit
 Use this file to call in SCSS scripts not included in the base compiler.
 */
 
+@import "settings";
+
+// 03 – FONT AWESOME
+// =========================
+
+// fontawesome (by https://github.com/FortAwesome/Font-Awesome)
+$fa-font-path: "../fonts/fontawesome/fonts" !default;
+@import "fontawesome/scss/font-awesome";
+
 // 01 – UTILITIES
 // =========================
 @import "hacks";
