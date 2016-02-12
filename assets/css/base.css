@@ -6268,7 +6268,7 @@ hr.spacer {
     color: #666666; }
 
 .card {
-  background-color: white;
+  background-color: #FFFFFF;
   border: 1px solid #DDDDDD; }
   .card a {
     display: block; }
@@ -6283,7 +6283,8 @@ hr.spacer {
     padding: 1rem;
     color: #222222; }
   .card .read-more {
-    padding: 0 1rem 1rem; }
+    padding: 0 1rem 1rem;
+    color: #008CBA; }
 
 .item > a > .card:hover {
   background-color: #f7f7f7; }

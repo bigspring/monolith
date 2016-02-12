@@ -1,10 +1,9 @@
-
 // Card settings
 $card-padding: 1rem;
 
 // background colour
-$card-bg: white;
-$card-bg-hover: darken($white, 3%);
+$card-bg: $white;
+$card-bg-hover: darken($card-bg, 3%);
 
 // text colours
 $card-border-color: $gainsboro;
@@ -12,7 +11,7 @@ $card-title-color: $body-font-color;
 $card-title-color-hover: $primary-color;
 $card-summary-color: $body-font-color;
 $card-summary-color-hover: $primary-color;
-
+$card-read-more-color: $primary-color;
 
 .card {
   background-color: $card-bg;
@@ -44,6 +43,7 @@ $card-summary-color-hover: $primary-color;
 
   .read-more {
     padding: 0 $card-padding $card-padding;
+    color: $card-read-more-color;
   }
 
 }
