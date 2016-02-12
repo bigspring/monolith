@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<!--[if IE]><html class="lt-ie10" lang="en" ><![endif]-->
 <html class="no-js" lang="en" >
 
     <head>
@@ -15,7 +15,6 @@
         <link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/assets/icons/touch-icon-iphone.png">
         <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/icons/favicon.ico">
 
-
         <?php wp_head(); ?>
 
         <link rel="stylesheet" href="<?= get_asset_uri('css', 'base') ?>">
@@ -25,12 +24,7 @@
         <script src="<?= get_asset_uri('js', 'ie') ?>"></script>
         <![endif]-->
 
-				<!--[if lt IE 9]>
-			  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
-			  <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
-			  <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
-			  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
-				<![endif]-->
+				<!--[if lt IE 9]><script src="<?= get_asset_uri('js', 'ie8') ?>"></script><![endif]-->
 
     </head>
 
