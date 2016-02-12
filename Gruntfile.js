@@ -103,7 +103,7 @@ module.exports = function(grunt) {
         src: '<%= project.dependencies.ie %>',
         dest: '<%= project.assets.js %>/ie.js'
       },
-      ie8: {
+      ie8: { // ie8 specific js
         src: '<%= project.assets.bower %>/REM-unit-polyfill/js/rem.js',
         dest: '<%= project.assets.js %>/ie8.js'
       }
