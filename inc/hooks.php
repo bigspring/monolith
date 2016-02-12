@@ -168,3 +168,8 @@ add_action( 'user_register', function ( $user_id = null ) {
 		update_user_option( $user_id, $meta_key['hidden'], $meta_value, true );
 	}
 } );
+
+// create custom gravity forms error message
+  add_filter( 'gform_validation_message', function( $message, $form ) {
+      return "<div class='validation_error'>Sorry it appears that you forgot to enter some of the information we need." . '</div>';
+  }, 10, 2 );
