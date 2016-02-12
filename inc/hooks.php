@@ -152,5 +152,5 @@ add_filter( 'default_hidden_meta_boxes', function ( $hidden, $screen ) {
 
 // create custom gravity forms error message
   add_filter( 'gform_validation_message', function( $message, $form ) {
-      return "<div class='validation_error'>Sorry it appears that you forgot to enter some of the information we need." . '</div>';
+      return "<div class='validation_error'>".__('Sorry, there was a problem with the form.  Check the fields and try again.', 'monolith').'</div>';
   }, 10, 2 );
