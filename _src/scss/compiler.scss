@@ -1,54 +1,43 @@
-// Monolith by BigSpring
-// Licensed under MIT Open Source
+@charset 'utf-8';
 
-/*
-Description: This is the main compiler SCSS file.
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
 
-It creates a single base.css file in the /assets/css folder.
+@include foundation-global-styles;
+@include foundation-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-accordion;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-close-button;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-flex-video;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-menu;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
 
-for more information on Foundation components, visit http://foundation.zurb.com/docs/
-*/
-
-
-// 01 – SETTINGS
-// =========================
-@import "settings";
-
-// 02 – FOUNDATION COMPONENTS
-// =========================
-@import
-"foundation/components/accordion",
-"foundation/components/alert-boxes",
-"foundation/components/block-grid",
-"foundation/components/breadcrumbs",
-"foundation/components/button-groups",
-"foundation/components/buttons",
-"foundation/components/clearing",
-"foundation/components/dropdown",
-// "foundation/components/dropdown-buttons",
-"foundation/components/flex-video",
-"foundation/components/forms",
-"foundation/components/grid",
-"foundation/components/inline-lists",
-//  "foundation/components/joyride",
-//  "foundation/components/keystrokes",
-"foundation/components/labels",
-//   "foundation/components/magellan",
-// "foundation/components/orbit",
-"foundation/components/pagination",
-"foundation/components/panels",
-//  "foundation/components/pricing-tables",
-//  "foundation/components/progress-bars",
-//  "foundation/components/reveal",
-"foundation/components/side-nav",
-// "foundation/components/split-buttons",
-"foundation/components/sub-nav",
-//  "foundation/components/switch",
-"foundation/components/tables",
-"foundation/components/tabs",
-"foundation/components/thumbs",
-//  "foundation/components/tooltips",
-"foundation/components/top-bar",
-"foundation/components/type",
-//  "foundation/components/offcanvas",
-"foundation/components/visibility";
+@include motion-ui-transitions;
+@include motion-ui-animations;

@@ -128,7 +128,11 @@ module.exports = function(grunt) {
      */
     sass: {
       options: {
-        includePaths: ['<%= project.assets.bower %>/foundation/scss', '<%= project.assets.bower %>']
+        includePaths: [
+          '<%= project.assets.bower %>/foundation-sites/scss',
+          '<%= project.assets.bower %>/motion-ui/src',
+          '<%= project.assets.bower %>'
+      ]
       },
       dist: {
         options: {
@@ -136,7 +140,7 @@ module.exports = function(grunt) {
         },
         files: {
           '<%= project.assets.css %>/base.css': '<%= project.src.scss %>/compiler.scss',
-          '<%= project.assets.css %>/custom.css': '<%= project.src.scss %>/compiler-custom.scss',
+          // '<%= project.assets.css %>/custom.css': '<%= project.src.scss %>/compiler-custom.scss',
           '<%= project.assets.css %>/ie.css': '<%= project.src.scss %>/ie.scss',
           '<%= project.assets.css %>/ie8.css': '<%= project.src.scss %>/ie8.scss'
         }
