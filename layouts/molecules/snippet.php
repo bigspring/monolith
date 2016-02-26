@@ -1,7 +1,6 @@
 <?php
 /**
  * Snippet molecule, used in builder and loops to display post snippets. Extend / edit to suit.
- *
  * @package monolith
  */
 ?>

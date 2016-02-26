@@ -1,7 +1,6 @@
 <?php
 /**
  * The navbar organism that includes the search form molecule
- *
  * @package monolith
  */
 ?>
