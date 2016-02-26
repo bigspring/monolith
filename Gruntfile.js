@@ -45,10 +45,8 @@ module.exports = function(grunt) {
 
           // other dependencies
           '<%= project.assets.bower %>/modernizr/modernizr.js',
-          '<%= project.assets.bower %>/holderjs/holder.js',
           '<%= project.assets.bower %>/fastclick/lib/fastclick.js',
           '<%= project.assets.bower %>/retina.js/dist/retina.js',
-          '<%= project.assets.js%>/morph-search.js',
 
           // site dependencies
           '<%= project.src.js %>/custom.js'
@@ -59,7 +57,7 @@ module.exports = function(grunt) {
         ],
         ie8: [
           '<%= project.assets.bower %>/html5shiv/dist/html5shiv.js',
-          '<%= project.assets.bower %>/nwmatcher/src/nwmatcher.js.js',
+          '<%= project.assets.bower %>/nwmatcher/src/nwmatcher.js',
           '<%= project.assets.bower %>/selectivizr/selectivizr.js',
           '<%= project.assets.bower %>/respond/dest/respond.src.js',
           '<%= project.assets.bower %>/REM-unit-polyfill/js/rem.js'
@@ -104,7 +102,7 @@ module.exports = function(grunt) {
         dest: '<%= project.assets.js %>/ie.js'
       },
       ie8: { // ie8 specific js
-        src: '<%= project.assets.bower %>/REM-unit-polyfill/js/rem.js',
+        src: '<%= project.dependencies.ie8 %>',
         dest: '<%= project.assets.js %>/ie8.js'
       }
     },
