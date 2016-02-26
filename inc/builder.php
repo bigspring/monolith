@@ -61,9 +61,9 @@ class Builder
      */
     private function _set_args()
     {
-
+	    $builder_classes = 'builder builder-'.str_replace('/', '-', $this->layout);
         $this->args = array_merge($this->default_args, $this->args); // merge in any custom arguments we have
-        $this->args['classes'] = 'builder builder-'.$this->layout.' '. $this->args['classes']; // we do this to add all dynamically generated classes
+        $this->args['classes'] = $builder_classes.' '. $this->args['classes']; // we do this to add all dynamically generated classes
 
         return true;
     }
