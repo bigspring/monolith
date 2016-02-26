@@ -24,10 +24,10 @@
         <script src="<?= get_asset_uri('js', 'ie') ?>?ver=<?= filemtime(get_asset_directory('js', 'ie')) ?>"></script>
         <![endif]-->
 
-		<!--[if lt IE 9]>
-		<script src="<?= get_asset_uri('js', 'ie8') ?>?ver=<?= filemtime(get_asset_directory('css', 'ie8')) ?>" type="text/javascript"></script>
-		<![endif]-->
-
+        <!--[if lt IE 9]>
+        <link href="<?= get_asset_uri('css', 'ie8') ?>?ver=<?= filemtime(get_asset_directory('css', 'ie8')) ?>" rel="stylesheet" type="text/css">
+        <script src="<?= get_asset_uri('js', 'ie8') ?>?ver=<?= filemtime(get_asset_directory('js', 'ie8')) ?>" type="text/javascript"></script>
+        <![endif]-->
     </head>
 
     <body <?php body_class(); ?>>
