@@ -36,7 +36,7 @@
     </section>
   <?php endif; // end has_date ?>
 
-  <?php if ( $args['has_image'] && has_post_thumbnail() ) : // check if post image argument ?>
+  <?php if ( $args['has_image'] ) : // check if post image argument ?>
     <section class="snippet-image">
       <a href="<?php the_permalink(); ?>"><?php the_monolith_post_thumbnail( 'large' ); ?></a>
       <hr class="spacer"/>
