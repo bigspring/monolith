@@ -16,8 +16,7 @@
         <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/icons/favicon.ico">
 
         <?php wp_head(); ?>
-
-        <!--<link rel="stylesheet" href="<?/*= get_asset_uri('css', 'base') */?>">-->
+        
         <!-- HTML5 & responsive support for IE browsers... -->
         <!--[if lte IE 9]>
         <link href="<?= get_asset_uri('css', 'ie') ?>?ver=<?= filemtime(get_asset_directory('css', 'ie')) ?>" rel="stylesheet" type="text/css">
