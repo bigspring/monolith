@@ -1,7 +1,6 @@
 <?php
 /**
  * The accordion organism
- *
  * @package monolith
  */
 ?>

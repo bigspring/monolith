@@ -1,7 +1,6 @@
 <?php
 /**
  * Social media icons, based on theme options
- *
  * @package monolith
  */
 ?>

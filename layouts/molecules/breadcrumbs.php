@@ -1,7 +1,6 @@
 <?php
 /**
  * Breadcrumbs layout, currently only supports NavXT (https://wordpress.org/plugins/breadcrumb-navxt/)
- *
  * @package monolith
  */
 ?>

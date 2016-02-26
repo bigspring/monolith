@@ -1,7 +1,6 @@
 <?php
 /**
  * The tabs organism
- *
  * @package monolith
  */
 ?>

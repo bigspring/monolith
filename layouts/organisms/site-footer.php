@@ -34,7 +34,7 @@
       </ul>
       <!-- end the footer menu -->
 
-      <?//= do_shortcode('[contact_details class="inline-list" delimiter=", "]'); // display the address ?>
+      <? //= do_shortcode('[contact_details class="inline-list" delimiter=", "]'); // display the address ?>
 
     </div>
     <!-- /.columns -->

@@ -1,7 +1,6 @@
 <?php
 /**
  * The sidebar organism that calls in the wordpress sidebar
- *
  * @package monolith
  */
 ?>
