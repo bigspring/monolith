@@ -45,10 +45,8 @@ module.exports = function(grunt) {
 
           // other dependencies
           '<%= project.assets.bower %>/modernizr/modernizr.js',
-          '<%= project.assets.bower %>/holderjs/holder.js',
           '<%= project.assets.bower %>/fastclick/lib/fastclick.js',
           '<%= project.assets.bower %>/retina.js/dist/retina.js',
-          '<%= project.assets.js%>/morph-search.js',
 
           // site dependencies
           '<%= project.src.js %>/custom.js'
