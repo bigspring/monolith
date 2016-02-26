@@ -1,4 +1,4 @@
-# monolith v2.0.5
+# monolith v2.0.6
 
 a lightweight WordPress theme powered by [Foundation by ZURB](http://foundation.zurb.com/). it's designed to be a lightweight, efficient and flexible starting point for WordPress projects, NOT a parent theme.
 
