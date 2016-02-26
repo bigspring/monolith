@@ -1,7 +1,6 @@
 <?php
 /**
  * The hero unit template, used mostly on the homepage
- *
  * @package monolith
  */
 ?>

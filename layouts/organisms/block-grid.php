@@ -1,7 +1,6 @@
 <?php
 /**
  * The block grid organism
- *
  * @package monolith
  */
 ?>
@@ -10,7 +9,7 @@
 
   <!-- start the block grid ul -->
   <div class="<?= $args['classes']; ?>">
-    <ul class="<?= $args['size']; // the size parameter (e.g. small-block-grid-2  ?>"  data-equalizer>
+    <ul class="<?= $args['size']; // the size parameter (e.g. small-block-grid-2   ?>" data-equalizer>
       <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
         <?php include( $layouts_path . 'molecules/card.php' ); ?>
       <?php endwhile; ?>

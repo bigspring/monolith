@@ -1,7 +1,6 @@
 <?php
 /**
  * The list organism that calls in the list-item molecule
- *
  * @package monolith
  */
 ?>

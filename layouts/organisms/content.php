@@ -1,7 +1,6 @@
 <?php
 /**
  * The content organism used in pages and singles
- *
  * @package monolith
  */
 ?>

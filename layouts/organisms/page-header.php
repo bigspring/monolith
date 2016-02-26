@@ -1,7 +1,6 @@
 <?php
 /**
  * The page header organism that handles layout for page headers
- *
  * @package monolith
  */
 ?>

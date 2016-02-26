@@ -1,7 +1,6 @@
 <?php
 /**
  * The kitchen sink organism for testing all foundation elements
- *
  * @package monolith
  */
 ?>
