@@ -205,4 +205,5 @@
 jQuery(document).ready(function($) {
 
 	// custom JS goes here
+		$('input, textarea').placeholder();
 });
